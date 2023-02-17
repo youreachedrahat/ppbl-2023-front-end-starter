@@ -1,6 +1,21 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import { MeshProvider } from "@meshsdk/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
+import { ApolloProvider } from "@apollo/client";
+import client from "../../apollo-client";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <MeshProvider>
+      <ApolloProvider client={client}>
+        <ChakraProvider>
+          <Box p="5" bg="#232323" color="white" minH="100vh">
+            <Component {...pageProps} />
+          </Box>
+        </ChakraProvider>
+      </ApolloProvider>
+    </MeshProvider>
+  );
 }
+
+export default MyApp;
