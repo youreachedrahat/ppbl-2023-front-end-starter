@@ -1,23 +1,9 @@
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
-import { CardanoWallet, useWallet } from "@meshsdk/react";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 
 export default function Home() {
-  const { connected, wallet } = useWallet();
-  const [assets, setAssets] = useState<null | any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-
-  async function getAssets() {
-    if (wallet) {
-      setLoading(true);
-      const _assets = await wallet.getAssets();
-      setAssets(_assets);
-      setLoading(false);
-    }
-  }
 
   return (
     <>
@@ -27,48 +13,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box>
-        <Heading>PPBL Bare Bones Template</Heading>
-        <Text>
-          Essential imports are ready. Use as needed!{" "}
-          <Link href="https://gimbalabs-docs.vercel.app/docs/project-based-learning/plutus-pbl/front-end-template/how-to-build">
-              Docs here.
-          </Link>
-        </Text>
-      </Box>
-      <Box my="5" p="5" bg="#343434">
-        <Heading size="md" pb="3">
-          Is Mesh Working?
-        </Heading>
-        <Text py="3">
-          From <Link href="https://meshjs.dev/guides/nextjs">MeshJS Guide: Start a Web3 app on Next.js</Link>
-        </Text>
-        <CardanoWallet />
-        {connected && (
-          <>
-            <Heading size="md" py="3">
-              Get Wallet Assets
-            </Heading>
-            {assets ? (
-              <pre>
-                <code className="language-js">{JSON.stringify(assets, null, 2)}</code>
-              </pre>
-            ) : (
-              <Button
-                type="button"
-                onClick={() => getAssets()}
-                disabled={loading}
-                style={{
-                  margin: "8px",
-                  backgroundColor: loading ? "orange" : "grey",
-                }}
-              >
-                Get Wallet Assets
-              </Button>
-            )}
-          </>
-        )}
-      </Box>
+      <Navbar />
+      <Hero />
     </>
   );
 }
