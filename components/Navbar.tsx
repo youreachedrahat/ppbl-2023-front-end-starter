@@ -241,6 +241,7 @@ import {
             borderLeft={1}
             borderStyle={'solid'}
             borderColor={useColorModeValue('gray.200', 'gray.700')}
+            color='black'
             align={'start'}>
             {children &&
               children.map((child) => (
