@@ -134,22 +134,80 @@ import {
                   {navItem.label}
                 </Link>
               </PopoverTrigger>
-  
-              {navItem.children && (
-                <PopoverContent
-                  border={0}
-                  boxShadow={'xl'}
-                  bg={popoverContentBgColor}
-                  p={4}
-                  rounded={'xl'}
-                  minW={'sm'}>
-                  <Stack>
-                    {navItem.children.map((child) => (
-                      <DesktopSubNav key={child.label} {...child} />
-                    ))}
-                  </Stack>
-                </PopoverContent>
-              )}
+
+              {
+                navItem.childrenHasChildren ?
+                  navItem.childrenHasChildren && (
+                    <PopoverContent
+                      border={0}
+                      boxShadow={'xl'}
+                      bg={popoverContentBgColor}
+                      p={4}
+                      rounded={'xl'}
+                      minW={'sm'}
+                      zIndex={3} // set the z-index to bring the second level above the first level
+                    >
+                      <Stack>
+                        {navItem.childrenHasChildren.map((child) => (
+                          <Box key={child.label}>
+                            <Popover trigger={'hover'} placement={'right-start'}>
+                              <PopoverTrigger>
+                                <Link
+                                  p={2}
+                                  href={child.href ?? '#'}
+                                  fontSize={'sm'}
+                                  fontWeight={500}
+                                  color={linkColor}
+                                  _hover={{
+                                    textDecoration: 'none',
+                                    color: linkHoverColor,
+                                  }}>
+                                  {child.label}
+                                </Link>
+                              </PopoverTrigger>
+        
+                              {child.children && (
+                                <PopoverContent
+                                  border={0}
+                                  boxShadow={'xl'}
+                                  bg={popoverContentBgColor}
+                                  p={4}
+                                  rounded={'xl'}
+                                  minW={'sm'}
+                                  zIndex={4} // set the z-index higher than the first level to bring the third level on top
+                                >
+                                  <Stack>
+                                    {child.children.map((child2) => (
+                                      <DesktopSubNav key={child2.label} {...child2} />
+                                    ))}
+                                  </Stack>
+                                </PopoverContent>
+                              )}
+                            </Popover>
+                          </Box>
+                        ))}
+                      </Stack>
+                    </PopoverContent>
+                  )
+                :
+                  navItem.children && (
+                    <PopoverContent
+                      border={0}
+                      boxShadow={'xl'}
+                      bg={popoverContentBgColor}
+                      p={4}
+                      rounded={'xl'}
+                      minW={'sm'}
+                      zIndex={4} // set the z-index higher than the first level to bring the third level on top
+                    >
+                      <Stack>
+                        {navItem.children.map((child) => (
+                          <DesktopSubNav key={child.label} {...child} />
+                        ))}
+                      </Stack>
+                    </PopoverContent>
+                  )
+              }
             </Popover>
           </Box>
         ))}
@@ -259,87 +317,33 @@ import {
     label: string;
     subLabel?: string;
     children?: Array<NavItem>;
+    childrenHasChildren?: Array<NavItem>;
     href?: string;
   }
   
+  import modules from "./navbar/modules.json";
+  import mastery from "./navbar/mastery.json";
+  import plutus from "./navbar/plutus.json";
+
+  interface fromJsonChildren {
+    children: NavItem[];
+  }
+
+  const modulesChildren: fromJsonChildren = modules;
+  const masteryChildren: fromJsonChildren = mastery;
+  const plutusChildren: fromJsonChildren = plutus;
+
   const NAV_ITEMS: Array<NavItem> = [
     {
       label: 'Modules',
-      children: [
-        {
-          label: '100',
-          subLabel: 'Getting started',
-          href: '#',
-        },
-        {
-          label: '101',
-          subLabel: 'Write your first smart contract',
-          href: '#',
-        },
-        {
-          label: '102',
-          subLabel: 'Build your first transactions',
-          href: '#',
-        },
-        {
-          label: '103',
-          subLabel: 'Write your first smart contract',
-          href: '#',
-        },
-        {
-          label: '201',
-          subLabel: 'Build a front end dApp template',
-          href: '#',
-        },
-        {
-          label: '202',
-          subLabel: 'Three ways to mint a token',
-          href: '#',
-        },
-        {
-          label: '203',
-          subLabel: 'Three ways to mint an NFT',
-          href: '#',
-        },
-        {
-          label: '204',
-          subLabel: 'Writing & using plutus validators',
-          href: '#',
-        },
-      ],
+      childrenHasChildren: modulesChildren.children,
     },
     {
       label: 'Mastery',
-      children: [
-        {
-          label: 'PPBL faucet project',
-          href: '#',
-        },
-        {
-          label: 'Gimbal project treasury & escrow',
-          href: '#',
-        },
-      ],
+      children: masteryChildren.children,
     },
     {
       label: 'Plutus',
-      children: [
-        {
-            label: 'On-chain essentials',
-            href: '#',
-        },
-        {
-            label: 'Off-chain essentials',
-            href: '#',
-        },
-        {
-            label: 'Off-chain essentials',
-            href: '#',
-        },
-        {
-            label: 'Intro to testing and optimization',
-            href: '#',
-        },
-      ],
+      children: plutusChildren.children,
     },
   ];

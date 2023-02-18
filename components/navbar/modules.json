@@ -1,0 +1,55 @@
+{
+    "children": [
+      {
+        "label": "100 Modules",
+        "children": [
+          {
+            "label": "100",
+            "subLabel": "Getting started",
+            "href": "#"
+          },
+          {
+            "label": "101",
+            "subLabel": "Write your first smart contract",
+            "href": "#"
+          },
+          {
+            "label": "102",
+            "subLabel": "Build your first transactions",
+            "href": "#"
+          },
+          {
+            "label": "103",
+            "subLabel": "Write your first smart contract",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "label": "200 Modules",
+        "children": [
+          {
+            "label": "201",
+            "subLabel": "Build a front end dApp template",
+            "href": "#"
+          },
+          {
+            "label": "202",
+            "subLabel": "Three ways to mint a token",
+            "href": "#"
+          },
+          {
+            "label": "203",
+            "subLabel": "Three ways to mint an NFT",
+            "href": "#"
+          },
+          {
+            "label": "204",
+            "subLabel": "Writing & using plutus validators",
+            "href": "#"
+          }
+        ]
+      }
+    ]
+  }
+  
