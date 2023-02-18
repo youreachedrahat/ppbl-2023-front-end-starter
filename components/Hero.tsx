@@ -24,19 +24,19 @@ export default function CallToActionWithAnnotation() {
             <Stack
               as={Box}
               textAlign={'center'}
-              spacing={{ base: 20, md: 14 }}
-              py={{ base: 20, md: 30 }}>
+              spacing={{ base: 30, md: 14 }}
+              py={{ base: 140, md: 100 }}>
               <Heading
                 fontWeight={600}
                 fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
                 lineHeight={'110%'}>
-                Gimbalabs presents <br />
+                Gimbalabs presents: <br />
                 <Text as={'span'} color={'green.400'}>
-                  2023 Plutus <br />Problem Based Learning program
+                  2023 Plutus PBL program
                 </Text>
               </Heading>
               <Text color={'gray.500'}>
-                The purpose of this course is help you learn Cardano development by doing it. This program consists of four stages. The first three are Onboarding, Building Background Knowledge (BBK) and Specializing, which are provided in this Canvas Course. The fourth stage is Contributing, which is outlined in this course.
+                The purpose of this course is help you learn Cardano development by doing it. <br/> This program consists of four stages: <br />Onboarding, Building Background Knowledge (BBK) and Specializing, which are provided in this Canvas Course. <br/> The fourth stage is Contributing, which is outlined in this course.
               </Text>
               <Stack
                 direction={'column'}
