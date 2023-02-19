@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <MeshProvider>
       <ApolloProvider client={client}>
         <ChakraProvider>
-          <Box p="5" bg="#232323" color="white" minH="100vh">
+          <Box bg="#232323" color="white" minH="100vh">
             <Component {...pageProps} />
           </Box>
         </ChakraProvider>
