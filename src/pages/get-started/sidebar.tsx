@@ -42,15 +42,6 @@ const Sidebar = ({ items }: SidebarProps) => {
       >
         <Box p="4">
           <IconButton
-            aria-label="Open menu"
-            icon={<HamburgerIcon />}
-            display={{ md: "none" }}
-            onClick={onOpen}
-            variant="outline"
-            colorScheme="whiteAlpha"
-            size="sm"
-          />
-          <IconButton
             aria-label="Close menu"
             icon={<CloseIcon />}
             display={{ md: "none" }}
@@ -79,6 +70,15 @@ const Sidebar = ({ items }: SidebarProps) => {
         </Stack>
       </Box>
       <Box ml={{ base: 0, md: 60 }} p="4" flex="1">
+          <IconButton
+            aria-label="Open menu"
+            icon={<HamburgerIcon />}
+            display={{ md: "none" }}
+            onClick={onOpen}
+            variant="outline"
+            colorScheme="whiteAlpha"
+            size="sm"
+          />
         {selectedItem?.content}
       </Box>
     </Flex>
