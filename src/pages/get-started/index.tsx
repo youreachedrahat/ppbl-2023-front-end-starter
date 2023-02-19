@@ -1,7 +1,7 @@
-import AboutSLTs from "@/components/get-started/about-SLTs";
-import Governance from "@/components/get-started/governance";
-import ListOfModules from "@/components/get-started/list-of-modules";
-import PBLFramework from "@/components/get-started/pbl-framework";
+import AboutSLTs from "@/src/components/get-started/about-SLTs";
+import Governance from "@/src/components/get-started/governance";
+import ListOfModules from "@/src/components/get-started/list-of-modules";
+import PBLFramework from "@/src/components/get-started/pbl-framework";
 import React from "react";
 import Sidebar from "./sidebar";
 
