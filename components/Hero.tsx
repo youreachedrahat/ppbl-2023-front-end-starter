@@ -52,7 +52,7 @@ export default function CallToActionWithAnnotation() {
                   _hover={{
                     bg: 'green.500',
                   }}>
-                  Get Started
+                  <Link href="/get-started">Get Started</Link>
                 </Button>
                 <Box>
                   <Icon

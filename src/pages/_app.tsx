@@ -3,6 +3,7 @@ import { MeshProvider } from "@meshsdk/react";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
+import Navbar from "@/components/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ApolloProvider client={client}>
         <ChakraProvider>
           <Box bg="#232323" color="white" minH="100vh">
+            <Navbar />
             <Component {...pageProps} />
           </Box>
         </ChakraProvider>

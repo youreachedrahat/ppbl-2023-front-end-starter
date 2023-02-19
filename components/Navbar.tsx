@@ -58,7 +58,9 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} />
+            <Link href="/">
+              <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} />
+            </Link>
             <Text
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
@@ -326,7 +328,8 @@ import {
   import plutus from "./navbar/plutus.json";
 
   interface fromJsonChildren {
-    children: NavItem[];
+    children?: NavItem[];
+    childrenHasChildren?: NavItem[];
   }
 
   const modulesChildren: fromJsonChildren = modules;
@@ -335,8 +338,12 @@ import {
 
   const NAV_ITEMS: Array<NavItem> = [
     {
+      label: 'Get Started',
+      href: "/get-started",
+    },
+    {
       label: 'Modules',
-      childrenHasChildren: modulesChildren.children,
+      childrenHasChildren: modulesChildren.childrenHasChildren,
     },
     {
       label: 'Mastery',
