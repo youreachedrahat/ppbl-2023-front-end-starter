@@ -58,7 +58,9 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} />
+            <Link href="/">
+              <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} />
+            </Link>
             <Text
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
@@ -262,56 +264,109 @@ import {
     );
   };
   
-  const MobileNavItem = ({ label, children, href }: NavItem) => {
-    const { isOpen, onToggle } = useDisclosure();
-  
-    return (
-      <Stack spacing={4} onClick={children && onToggle}>
-        <Flex
-          py={2}
-          as={Link}
-          href={href ?? '#'}
-          justify={'space-between'}
-          align={'center'}
-          _hover={{
-            textDecoration: 'none',
-          }}>
-          <Text
-            fontWeight={600}
-            color={useColorModeValue('gray.600', 'gray.200')}>
-            {label}
-          </Text>
-          {children && (
-            <Icon
-              as={ChevronDownIcon}
-              transition={'all .25s ease-in-out'}
-              transform={isOpen ? 'rotate(180deg)' : ''}
-              w={6}
-              h={6}
-            />
-          )}
-        </Flex>
-  
-        <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-          <Stack
-            mt={2}
-            pl={4}
-            borderLeft={1}
-            borderStyle={'solid'}
-            borderColor={useColorModeValue('gray.200', 'gray.700')}
-            color='black'
-            align={'start'}>
-            {children &&
-              children.map((child) => (
-                <Link key={child.label} py={2} href={child.href}>
-                  {child.label}
-                </Link>
-              ))}
-          </Stack>
-        </Collapse>
-      </Stack>
-    );
-  };
+  const MobileNavItem = ({ label, children, href, childrenHasChildren }: NavItem) => {
+  const { isOpen, onToggle } = useDisclosure();
+  const hasChildren = children !== undefined || childrenHasChildren !== undefined;
+
+  return (
+    <Stack spacing={4}>
+      <Flex
+        py={2}
+        as={Link}
+        href={href ?? '#'}
+        justify={'space-between'}
+        align={'center'}
+        _hover={{
+          textDecoration: 'none',
+        }}
+        onClick={hasChildren ? onToggle : undefined}>
+        <Text
+          fontWeight={600}
+          color={useColorModeValue('gray.600', 'gray.200')}>
+          {label}
+        </Text>
+        {hasChildren && (
+          <Icon
+            as={ChevronDownIcon}
+            transition={'all .25s ease-in-out'}
+            transform={isOpen ? 'rotate(180deg)' : ''}
+            w={6}
+            h={6}
+          />
+        )}
+      </Flex>
+
+      {
+        childrenHasChildren !== undefined ?
+          (childrenHasChildren) && (
+            <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+              {childrenHasChildren && (
+                  childrenHasChildren.map((child) => (
+                    (child.children) && (
+                      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+                        {child.children && (
+                          <Stack
+                            mt={2}
+                            pl={4}
+                            borderLeft={1}
+                            borderStyle={'solid'}
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            color='black'
+                            align={'start'}
+                          >
+                            {child.children.map((child) => (
+                              <MobileNavSubItem key={child.label} {...child} />
+                            ))}
+                          </Stack>
+                        )}
+                      </Collapse>
+                    )
+                  ))
+              )}
+            </Collapse>
+          )
+        :
+          (children) && (
+            <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+              {children && (
+                <Stack
+                  mt={2}
+                  pl={4}
+                  borderLeft={1}
+                  borderStyle={'solid'}
+                  borderColor={useColorModeValue('gray.200', 'gray.700')}
+                  color='black'
+                  align={'start'}
+                >
+                  {children.map((child) => (
+                    <MobileNavSubItem key={child.label} {...child} />
+                  ))}
+                </Stack>
+              )}
+            </Collapse>
+          )
+      }
+
+    </Stack>
+  );
+};
+
+const MobileNavSubItem = ({ label, href }: NavItem) => {
+  return (
+    <Link
+      href={href}
+      py={2}
+      pl={4}
+      pr={2}
+      rounded={'md'}
+      _hover={{
+        textDecoration: 'none',
+        bg: useColorModeValue('gray.200', 'gray.700'),
+      }}>
+      {label}
+    </Link>
+  );
+};
   
   interface NavItem {
     label: string;
@@ -326,7 +381,8 @@ import {
   import plutus from "./navbar/plutus.json";
 
   interface fromJsonChildren {
-    children: NavItem[];
+    children?: NavItem[];
+    childrenHasChildren?: NavItem[];
   }
 
   const modulesChildren: fromJsonChildren = modules;
@@ -335,8 +391,12 @@ import {
 
   const NAV_ITEMS: Array<NavItem> = [
     {
+      label: 'Get Started',
+      href: "/get-started",
+    },
+    {
       label: 'Modules',
-      childrenHasChildren: modulesChildren.children,
+      childrenHasChildren: modulesChildren.childrenHasChildren,
     },
     {
       label: 'Mastery',
