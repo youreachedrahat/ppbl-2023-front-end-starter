@@ -1,12 +1,12 @@
 {
     "childrenHasChildren": [
       {
-        "label": "100 Modules",
+        "label": "100: Onboarding",
         "children": [
           {
             "label": "100",
-            "subLabel": "Getting started",
-            "href": "#"
+            "subLabel": "Introductions and Getting Started",
+            "href": "/modules/100"
           },
           {
             "label": "101",
@@ -20,13 +20,13 @@
           },
           {
             "label": "103",
-            "subLabel": "Write your first smart contract",
+            "subLabel": "What you will learn in this course",
             "href": "#"
           }
         ]
       },
       {
-        "label": "200 Modules",
+        "label": "200: Building Background Knowledge",
         "children": [
           {
             "label": "201",

@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutSLTs = () => {
   return (
-    <Container maxWidth="max" marginLeft="1em" marginTop="2em">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em">
       <Text>Module 100</Text>
       <Heading size="2xl" color="#4CB5F5">Introductions and Getting Started</Heading>
       <Text fontSize="xl" marginTop="1em">Welcome again to Plutus Project-Based Learning, or PPBL. Here is how this course works.</Text>
