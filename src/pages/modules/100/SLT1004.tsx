@@ -23,7 +23,7 @@ export default function SLT1004() {
     }, [walletAssets]);
 
     return (
-      <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
+      <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.light" />}>
         <SLT id="100.4">I can mint a Contributor Token for PPBL</SLT>
 
         <SuccessComponent mastery={connectedPPBL2023Token != undefined}>
@@ -35,7 +35,7 @@ export default function SLT1004() {
           <Text>
             If you have a wallet connected to Cardano Preprod Testnet, you will be able to complete this assignment.
           </Text>
-          <Box my="5" p="2" bg="gray.500" color="gray.900">
+          <Box my="5" p="2" bg="theme.lightGray" color="theme.darkGray">
             {connected ? (
               <>
                 {connectedPPBL2023Token != undefined && (

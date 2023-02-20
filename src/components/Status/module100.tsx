@@ -11,8 +11,8 @@ type Props = {
 const StatusBox = ({ condition, text }: { condition: boolean; text: string }) => {
   return (
     <Box
-      bg={condition ? "green.400" : "yellow.100"}
-      color={condition ? "white" : "black"}
+      bg={condition ? "theme.green" : "theme.light"}
+      color={condition ? "theme.white" : "theme.dark"}
       w="100%"
       px="2"
       py="2"

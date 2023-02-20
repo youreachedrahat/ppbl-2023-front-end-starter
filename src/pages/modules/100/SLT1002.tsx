@@ -21,7 +21,7 @@ export default function SLT1002() {
   }, [connected, network, lovelace])
 
   return (
-    <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
+    <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.light" />}>
       <SLT id="100.2">I can get free tAda on the pre-production testnet</SLT>
       <Grid templateColumns="repeat(2, 1fr)" gap={6}>
         <AssignmentComponent>

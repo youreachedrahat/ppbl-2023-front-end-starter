@@ -27,13 +27,13 @@ const Sidebar = ({ items }: SidebarProps) => {
       setSelectedItem(items[0]);
     }
   }, [items]);
-  
+
 
   return (
     <Flex>
       <Box
-        bg="gray.900"
-        color="white"
+        bg="theme.lightGray"
+        color="theme.dark"
         w="60"
         minH="100vh"
         pos="fixed"
@@ -65,10 +65,12 @@ const Sidebar = ({ items }: SidebarProps) => {
               p="2"
               rounded="md"
               _hover={{
-                bg: "gray.700",
+                bg: "theme.darkGray",
+                color: "theme.blue",
                 cursor: "pointer",
               }}
-              bg={selectedItem?.name === item.name ? "gray.700" : ""}
+              bg={selectedItem?.name === item.name ? "theme.darkGray" : ""}
+              color={selectedItem?.name === item.name ? "theme.light" : ""}
               onClick={() => setSelectedItem(item)}
             >
               <Text>{item.name}</Text>

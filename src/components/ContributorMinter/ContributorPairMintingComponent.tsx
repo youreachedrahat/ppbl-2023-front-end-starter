@@ -86,14 +86,14 @@ const ContributorPairMintingComponent = () => {
   };
 
   return (
-    <Box borderColor="theme.four" fontSize="lg" lineHeight="9">
+    <Box borderColor="theme.light" fontSize="lg" lineHeight="9">
       <Heading size="md" py="3">
         Mint a Contributor Token Pair
       </Heading>
-      <FormControl color="black">
+      <FormControl color="theme.dark">
         <Input
           my="3"
-          bg="white"
+          bg="theme.white"
           id="contributorAlias"
           name="contributorAlias"
           onChange={formik.handleChange}
@@ -101,7 +101,7 @@ const ContributorPairMintingComponent = () => {
           placeholder="Enter an Alias for your token"
         />
       </FormControl>
-      <Button colorScheme="green" onClick={handleMintingTransaction}>
+      <Button colorScheme="theme.green" onClick={handleMintingTransaction}>
         Mint Your {contributorTokenName}
       </Button>
     </Box>
