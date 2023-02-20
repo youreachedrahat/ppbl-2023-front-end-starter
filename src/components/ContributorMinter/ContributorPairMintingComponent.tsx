@@ -4,8 +4,14 @@ import { useWallet, useAddress } from "@meshsdk/react";
 import { useFormik } from "formik";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { contributorPlutusMintingScript } from "@/cardano/plutus/contributorPlutusMintingScript"; 
+import { contributorPlutusMintingScript } from "@/cardano/plutus/contributorPlutusMintingScript";
 import { contributorReferenceAddress } from "@/cardano/plutus/contributorReferenceValidator";
+
+// {
+//   "code": 2,
+//   "info": "Wallet could not send the tx.",
+//   "message": "\"transaction submit error ShelleyTxValidationError ShelleyBasedEraBabbage (ApplyTxError [UtxowFailure (FromAlonzoUtxowFail (PPViewHashesDontMatch (SJust (SafeHash \\\"3e233c1b6c294e49cded1935530d1646f48fbdd8417a28653f639e922f596da3\\\")) (SJust (SafeHash \\\"78042d6bb61dd25a01994b4ac7b0f38f704ccdf39a3ada61d5fcc1c961341ad2\\\"))))])\""
+// }
 
 const ContributorPairMintingComponent = () => {
   const { connected, wallet } = useWallet();
@@ -80,7 +86,7 @@ const ContributorPairMintingComponent = () => {
   };
 
   return (
-    <Box borderLeft="2px" borderColor="theme.four" my="3" pl="5" fontSize="lg" lineHeight="9">
+    <Box borderColor="theme.four" fontSize="lg" lineHeight="9">
       <Heading size="md" py="3">
         Mint a Contributor Token Pair
       </Heading>
@@ -92,7 +98,7 @@ const ContributorPairMintingComponent = () => {
           name="contributorAlias"
           onChange={formik.handleChange}
           value={formik.values.contributorAlias}
-          placeholder="Enter Contributor Address"
+          placeholder="Enter an Alias for your token"
         />
       </FormControl>
       <Button colorScheme="green" onClick={handleMintingTransaction}>

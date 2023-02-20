@@ -10,9 +10,9 @@ import { useEffect, useState } from "react";
 export default function SLT1004() {
     const { connected } = useWallet();
     const walletAssets = useAssets();
-  
+
     const [connectedPPBL2023Token, setConnectedPPBL2023Token] = useState<Asset | undefined>(undefined);
-  
+
     useEffect(() => {
       if (walletAssets) {
         const _ppbl2023 = walletAssets.filter(
@@ -21,11 +21,11 @@ export default function SLT1004() {
         setConnectedPPBL2023Token(_ppbl2023[0]);
       }
     }, [walletAssets]);
-  
+
     return (
       <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
         <SLT id="100.4">I can mint a Contributor Token for PPBL</SLT>
-  
+
         <SuccessComponent mastery={connectedPPBL2023Token != undefined}>
           <Text py="2">You have a PPBL2023 Token in your connected wallet.</Text>
           <Text py="2">Look in your wallet to see if you have a token with the Policy Id</Text>
@@ -35,7 +35,7 @@ export default function SLT1004() {
           <Text>
             If you have a wallet connected to Cardano Preprod Testnet, you will be able to complete this assignment.
           </Text>
-          <Box w="60%" mx="auto" my="5" p="5" bg="theme.light" color="theme.dark">
+          <Box my="5" p="2" bg="gray.500" color="gray.900">
             {connected ? (
               <>
                 {connectedPPBL2023Token != undefined && (
@@ -80,4 +80,3 @@ export default function SLT1004() {
       </Stack>
     );
   }
-  
