@@ -3,7 +3,7 @@ import { MeshProvider } from "@meshsdk/react";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 
 function MyApp({ Component, pageProps }: AppProps) {

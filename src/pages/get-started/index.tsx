@@ -3,7 +3,7 @@ import Governance from "@/src/components/get-started/governance";
 import ListOfModules from "@/src/components/get-started/list-of-modules";
 import PBLFramework from "@/src/components/get-started/pbl-framework";
 import React from "react";
-import Sidebar from "./sidebar";
+import Sidebar from "../../components/sidebar";
 
 const items = [
   {
