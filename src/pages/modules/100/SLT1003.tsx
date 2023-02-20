@@ -5,7 +5,7 @@ import { Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
 
 export default function SLT1003() {
     return (
-      <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.light" />}>
+      <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
         <SLT id="100.3">I know how to safely store my keys</SLT>
         <Grid templateColumns="repeat(2, 1fr)" gap={10}>
           <AssignmentComponent>
@@ -19,3 +19,4 @@ export default function SLT1003() {
       </Stack>
     );
   }
+  

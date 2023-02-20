@@ -12,7 +12,7 @@ const SLTs100 = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em">
       <Text>Module 100</Text>
-      <Heading size="2xl" color="theme.blue">Student Learning Targets</Heading>
+      <Heading size="2xl" color="#4CB5F5">Student Learning Targets</Heading>
 
       <List mt="2em" lineHeight="2">
         {items.map((item, index) => {
@@ -20,7 +20,7 @@ const SLTs100 = () => {
               return (
                   <ListItem mt="1em" key={moduleNumber}>
                       <Text fontSize="xl" fontWeight="bold" style={{ display: 'inline-flex' }}>
-                          <Text color="theme.blue" style={{ marginRight: 4 }}>{moduleNumber}</Text>
+                          <Text color="#3498db" style={{ marginRight: 4 }}>{moduleNumber}</Text>
                           <Text> : {moduleName}</Text>
                       </Text>
                   </ListItem>
@@ -33,3 +33,4 @@ const SLTs100 = () => {
 };
 
 export default SLTs100;
+

@@ -9,9 +9,9 @@ export default function SLT1001() {
     const { connected, wallet } = useWallet();
     const address = useAddress();
     const network = useNetwork();
-
+  
     return (
-        <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.light" />}>
+        <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
         <SLT id="100.1">I can connect a Cardano wallet to the pre-production test network</SLT>
         <Grid templateColumns="repeat(2, 1fr)" gap={10}>
           <AssignmentComponent>
@@ -33,8 +33,9 @@ export default function SLT1001() {
           </AssignmentComponent>
           <SuccessComponent mastery={network == 0}>You are connected to a Cardano Testnet</SuccessComponent>
         </Grid>
-
+  
         <VideoComponent videoId="aa">Placeholder Video (for demo)</VideoComponent>
       </Stack>
     );
   }
+  
