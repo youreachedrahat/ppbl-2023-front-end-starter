@@ -1,4 +1,5 @@
 import Sidebar from "@/src/components/sidebar";
+import Status100 from "@/src/components/Status/module100";
 import React from "react";
 import SLTs100 from "./100-SLTs";
 import SLT1001 from "./SLT1001";
@@ -15,19 +16,19 @@ const items = [
   },
   {
     name: "Lesson 1",
-    content: <SLT1001 />,
+    content: <><Status100 /> <br/> <SLT1001 /></>,
   },
   {
     name: "Lesson 2",
-    content: <SLT1002 />,
+    content: <><Status100 /> <br/> <SLT1002 /></>,
   },
   {
     name: "Lesson 3",
-    content: <SLT1003 />,
+    content: <><Status100 /> <br/> <SLT1003 /></>,
   },
   {
     name: "Lesson 4",
-    content: <SLT1004 />,
+    content: <><Status100 /> <br/> <SLT1004 /></>,
   },
 ];
     
