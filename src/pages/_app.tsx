@@ -3,18 +3,16 @@ import { MeshProvider } from "@meshsdk/react";
 import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
-import Navbar from "../components/navbar";
+import WithSubnavigation from "../components/ui/Text/navbar";
 
 const theme = extendTheme({
   colors: {
     theme: {
       dark: "#343434",
-      white: "#eeeeee",
       light: "#BBAAEE",
       blue: "#4CB5F5",
-      green: "#6AB187",
-      lightGray: "#A0AEC0",
-      darkGray: "#1A202C"
+      green: "#008800",
+      gray: "#454545",
 
     }
   },
@@ -50,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ApolloProvider client={client}>
         <ChakraProvider theme={theme}>
           <Box bg="#232323" color="white" minH="100vh">
-            <Navbar />
+            <WithSubnavigation />
             <Component {...pageProps} />
           </Box>
         </ChakraProvider>

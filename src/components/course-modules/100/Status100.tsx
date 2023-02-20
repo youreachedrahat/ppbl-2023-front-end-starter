@@ -3,27 +3,10 @@ import { Asset } from "@meshsdk/core";
 import { useAddress, useAssets, useLovelace, useNetwork, useWallet } from "@meshsdk/react";
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { StatusBox } from "@/src/components/lms/Status/StatusBox";
 
 type Props = {
   children?: React.ReactNode;
-};
-
-const StatusBox = ({ condition, text }: { condition: boolean; text: string }) => {
-  return (
-    <Box
-      bg={condition ? "theme.green" : "theme.light"}
-      color={condition ? "theme.white" : "theme.dark"}
-      w="100%"
-      px="2"
-      py="2"
-      fontSize="sm"
-      border="1px solid"
-      borderColor='whiteAlpha'
-      >
-        <Text>{text}</Text>
-    </Box>
-
-  );
 };
 
 const Status100: React.FC<Props> = ({ children }) => {
@@ -49,9 +32,9 @@ const Status100: React.FC<Props> = ({ children }) => {
   return (
     <Flex direction="row" justifyContent="center" alignItems="center">
         <StatusBox condition={connected && (network == 0)} text="100.1: Wallet connected" />
-        <StatusBox condition={network === 0 && Boolean(Number (lovelaceString) > 0)} text="100.2: Wallet has lovelace" />
+        <StatusBox condition={connected && network === 0 && Boolean(Number (lovelaceString) > 0)} text="100.2: Wallet has lovelace" />
         <StatusBox condition={test3} text="100.3: Question for Team" />
-        <StatusBox condition={connectedPPBL2023Token != undefined} text="100.4: PPBL2023 Token" />
+        <StatusBox condition={connected && network === 0 &&connectedPPBL2023Token != undefined} text="100.4: PPBL2023 Token" />
     </Flex>
   );
 };

@@ -21,7 +21,7 @@ export default function SLT1002() {
   }, [connected, network, lovelace])
 
   return (
-    <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.light" />}>
+    <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
       <SLT id="100.2">I can get free tAda on the pre-production testnet</SLT>
       <Grid templateColumns="repeat(2, 1fr)" gap={6}>
         <AssignmentComponent>
@@ -37,7 +37,7 @@ export default function SLT1002() {
             <ListItem>Congrats, now you are rich with tAda!</ListItem>
           </OrderedList>
         </AssignmentComponent>
-        <SuccessComponent mastery={mastery}>You have test ada in your wallet.</SuccessComponent>
+        <SuccessComponent mastery={connected && mastery}>You have test ada in your wallet.</SuccessComponent>
       </Grid>
       <VideoComponent videoId="aaaaa">Video Guide:</VideoComponent>
     </Stack>

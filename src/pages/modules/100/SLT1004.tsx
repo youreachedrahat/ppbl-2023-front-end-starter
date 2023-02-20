@@ -23,10 +23,10 @@ export default function SLT1004() {
     }, [walletAssets]);
 
     return (
-      <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.light" />}>
+      <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
         <SLT id="100.4">I can mint a Contributor Token for PPBL</SLT>
 
-        <SuccessComponent mastery={connectedPPBL2023Token != undefined}>
+        <SuccessComponent mastery={connected && connectedPPBL2023Token != undefined}>
           <Text py="2">You have a PPBL2023 Token in your connected wallet.</Text>
           <Text py="2">Look in your wallet to see if you have a token with the Policy Id</Text>
           <code>05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056</code>
@@ -35,7 +35,7 @@ export default function SLT1004() {
           <Text>
             If you have a wallet connected to Cardano Preprod Testnet, you will be able to complete this assignment.
           </Text>
-          <Box my="5" p="2" bg="theme.lightGray" color="theme.darkGray">
+          <Box my="5" p="2" bg="gray.500" color="gray.900">
             {connected ? (
               <>
                 {connectedPPBL2023Token != undefined && (
