@@ -3,27 +3,10 @@ import { Asset } from "@meshsdk/core";
 import { useAddress, useAssets, useLovelace, useNetwork, useWallet } from "@meshsdk/react";
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { StatusBox } from "@/src/components/lms/Status/StatusBox";
 
 type Props = {
   children?: React.ReactNode;
-};
-
-const StatusBox = ({ condition, text }: { condition: boolean; text: string }) => {
-  return (
-    <Box
-      bg={condition ? "green.400" : "yellow.100"}
-      color={condition ? "white" : "black"}
-      w="100%"
-      px="2"
-      py="2"
-      fontSize="sm"
-      border="1px solid"
-      borderColor='whiteAlpha'
-      >
-        <Text>{text}</Text>
-    </Box>
-
-  );
 };
 
 const Status100: React.FC<Props> = ({ children }) => {

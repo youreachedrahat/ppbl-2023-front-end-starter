@@ -1,5 +1,5 @@
-import Sidebar from "@/src/components/sidebar";
-import Status100 from "@/src/components/lms/Status/module100";
+import Sidebar from "@/src/components/ui/Text/sidebar";
+import Status100 from "./Status100";
 import React from "react";
 import SLTs100 from "./100-SLTs";
 import SLT1001 from "./SLT1001";

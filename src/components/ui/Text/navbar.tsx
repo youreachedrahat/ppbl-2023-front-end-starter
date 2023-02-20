@@ -376,9 +376,9 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
     href?: string;
   }
   
-  import modules from "./nav-items/modules.json";
-  import mastery from "./nav-items/mastery.json";
-  import plutus from "./nav-items/plutus.json";
+  import modules from "@/src/data/nav-items/modules.json"
+  import mastery from "@/src/data/nav-items/mastery.json"
+  import plutus from "@/src/data/nav-items/plutus.json"
 
   interface fromJsonChildren {
     children?: NavItem[];
