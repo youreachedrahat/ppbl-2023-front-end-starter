@@ -5,13 +5,14 @@ import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
 import Navbar from "../components/Navbar";
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MeshProvider>
       <ApolloProvider client={client}>
         <ChakraProvider>
-          <Navbar />
           <Box bg="#232323" color="white" minH="100vh">
+            <Navbar />
             <Component {...pageProps} />
           </Box>
         </ChakraProvider>
