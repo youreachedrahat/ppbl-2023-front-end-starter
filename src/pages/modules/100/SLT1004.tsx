@@ -26,7 +26,7 @@ export default function SLT1004() {
       <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
         <SLT id="100.4">I can mint a Contributor Token for PPBL</SLT>
 
-        <SuccessComponent mastery={connectedPPBL2023Token != undefined}>
+        <SuccessComponent mastery={connected && connectedPPBL2023Token != undefined}>
           <Text py="2">You have a PPBL2023 Token in your connected wallet.</Text>
           <Text py="2">Look in your wallet to see if you have a token with the Policy Id</Text>
           <code>05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056</code>

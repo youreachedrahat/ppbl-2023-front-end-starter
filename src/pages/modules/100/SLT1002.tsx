@@ -37,7 +37,7 @@ export default function SLT1002() {
             <ListItem>Congrats, now you are rich with tAda!</ListItem>
           </OrderedList>
         </AssignmentComponent>
-        <SuccessComponent mastery={mastery}>You have test ada in your wallet.</SuccessComponent>
+        <SuccessComponent mastery={connected && mastery}>You have test ada in your wallet.</SuccessComponent>
       </Grid>
       <VideoComponent videoId="aaaaa">Video Guide:</VideoComponent>
     </Stack>

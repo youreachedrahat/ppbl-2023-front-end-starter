@@ -31,7 +31,7 @@ export default function SLT1001() {
               "Not connected"
             )}
           </AssignmentComponent>
-          <SuccessComponent mastery={network == 0}>You are connected to a Cardano Testnet</SuccessComponent>
+          <SuccessComponent mastery={connected && network == 0}>You are connected to a Cardano Testnet</SuccessComponent>
         </Grid>
   
         <VideoComponent videoId="aa">Placeholder Video (for demo)</VideoComponent>
