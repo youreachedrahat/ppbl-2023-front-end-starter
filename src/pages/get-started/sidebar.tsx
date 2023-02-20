@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -21,6 +21,13 @@ interface SidebarProps {
 const Sidebar = ({ items }: SidebarProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(null);
+
+  useEffect(() => {
+    if (items.length > 0) {
+      setSelectedItem(items[0]);
+    }
+  }, [items]);
+  
 
   return (
     <Flex>
