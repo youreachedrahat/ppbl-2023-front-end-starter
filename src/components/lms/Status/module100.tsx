@@ -49,9 +49,9 @@ const Status100: React.FC<Props> = ({ children }) => {
   return (
     <Flex direction="row" justifyContent="center" alignItems="center">
         <StatusBox condition={connected && (network == 0)} text="100.1: Wallet connected" />
-        <StatusBox condition={network === 0 && Boolean(Number (lovelaceString) > 0)} text="100.2: Wallet has lovelace" />
+        <StatusBox condition={connected && network === 0 && Boolean(Number (lovelaceString) > 0)} text="100.2: Wallet has lovelace" />
         <StatusBox condition={test3} text="100.3: Question for Team" />
-        <StatusBox condition={connectedPPBL2023Token != undefined} text="100.4: PPBL2023 Token" />
+        <StatusBox condition={connected && network === 0 &&connectedPPBL2023Token != undefined} text="100.4: PPBL2023 Token" />
     </Flex>
   );
 };
