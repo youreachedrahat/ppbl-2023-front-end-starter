@@ -1,5 +1,5 @@
 import Sidebar from "@/src/components/sidebar";
-import Status100 from "@/src/components/Status/module100";
+import Status100 from "@/src/components/lms/Status/module100";
 import React from "react";
 import SLTs100 from "./100-SLTs";
 import SLT1001 from "./SLT1001";
@@ -31,7 +31,7 @@ const items = [
     content: <><Status100 /> <br/> <SLT1004 /></>,
   },
 ];
-    
+
 const Module100 = () => {
   return (
     <div>
@@ -39,5 +39,5 @@ const Module100 = () => {
     </div>
   );
 };
-    
+
 export default Module100;

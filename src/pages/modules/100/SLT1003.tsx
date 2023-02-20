@@ -1,6 +1,6 @@
-import AssignmentComponent from "@/src/components/Lesson/AssignmentComponent";
-import SuccessComponent from "@/src/components/Lesson/SuccessComponent";
-import SLT from "@/src/components/Text/SLT";
+import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
+import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
+import SLT from "@/src/components/ui/Text/SLT";
 import { Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
 
 export default function SLT1003() {

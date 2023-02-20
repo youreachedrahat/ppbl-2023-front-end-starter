@@ -1,9 +1,9 @@
-import AboutSLTs from "@/src/components/get-started/about-SLTs";
-import Governance from "@/src/components/get-started/governance";
-import ListOfModules from "@/src/components/get-started/list-of-modules";
-import PBLFramework from "@/src/components/get-started/pbl-framework";
+import AboutSLTs from "@/src/components/course-details/about-SLTs";
+import Governance from "@/src/components/course-details/governance";
+import ListOfModules from "@/src/components/course-details/list-of-modules";
+import PBLFramework from "@/src/components/course-details/pbl-framework";
 import React from "react";
-import Sidebar from "../../components/sidebar";
+import Sidebar from "@/src/components/ui/Text/sidebar";
 
 const items = [
   {
@@ -23,7 +23,7 @@ const items = [
     content: <AboutSLTs />,
   },
 ];
-    
+
 const App = () => {
   return (
     <div>
@@ -31,5 +31,5 @@ const App = () => {
     </div>
   );
 };
-    
+
 export default App;

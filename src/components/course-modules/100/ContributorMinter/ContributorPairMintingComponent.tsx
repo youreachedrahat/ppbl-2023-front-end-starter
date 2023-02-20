@@ -4,8 +4,8 @@ import { useWallet, useAddress } from "@meshsdk/react";
 import { useFormik } from "formik";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { contributorPlutusMintingScript } from "@/cardano/plutus/contributorPlutusMintingScript";
-import { contributorReferenceAddress } from "@/cardano/plutus/contributorReferenceValidator";
+import { contributorPlutusMintingScript } from "@/src/cardano/plutus/contributorPlutusMintingScript";
+import { contributorReferenceAddress } from "@/src/cardano/plutus/contributorReferenceValidator";
 
 // {
 //   "code": 2,

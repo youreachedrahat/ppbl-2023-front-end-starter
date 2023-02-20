@@ -1,7 +1,7 @@
-import ContributorPairMintingComponent from "@/src/components/ContributorMinter/ContributorPairMintingComponent";
-import AssignmentComponent from "@/src/components/Lesson/AssignmentComponent";
-import SuccessComponent from "@/src/components/Lesson/SuccessComponent";
-import SLT from "@/src/components/Text/SLT";
+import ContributorPairMintingComponent from "@/src/components/course-modules/100/ContributorMinter/ContributorPairMintingComponent";
+import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
+import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
+import SLT from "@/src/components/ui/Text/SLT";
 import { Box, Heading, ListItem, Stack, StackDivider, Text, UnorderedList } from "@chakra-ui/react";
 import { Asset } from "@meshsdk/core";
 import { useAssets, useWallet } from "@meshsdk/react";

@@ -1,7 +1,7 @@
-import AssignmentComponent from "@/src/components/Lesson/AssignmentComponent";
-import SuccessComponent from "@/src/components/Lesson/SuccessComponent";
-import VideoComponent from "@/src/components/Lesson/VideoComponent";
-import SLT from "@/src/components/Text/SLT";
+import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
+import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
+import VideoComponent from "@/src/components/lms/Lesson/VideoComponent";
+import SLT from "@/src/components/ui/Text/SLT";
 import { Box, Grid, ListItem, OrderedList, Stack, StackDivider, Text, Link as ChakraLink } from "@chakra-ui/react";
 import { CardanoWallet, useAddress, useLovelace, useNetwork, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
