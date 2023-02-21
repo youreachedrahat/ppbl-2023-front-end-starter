@@ -6,6 +6,7 @@ import Lesson1001 from "./lesson-1001";
 import Lesson1002 from "./lesson-1002";
 import Lesson1003 from "./lesson-1003";
 import Lesson1004 from "./lesson-1004";
+import Head from "next/head";
 
 
 
@@ -35,9 +36,14 @@ const items = [
 
 const Module100 = () => {
   return (
+    <>
+    <Head>
+      <title>PPBL Module 100</title>
+    </Head>
     <div>
       <Sidebar items={items} />
     </div>
+    </>
   );
 };
 

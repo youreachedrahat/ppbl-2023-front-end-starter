@@ -4,6 +4,7 @@ import ListOfModules from "@/src/components/course-details/List-of-modules";
 import PBLFramework from "@/src/components/course-details/PBL-framework";
 import React from "react";
 import Sidebar from "@/src/components/ui/Text/Sidebar";
+import Head from "next/head";
 
 const items = [
   {
@@ -24,12 +25,17 @@ const items = [
   },
 ];
 
-const App = () => {
+const GetStarted = () => {
   return (
+    <>
+    <Head>
+      <title>Get Started</title>
+    </Head>
     <div>
       <Sidebar items={items} />
     </div>
+    </>
   );
 };
 
-export default App;
+export default GetStarted;
