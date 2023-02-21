@@ -2,18 +2,19 @@ import { Container, Heading, List, ListItem, Text } from "@chakra-ui/react";
 import React from "react";
 
 interface Item {
-    id: string;
-    SLT: string;
-  }
+  id: string;
+  SLT: string;
+}
   
-  interface SLTsItemsProps {
-    items: Item[];
-  }
+interface SLTsItemsProps {
+  items: Item[];
+  module: string;
+}
 
-const SLTsItems = ({ items }: SLTsItemsProps) => {
+const SLTsItems = ({ items, module }: SLTsItemsProps) => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em">
-      <Text>Module 100</Text>
+      <Text>{module}</Text>
       <Heading size="2xl" color="theme.blue">Student Learning Targets</Heading>
 
         <List mt="2em" lineHeight="2">

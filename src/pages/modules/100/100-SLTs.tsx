@@ -10,7 +10,7 @@ const SLTs100 = () => {
   ];
 
   return (
-    <SLTsItems items={items} />
+    <SLTsItems module="Module 100" items={items} />
   );
 };
 
