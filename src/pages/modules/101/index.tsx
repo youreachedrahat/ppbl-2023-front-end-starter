@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
-export default function Module101Page() {
+export default function Module101() {
 
   return (
     <>

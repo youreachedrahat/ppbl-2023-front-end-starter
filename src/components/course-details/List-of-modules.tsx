@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from "@chakra-ui/icons";
+import { CheckCircleIcon } from "@chakra-ui/icons"
 import { Container, Divider, Heading, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
 import React from "react";
 
