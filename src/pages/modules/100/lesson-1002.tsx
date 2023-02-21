@@ -6,7 +6,7 @@ import { Box, Grid, ListItem, OrderedList, Stack, StackDivider, Text, Link as Ch
 import { CardanoWallet, useAddress, useLovelace, useNetwork, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
 
-export default function SLT1002() {
+export default function Lesson1002() {
   const { connected, wallet } = useWallet();
   const address = useAddress();
   const network = useNetwork();

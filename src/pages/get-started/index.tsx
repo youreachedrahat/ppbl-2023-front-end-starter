@@ -1,7 +1,7 @@
-import AboutSLTs from "@/src/components/course-details/about-SLTs";
-import Governance from "@/src/components/course-details/governance";
-import ListOfModules from "@/src/components/course-details/list-of-modules";
-import PBLFramework from "@/src/components/course-details/pbl-framework";
+import AboutSLTs from "@/src/components/course-details/About-SLTs";
+import Governance from "@/src/components/course-details/Governance";
+import ListOfModules from "@/src/components/course-details/List-of-modules";
+import PBLFramework from "@/src/components/course-details/PBL-framework";
 import React from "react";
 import Sidebar from "@/src/components/ui/Text/sidebar";
 

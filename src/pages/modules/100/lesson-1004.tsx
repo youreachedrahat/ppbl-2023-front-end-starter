@@ -7,7 +7,7 @@ import { Asset } from "@meshsdk/core";
 import { useAssets, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
 
-export default function SLT1004() {
+export default function Lesson1004() {
     const { connected } = useWallet();
     const walletAssets = useAssets();
 

@@ -3,7 +3,7 @@ import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import SLT from "@/src/components/ui/Text/SLT";
 import { Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
 
-export default function SLT1003() {
+export default function Lesson1003() {
     return (
       <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
         <SLT id="100.3">I know how to safely store my keys</SLT>
