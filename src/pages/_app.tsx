@@ -8,12 +8,13 @@ import WithSubnavigation from "../components/ui/Text/Navbar";
 const theme = extendTheme({
   colors: {
     theme: {
-      dark: "#343434",
-      light: "#BBAAEE",
+      dark: "#121619",
+      light: "#DDD8C4",
       blue: "#4CB5F5",
-      green: "#008800",
+      green: "#0C7C59",
       gray: "#454545",
-
+      lightGray: "#8D818C",
+      cyan: "#00B5D8"
     }
   },
   styles: {

@@ -27,13 +27,13 @@ const Sidebar = ({ items }: SidebarProps) => {
       setSelectedItem(items[0]);
     }
   }, [items]);
-  
+
 
   return (
     <Flex>
       <Box
-        bg="gray.900"
-        color="white"
+        bg="theme.gray"
+        color="theme.light"
         w="60"
         minH="100vh"
         pos="fixed"
