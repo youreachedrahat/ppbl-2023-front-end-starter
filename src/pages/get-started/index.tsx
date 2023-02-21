@@ -8,12 +8,12 @@ import Head from "next/head";
 
 const items = [
   {
-    name: "List of Modules",
-    content: <ListOfModules />,
-  },
-  {
     name: "PBL Framework",
     content: <PBLFramework />,
+  },
+  {
+    name: "List of Modules",
+    content: <ListOfModules />,
   },
   {
     name: "Governance",

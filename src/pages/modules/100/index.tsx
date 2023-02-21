@@ -8,9 +8,6 @@ import Lesson1003 from "./lesson-1003";
 import Lesson1004 from "./lesson-1004";
 import Head from "next/head";
 
-
-
-
 const items = [
   {
     name: "Student Learning Targets",
