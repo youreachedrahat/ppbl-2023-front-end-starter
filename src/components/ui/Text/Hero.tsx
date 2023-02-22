@@ -10,7 +10,6 @@ import {
   Button,
   Stack,
   Icon,
-  useColorModeValue,
   createIcon,
 } from '@chakra-ui/react';
 
@@ -35,7 +34,7 @@ export default function CallToActionWithAnnotation() {
                   2023 Plutus PBL program
                 </Text>
               </Heading>
-              <Text color={'theme.gray'}>
+              <Text>
                 The purpose of this course is help you learn Cardano development by doing it. <br/> This program consists of four stages: <br />Onboarding, Building Background Knowledge (BBK) and Specializing, which are provided in this Canvas Course. <br/> The fourth stage is Contributing, which is outlined in this course.
               </Text>
               <Stack
@@ -57,7 +56,6 @@ export default function CallToActionWithAnnotation() {
                 <Box>
                   <Icon
                     as={Arrow}
-                    color={useColorModeValue('theme.gray', 'theme.lightGray')}
                     w={71}
                     position={'absolute'}
                     right={-71}

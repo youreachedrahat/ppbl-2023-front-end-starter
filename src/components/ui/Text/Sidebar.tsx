@@ -22,6 +22,7 @@ interface SidebarProps {
 const Sidebar = ({ items }: SidebarProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(null);
+  const navBackgroud = useColorModeValue("white", "theme.lightGray")
 
   useEffect(() => {
     if (items.length > 0) {
@@ -33,8 +34,8 @@ const Sidebar = ({ items }: SidebarProps) => {
   return (
     <Flex>
       <Box
-        bg={useColorModeValue("theme.light", "theme.gray")}
-        color="theme.light"
+        bg={navBackgroud}
+        borderRight="1px solid"
         w="60"
         minH="100vh"
         pos="relative"
@@ -66,18 +67,20 @@ const Sidebar = ({ items }: SidebarProps) => {
               p="2"
               rounded="md"
               _hover={{
-                bg: "theme.lightGray",
+                bg: useColorModeValue("theme.lightGray", "black"),
+                color: "white",
                 cursor: "pointer",
               }}
-              bg={selectedItem?.name === item.name ? "theme.blue" : useColorModeValue("theme.gray", "theme.dark")}
+              bg={selectedItem?.name === item.name ? "theme.blue" : "none"}
+              borderRadius="md" border="1px solid"
               onClick={() => setSelectedItem(item)}
             >
-              <Text color="white">{item.name}</Text>
+              <Text>{item.name}</Text>
             </Box>
           ))}
         </Stack>
       </Box>
-      <Box ml={{ base: 0, md: 60 }} p="4" flex="1">
+      <Box p="4" flex="1">
           <IconButton
             aria-label="Open menu"
             icon={<HamburgerIcon />}

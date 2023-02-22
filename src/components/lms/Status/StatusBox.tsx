@@ -10,7 +10,6 @@ export const StatusBox = ({ condition, text }: { condition: boolean; text: strin
         py="2"
         fontSize="sm"
         border="1px solid"
-        borderColor='whiteAlpha'
         >
           <Text>{text}</Text>
       </Box>

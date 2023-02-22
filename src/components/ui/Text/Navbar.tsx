@@ -19,6 +19,7 @@ import {
     useBreakpointValue,
     useDisclosure,
     useColorMode,
+    filter,
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
@@ -35,18 +36,18 @@ import {
     const [assets, setAssets] = useState<null | any>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const { colorMode, toggleColorMode } = useColorMode()
+    const styleImage = { filter: colorMode === "light" ? "none" : "invert(1)" };
+    const navBackgroud = useColorModeValue("white", "theme.lightGray")
   
     return (
       <Box>
         <Flex
-          bg={useColorModeValue('white', 'theme.dark')}
-          color={useColorModeValue('theme.lightGray', 'white')}
+          bg={navBackgroud}
           minH={'60px'}
           py={{ base: 2 }}
           px={{ base: 4 }}
           borderBottom={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('theme.lightGray', 'theme.gray')}
+          borderStyle={'ridge'}
           align={'center'}>
           <Flex
             flex={{ base: 1, md: 'auto' }}
@@ -63,12 +64,11 @@ import {
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
             <Link href="/">
-              <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} />
+              <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} style={styleImage}/>
             </Link>
             <Link href="/"
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
-              color={useColorModeValue('theme.gray', 'white')}
               _hover={{textDecoration: "none"}}>
               Gimbalabs
             </Link>
@@ -98,11 +98,9 @@ import {
               display={{ base: 'none', lg: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
-              color={'white'}
-              bg={'theme.blue'}
               href={'#'}
               _hover={{
-                bg: 'theme.cyan',
+                bg: 'theme.blue',
               }}>
               Sign Up
             </Button>
@@ -121,9 +119,6 @@ import {
   }
   
   const DesktopNav = () => {
-    const linkColor = useColorModeValue('theme.gray', 'theme.lightGray');
-    const linkHoverColor = useColorModeValue('theme.gray', 'white');
-    const popoverContentBgColor = useColorModeValue('white', 'theme.gray');
   
     return (
       <Stack direction={'row'} spacing={4}>
@@ -136,10 +131,8 @@ import {
                   href={navItem.href ?? '#'}
                   fontSize={'sm'}
                   fontWeight={500}
-                  color={linkColor}
                   _hover={{
                     textDecoration: 'none',
-                    color: linkHoverColor,
                   }}>
                   {navItem.label}
                 </Link>
@@ -151,7 +144,6 @@ import {
                     <PopoverContent
                       border={0}
                       boxShadow={'xl'}
-                      bg={popoverContentBgColor}
                       p={4}
                       rounded={'xl'}
                       minW={'sm'}
@@ -167,10 +159,8 @@ import {
                                   href={child.href ?? '#'}
                                   fontSize={'sm'}
                                   fontWeight={500}
-                                  color={linkColor}
                                   _hover={{
                                     textDecoration: 'none',
-                                    color: linkHoverColor,
                                   }}>
                                   {child.label}
                                 </Link>
@@ -180,7 +170,6 @@ import {
                                 <PopoverContent
                                   border={0}
                                   boxShadow={'xl'}
-                                  bg={popoverContentBgColor}
                                   p={4}
                                   rounded={'xl'}
                                   minW={'sm'}
@@ -204,7 +193,7 @@ import {
                     <PopoverContent
                       border={0}
                       boxShadow={'xl'}
-                      bg={popoverContentBgColor}
+
                       p={4}
                       rounded={'xl'}
                       minW={'sm'}
@@ -233,12 +222,12 @@ import {
         display={'block'}
         p={2}
         rounded={'md'}
-        _hover={{ bg: useColorModeValue('theme.cyan', 'theme.gray') }}>
+        _hover={{ bg: useColorModeValue("theme.lightGray", "black"),
+                  color: "white"
+        }}>
         <Stack direction={'row'} align={'center'}>
           <Box>
             <Text
-              transition={'all .3s ease'}
-              _groupHover={{ color: 'theme.cyan' }}
               fontWeight={500}>
               {label}
             </Text>
@@ -252,7 +241,7 @@ import {
             justify={'flex-end'}
             align={'center'}
             flex={1}>
-            <Icon color={'theme.cyan'} w={5} h={5} as={ChevronRightIcon} />
+            <Icon w={5} h={5} as={ChevronRightIcon} />
           </Flex>
         </Stack>
       </Link>
@@ -262,7 +251,6 @@ import {
   const MobileNav = () => {
     return (
       <Stack
-        bg={useColorModeValue('white', 'theme.gray')}
         p={4}
         display={{ md: 'none' }}>
         {NAV_ITEMS.map((navItem) => (
@@ -289,8 +277,7 @@ import {
         }}
         onClick={hasChildren ? onToggle : undefined}>
         <Text
-          fontWeight={600}
-          color={useColorModeValue('theme.gray', 'theme.lightGray')}>
+          fontWeight={600}>
           {label}
         </Text>
         {hasChildren && (
@@ -318,8 +305,6 @@ import {
                             pl={4}
                             borderLeft={1}
                             borderStyle={'solid'}
-                            borderColor={useColorModeValue('theme.lightGray', 'theme.gray')}
-                            color='black'
                             align={'start'}
                           >
                             {child.children.map((child) => (
@@ -342,8 +327,6 @@ import {
                   pl={4}
                   borderLeft={1}
                   borderStyle={'solid'}
-                  borderColor={useColorModeValue('gray.200', 'gray.700')}
-                  color='black'
                   align={'start'}
                 >
                   {children.map((child) => (
@@ -369,7 +352,6 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
       rounded={'md'}
       _hover={{
         textDecoration: 'none',
-        bg: useColorModeValue('theme.lightGray', 'theme.gray'),
       }}>
       {label}
     </Link>
@@ -387,6 +369,7 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
   import modules from "@/src/data/nav-items/modules.json"
   import mastery from "@/src/data/nav-items/mastery.json"
   import plutus from "@/src/data/nav-items/plutus.json"
+import { color } from "framer-motion";
 
   interface fromJsonChildren {
     children?: NavItem[];

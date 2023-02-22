@@ -13,7 +13,7 @@ interface SLTsItemsProps {
 
 const SLTsItems = ({ items, module }: SLTsItemsProps) => {
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em">
+    <Container maxWidth="80%" marginTop="2em">
       <Text>{module}</Text>
       <Heading size="2xl" color="theme.blue">Student Learning Targets</Heading>
 
