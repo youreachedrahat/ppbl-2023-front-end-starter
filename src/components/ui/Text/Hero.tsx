@@ -31,11 +31,11 @@ export default function CallToActionWithAnnotation() {
                 fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
                 lineHeight={'110%'}>
                 Gimbalabs presents: <br />
-                <Text as={'span'} color={'green.400'}>
+                <Text as={'span'} color={'theme.green'}>
                   2023 Plutus PBL program
                 </Text>
               </Heading>
-              <Text color={'gray.500'}>
+              <Text color={'theme.gray'}>
                 The purpose of this course is help you learn Cardano development by doing it. <br/> This program consists of four stages: <br />Onboarding, Building Background Knowledge (BBK) and Specializing, which are provided in this Canvas Course. <br/> The fourth stage is Contributing, which is outlined in this course.
               </Text>
               <Stack
@@ -46,18 +46,18 @@ export default function CallToActionWithAnnotation() {
                 position={'relative'}>
                 <Button
                   colorScheme={'green'}
-                  bg={'green.400'}
+                  bg={'theme.green'}
                   rounded={'full'}
                   px={6}
                   _hover={{
-                    bg: 'green.500',
+                    bg: 'theme.green',
                   }}>
                   <Link href="/get-started">Get Started</Link>
                 </Button>
                 <Box>
                   <Icon
                     as={Arrow}
-                    color={useColorModeValue('gray.800', 'gray.300')}
+                    color={useColorModeValue('theme.gray', 'theme.lightGray')}
                     w={71}
                     position={'absolute'}
                     right={-71}

@@ -6,6 +6,7 @@ import {
   Stack,
   IconButton,
   useDisclosure,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
@@ -32,11 +33,11 @@ const Sidebar = ({ items }: SidebarProps) => {
   return (
     <Flex>
       <Box
-        bg="theme.gray"
+        bg={useColorModeValue("theme.light", "theme.gray")}
         color="theme.light"
         w="60"
         minH="100vh"
-        pos="fixed"
+        pos="relative"
         zIndex={10}
         sx={{
           "@media screen and (max-width: 480px)": {
@@ -65,13 +66,13 @@ const Sidebar = ({ items }: SidebarProps) => {
               p="2"
               rounded="md"
               _hover={{
-                bg: "gray.700",
+                bg: "theme.lightGray",
                 cursor: "pointer",
               }}
-              bg={selectedItem?.name === item.name ? "gray.700" : ""}
+              bg={selectedItem?.name === item.name ? "theme.blue" : useColorModeValue("theme.gray", "theme.dark")}
               onClick={() => setSelectedItem(item)}
             >
-              <Text>{item.name}</Text>
+              <Text color="white">{item.name}</Text>
             </Box>
           ))}
         </Stack>

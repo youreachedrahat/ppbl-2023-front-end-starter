@@ -18,12 +18,15 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    useColorMode,
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
     CloseIcon,
     ChevronDownIcon,
     ChevronRightIcon,
+    SunIcon,
+    MoonIcon,
   } from '@chakra-ui/icons';
   
   export default function WithSubnavigation() {
@@ -31,18 +34,19 @@ import {
     const { connected, wallet } = useWallet();
     const [assets, setAssets] = useState<null | any>(null);
     const [loading, setLoading] = useState<boolean>(false);
+    const { colorMode, toggleColorMode } = useColorMode()
   
     return (
       <Box>
         <Flex
-          bg={useColorModeValue('white', 'gray.800')}
-          color={useColorModeValue('gray.600', 'white')}
+          bg={useColorModeValue('white', 'theme.dark')}
+          color={useColorModeValue('theme.lightGray', 'white')}
           minH={'60px'}
           py={{ base: 2 }}
           px={{ base: 4 }}
           borderBottom={1}
           borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.900')}
+          borderColor={useColorModeValue('theme.lightGray', 'theme.gray')}
           align={'center'}>
           <Flex
             flex={{ base: 1, md: 'auto' }}
@@ -61,12 +65,13 @@ import {
             <Link href="/">
               <Image src='https://gimbalabs-docs.vercel.app/img/g-black.svg' alt='gimbalabs logo' width={25} height={25} />
             </Link>
-            <Text
+            <Link href="/"
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
+              color={useColorModeValue('theme.gray', 'white')}
+              _hover={{textDecoration: "none"}}>
               Gimbalabs
-            </Text>
+            </Link>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -94,14 +99,17 @@ import {
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
-              bg={'pink.400'}
+              bg={'theme.blue'}
               href={'#'}
               _hover={{
-                bg: 'pink.300',
+                bg: 'theme.cyan',
               }}>
               Sign Up
             </Button>
             <CardanoWallet />
+            <Button onClick={toggleColorMode}>
+              {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+            </Button>
           </Stack>
         </Flex>
   
@@ -113,9 +121,9 @@ import {
   }
   
   const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
-    const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+    const linkColor = useColorModeValue('theme.gray', 'theme.lightGray');
+    const linkHoverColor = useColorModeValue('theme.gray', 'white');
+    const popoverContentBgColor = useColorModeValue('white', 'theme.gray');
   
     return (
       <Stack direction={'row'} spacing={4}>
@@ -225,12 +233,12 @@ import {
         display={'block'}
         p={2}
         rounded={'md'}
-        _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+        _hover={{ bg: useColorModeValue('theme.cyan', 'theme.gray') }}>
         <Stack direction={'row'} align={'center'}>
           <Box>
             <Text
               transition={'all .3s ease'}
-              _groupHover={{ color: 'pink.400' }}
+              _groupHover={{ color: 'theme.cyan' }}
               fontWeight={500}>
               {label}
             </Text>
@@ -244,7 +252,7 @@ import {
             justify={'flex-end'}
             align={'center'}
             flex={1}>
-            <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+            <Icon color={'theme.cyan'} w={5} h={5} as={ChevronRightIcon} />
           </Flex>
         </Stack>
       </Link>
@@ -254,7 +262,7 @@ import {
   const MobileNav = () => {
     return (
       <Stack
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue('white', 'theme.gray')}
         p={4}
         display={{ md: 'none' }}>
         {NAV_ITEMS.map((navItem) => (
@@ -282,7 +290,7 @@ import {
         onClick={hasChildren ? onToggle : undefined}>
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          color={useColorModeValue('theme.gray', 'theme.lightGray')}>
           {label}
         </Text>
         {hasChildren && (
@@ -310,7 +318,7 @@ import {
                             pl={4}
                             borderLeft={1}
                             borderStyle={'solid'}
-                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            borderColor={useColorModeValue('theme.lightGray', 'theme.gray')}
                             color='black'
                             align={'start'}
                           >
@@ -361,7 +369,7 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
       rounded={'md'}
       _hover={{
         textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
+        bg: useColorModeValue('theme.lightGray', 'theme.gray'),
       }}>
       {label}
     </Link>

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@apollo/client@^3.7.8":
-  version "3.7.8"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.7.8.tgz#e1c8dfd02cbbe1baf9b18fa86918904efd9cc580"
-  integrity sha512-o1NxF4ytET2w9HSVMLwYUEEdv6H3XPpbh9M+ABVGnUVT0s6T9pgqRtYO4pFP1TmeDmb1pbRfVhFwh3gC167j5Q==
+"@apollo/client@^3.7.9":
+  version "3.7.9"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.7.9.tgz#459454dc4a7c81adaa66e13e626ce41f633dc862"
+  integrity sha512-YnJvrJOVWrp4y/zdNvUaM8q4GuSHCEIecsRDTJhK/veT33P/B7lfqGJ24NeLdKMj8tDEuXYF7V0t+th4+rgC+Q==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     "@wry/context" "^0.7.0"
@@ -1206,10 +1206,10 @@
     "@types/mdx" "^2.0.0"
     "@types/react" ">=16"
 
-"@meshsdk/core@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@meshsdk/core/-/core-1.5.0.tgz#6a383c67aa08341d67025dfb74d006bb612eb340"
-  integrity sha512-PAXVMP18AnidVo+IDsQTkgISQ6sYjxMFFopPOE5uia+xMYaO6+rqFoMMab+Kkx+3Ve6kqa+kiYDqIprk8PHeSg==
+"@meshsdk/core@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@meshsdk/core/-/core-1.5.1.tgz#6f120505523365b28757dcff3df93a3434c7c41f"
+  integrity sha512-qD1f39ylCy2jlTccGxppbmykLbQhzPWagc77Lsn7k0eIzrfB/JQBLxYD0e/eTvr55uZ08qV456vLKl2RSQ9u+g==
   dependencies:
     "@emurgo/cardano-message-signing-browser" "1.0.1"
     "@emurgo/cardano-message-signing-nodejs" "1.0.1"
@@ -1221,10 +1221,10 @@
     nanoid "3.3.4"
     zod "3.19.1"
 
-"@meshsdk/react@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@meshsdk/react/-/react-1.1.5.tgz#b192f9cba53fbfc45cd37ef88c08cbd8414fd0f6"
-  integrity sha512-pG4OYhC1CLUEdLEi03EB+UdHTaU46IlSw/+YTqHvaIqZrvnptI02ZTB8zZ7H6JtXy+/AMAjhSL0SXmtbSYnubA==
+"@meshsdk/react@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@meshsdk/react/-/react-1.1.6.tgz#be568db31ff300e67b2b36bf95cecea446eba50b"
+  integrity sha512-4qaNsp6b6VrIrS0UsCr7NcCw3qKsxGc0bcM4x1XX5R1eh7abSxFzzbNbMCWOympclQPrS77Y1tmpGeTQiJRMzQ==
   dependencies:
     styled-components "5.3.6"
 
@@ -1492,10 +1492,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.6.tgz#df929d1bb2eee5afdda598a41930fe50b43eaa6a"
   integrity sha512-Exw4yUWMBXM3X+8oqzJNRqZSwUAaS4+7NdvHqQuFi/d+synz++xmX3QIf+BFqneW8N31R8Ky+sikfZUXq07ggQ==
 
-"@types/node@18.13.0":
-  version "18.13.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.13.0.tgz#0400d1e6ce87e9d3032c19eb6c58205b0d3f7850"
-  integrity sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==
+"@types/node@18.14.0":
+  version "18.14.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.0.tgz#94c47b9217bbac49d4a67a967fdcdeed89ebb7d0"
+  integrity sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2645,10 +2645,10 @@ formik@^2.2.9:
     tiny-warning "^1.0.2"
     tslib "^1.10.0"
 
-framer-motion@^9.0.4:
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-9.0.4.tgz#69ff2e64fa40d7e7bdbde88cc4e3772247d622e1"
-  integrity sha512-lZ1+2/WBn8iYRYmeEFpu/X2fI1GNwJL+X21EpnWwKP3vkJsnWBXZF5kHF29wIPk9sBU2xDIpDm9SAVo206bp9A==
+framer-motion@^9.0.7:
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-9.0.7.tgz#5fe5c1d43e01c458ed4838687901c6c520fe452c"
+  integrity sha512-2n4REUNiu/AsX2fZOp8Z/wnL8XXi2kXrqmCi9UfaydpXgGLnbwq61m9PjOuzECj6iedHNRCvqAMsDIeDzeLSdw==
   dependencies:
     "@motionone/dom" "^10.15.3"
     hey-listen "^1.0.8"
