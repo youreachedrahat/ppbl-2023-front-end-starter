@@ -11,11 +11,11 @@ const SuccessComponent: React.FC<Props> = ({ children, mastery }) => {
     <Heading size="md" py="3'">You will know you are successful if:</Heading>
       <Text fontSize="lg" py="3">{children}</Text>
       {mastery ? (
-        <Center my='3' p='5' bg='theme.green' color='theme.light' w="250px">
+        <Center my='3' p='5' bg='theme.green' w="250px">
             <Heading size="md">Status: You did it!</Heading>
         </Center>
       ) : (
-        <Center my='3' p='5' bg='theme.gray' color='theme.light' w="250px">
+        <Center my='3' p='5' bg='theme.gray' w="250px">
             <Heading size="md">Status: Not yet</Heading>
         </Center>
       )}
