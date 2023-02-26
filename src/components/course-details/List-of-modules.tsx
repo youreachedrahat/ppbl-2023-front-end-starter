@@ -21,7 +21,7 @@ const ListOfModules = () => {
     
     return (
         <Container maxWidth="max" marginLeft="0">
-                <Heading size="2xl" color="#4CB5F5" marginTop="1em">Plutus PBL is organized into Modules</Heading>
+                <Heading size="2xl" color="theme.blue" marginTop="1em">Plutus PBL is organized into Modules</Heading>
                 <Text fontSize="xl" marginTop="1em">
                     This is the first module in the course. It is called "Introductions and Getting Started".
                 </Text>
@@ -30,16 +30,16 @@ const ListOfModules = () => {
             <Divider marginTop="1em"/>
     
 
-            <Heading size="2xl" color="#4CB5F5" marginTop="1em">Here is a list of all Modules in this course:</Heading>
+            <Heading size="2xl" color="theme.blue" marginTop="1em">Here is a list of all Modules in this course:</Heading>
 
             <List spacing={3} marginTop="1em">
                 {items.map((item, index) => {
                     const [moduleNumber, moduleName] = [Object.keys(item)[0], Object.values(item)[0]];
                     return (
                         <ListItem key={moduleNumber}>
-                            <ListIcon as={CheckCircleIcon} color="green.500" />
+                            <ListIcon as={CheckCircleIcon} color="theme.green" />
                             <Text fontWeight="bold" style={{ display: 'inline-flex' }}>
-                                <Text color="#3498db" style={{ marginRight: 4 }}>{moduleNumber}</Text>
+                                <Text color="theme.blue" style={{ marginRight: 4 }}>{moduleNumber}</Text>
                                 {moduleName}
                             </Text>
                         </ListItem>
