@@ -11,9 +11,9 @@ type Props = {
 };
 const VideoComponent: React.FC<Props> = ({ children, videoId }) => {
   return (
-    <Box borderLeft="2px" my="5" pl="5">
+    <Box my="5">
       <Heading size="md" py="3">{children}</Heading>
-      <Box w="40%">
+      <Box>
         <LiteYouTubeEmbed id="m2Uv6UWzjks" title="example video" />
       </Box>
     </Box>

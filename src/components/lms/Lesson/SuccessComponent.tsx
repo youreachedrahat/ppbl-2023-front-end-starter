@@ -7,7 +7,7 @@ type Props = {
 };
 const SuccessComponent: React.FC<Props> = ({ children, mastery }) => {
   return (
-    <Box borderLeft="2px" bg="theme.dark" color="white" my="3" p="5">
+    <Box w="80%" mx="auto" my="3" p="5" bg="theme.dark" color="white">
     <Heading size="md" py="3'">You will know you are successful if:</Heading>
       <Text fontSize="lg" py="3">{children}</Text>
       {mastery ? (
