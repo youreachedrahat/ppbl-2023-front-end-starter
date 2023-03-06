@@ -5,7 +5,7 @@ import SLT from "@/src/components/ui/Text/SLT";
 import { Box, Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { CardanoWallet, useAddress, useNetwork, useWallet } from "@meshsdk/react";
 
-export default function Lesson1012() {
+export default function Lesson1014() {
     const { connected, wallet } = useWallet();
     const address = useAddress();
     const network = useNetwork();

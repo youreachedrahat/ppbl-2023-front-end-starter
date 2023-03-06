@@ -387,7 +387,7 @@ import { color } from "framer-motion";
     },
     {
       label: 'Modules',
-      href: "/modules",
+      href: "/get-started/modules",
       childrenHasChildren: modulesChildren.childrenHasChildren,
     },
     {

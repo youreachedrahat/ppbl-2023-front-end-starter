@@ -23,7 +23,7 @@ export default function Lesson1004() {
   }, [walletAssets]);
 
   return (
-    <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
+    <Stack marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
       <SLT id="100.4">I can mint a Contributor Token for PPBL</SLT>
 
       <SuccessComponent mastery={connected && connectedPPBL2023Token != undefined}>

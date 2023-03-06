@@ -8,20 +8,20 @@ import Head from "next/head";
 
 const items = [
   {
+    slug: "framework",
     name: "PBL Framework",
-    content: <PBLFramework />,
   },
   {
+    slug: "slts",
     name: "About Student Learning Targets",
-    content: <AboutSLTs />,
   },
   {
+    slug: "modules",
     name: "List of Course Modules",
-    content: <ListOfModules />,
   },
   {
+    slug: "governance",
     name: "Governance",
-    content: <Governance />,
   },
 ];
 
@@ -32,7 +32,7 @@ const GetStarted = () => {
       <title>Get Started</title>
     </Head>
     <div>
-      <Sidebar items={items} />
+      <Sidebar items={items} modulePath="/get-started" selected={0} />
     </div>
     </>
   );

@@ -12,29 +12,29 @@ const PBLFramework = () => {
             </Heading>
             <Flex mb="2em">
               <Box width="50%" m="2em" ml="5em">
-                <Image src="./PBLFramework.png" width="60%"></Image>
+                <Image src="/PBLFramework.png" width="100%"></Image>
               </Box>
-              <Box width="50%" mr="4em" display="flex" alignItems="center">
+              <Box width="80%" mr="4em" display="flex" alignItems="center">
                 <Box>
 
-                <Text fontWeight="bold" fontSize="xl" m="0.5em" color="white">Onboarding (100):</Text>
-                
-                <Text fontSize="xl" m="0.5em" color="white">What is that? How can I get started?</Text>
+                <Text fontWeight="bold" fontSize="xl" m="3" color="white">Onboarding (100):</Text>
 
-                <Divider/>
+                <Text fontSize="xl" m="3" color="white">What is that? How can I get started?</Text>
 
-                <Text fontWeight="bold" fontSize="xl" m="0.5em" color="white">Building Background Knowledge (200):</Text>
-                <Text fontSize="xl" m="0.5em" color="white">How does it work? What do I need to know?</Text>
+                <Divider my="8" />
 
-                <Divider/>
+                <Text fontWeight="bold" fontSize="xl" m="3" color="white">Building Background Knowledge (200):</Text>
+                <Text fontSize="xl" m="3" color="white">How does it work? What do I need to know?</Text>
 
-                <Text fontWeight="bold" fontSize="xl" m="0.5em" color="white">Specializing (300):</Text>
-                <Text fontSize="xl" m="0.5em" color="white">How did you build it?</Text>
+                <Divider my="8" />
 
-                <Divider/>
+                <Text fontWeight="bold" fontSize="xl" m="3" color="white">Specializing (300):</Text>
+                <Text fontSize="xl" m="3" color="white">How did you build it?</Text>
 
-                <Text fontWeight="bold" fontSize="xl" m="0.5em" color="white">Contributing (400):</Text>
-                <Text fontSize="xl" m="0.5em" color="white">How can I contribute?</Text>
+                <Divider my="8" />
+
+                <Text fontWeight="bold" fontSize="xl" m="3" color="white">Contributing (400):</Text>
+                <Text fontSize="xl" m="3" color="white">How can I contribute?</Text>
                 </Box>
               </Box>
             </Flex>

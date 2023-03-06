@@ -10,24 +10,27 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 
 interface SidebarItem {
+  slug: string;
   name: string;
-  content: React.ReactNode;
 }
 
 interface SidebarProps {
   items: SidebarItem[];
+  modulePath: string;
+  selected: number;
 }
 
-const Sidebar = ({ items }: SidebarProps) => {
+const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(null);
+  const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(items[selected]);
   const navBackgroud = useColorModeValue("white", "theme.lightGray")
 
   useEffect(() => {
-    if (items.length > 0) {
-      setSelectedItem(items[0]);
+    if (items.length > selected) {
+      setSelectedItem(items[selected]);
     }
   }, [items]);
 
@@ -63,21 +66,23 @@ const Sidebar = ({ items }: SidebarProps) => {
         </Box>
         <Stack spacing={4} p="4">
           {items.map((item) => (
-            <Box
-              key={item.name}
-              p="2"
-              rounded="md"
-              _hover={{
-                bg: useColorModeValue("theme.lightGray", "theme.dark"),
-                color: "white",
-                cursor: "pointer",
-              }}
-              bg={selectedItem?.name === item.name ? "theme.blue" : "none"}
-              borderRadius="md" border="1px solid"
-              onClick={() => setSelectedItem(item)}
-            >
-              <Text>{item.name}</Text>
-            </Box>
+            <Link href={`${modulePath}/${item.slug}`}>
+              <Box
+                key={item.name}
+                p="2"
+                rounded="md"
+                _hover={{
+                  bg: useColorModeValue("theme.lightGray", "theme.dark"),
+                  color: "white",
+                  cursor: "pointer",
+                }}
+                bg={selectedItem?.name === item.name ? "theme.blue" : "none"}
+                borderRadius="md" border="1px solid"
+              >
+                <Text>{item.name}</Text>
+              </Box>
+
+            </Link>
           ))}
         </Stack>
       </Box>
@@ -91,7 +96,6 @@ const Sidebar = ({ items }: SidebarProps) => {
             colorScheme="whiteAlpha"
             size="sm"
           />
-        {selectedItem?.content}
       </Box>
     </Flex>
   );
