@@ -22,12 +22,10 @@ const ModuleListWithSLTs = () => {
   return (
     <Accordion allowMultiple>
       {slts.modules.map((module) => (
-        <AccordionItem key={module.number} bg="theme.lightGray" p="2" my="2">
+        <AccordionItem key={module.number} bg="theme.lightGray" color="white" p="2" my="2">
           <AccordionButton>
             <Heading size="lg" py="2" style={{ display: "inline-flex" }}>
-              <Heading size="lg" color="theme.blue" style={{ marginRight: 4 }}>
-                {module.number}:
-              </Heading>
+              <Text color="theme.blue" mr="4">{module.number} :</Text>
               {module.title}
             </Heading>
             <AccordionIcon />
