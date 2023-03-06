@@ -29,7 +29,7 @@ import {
     SunIcon,
     MoonIcon,
   } from '@chakra-ui/icons';
-  
+
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
     const { connected, wallet } = useWallet();
@@ -38,7 +38,7 @@ import {
     const { colorMode, toggleColorMode } = useColorMode()
     const styleImage = { filter: colorMode === "light" ? "none" : "invert(1)" };
     const navBackgroud = useColorModeValue("white", "theme.lightGray")
-  
+
     return (
       <Box>
         <Flex
@@ -72,12 +72,12 @@ import {
               _hover={{textDecoration: "none"}}>
               Gimbalabs
             </Link>
-  
+
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
             </Flex>
           </Flex>
-  
+
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={'flex-end'}
@@ -110,16 +110,16 @@ import {
             </Button>
           </Stack>
         </Flex>
-  
+
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
       </Box>
     );
   }
-  
+
   const DesktopNav = () => {
-  
+
     return (
       <Stack direction={'row'} spacing={4}>
         {NAV_ITEMS.map((navItem) => (
@@ -165,7 +165,7 @@ import {
                                   {child.label}
                                 </Link>
                               </PopoverTrigger>
-        
+
                               {child.children && (
                                 <PopoverContent
                                   border={0}
@@ -213,7 +213,7 @@ import {
       </Stack>
     );
   };
-  
+
   const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
     return (
       <Link
@@ -247,7 +247,7 @@ import {
       </Link>
     );
   };
-  
+
   const MobileNav = () => {
     return (
       <Stack
@@ -259,7 +259,7 @@ import {
       </Stack>
     );
   };
-  
+
   const MobileNavItem = ({ label, children, href, childrenHasChildren }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
   const hasChildren = children !== undefined || childrenHasChildren !== undefined;
@@ -357,7 +357,7 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
     </Link>
   );
 };
-  
+
   interface NavItem {
     label: string;
     subLabel?: string;
@@ -365,7 +365,7 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
     childrenHasChildren?: Array<NavItem>;
     href?: string;
   }
-  
+
   import modules from "@/src/data/nav-items/modules.json"
   import mastery from "@/src/data/nav-items/mastery.json"
   import plutus from "@/src/data/nav-items/plutus.json"
@@ -387,6 +387,7 @@ import { color } from "framer-motion";
     },
     {
       label: 'Modules',
+      href: "/modules",
       childrenHasChildren: modulesChildren.childrenHasChildren,
     },
     {

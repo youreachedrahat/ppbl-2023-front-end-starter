@@ -7,6 +7,7 @@ import {
   IconButton,
   useDisclosure,
   useColorModeValue,
+  Heading,
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
@@ -67,7 +68,7 @@ const Sidebar = ({ items }: SidebarProps) => {
               p="2"
               rounded="md"
               _hover={{
-                bg: useColorModeValue("theme.lightGray", "black"),
+                bg: useColorModeValue("theme.lightGray", "theme.dark"),
                 color: "white",
                 cursor: "pointer",
               }}

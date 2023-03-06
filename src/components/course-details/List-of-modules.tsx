@@ -6,15 +6,7 @@ const ListOfModules = () => {
   return (
     <Container maxWidth="max" marginLeft="0">
       <Heading size="2xl" color="theme.blue" marginTop="1em">
-        Plutus PBL is organized into Modules
-      </Heading>
-      <Text fontSize="xl" marginTop="1em">
-        This is the first module in the course. It is called "Introductions and Getting Started".
-      </Text>
-
-      <Divider marginTop="1em" />
-      <Heading size="2xl" color="theme.blue" marginTop="1em">
-        Here is a list of all Modules in this course:
+        Here is a list of all course Modules
       </Heading>
       <ModuleListWithSLTs />
     </Container>

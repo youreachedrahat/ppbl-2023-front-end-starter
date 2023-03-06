@@ -16,6 +16,7 @@ import * as React from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
 import slts from "@/src/data/slts.json";
+import Link from "next/link";
 
 const ModuleListWithSLTs = () => {
   return (
@@ -32,6 +33,8 @@ const ModuleListWithSLTs = () => {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel>
+
+            <Link href={`/modules/${module.number}`}><Text py="2" color="theme.yellow">View Module</Text></Link>
             <UnorderedList>
               {module.slts.map((slt) => (
                 <ListItem key={slt.id} py="1">

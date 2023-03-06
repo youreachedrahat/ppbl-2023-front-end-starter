@@ -11,11 +11,11 @@ const theme = extendTheme({
       dark: "#121619",
       light: "#DDD8C4",
       blue: "#007acc",
-      green: "#50C878",
+      green: "#50e499",
       gray: "#454545",
       lightGray: "#1c2634",
       cyan: "#00B5D8",
-      pastelYellow: "#FDFD96"
+      yellow: "#FDFD96"
     }
   },
   styles: {

@@ -3,16 +3,14 @@ import { Box, Text } from "@chakra-ui/react";
 export const StatusBox = ({ condition, text }: { condition: boolean; text: string }) => {
     return (
       <Box
-        bg={condition ? "theme.green" : "theme.pastelYellow"}
-        color={condition ? "white" : "black"}
+        bg={condition ? "theme.green" : "theme.yellow"}
+        color={condition ? "theme.lightGray" : "black"}
         w="100%"
-        px="2"
-        py="2"
-        fontSize="sm"
-        border="1px solid"
+        p="2"
+        fontSize="md"
         >
           <Text>{text}</Text>
       </Box>
-  
+
     );
   };
