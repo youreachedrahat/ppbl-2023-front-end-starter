@@ -11,24 +11,7 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 import { Grid, GridItem, Text } from "@chakra-ui/react";
 
-const items = [
-    {
-      slug: "framework",
-      name: "PBL Framework",
-    },
-    {
-      slug: "slts",
-      name: "About Student Learning Targets",
-    },
-    {
-      slug: "modules",
-      name: "List of Course Modules",
-    },
-    {
-      slug: "governance",
-      name: "Governance",
-    },
-  ];
+import { items } from "@/src/data/get-started";
 
 const selected = 0;
 
@@ -46,16 +29,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    props: { items, selected },
+    props: { items },
   };
 };
 
 type Props = {
   items: any;
-  selected: number;
 };
 
-const GetStarted: React.FC<Props> = ({ items, selected }) => {
+const GetStarted: React.FC<Props> = ({ items }) => {
   const router = useRouter();
   const details = router.query.details as string;
 

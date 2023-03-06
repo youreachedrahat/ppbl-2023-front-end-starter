@@ -8,28 +8,7 @@ import Lesson1003 from "@/src/components/course-modules/100/Lesson-1003";
 import Lesson1004 from "@/src/components/course-modules/100/Lesson-1004";
 import Head from "next/head";
 
-const items = [
-  {
-    slug: "slts",
-    name: "Student Learning Targets",
-  },
-  {
-    slug: "1001",
-    name: "Lesson 1",
-  },
-  {
-    slug: "1002",
-    name: "Lesson 2",
-  },
-  {
-    slug: "1003",
-    name: "Lesson 3",
-  },
-  {
-    slug: "1004",
-    name: "Lesson 4",
-  },
-];
+import { items } from "@/src/data/modules/100";
 
 const Module100 = () => {
   return (

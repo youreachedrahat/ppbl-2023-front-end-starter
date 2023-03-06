@@ -23,10 +23,18 @@ export default function Lesson1001() {
         </Box>
 
         <Box bg="theme.light" color="theme.dark" p="5">
-          {connected ? <Box>{network == 0 ? "Success!" : "Time to troubleshoot. There are a few things that could be going on."}</Box> : "No wallet is connected. Try to connect one. If it does not work, there a few potential reasons for this. Watch the video above to learn more."}
+          {connected ? (
+            <Box>
+              {network == 0 ? "Success!" : "Time to troubleshoot. There are a few things that could be going on."}
+            </Box>
+          ) : (
+            "No wallet is connected. Try to connect one. If it does not work, there a few potential reasons for this. Watch the video above to learn more."
+          )}
         </Box>
       </AssignmentComponent>
-      <SuccessComponent mastery={connected && network == 0}>You are connected to a Cardano Testnet - how can we handle more a interactive success message here?</SuccessComponent>
+      <SuccessComponent mastery={connected && network == 0}>
+        You are connected to a Cardano Testnet - how can we handle more a interactive success message here?
+      </SuccessComponent>
     </Stack>
   );
 }

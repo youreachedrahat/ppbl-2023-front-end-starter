@@ -6,34 +6,17 @@ import React from "react";
 import Sidebar from "@/src/components/ui/Text/Sidebar";
 import Head from "next/head";
 
-const items = [
-  {
-    slug: "framework",
-    name: "PBL Framework",
-  },
-  {
-    slug: "slts",
-    name: "About Student Learning Targets",
-  },
-  {
-    slug: "modules",
-    name: "List of Course Modules",
-  },
-  {
-    slug: "governance",
-    name: "Governance",
-  },
-];
+import { items } from "@/src/data/get-started";
 
 const GetStarted = () => {
   return (
     <>
-    <Head>
-      <title>Get Started</title>
-    </Head>
-    <div>
-      <Sidebar items={items} modulePath="/get-started" selected={0} />
-    </div>
+      <Head>
+        <title>Get Started</title>
+      </Head>
+      <div>
+        <Sidebar items={items} modulePath="/get-started" selected={0} />
+      </div>
     </>
   );
 };

@@ -13,28 +13,7 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 import { Grid, GridItem, Text } from "@chakra-ui/react";
 
-const items = [
-  {
-    slug: "slts",
-    name: "Student Learning Targets",
-  },
-  {
-    slug: "1001",
-    name: "Lesson 1",
-  },
-  {
-    slug: "1002",
-    name: "Lesson 2",
-  },
-  {
-    slug: "1003",
-    name: "Lesson 3",
-  },
-  {
-    slug: "1004",
-    name: "Lesson 4",
-  },
-];
+import { items } from "@/src/data/modules/100";
 
 const selected = 0;
 
