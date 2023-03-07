@@ -383,7 +383,7 @@ import { color } from "framer-motion";
   const NAV_ITEMS: Array<NavItem> = [
     {
       label: 'Get Started',
-      href: "/get-started",
+      href: "/get-started/",
     },
     {
       label: 'Modules',

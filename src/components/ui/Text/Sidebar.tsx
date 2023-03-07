@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface SidebarItem {
   slug: string;
@@ -27,12 +28,20 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(items[selected]);
   const navBackgroud = useColorModeValue("white", "theme.lightGray")
+  const router = useRouter();
 
   useEffect(() => {
     if (items.length > selected) {
       setSelectedItem(items[selected]);
     }
   }, [items]);
+
+  // Check if the current path is the module path without an item slug
+  useEffect(() => {
+    if (router.asPath === modulePath && items.length > 0) {
+      router.push(`${modulePath}/${items[0].slug}`);
+    }
+  }, [router.asPath]);
 
 
   return (
@@ -66,9 +75,8 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
         </Box>
         <Stack spacing={4} p="4">
           {items.map((item) => (
-            <Link href={`${modulePath}/${item.slug}`}>
+            <Link key={item.slug} href={`${modulePath}/${item.slug}`}>
               <Box
-                key={item.name}
                 p="2"
                 rounded="md"
                 _hover={{
@@ -77,11 +85,11 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
                   cursor: "pointer",
                 }}
                 bg={selectedItem?.name === item.name ? "theme.blue" : "none"}
-                borderRadius="md" border="1px solid"
+                borderRadius="md"
+                border="1px solid"
               >
                 <Text>{item.name}</Text>
               </Box>
-
             </Link>
           ))}
         </Stack>

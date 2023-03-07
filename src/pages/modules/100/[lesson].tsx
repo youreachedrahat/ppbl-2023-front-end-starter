@@ -18,14 +18,9 @@ import { items } from "@/src/data/modules/100";
 const selected = 0;
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = items.map((item) => ({ params: { lesson: item.slug } }));
   return {
-    paths: [
-      { params: { lesson: items[0].slug } },
-      { params: { lesson: items[1].slug } },
-      { params: { lesson: items[2].slug } },
-      { params: { lesson: items[3].slug } },
-      { params: { lesson: items[4].slug } },
-    ],
+    paths,
     fallback: false,
   };
 };
