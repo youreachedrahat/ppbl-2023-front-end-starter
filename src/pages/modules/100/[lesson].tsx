@@ -48,7 +48,7 @@ const Module100Lessons: React.FC<Props> = ({ items, selected }) => {
         <title>PPBL</title>
       </Head>
       <Status100 />
-      <Grid templateRows="repeat(10, 1fr)" templateColumns="repeat(6, 1fr)">
+      <Grid templateColumns="repeat(6, 1fr)">
         <Sidebar items={items} modulePath="/modules/100" selected={itemIndex} />
         <GridItem colSpan={5}>
            {lesson == "slts" && <SLTs100 />}

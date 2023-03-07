@@ -48,7 +48,7 @@ const GetStarted: React.FC<Props> = ({ items }) => {
       <Head>
         <title>PPBL</title>
       </Head>
-      <Grid templateRows="repeat(10, 1fr)" templateColumns="repeat(6, 1fr)">
+      <Grid templateColumns="repeat(6, 1fr)">
         <Sidebar items={items} modulePath="/get-started" selected={itemIndex} />
         <GridItem colSpan={5}>
            {details == "framework" && <PBLFramework />}
