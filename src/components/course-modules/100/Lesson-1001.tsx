@@ -2,8 +2,9 @@ import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import VideoComponent from "@/src/components/lms/Lesson/VideoComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Box, Grid, GridItem, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { CardanoWallet, useAddress, useNetwork, useWallet } from "@meshsdk/react";
+import Link from "next/link";
 
 export default function Lesson1001() {
   const { connected, wallet } = useWallet();
@@ -35,6 +36,9 @@ export default function Lesson1001() {
       <SuccessComponent mastery={connected && network == 0}>
         You are connected to a Cardano Testnet - how can we handle more a interactive success message here?
       </SuccessComponent>
+      <Link href="/modules/100/1002">
+        <Button my="1em">Continue to Lesson 2</Button>
+      </Link>
     </Stack>
   );
 }

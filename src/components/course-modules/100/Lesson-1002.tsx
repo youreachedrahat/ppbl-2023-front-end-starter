@@ -2,9 +2,11 @@ import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import VideoComponent from "@/src/components/lms/Lesson/VideoComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Box, Grid, ListItem, OrderedList, Stack, StackDivider, Text, Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Grid, ListItem, OrderedList, Stack, StackDivider, Text, Link as ChakraLink, Button } from "@chakra-ui/react";
 import { CardanoWallet, useAddress, useLovelace, useNetwork, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 
 export default function Lesson1002() {
   const { connected, wallet } = useWallet();
@@ -40,6 +42,9 @@ export default function Lesson1002() {
         <SuccessComponent mastery={connected && mastery}>You have test ada in your wallet.</SuccessComponent>
       </Grid>
       <VideoComponent videoId="aaaaa">Video Guide:</VideoComponent>
+      <Link href="/modules/100/1003">
+        <Button my="1em">Continue to Lesson 3</Button>
+      </Link>
     </Stack>
   );
 }

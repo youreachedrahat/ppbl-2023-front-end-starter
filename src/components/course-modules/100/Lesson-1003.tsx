@@ -1,7 +1,9 @@
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { Button, Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
+import Link from "next/link";
+
 
 export default function Lesson1003() {
   return (
@@ -16,6 +18,9 @@ export default function Lesson1003() {
         </AssignmentComponent>
         <SuccessComponent mastery={false}>You are confident that no one else can access your keys.</SuccessComponent>
       </Grid>
+      <Link href="/modules/100/1004">
+        <Button my="1em">Continue to Lesson 4</Button>
+      </Link>
     </Stack>
   );
 }

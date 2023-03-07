@@ -6,6 +6,8 @@ import { Box, Heading, ListItem, Stack, StackDivider, Text, UnorderedList } from
 import { Asset } from "@meshsdk/core";
 import { useAssets, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 
 export default function Lesson1004() {
   const { connected } = useWallet();
