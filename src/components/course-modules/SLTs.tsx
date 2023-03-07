@@ -18,10 +18,11 @@ const SLTsItems = ({ moduleTitle, moduleNumber }: SLTsItemsProps) => {
 
   return (
     <Container maxWidth="80%" marginTop="2em">
-      <Heading py="5">PPBL Module {currentModule.number}: {currentModule.title}</Heading>
+      <Heading size="md" fontWeight="thin" pt="5">PPBL Module {currentModule.number}</Heading>
+      <Heading size="2xl" color="theme.blue" pb="5">{currentModule.title}</Heading>
       <Text pb="5">Release Date: {currentModule.releaseDate} | Updated: {currentModule.updatedDate}</Text>
       <Divider />
-      <Heading size="2xl" color="theme.blue" py="5">Student Learning Targets</Heading>
+      <Heading py="5">Student Learning Targets</Heading>
 
         <List lineHeight="2">
             {items.map((item, index) => {
