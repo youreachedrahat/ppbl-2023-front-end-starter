@@ -20,10 +20,10 @@ const SLTsItems = ({ moduleTitle, moduleNumber }: SLTsItemsProps) => {
     <Box>
 
       <Heading size="md" fontWeight="thin" pt="5">PPBL Module {currentModule.number}</Heading>
-      <Heading size="2xl" color="theme.blue" pb="5">{currentModule.title}</Heading>
+      <Heading size="2xl" color="theme.blue">{currentModule.title}</Heading>
       <Text pb="5">Release Date: {currentModule.releaseDate} | Updated: {currentModule.updatedDate}</Text>
       <Divider />
-      <Heading py="3">Student Learning Targets</Heading>
+      <Heading>Student Learning Targets</Heading>
 
         <List lineHeight="2">
             {items.map((item, index) => {

@@ -1118,6 +1118,16 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/miriam-libre@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/miriam-libre/-/miriam-libre-4.5.11.tgz#94bed19ae6d1cbf16cec294dc0232fe18e10a0ff"
+  integrity sha512-dUYFHz1hIHq2xvrdJjTgoVCEl6sHARti20ge8LP+LovOkRIa1u0Q+8ZYfExB9gtDBjem3RDxTiQ7HOSaHTam5A==
+
+"@fontsource/open-sans@^4.5.14":
+  version "4.5.14"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.14.tgz#b3e1665c0b3fdfc1f030ded2843749e3cf3a5900"
+  integrity sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==
+
 "@graphql-typed-document-node/core@^3.1.1":
   version "3.1.1"
   resolved "https://registry.npmjs.org/@graphql-typed-document-node/core/-/core-3.1.1.tgz"

@@ -7,7 +7,7 @@ type Props = {
 };
 const SLT: React.FC<Props> = ({ children, id }) => {
   return (
-    <Box borderLeft="2px" my="3" pl="5">
+    <Box borderLeft="1px" my="3" pl="5">
       <Heading size="md" color="theme.blue">
         SLT{" "}{id}
       </Heading>

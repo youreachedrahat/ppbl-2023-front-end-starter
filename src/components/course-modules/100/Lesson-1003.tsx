@@ -1,7 +1,7 @@
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Button, Grid, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { Button, Grid, Stack, StackDivider, Text, Heading } from "@chakra-ui/react";
 import Link from "next/link";
 
 
@@ -18,6 +18,7 @@ export default function Lesson1003() {
         </AssignmentComponent>
         <SuccessComponent mastery={false}>You are confident that no one else can access your keys.</SuccessComponent>
       </Grid>
+      <Heading>Join the conversation - first in discord - mention algorand</Heading>
       <Link href="/modules/100/1004">
         <Button my="1em">Continue to Lesson 4</Button>
       </Link>

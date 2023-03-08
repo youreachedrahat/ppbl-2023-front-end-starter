@@ -36,7 +36,7 @@ const ModuleListWithSLTs = () => {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel>
-            <Link href={`/modules/${module.number}`}>
+            <Link href={`/modules/${module.number}/slts`}>
               <Text pb="2" color="theme.yellow">
                 Go to Module {module.number}
               </Text>

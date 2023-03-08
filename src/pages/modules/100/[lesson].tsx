@@ -15,7 +15,6 @@ import { Grid, GridItem, Text } from "@chakra-ui/react";
 
 import { items } from "@/src/data/modules/100";
 
-const selected = 0;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = items.map((item) => ({ params: { lesson: item.slug } }));
@@ -27,35 +26,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    props: { items, selected },
+    props: { items },
   };
 };
 
 type Props = {
   items: any;
-  selected: number;
 };
 
-const Module100Lessons: React.FC<Props> = ({ items, selected }) => {
+const Module100Lessons: React.FC<Props> = ({ items }) => {
   const router = useRouter();
   const lesson = router.query.lesson as string;
 
-  const itemIndex = items.findIndex((item: any) => item.slug === lesson)
+  const itemIndex = items.findIndex((item: any) => item.slug === lesson);
 
   return (
     <>
       <Head>
-        <title>PPBL</title>
+        <title>PPBL Module 100</title>
       </Head>
-      <Status100 />
+        <Status100 />
       <Grid templateColumns="repeat(6, 1fr)">
         <Sidebar items={items} modulePath="/modules/100" selected={itemIndex} />
         <GridItem colSpan={5}>
-           {lesson == "slts" && <SLTs100 />}
-           {lesson == "1001" && <Lesson1001 />}
-           {lesson == "1002" && <Lesson1002 />}
-           {lesson == "1003" && <Lesson1003 />}
-           {lesson == "1004" && <Lesson1004 />}
+          {lesson == "slts" && <SLTs100 />}
+          {lesson == "1001" && <Lesson1001 />}
+          {lesson == "1002" && <Lesson1002 />}
+          {lesson == "1003" && <Lesson1003 />}
+          {lesson == "1004" && <Lesson1004 />}
         </GridItem>
       </Grid>
     </>

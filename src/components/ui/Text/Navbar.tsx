@@ -68,9 +68,10 @@ import {
             </Link>
             <Link href="/"
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
+              fontSize={'md'}
+              fontWeight={900}
               _hover={{textDecoration: "none"}}>
-              Gimbalabs
+              Gimbalabs PPBL 2023
             </Link>
 
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -127,10 +128,11 @@ import {
             <Popover trigger={'hover'} placement={'bottom-start'}>
               <PopoverTrigger>
                 <Link
-                  p={2}
+                  py={2}
+                  px={5}
                   href={navItem.href ?? '#'}
-                  fontSize={'sm'}
-                  fontWeight={500}
+                  fontSize={'md'}
+                  fontWeight={900}
                   _hover={{
                     textDecoration: 'none',
                   }}>
@@ -390,12 +392,16 @@ import { color } from "framer-motion";
       href: "/get-started/modules",
       childrenHasChildren: modulesChildren.childrenHasChildren,
     },
+    // {
+    //   label: 'Mastery',
+    //   children: masteryChildren.children,
+    // },
+    // {
+    //   label: 'Plutus',
+    //   children: plutusChildren.children,
+    // },
     {
-      label: 'Mastery',
-      children: masteryChildren.children,
-    },
-    {
-      label: 'Plutus',
-      children: plutusChildren.children,
-    },
+      label: 'Live Coding',
+      href: "/live-coding"
+    }
   ];

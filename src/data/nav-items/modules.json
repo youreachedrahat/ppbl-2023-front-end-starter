@@ -6,22 +6,22 @@
           {
             "label": "100",
             "subLabel": "Introductions and Getting Started",
-            "href": "/modules/100"
+            "href": "/modules/100/slts"
           },
           {
             "label": "101",
             "subLabel": "Write your first smart contract",
-            "href": "/modules/101"
+            "href": "/modules/101/slts"
           },
           {
             "label": "102",
             "subLabel": "Build your first transactions",
-            "href": "#"
+            "href": "/modules/102/slts"
           },
           {
             "label": "103",
             "subLabel": "What you will learn in this course",
-            "href": "#"
+            "href": "/modules/103/slts"
           }
         ]
       },
@@ -31,25 +31,24 @@
           {
             "label": "201",
             "subLabel": "Build a front end dApp template",
-            "href": "#"
+            "href": "/modules/201/slts"
           },
           {
             "label": "202",
             "subLabel": "Three ways to mint a token",
-            "href": "#"
+            "href": "/modules/202/slts"
           },
           {
             "label": "203",
             "subLabel": "Three ways to mint an NFT",
-            "href": "#"
+            "href": "/modules/203/slts"
           },
           {
             "label": "204",
             "subLabel": "Writing & using plutus validators",
-            "href": "#"
+            "href": "/modules/204/slts"
           }
         ]
       }
     ]
   }
-  

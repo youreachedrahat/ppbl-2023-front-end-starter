@@ -12,15 +12,15 @@ export default function CallToActionWithAnnotation() {
     <>
       <Container maxW={"3xl"}>
         <Stack as={Box} textAlign={"center"} spacing={{ base: 30, md: 14 }} py={{ base: 140, md: 100 }}>
-          <Heading fontWeight={600} fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }} lineHeight={"110%"}>
+          <Heading fontWeight={600} fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }} lineHeight={"150%"}>
             Gimbalabs presents: <br />
             <Text as={"span"} color={"theme.green"}>
-              2023 Plutus PBL program
+              Plutus PBL 2023
             </Text>
           </Heading>
           <Text fontSize="xl">The goal of PPBL 2023 is to support people like you <br /> to become Contributors to real Projects.</Text>
           <Text fontSize="xl">
-            The course is mastery-based and you can move through it at your speed.
+            The course is mastery-based <br />and you can move through it at your speed.
           </Text>
           <Stack direction={"column"} spacing={3} align={"center"} alignSelf={"center"} position={"relative"}>
             <Button
@@ -38,6 +38,9 @@ export default function CallToActionWithAnnotation() {
               <Icon as={Arrow} w={71} position={"absolute"} right={-71} top={"10px"} />
             </Box>
           </Stack>
+          <Box>
+            Add License Message + social links
+          </Box>
         </Stack>
       </Container>
     </>

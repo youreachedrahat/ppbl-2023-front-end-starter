@@ -73,22 +73,23 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
             size="sm"
           />
         </Box>
-        <Stack spacing={4} p="4">
+        <Stack spacing={4}>
           {items.map((item) => (
             <Link key={item.slug} href={`${modulePath}/${item.slug}`}>
               <Box
-                p="2"
-                rounded="md"
+                p="4"
+                // rounded="md"
                 _hover={{
                   bg: useColorModeValue("theme.lightGray", "theme.dark"),
                   color: "white",
                   cursor: "pointer",
                 }}
                 bg={selectedItem?.name === item.name ? "theme.blue" : "none"}
-                borderRadius="md"
-                border="1px solid"
+                color={selectedItem?.name === item.name ? "theme.dark" : "none"}
+                // borderRadius="md"
+                // border="1px solid"
               >
-                <Text>{item.name}</Text>
+                <Text fontWeight="bold" fontFamily={["Miriam Libre"]}>{item.name}</Text>
               </Box>
             </Link>
           ))}
