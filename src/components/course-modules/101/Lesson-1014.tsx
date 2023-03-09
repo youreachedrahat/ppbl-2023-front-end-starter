@@ -12,7 +12,7 @@ export default function Lesson1014() {
 
     return (
         <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
-        <SLT id="101.4">I can set up a local Plutus development environment using nix shell, and use it to compile a .plutus script.</SLT>
+        {/* <SLT id="101.4">I can set up a local Plutus development environment using nix shell, and use it to compile a .plutus script.</SLT> */}
         <Grid templateColumns="repeat(2, 1fr)" gap={10}>
           <AssignmentComponent>
             <Text>Assignment description goes here</Text>
