@@ -27,23 +27,24 @@ export default function Lesson1001() {
 
   return (
     <LessonLayout moduleNumber={100} sltId="100.1">
-
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
             Usually, when we talk about Cardano, we are talking about the "Cardano Mainnet".
           </Text>
           <Text fontSize="lg" py="3">
-            But Mainnet is not the only Cardano network. Cardano is a protocol: this means that it can be re-used to
-            create any number of new networks.
+            But Mainnet is not the only Cardano network.
           </Text>
+
           <Text fontSize="lg" py="3">
-            We do not want to test new decentralized applications on the Mainnet: if we made a mistake, we would lose
+            We do not want to test new decentralized applications on the Mainnet: if we made a mistake, we could lose
             tokens that have a real value!
           </Text>
           <Text fontSize="lg" py="3">
-            That's why in this course we will use Cardano's "pre-production test network" also known as "Preprod". Your
-            first task in PPBL 2023 is to connect a browser-based wallet to Preprod.
+            That's why in this course we will use Cardano's "pre-production test network" also known as "Preprod".
+          </Text>
+          <Text fontSize="lg" py="3">
+            Your first task in PPBL 2023 is to connect a browser-based wallet to Preprod.
           </Text>
         </GridItem>
         <GridItem>
@@ -79,7 +80,6 @@ export default function Lesson1001() {
           </>
         </SuccessComponent>
       </AssignmentComponent>
-
     </LessonLayout>
   );
 }

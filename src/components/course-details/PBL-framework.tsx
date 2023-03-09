@@ -6,7 +6,7 @@ const PBLFramework = () => {
   return (
     <Container maxWidth="90%" marginLeft="2em" marginTop="2em">
       <Heading size="xl" color="theme.blue" lineHeight="1.4">
-        The goal of any PBL Course is to support people to become Contributors to real Projects.
+        The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real Projects.
       </Heading>
       <Container maxWidth="80%" bgColor="theme.lightGray" marginTop="2em" marginLeft="0">
         <Stack>

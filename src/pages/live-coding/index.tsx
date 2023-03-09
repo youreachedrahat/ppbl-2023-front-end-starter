@@ -1,5 +1,7 @@
-import { Heading, Box } from "@chakra-ui/react";
+import { Heading, Box, Text } from "@chakra-ui/react";
 import Head from "next/head";
+
+import events from "@/src/data/live-coding/events.json"
 
 export default function LiveCoding() {
   return (
@@ -12,8 +14,17 @@ export default function LiveCoding() {
       </Head>
       <Box>
         <Heading py="10" size="4xl">Live Coding</Heading>
+
         <Heading>Gimbalabs - English</Heading>
+        {events.events.map((event: any) => (
+          <Box m="5" p="5" bg="theme.green" color="theme.dark">
+            <Text>{event.title}</Text>
+            <Text>{event.date}</Text>
+            <Text>{event.description}</Text>
+          </Box>
+        ))}
         <Heading>Gimbalabs Indonesia</Heading>
+
         <Heading>Gimbalabs Vietnam</Heading>
       </Box>
     </>
