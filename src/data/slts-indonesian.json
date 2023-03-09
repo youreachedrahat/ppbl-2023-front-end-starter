@@ -2,152 +2,300 @@
   "modules": [
     {
       "number": 100,
-      "title": "Getting Started",
+      "title": "Memulai",
       "slts": [
-        { "id": "100.1", "slt": "I can connect a Cardano wallet to the pre-production test network." },
-        { "id": "100.2", "slt": "I can get free tAda on the pre-production testnet." },
-        { "id": "100.3", "slt": "I know how to safely store my keys." },
-        { "id": "100.4", "slt": "I can mint a PPBL Contributor Token." }
+        {
+          "id": "100.1",
+          "slt": "Saya bisa menghubungkan dompet Cardano ke testnet pre-production."
+        },
+        {
+          "id": "100.2",
+          "slt": "Saya bisa mendapatkan tAda gratis pada testnet pre-production."
+        },
+        { "id": "100.3", "slt": "Saya tahu cara menyimpan kunci dengan aman." },
+        { "id": "100.4", "slt": "Saya dapat mencetak Token Kontributor PPBL." }
       ]
     },
     {
       "number": 101,
-      "title": "Write Your First Smart Contract",
+      "title": "Tulis Smart Contract Pertama Anda",
       "slts": [
-        { "id": "101.1", "slt": "I can compile a plutus validator to Untyped Plutus Core (UPLC)." },
-        { "id": "101.2", "slt": "I understand the role that UPLC plays in a decentralized application on Cardano." },
-        { "id": "101.3", "slt": "I can use Demeter.run to compile a .plutus script." },
+        {
+          "id": "101.1",
+          "slt": "Saya dapat mengkompilasi validator plutus ke Untyped Plutus Core (UPLC)."
+        },
+        {
+          "id": "101.2",
+          "slt": "Saya memahami peran UPLC dalam aplikasi terdesentralisasi di Cardano."
+        },
+        {
+          "id": "101.3",
+          "slt": "Saya dapat menggunakan Demeter.run untuk mengkompilasi skrip .plutus."
+        },
         {
           "id": "101.4",
-          "slt": "I can set up a local Plutus development environment using nix shell, and use it to compile a `.plutus` script."
+          "slt": "Saya dapat mengatur lingkungan pengembangan Plutus lokal menggunakan nix shell, dan menggunakannya untuk mengkompilasi skrip `.plutus`."
         },
-        { "id": "101.5", "slt": "I can write an always succeeds contract in Aiken." }
+        {
+          "id": "101.5",
+          "slt": "Saya bisa menulis kontrak yang selalu berhasil di Aiken."
+        }
       ]
     },
     {
       "number": 102,
-      "title": "Build Your First Transactions",
+      "title": "Bangun Transaksi Pertama Anda",
       "slts": [
-        { "id": "102.1", "slt": "I can query the blockchain using cardano-cli." },
-        { "id": "102.2", "slt": "I can create a wallet using cardano-cli." },
-        { "id": "102.3", "slt": "I can build a simple transaction using cardano-cli." },
-        { "id": "102.4", "slt": "I can lock funds at a contract address using cardano-cli." },
-        { "id": "102.5", "slt": "I can unlock funds from a contract address using cardano-cli." },
-        { "id": "102.6", "slt": "I can use bash scripts to build re-usable transactions." }
+        {
+          "id": "102.1",
+          "slt": "Saya dapat melakukan kueri ke blockchain menggunakan cardano-cli."
+        },
+        {
+          "id": "102.2",
+          "slt": "Saya dapat membuat dompet menggunakan cardano-cli."
+        },
+        {
+          "id": "102.3",
+          "slt": "Saya dapat membuat transaksi sederhana menggunakan cardano-cli."
+        },
+        {
+          "id": "102.4",
+          "slt": "Saya dapat mengunci dana di alamat kontrak menggunakan cardano-cli."
+        },
+        {
+          "id": "102.5",
+          "slt": "Saya dapat membuka kunci dana dari alamat kontrak menggunakan cardano-cli."
+        },
+        {
+          "id": "102.6",
+          "slt": "Saya dapat menggunakan skrip bash untuk membangun transaksi yang dapat digunakan kembali."
+        }
       ]
     },
     {
       "number": 103,
-      "title": "What You Will Learn in This Course",
+      "title": "Apa yang Akan Anda Pelajari dalam Kursus Ini",
       "slts": [
-        { "id": "103.1", "slt": "I can make a contribution to an open source project using git." },
-        { "id": "103.2", "slt": "I can re-use code from existing projects." },
-        { "id": "103.3", "slt": "I can ask questions on Cardano Stack Exchange." }
+        {
+          "id": "103.1",
+          "slt": "Saya dapat memberikan kontribusi ke proyek sumber terbuka menggunakan git."
+        },
+        {
+          "id": "103.2",
+          "slt": "Saya dapat menggunakan kembali kode dari proyek yang sudah ada."
+        },
+        {
+          "id": "103.3",
+          "slt": "Saya dapat mengajukan pertanyaan di Cardano Stack Exchange."
+        }
       ]
     },
     {
       "number": 201,
-      "title": "Build a Front End Dapp Template",
+      "title": "Membuat Template Front End Dapp",
       "slts": [
-        { "id": "201.1", "slt": "I can run a Next JS project on my local device." },
-        { "id": "201.2", "slt": "I can use Mesh APIs to interact with a browser-wallet like Eternl or Nami." },
-        { "id": "201.3", "slt": "I can create a web app that renders differently if a user holds a Cardano token." },
-        { "id": "201.4", "slt": "I can query the blockchain with GraphQL and Koios." },
-        { "id": "201.5", "slt": "I can use git to create a feature branch and submit a merge request." }
+        {
+          "id": "201.1",
+          "slt": "Saya dapat menjalankan proyek Next JS di perangkat lokal saya."
+        },
+        {
+          "id": "201.2",
+          "slt": "Saya dapat menggunakan API Mesh untuk berinteraksi dengan dompet peramban seperti Eternl atau Nami."
+        },
+        {
+          "id": "201.3",
+          "slt": "Saya dapat membuat aplikasi web yang merender secara berbeda jika pengguna memegang token Cardano."
+        },
+        {
+          "id": "201.4",
+          "slt": "Saya dapat melakukan kueri pada blockchain dengan GraphQL dan Koios."
+        },
+        {
+          "id": "201.5",
+          "slt": "Saya dapat menggunakan git untuk membuat feature branch dan mengirimkan merge request."
+        }
       ]
     },
     {
       "number": 202,
-      "title": "Three Ways to Mint a Token",
+      "title": "Tiga Cara untuk Membuat Token",
       "slts": [
-        { "id": "202.1", "slt": "I can mint a Cardano native asset using Mesh APIs." },
-        { "id": "202.2", "slt": "I can mint native assets with native scripts using cardano-cli." },
-        { "id": "202.3", "slt": "I can mint a native asset using a Plutus Minting script." }
+        {
+          "id": "202.1",
+          "slt": "Saya dapat mencetak aset asli Cardano menggunakan API Mesh."
+        },
+        {
+          "id": "202.2",
+          "slt": "Saya dapat mencetak aset asli dengan skrip asli menggunakan cardano-cli."
+        },
+        {
+          "id": "202.3",
+          "slt": "Saya dapat mencetak aset asli menggunakan skrip Plutus Minting."
+        }
       ]
     },
     {
       "number": 203,
-      "title": "Three Ways to Mint an NFT",
+      "title": "Tiga Cara untuk Mencetak NFT",
       "slts": [
-        { "id": "203.1", "slt": "I can add metadata to a Cardano transaction." },
-        { "id": "203.2", "slt": "I can create a Cardano NFT that adheres to CIP-25 standards." },
-        { "id": "203.3", "slt": "I know where to learn more about Cardano Improvement Proposals." },
-        { "id": "203.4", "slt": "I can contribute to new standards in this development ecosystem." }
+        {
+          "id": "203.1",
+          "slt": "Saya dapat menambahkan metadata ke transaksi Cardano."
+        },
+        {
+          "id": "203.2",
+          "slt": "Saya dapat membuat NFT Cardano yang sesuai dengan standar CIP-25."
+        },
+        {
+          "id": "203.3",
+          "slt": "Saya tahu di mana saya bisa mempelajari lebih lanjut tentang Cardano Improvement Proposals."
+        },
+        {
+          "id": "203.4",
+          "slt": "Saya dapat berkontribusi pada standar baru dalam ekosistem pengembangan ini."
+        }
       ]
     },
     {
       "number": 204,
-      "title": "PPBL Faucet Project",
+      "title": "Proyek Faucet PPBL",
       "slts": [
-        { "id": "204.1", "slt": "I can deploy an instance of a Plutus script with custom parameters" },
-        { "id": "204.2", "slt": "I can contribute to a headless, decentralized application." }
+        {
+          "id": "204.1",
+          "slt": "Saya dapat menggunakan contoh skrip Plutus dengan parameter khusus."
+        },
+        {
+          "id": "204.2",
+          "slt": "Saya dapat berkontribusi pada aplikasi yang headless dan terdesentralisasi."
+        }
       ]
     },
     {
       "number": 301,
-      "title": "Writing and Using Plutus Validators",
+      "title": "Menulis dan Menggunakan Validator Plutus",
       "slts": [
-        { "id": "301.1", "slt": "I can write a Plutus Spending validator." },
-        { "id": "301.2", "slt": "I know enough haskell to understand some common validator design patterns." },
-        { "id": "301.3", "slt": "I understand how Datum is used in Plutus validators." },
-        { "id": "301.4", "slt": "I understand how Redeemers are used in Plutus validators." }
+        {
+          "id": "301.1",
+          "slt": "Saya bisa menulis validator Plutus Spending."
+        },
+        {
+          "id": "301.2",
+          "slt": "Saya tahu cukup banyak tentang haskell untuk memahami beberapa pola desain validator yang umum."
+        },
+        {
+          "id": "301.3",
+          "slt": "Saya memahami bagaimana Datum digunakan dalam validator Plutus."
+        },
+        {
+          "id": "301.4",
+          "slt": "Saya memahami bagaimana Redeemer digunakan dalam validator Plutus."
+        }
       ]
     },
     {
       "number": 302,
-      "title": "On-Chain Essentials: Plutus",
+      "title": "Hal-hal Penting Pada On-Chain: Plutus",
       "slts": [
-        { "id": "302.1", "slt": "I can plan and implement my own Plutus contracts" },
-        { "id": "302.2", "slt": "I can create, update and maintain a Plutus project." },
-        { "id": "302.3", "slt": "I can use datum, redeemer and custom logic effectively." },
-        { "id": "302.4", "slt": "I can convert Datums and Redeemers to JSON files." },
-        { "id": "302.5", "slt": "I undstand how time works on Plutus (POSIXTime) and Ledger (Slot Number)." },
+        {
+          "id": "302.1",
+          "slt": "Saya dapat merencanakan dan mengimplementasikan kontrak Plutus saya sendiri."
+        },
+        {
+          "id": "302.2",
+          "slt": "Saya dapat membuat, memperbarui, dan memelihara proyek Plutus."
+        },
+        {
+          "id": "302.3",
+          "slt": "Saya dapat menggunakan datum, penebus, dan logika khusus secara efektif."
+        },
+        {
+          "id": "302.4",
+          "slt": "Saya dapat mengonversi Datum and Redeemer ke file JSON."
+        },
+        {
+          "id": "302.5",
+          "slt": "Saya mengerti cara kerja waktu pada Plutus (POSIXTime) dan Ledger (Slot Number)."
+        },
         {
           "id": "302.6",
-          "slt": "I can analyze the performance of a Plutus validator by viewing its size, memory and CPU exection costs."
+          "slt": "Saya dapat menganalisis kinerja validator Plutus dengan melihat ukuran, memori, dan biaya eksekusi CPU-nya."
         },
-        { "id": "302.7", "slt": "I can deploy a Plutus reference script." },
+        {
+          "id": "302.7",
+          "slt": "Saya dapat menggunakan skrip referensi Plutus."
+        },
         {
           "id": "302.8",
-          "slt": "I can run Plutus documentation locally and write comments properly in order to generate haddock for a new project."
+          "slt": "Saya dapat menjalankan dokumentasi Plutus secara lokal dan menulis komentar dengan benar untuk menghasilkan haddock untuk proyek baru."
         },
-        { "id": "302.9", "slt": "I can secure Datum, Redeemer and Contract Parameters for my SC and project." }
+        {
+          "id": "302.9",
+          "slt": "Saya dapat mengamankan Datum, Redeemer, dan Parameter Kontrak untuk SC dan proyek saya."
+        }
       ]
     },
     {
       "number": 303,
-      "title": "On-Chain Essentials: Aiken",
+      "title": "Hal-hal Penting Pada On-Chain: Aiken",
       "slts": [
-        { "id": "303.1", "slt": "I can write a Plutus script using Aiken." },
-        { "id": "303.2", "slt": "I can implement Plutus business logic in Aiken." }
+        {
+          "id": "303.1",
+          "slt": "Saya dapat menulis skrip Plutus menggunakan Aiken."
+        },
+        {
+          "id": "303.2",
+          "slt": "Saya dapat mengimplementasikan logika bisnis Plutus di Aiken."
+        }
       ]
     },
     {
       "number": 304,
-      "title": "Off-Chain Essentials: Transactions, UI, and Queries",
+      "title": "Hal-hal Penting Pada Off-Chain: Transaksi, UI, dan Kueri",
       "slts": [
         {
           "id": "304.1",
-          "slt": "I can make programmatic queries of historical transactions using Koios and GraphQL."
+          "slt": "Saya dapat membuat kueri terprogram dari transaksi historis menggunakan Koios dan GraphQL."
         },
         {
           "id": "304.2",
-          "slt": "I can create user interfaces which enable the user to interact with the blockchain by forming appropriate transactions for some interaction."
+          "slt": "Saya dapat membuat antarmuka pengguna yang memungkinkan pengguna untuk berinteraksi dengan blockchain dengan membentuk transaksi yang sesuai untuk beberapa interaksi."
         },
-        { "id": "304.3", "slt": "I can use Kupo to create an index of on-chain data." }
+        {
+          "id": "304.3",
+          "slt": "Saya dapat menggunakan Kupo untuk membuat indeks data on-chain."
+        }
       ]
     },
     {
       "number": 305,
-      "title": "Intro to Testing and Optimization",
+      "title": "Pengantar Pengujian dan Pengoptimalan",
       "slts": [
-        { "id": "305.1", "slt": "I can run tests using shell, nix and cabal." },
-        { "id": "305.2", "slt": "I can express a property in QuickCheck" },
-        { "id": "305.3", "slt": "I can explain how CI adds value to a project team." },
-        { "id": "305.4", "slt": "I can explain the outcomes of verification and audit." },
-        { "id": "305.5", "slt": "I can test a validation script written in Aiken." }
+        {
+          "id": "305.1",
+          "slt": "Saya dapat menjalankan pengujian menggunakan shell, nix, dan cabal."
+        },
+        {
+          "id": "305.2",
+          "slt": "Saya dapat mengekspresikan properti di QuickCheck"
+        },
+        {
+          "id": "305.3",
+          "slt": "Saya bisa menjelaskan bagaimana CI memberikan nilai tambah bagi tim proyek."
+        },
+        {
+          "id": "305.4",
+          "slt": "Saya dapat menjelaskan hasil verifikasi dan audit."
+        },
+        {
+          "id": "305.5",
+          "slt": "Saya dapat menguji skrip validasi yang ditulis dalam Aiken."
+        }
       ]
     },
-    { "number": 401, "title": "Introducing Gimbal Project Treasury and Escrow", "slts": [] }
+    {
+      "number": 401,
+      "title": "Memperkenalkan Perbendaharaan dan Escrow Proyek Gimbal",
+      "slts": []
+    }
   ]
 }
