@@ -15,14 +15,14 @@ const SLTs100 = () => {
           like to point out.
         </Text>
         <Text py="3" fontSize="lg">
-          First, please note that every Module in PPBL starts with a list of Student Learning Targets (SLTs), as shown
+          Please note that every Module in PPBL starts with a list of Student Learning Targets (SLTs), as shown
           above.
         </Text>
         <Text py="3" fontSize="lg">
           In this module, you will start to see some different ways to think about "Mastery" of each SLT.
         </Text>
         <Text py="3" fontSize="lg">
-          Notice also that at the top of the page there is a status bar that corresponds to these learning targets. You
+          At the top of the page there is a status bar that corresponds to these learning targets. You
           will see how this works in Lesson 1.
         </Text>
         <Text py="3" fontSize="lg">

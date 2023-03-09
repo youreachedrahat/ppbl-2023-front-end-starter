@@ -1,24 +1,31 @@
-import { Box, Text, Heading, Center } from "@chakra-ui/react";
+import { Box, Text, Heading, Center, Badge, Flex, Spacer, Divider } from "@chakra-ui/react";
 import * as React from "react";
 
 type Props = {
   children?: React.ReactNode;
-  mastery: boolean
+  mastery: boolean;
 };
 const SuccessComponent: React.FC<Props> = ({ children, mastery }) => {
   return (
-    <Box w="50%" my="3" p="5" bg="theme.lightGray" color="white">
-    <Heading size="md" py="3'">You will know you are successful if:</Heading>
-      <Text fontSize="lg" py="3">{children}</Text>
-      {mastery ? (
-        <Center my='3' p='5' bg='theme.green' w="250px">
-            <Heading size="md">Status: You did it!</Heading>
-        </Center>
-      ) : (
-        <Center my='3' p='1' bg='theme.gray'>
-            <Heading size="md">Status: Not yet</Heading>
-        </Center>
-      )}
+    <Box my="3" bg="theme.lightGray" color="white">
+      <Divider />
+      <Center>
+        <Heading size="md">Mastery Status:</Heading>
+        {mastery ? (
+          <Badge ml="5" fontSize="lg" bg="theme.green">
+            <Text size="md">Success!</Text>
+          </Badge>
+        ) : (
+          <Badge ml="5" fontSize="lg" bg="theme.yellow" color="theme.dark">
+            <Text size="md">in progress</Text>
+          </Badge>
+        )}
+      </Center>
+      <Center>
+        <Text fontSize="lg" py="3">
+          {children}
+        </Text>
+      </Center>
     </Box>
   );
 };
