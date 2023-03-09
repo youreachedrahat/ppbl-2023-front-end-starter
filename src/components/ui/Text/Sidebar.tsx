@@ -79,7 +79,8 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps) => {
                 p="4"
                 // rounded="md"
                 _hover={{
-                  bg: useColorModeValue("theme.lightGray", "theme.dark"),
+                  // bg: useColorModeValue("theme.lightGray", "theme.dark"),
+                  bg: "theme.lightGray",
                   color: "white",
                   cursor: "pointer",
                 }}
