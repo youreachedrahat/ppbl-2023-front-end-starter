@@ -2,12 +2,13 @@ import ContributorPairMintingComponent from "@/src/components/course-modules/100
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Box, Heading, ListItem, Stack, StackDivider, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, ListItem, Stack, StackDivider, Text, UnorderedList } from "@chakra-ui/react";
 import { Asset } from "@meshsdk/core";
 import { useAssets, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
+import LessonLayout from "../../lms/Lesson/LessonLayout";
+import VideoComponent from "../../lms/Lesson/VideoComponent";
 
 export default function Lesson1004() {
   const { connected } = useWallet();
@@ -25,14 +26,23 @@ export default function Lesson1004() {
   }, [walletAssets]);
 
   return (
-    <Stack marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
-      <SLT id="100.4">I can mint a Contributor Token for PPBL</SLT>
-
-      <SuccessComponent mastery={connected && connectedPPBL2023Token != undefined}>
-        <Text py="2">You have a PPBL2023 Token in your connected wallet.</Text>
-        <Text py="2">Look in your wallet to see if you have a token with the Policy Id</Text>
-        <code>05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056</code>
-      </SuccessComponent>
+    <LessonLayout moduleNumber={100} sltId="100.4">
+      <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
+        <GridItem w="90%" mx="auto">
+          <Text fontSize="lg" py="3">
+            Get a Contributor token
+          </Text>
+          <Text fontSize="lg" py="3">
+            It has some superpowers...
+          </Text>
+          <Text fontSize="lg" py="3">
+            ...that you will learn about in this course
+          </Text>
+        </GridItem>
+        <GridItem>
+          <VideoComponent videoId="aaaaa">About Your New Contributor Token</VideoComponent>
+        </GridItem>
+      </Grid>
       <AssignmentComponent>
         <Text>
           If you have a wallet connected to Cardano Preprod Testnet, you will be able to complete this assignment.
@@ -78,7 +88,12 @@ export default function Lesson1004() {
             "make sure to connect a wallet"
           )}
         </Box>
+        <SuccessComponent mastery={connected && connectedPPBL2023Token != undefined}>
+          <Text py="2">You have a PPBL2023 Token in your connected wallet.</Text>
+          <Text py="2">Look in your wallet to see if you have a token with the Policy Id</Text>
+          <code>05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056</code>
+        </SuccessComponent>
       </AssignmentComponent>
-    </Stack>
+    </LessonLayout>
   );
 }

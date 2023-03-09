@@ -1,6 +1,7 @@
 import { Box, Text, Heading } from "@chakra-ui/react";
 import * as React from "react";
 import slts from "@/src/data/slts.json";
+// import slts from "@/src/data/slts-indonesian.json";
 
 interface SLT {
   id: string;
