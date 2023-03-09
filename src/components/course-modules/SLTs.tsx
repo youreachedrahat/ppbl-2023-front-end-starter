@@ -1,6 +1,8 @@
-import { Box, Container, Divider, Flex, Heading, List, ListItem, Text } from "@chakra-ui/react";
+import { Box, Container, Divider, Heading, List, ListItem, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import slts from "@/src/data/slts.json";
+// import slts from "@/src/data/slts-indonesian.json";
+
 
 interface SLT {
   id: string;
@@ -31,8 +33,8 @@ const SLTsItems = ({ moduleTitle, moduleNumber }: SLTsItemsProps) => {
                 return (
                 <ListItem key={id}>
                     <Flex fontSize="xl" fontWeight="bold" style={{ display: 'inline-flex' }}>
-                      <Text color="theme.blue" style={{ marginRight: 4 }}>{id}</Text>
-                      <Text> : {SLT}</Text>
+                    <Text color="theme.blue" style={{ marginRight: 4 }}>{id}</Text>
+                    <Text> : {SLT}</Text>
                     </Flex>
                 </ListItem>
                 );
