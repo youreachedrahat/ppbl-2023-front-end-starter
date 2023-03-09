@@ -9,7 +9,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
-import { Grid, GridItem, Text } from "@chakra-ui/react";
+import { Divider, Grid, GridItem, Text } from "@chakra-ui/react";
 
 import { items } from "@/src/data/get-started";
 
@@ -55,6 +55,7 @@ const GetStarted: React.FC<Props> = ({ items }) => {
            {details == "slts" && <AboutSLTs />}
            {details == "modules" && <ListOfModules />}
            {details == "governance" && <Governance />}
+        <Divider my="2em" />
         </GridItem>
       </Grid>
     </>

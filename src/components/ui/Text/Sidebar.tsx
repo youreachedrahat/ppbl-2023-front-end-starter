@@ -24,17 +24,17 @@ interface SidebarProps {
   selected: number;
 }
 
-const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
+const Sidebar = ({ items, modulePath, selected }: SidebarProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedItem, setSelectedItem] = useState<SidebarItem | null>(items[selected]);
-  const navBackgroud = useColorModeValue("white", "theme.lightGray")
+  const navBackground = useColorModeValue("white", "theme.lightGray");
   const router = useRouter();
 
   useEffect(() => {
     if (items.length > selected) {
       setSelectedItem(items[selected]);
     }
-  }, [items]);
+  }, [items, selected]);
 
   // Check if the current path is the module path without an item slug
   useEffect(() => {
@@ -43,11 +43,10 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps ) => {
     }
   }, [router.asPath]);
 
-
   return (
     <Flex>
       <Box
-        bg={navBackgroud}
+        bg={navBackground}
         borderRight="1px solid"
         w="60"
         minH="100vh"
