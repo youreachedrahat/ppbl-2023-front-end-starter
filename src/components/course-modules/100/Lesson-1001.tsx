@@ -15,6 +15,7 @@ import {
   Stack,
   StackDivider,
   Text,
+  Link as CLink,
 } from "@chakra-ui/react";
 import { CardanoWallet, useAddress, useNetwork, useWallet } from "@meshsdk/react";
 import Link from "next/link";
@@ -27,23 +28,23 @@ export default function Lesson1001() {
 
   return (
     <LessonLayout moduleNumber={100} sltId="100.1">
-      <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
+      <Grid mx="auto" fontSize="xl" fontWeight="semibold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
-          <Text fontSize="lg" py="3">
+          <Text py="3">
             Usually, when we talk about Cardano, we are talking about the "Cardano Mainnet".
           </Text>
-          <Text fontSize="lg" py="3">
+          <Text py="3">
             But Mainnet is not the only Cardano network.
           </Text>
 
-          <Text fontSize="lg" py="3">
-            We do not want to test new decentralized applications on the Mainnet: if we made a mistake, we could lose
+          <Text py="3">
+            We would not want to test new decentralized applications on the Cardano Mainnet: if we made a mistake, we could lose
             tokens that have a real value!
           </Text>
-          <Text fontSize="lg" py="3">
+          <Text py="3">
             That's why in this course we will use Cardano's "pre-production test network" also known as "Preprod".
           </Text>
-          <Text fontSize="lg" py="3">
+          <Text py="3">
             Your first task in PPBL 2023 is to connect a browser-based wallet to Preprod.
           </Text>
         </GridItem>
@@ -55,7 +56,7 @@ export default function Lesson1001() {
 
       <AssignmentComponent>
         <OrderedList>
-          <ListItem>Make sure that you have a browser wallet like Nami or Eternl installed.</ListItem>
+          <ListItem>Make sure that you have a browser wallet like <CLink href="https://namiwallet.io/" target="_blank">Nami</CLink> or <CLink href="https://eternl.io/" target="_blank">Eternl</CLink> installed.</ListItem>
           <ListItem>Review the short video above to see how to connect your wallet to Preprod.</ListItem>
           <ListItem>Use the Connect Wallet button below to see if you are successful!</ListItem>
         </OrderedList>
@@ -72,6 +73,9 @@ export default function Lesson1001() {
                 </Text>
                 <Text fontSize="sm" py="2">
                   {address}
+                </Text>
+                <Text py="5">
+                  Nice work. In the next lesson, you will get some "test Ada" in your Preprod wallet.
                 </Text>
               </>
             ) : (

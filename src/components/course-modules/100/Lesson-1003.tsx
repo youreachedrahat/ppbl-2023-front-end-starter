@@ -1,7 +1,7 @@
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Button, Grid, Stack, StackDivider, Text, Heading, GridItem } from "@chakra-ui/react";
+import { Button, Grid, Stack, StackDivider, Text, Heading, GridItem, Divider } from "@chakra-ui/react";
 import Link from "next/link";
 import LessonLayout from "../../lms/Lesson/LessonLayout";
 import VideoComponent from "../../lms/Lesson/VideoComponent";
@@ -12,20 +12,34 @@ export default function Lesson1003() {
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
-            Not all mastery is on-chain
+            We think it's wonderful that this PPBL course can tell you that you've mastered the first two SLTs. But
+            "Mastery" can't always be measured directly.
           </Text>
           <Text fontSize="lg" py="3">
-            Join the conversation - first in discord - mention algorand
+            Blockchains require all of us to be careful keeping custody of private keys and mnemonic phrases, and you are the
+            most important judge of whether or not you've mastered this learning target.
+          </Text>
+          <Text fontSize="lg" py="3">
+            Join us for a conversation about wallet security at Plutus PBL Live coding on Thursday, 2023-03-16 at 1430
+            UTC. This session will be recorded and posted to this lesson page.
           </Text>
         </GridItem>
         <GridItem>
           <VideoComponent videoId="aaaaa">Private Keys</VideoComponent>
         </GridItem>
       </Grid>
+      <Divider py="5" />
+
       <AssignmentComponent>
+        <Text py="2">When building on Cardano, there are a few different ways you will handle your keys.</Text>
+
         <Text py="2">
-          When building on Cardano, there are a few different ways you will handle your keys. We will start with
-          mnemonics. Later in this course, we will discuss key management on cardano-cli and in applications.
+          For now, just make sure that your mnemonic words are written off-line, and that you have more than one secure
+          copy.
+        </Text>
+        <Text py="2" width="70%">
+          In Module 101, we will discuss key management on cardano-cli. In Module 201, we will investigate how keys can
+          be stored in web applications, and you will learn how to "hack" the next lesson.
         </Text>
         <SuccessComponent mastery={false}>You are confident that no one else can access your keys.</SuccessComponent>
       </AssignmentComponent>

@@ -7,8 +7,7 @@ type Props = {
 };
 const SuccessComponent: React.FC<Props> = ({ children, mastery }) => {
   return (
-    <Box my="3" bg="theme.lightGray" color="white">
-      <Divider />
+    <Box my="3" py="3" bg="theme.lightGray" color="white">
       <Center>
         <Heading size="md">Mastery Status:</Heading>
         {mastery ? (

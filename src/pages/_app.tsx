@@ -36,6 +36,11 @@ const theme = extendTheme({
       baseStyle: {
         py: "5"
       }
+    },
+    Link: {
+      baseStyle: {
+        color: "theme.yellow"
+      }
     }
   },
   styles: {

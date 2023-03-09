@@ -10,9 +10,10 @@ import {
   Stack,
   StackDivider,
   Text,
-  Link as ChakraLink,
+  Link as CLink,
   Button,
   GridItem,
+  Divider,
 } from "@chakra-ui/react";
 import { CardanoWallet, useAddress, useLovelace, useNetwork, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
@@ -38,27 +39,41 @@ export default function Lesson1002() {
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
-            Get free ada!
+            To make it easy for developers to build and test applications on Cardano, IOHK provides <CLink>Testnet Faucets</CLink> within the <CLink href="https://docs.cardano.org/">Cardano Ecosystem documentation</CLink>.
+          </Text>
+          <Text fontSize="lg" py="3">
+            Watch this video to see how to get test-Ada, or "tAda" on the Prepod testnet, or follow the steps below.
           </Text>
         </GridItem>
         <GridItem>
           <VideoComponent videoId="aaaaa">How to get tAda from the Preprod Faucet</VideoComponent>
         </GridItem>
       </Grid>
+      <Divider py="5" />
 
       <AssignmentComponent>
         <OrderedList pb="5">
           <ListItem>
             Go to{" "}
-            <ChakraLink href="https://docs.cardano.org/cardano-testnet/tools/faucet">
+            <CLink href="https://docs.cardano.org/cardano-testnet/tools/faucet">
               https://docs.cardano.org/cardano-testnet/tools/faucet
-            </ChakraLink>
+            </CLink>
           </ListItem>
-          <ListItem>Make sure to select Preprod Testnet from the Environment menu.</ListItem>
-          <ListItem>Enter your preproduction address and submit the form.</ListItem>
-          <ListItem>Congrats, now you are rich with tAda!</ListItem>
+          <ListItem>Make sure to select "Preprod Testnet" from the Environment menu.</ListItem>
+          <ListItem>Enter your Preprod address and submit the form.</ListItem>
+          <ListItem>Wait a few moments for your "tAda" to arrive. Then refresh this page and connect your wallet again.</ListItem>
         </OrderedList>
-        <SuccessComponent mastery={connected && mastery}>You have test ada in your wallet.</SuccessComponent>
+        <SuccessComponent mastery={connected && mastery}>
+          {mastery ? (
+            <Box>
+              <Text>Congrats! You are now rich with tAda!</Text>
+            </Box>
+          ) : (
+            <Box>
+              <Text>You will know you are successful if you have tAda in your Preprod wallet.</Text>
+            </Box>
+          )}
+        </SuccessComponent>
       </AssignmentComponent>
       <Link href="/modules/100/1003">
         <Button my="1em">Continue to Lesson 3</Button>
