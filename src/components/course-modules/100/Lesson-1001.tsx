@@ -42,7 +42,7 @@ export default function Lesson1001() {
             tokens that have a real value!
           </Text>
           <Text py="3">
-            That's why in this course we will use Cardano's &rdquo;pre-production test network&rdquo; also known as &rdquo;Preprod&rdquo;.
+            That&rsquo;s why in this course we will use Cardano&rsquo;s &rdquo;pre-production test network&rdquo; also known as &rdquo;Preprod&rdquo;.
           </Text>
           <Text py="3">
             Your first task in PPBL 2023 is to connect a browser-based wallet to Preprod.
