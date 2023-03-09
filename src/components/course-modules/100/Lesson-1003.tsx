@@ -1,7 +1,7 @@
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import SLT from "@/src/components/ui/Text/SLT";
-import { Button, Grid, Stack, StackDivider, Text, Heading, GridItem, Divider } from "@chakra-ui/react";
+import { Button, Grid, Stack, StackDivider, Text, Heading, GridItem, Divider, Link as CLink } from "@chakra-ui/react";
 import Link from "next/link";
 import LessonLayout from "../../lms/Lesson/LessonLayout";
 import VideoComponent from "../../lms/Lesson/VideoComponent";
@@ -20,7 +20,7 @@ export default function Lesson1003() {
             most important judge of whether or not you have mastered this learning target.
           </Text>
           <Text fontSize="lg" py="3">
-            Join us for a conversation about wallet security at Plutus PBL Live coding on Thursday, 2023-03-16 at 1430
+            Join us for a conversation about wallet security at <CLink><Link href="/live-coding">Plutus PBL Live Coding</Link></CLink> on Thursday, 2023-03-16 at 1430
             UTC. This session will be recorded and posted to this lesson page.
           </Text>
         </GridItem>
