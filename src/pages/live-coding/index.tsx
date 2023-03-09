@@ -17,10 +17,10 @@ export default function LiveCoding() {
 
         <Heading>Gimbalabs - English</Heading>
         {events.events.map((event: any, i) => (
-          <Box m="5" p="5" bg="theme.green" color="theme.dark">
-            <Text key={i}>{event.title}</Text>
-            <Text key={i}>{event.date}</Text>
-            <Text key={i}>{event.description}</Text>
+          <Box key={i} m="5" p="5" bg="theme.green" color="theme.dark">
+            <Text>{event.title}</Text>
+            <Text>{event.date}</Text>
+            <Text>{event.description}</Text>
           </Box>
         ))}
         <Heading>Gimbalabs Indonesia</Heading>
