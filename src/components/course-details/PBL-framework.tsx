@@ -66,7 +66,7 @@ const PBLFramework = () => {
         Each module consists of a set of Student Learning Targets (SLTs) that describe what you will learn in the course.
       </Text>
       <Link href="/get-started/slts">
-        <Button>Tell me about Student Learning Targets!</Button>
+        <Button>Tell me about SLTs</Button>
       </Link>
     </Container>
   );
