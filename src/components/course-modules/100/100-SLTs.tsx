@@ -8,7 +8,7 @@ const SLTs100 = () => {
     <Container maxWidth="75%" marginTop="2em">
       <SLTsItems moduleTitle="Module 100" moduleNumber={100} />
       <Divider my="5" />
-      <Box bg="theme.lightGray" p="5">
+      <Box bg="theme.lightGray" color="white" p="5">
         <Heading>Welcome to Plutus PBL 2023!</Heading>
         <Text py="3" fontSize="lg">
           The purpose of this module is to give you an example of how this course works. There are a few things we'd
