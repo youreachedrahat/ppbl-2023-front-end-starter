@@ -31,7 +31,6 @@ const ListOfModules = () => {
       <Link href="/get-started/governance">
         <Button>How does PPBL connect to Governance?</Button>
       </Link>
-      <Divider my="2em" />
     </Container>
   );
 };
