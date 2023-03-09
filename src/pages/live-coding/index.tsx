@@ -16,11 +16,11 @@ export default function LiveCoding() {
         <Heading py="10" size="4xl">Live Coding</Heading>
 
         <Heading>Gimbalabs - English</Heading>
-        {events.events.map((event: any) => (
+        {events.events.map((event: any, i) => (
           <Box m="5" p="5" bg="theme.green" color="theme.dark">
-            <Text>{event.title}</Text>
-            <Text>{event.date}</Text>
-            <Text>{event.description}</Text>
+            <Text key={i}>{event.title}</Text>
+            <Text key={i}>{event.date}</Text>
+            <Text key={i}>{event.description}</Text>
           </Box>
         ))}
         <Heading>Gimbalabs Indonesia</Heading>

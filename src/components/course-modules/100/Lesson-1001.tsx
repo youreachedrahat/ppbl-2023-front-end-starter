@@ -31,7 +31,7 @@ export default function Lesson1001() {
       <Grid mx="auto" fontSize="xl" fontWeight="semibold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text py="3">
-            Usually, when we talk about Cardano, we are talking about the "Cardano Mainnet".
+            Usually, when we talk about Cardano, we are talking about the &rdquo;Cardano Mainnet&rdquo;.
           </Text>
           <Text py="3">
             But Mainnet is not the only Cardano network.
@@ -42,7 +42,7 @@ export default function Lesson1001() {
             tokens that have a real value!
           </Text>
           <Text py="3">
-            That's why in this course we will use Cardano's "pre-production test network" also known as "Preprod".
+            That's why in this course we will use Cardano's &rdquo;pre-production test network&rdquo; also known as &rdquo;Preprod&rdquo;.
           </Text>
           <Text py="3">
             Your first task in PPBL 2023 is to connect a browser-based wallet to Preprod.
@@ -60,7 +60,7 @@ export default function Lesson1001() {
           <ListItem>Review the short video above to see how to connect your wallet to Preprod.</ListItem>
           <ListItem>Use the Connect Wallet button below to see if you are successful!</ListItem>
         </OrderedList>
-        <Text py="5">Try to connect a wallet. Make sure it is on Cardano's Pre-Production test network.</Text>
+        <Text py="5">Try to connect a wallet. Make sure it is on Cardano Pre-Production test network.</Text>
         <Box mb="20">
           <CardanoWallet />
         </Box>
@@ -75,7 +75,7 @@ export default function Lesson1001() {
                   {address}
                 </Text>
                 <Text py="5">
-                  Nice work. In the next lesson, you will get some "test Ada" in your Preprod wallet.
+                  Nice work. In the next lesson, you will get some &rdquo;test Ada&rdquo; in your Preprod wallet.
                 </Text>
               </>
             ) : (

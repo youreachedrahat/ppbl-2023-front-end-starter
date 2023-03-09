@@ -39,10 +39,13 @@ export default function Lesson1002() {
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
-            To make it easy for developers to build and test applications on Cardano, IOHK provides <CLink>Testnet Faucets</CLink> within the <CLink href="https://docs.cardano.org/">Cardano Ecosystem documentation</CLink>.
+            To make it easy for developers to build and test applications on Cardano, IOHK provides{" "}
+            <CLink>Testnet Faucets</CLink> within the{" "}
+            <CLink href="https://docs.cardano.org/">Cardano Ecosystem documentation</CLink>.
           </Text>
           <Text fontSize="lg" py="3">
-            Watch this video to see how to get test-Ada, or "tAda" on the Prepod testnet, or follow the steps below.
+            Watch this video to see how to get test-Ada, or &rdquo;tAda&rdquo; on the Prepod testnet, or follow the
+            steps below.
           </Text>
         </GridItem>
         <GridItem>
@@ -59,9 +62,12 @@ export default function Lesson1002() {
               https://docs.cardano.org/cardano-testnet/tools/faucet
             </CLink>
           </ListItem>
-          <ListItem>Make sure to select "Preprod Testnet" from the Environment menu.</ListItem>
+          <ListItem>Make sure to select &rdquo;Preprod Testnet&rdquo; from the Environment menu.</ListItem>
           <ListItem>Enter your Preprod address and submit the form.</ListItem>
-          <ListItem>Wait a few moments for your "tAda" to arrive. Then refresh this page and connect your wallet again.</ListItem>
+          <ListItem>
+            Wait a few moments for your &rdquo;tAda&rdquo; to arrive. Then refresh this page and connect your wallet
+            again.
+          </ListItem>
         </OrderedList>
         <SuccessComponent mastery={connected && mastery}>
           {mastery ? (

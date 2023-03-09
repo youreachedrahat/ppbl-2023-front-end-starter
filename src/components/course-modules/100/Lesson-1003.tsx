@@ -12,12 +12,12 @@ export default function Lesson1003() {
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
-            We think it's wonderful that this PPBL course can tell you that you've mastered the first two SLTs. But
-            "Mastery" can't always be measured directly.
+            We think it&rsquo;s wonderful that this PPBL course can tell you that you&rsquo;ve mastered the first two SLTs. But
+            &rdquo;Mastery&rdquo; cannot always be measured directly.
           </Text>
           <Text fontSize="lg" py="3">
             Blockchains require all of us to be careful keeping custody of private keys and mnemonic phrases, and you are the
-            most important judge of whether or not you've mastered this learning target.
+            most important judge of whether or not you have mastered this learning target.
           </Text>
           <Text fontSize="lg" py="3">
             Join us for a conversation about wallet security at Plutus PBL Live coding on Thursday, 2023-03-16 at 1430
@@ -39,7 +39,7 @@ export default function Lesson1003() {
         </Text>
         <Text py="2" width="70%">
           In Module 101, we will discuss key management on cardano-cli. In Module 201, we will investigate how keys can
-          be stored in web applications, and you will learn how to "hack" the next lesson.
+          be stored in web applications, and you will learn how to hack Lesson 100.4.
         </Text>
         <SuccessComponent mastery={false}>You are confident that no one else can access your keys.</SuccessComponent>
       </AssignmentComponent>

@@ -298,9 +298,9 @@ import {
           (childrenHasChildren) && (
             <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
               {childrenHasChildren && (
-                  childrenHasChildren.map((child) => (
+                  childrenHasChildren.map((child, i) => (
                     (child.children) && (
-                      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+                      <Collapse key={i} in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
                         {child.children && (
                           <Stack
                             mt={2}

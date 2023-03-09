@@ -49,15 +49,15 @@ export default function Lesson1004() {
             </Text>
             .
           </Text>
-          <Text py="3">There is a lot we'd like to tell you about the Contributor token:</Text>
+          <Text py="3">There is a lot we want to tell you about the Contributor token:</Text>
           <UnorderedList ml="10">
             <ListItem>how it is minted using <CLink href="https://meshjs.dev/">MeshJS</CLink></ListItem>
             <ListItem>how it serves as an experimental implementation of <CLink href="https://cips.cardano.org/cips/cip68/">CIP-68</CLink></ListItem>
-            <ListItem>how you'll be able to use Plutus to change the behavior of the token</ListItem>
+            <ListItem>how you will be able to use Plutus to change the behavior of the token</ListItem>
           </UnorderedList>
 
           <Text py="3">
-            We will cover all of the points above and much more in this course. But first, let's just make sure that you
+            We will cover all of the points above and much more in this course. But first, let&rsquo;s just make sure that you
             have a Contributor Token.
           </Text>
           <Text>Review this video, or follow the steps below to mint your PPBL2023 Token.</Text>
@@ -74,7 +74,7 @@ export default function Lesson1004() {
           <ListItem py="1" pl="2">Confirm that your wallet is connected to Cardano Preprod Testnet.</ListItem>
           <ListItem py="1" pl="2">Make sure that collateral is set, and that dapp connection is enabled in your wallet. To learn about collateral and dapp connection, watch the video above.</ListItem>
           <ListItem py="1" pl="2">Choose an alias for your token. Remember that you are minting a token on a blockchain, and the name of your token will be on a permanent ledger.</ListItem>
-          <ListItem py="1" pl="2">Click the "Mint" button, then sign and submit the transaction.</ListItem>
+          <ListItem py="1" pl="2">Click the Mint button, then sign and submit the transaction.</ListItem>
           <ListItem py="1" pl="2">
             Your custom PPBL 2023 token will be minted directly to your wallet.
           </ListItem>

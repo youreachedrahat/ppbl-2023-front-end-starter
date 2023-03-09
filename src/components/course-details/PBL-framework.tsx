@@ -1,4 +1,17 @@
-import { Box, Container, Divider, Flex, Heading, Image, Text, Stack, Center, Grid, GridItem, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  Stack,
+  Center,
+  Grid,
+  GridItem,
+  Button,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
@@ -6,7 +19,8 @@ const PBLFramework = () => {
   return (
     <Container maxWidth="90%" marginLeft="2em" marginTop="2em" w="80%">
       <Heading size="xl" color="theme.blue" lineHeight="1.4">
-        The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real Projects.
+        The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real
+        Projects.
       </Heading>
       <Heading size="xl" color="theme.green" lineHeight="1.4" w="80%">
         Plutus PBL is one example of a PBL course. Maybe you can imagine some others.
@@ -56,7 +70,7 @@ const PBLFramework = () => {
               </Box>
             </GridItem>
             <GridItem colSpan={2}>
-                <Image src="/PBLFramework.png" width="100%" />
+              <Image src="/PBLFramework.png" width="100%" alt="pblframework" />
             </GridItem>
           </Grid>
         </Stack>
@@ -66,7 +80,8 @@ const PBLFramework = () => {
         Next:
       </Heading>
       <Text fontSize="xl" my="5">
-        Each module consists of a set of Student Learning Targets (SLTs) that describe what you will learn in the course.
+        Each module consists of a set of Student Learning Targets (SLTs) that describe what you will learn in the
+        course.
       </Text>
       <Link href="/get-started/slts">
         <Button>Tell me about SLTs</Button>
