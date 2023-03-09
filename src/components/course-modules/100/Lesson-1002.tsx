@@ -41,7 +41,7 @@ export default function Lesson1002() {
           <Text fontSize="lg" py="3">
             To make it easy for developers to build and test applications on Cardano, IOHK provides{" "}
             <CLink>Testnet Faucets</CLink> within the{" "}
-            <CLink href="https://docs.cardano.org/">Cardano Ecosystem documentation</CLink>.
+            <CLink href="https://docs.cardano.org/" target="_blank">Cardano Ecosystem documentation</CLink>.
           </Text>
           <Text fontSize="lg" py="3">
             Watch this video to see how to get test-Ada, or &rdquo;tAda&rdquo; on the Prepod testnet, or follow the
@@ -58,7 +58,7 @@ export default function Lesson1002() {
         <OrderedList pb="5">
           <ListItem>
             Go to{" "}
-            <CLink href="https://docs.cardano.org/cardano-testnet/tools/faucet">
+            <CLink href="https://docs.cardano.org/cardano-testnet/tools/faucet" target="_blank">
               https://docs.cardano.org/cardano-testnet/tools/faucet
             </CLink>
           </ListItem>

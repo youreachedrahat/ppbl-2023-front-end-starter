@@ -84,6 +84,9 @@ export default function Lesson1001() {
           </>
         </SuccessComponent>
       </AssignmentComponent>
+      <Link href="/modules/100/1002">
+        <Button my="1em">Continue to Lesson 2</Button>
+      </Link>
     </LessonLayout>
   );
 }

@@ -25,7 +25,7 @@ const Governance = () => {
         We believe that the best way to get educated is by doing things.
       </Text>
       <Text fontSize="xl" my="1em">
-        So let&rsquos get started.
+        So let&rsquo;s get started.
       </Text>
       <Link href="/modules/100">
         <Button my="1em">Get Started with Module 100</Button>

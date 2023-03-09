@@ -1,6 +1,6 @@
 import { Box, Container, Divider, Heading, List, ListItem, Text, Flex } from "@chakra-ui/react";
 import React from "react";
-import slts from "@/src/data/slts.json";
+import slts from "@/src/data/slts-english.json";
 // import slts from "@/src/data/slts-indonesian.json";
 
 
