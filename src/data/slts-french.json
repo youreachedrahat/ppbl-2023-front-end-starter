@@ -2,152 +2,152 @@
   "modules": [
     {
       "number": 100,
-      "title": "Getting Started",
+      "title": "Début",
       "slts": [
-        { "id": "100.1", "slt": "I can connect a Cardano wallet to the pre-production test network." },
-        { "id": "100.2", "slt": "I can get free tAda on the pre-production testnet." },
-        { "id": "100.3", "slt": "I know how to safely store my keys." },
-        { "id": "100.4", "slt": "I can mint a PPBL Contributor Token." }
+        { "id": "100.1", "slt": "Je peux connecter un portefeuille Cardano au réseau de test de pré-production." },
+        { "id": "100.2", "slt": "Je peux obtenir des tAda gratuitement sur le résearu de test de pré-production." },
+        { "id": "100.3", "slt": "Je sais comment sauvegarder mes clés en toute sécurité." },
+        { "id": "100.4", "slt": "Je peux créer un jeton de contributeur PPBL." }
       ]
     },
     {
       "number": 101,
-      "title": "Write Your First Smart Contract",
+      "title": "Composez Votre Premier Contrat Intelligent",
       "slts": [
-        { "id": "101.1", "slt": "I can compile a plutus validator to Untyped Plutus Core (UPLC)." },
-        { "id": "101.2", "slt": "I understand the role that UPLC plays in a decentralized application on Cardano." },
-        { "id": "101.3", "slt": "I can use Demeter.run to compile a .plutus script." },
+        { "id": "101.1", "slt": "Je peux compiler un validateur Plutus vers le format Untyped Plutus Core (UPLC)." },
+        { "id": "101.2", "slt": "Je comprends le rôle que joue UPLC dans une application décentralisée sur Cardano." },
+        { "id": "101.3", "slt": "Je peux utiliser Demeter.run pour compiler un programme .plutus." },
         {
           "id": "101.4",
-          "slt": "I can set up a local Plutus development environment using nix shell, and use it to compile a `.plutus` script."
+          "slt": "Je peux configurer un environnement de développement Plutus local à l'aide de la coquille Nix et l'utiliser pour compiler un  programme `.plutus`."
         },
-        { "id": "101.5", "slt": "I can write an always succeeds contract in Aiken." }
+        { "id": "101.5", "slt": "Je peux composer un contrat qui réussit toujours en utilisant le language Aiken." }
       ]
     },
     {
       "number": 102,
-      "title": "Build Your First Transactions",
+      "title": "Formulez Vos Premières Transactions",
       "slts": [
-        { "id": "102.1", "slt": "I can query the blockchain using cardano-cli." },
-        { "id": "102.2", "slt": "I can create a wallet using cardano-cli." },
-        { "id": "102.3", "slt": "I can build a simple transaction using cardano-cli." },
-        { "id": "102.4", "slt": "I can lock funds at a contract address using cardano-cli." },
-        { "id": "102.5", "slt": "I can unlock funds from a contract address using cardano-cli." },
-        { "id": "102.6", "slt": "I can use bash scripts to build re-usable transactions." }
+        { "id": "102.1", "slt": "Je peux interroger la blockchain en utilisant cardano-cli." },
+        { "id": "102.2", "slt": "Je peux créer un portefeuille en utilisant cardano-cli." },
+        { "id": "102.3", "slt": "Je peux créer une simple transaction en utilisant cardano-cli." },
+        { "id": "102.4", "slt": "Je peux verrouiller des fonds à une adresse de contrat en utilisant cardano-cli." },
+        { "id": "102.5", "slt": "Je peux déverrouiller des fonds à une adresse de contrat en utilisant cardano-cli." },
+        { "id": "102.6", "slt": "Je peux utiliser des programmes bash pour créer des transactions réutilisables." }
       ]
     },
     {
       "number": 103,
-      "title": "What You Will Learn in This Course",
+      "title": "Ce Que Vous Apprendrez Dans Ce Cours",
       "slts": [
-        { "id": "103.1", "slt": "I can make a contribution to an open source project using git." },
-        { "id": "103.2", "slt": "I can re-use code from existing projects." },
-        { "id": "103.3", "slt": "I can ask questions on Cardano Stack Exchange." }
+        { "id": "103.1", "slt": "Je peux apporter une contribution à un projet open-source en utilisant git." },
+        { "id": "103.2", "slt": "Je peux réutiliser les codes de projets existants." },
+        { "id": "103.3", "slt": "Je peux poser des questions sur Cardano Stack Exchange." }
       ]
     },
     {
       "number": 201,
-      "title": "Build a Front End Dapp Template",
+      "title": "Créez Un Modèle Frontal D'une Dapp",
       "slts": [
-        { "id": "201.1", "slt": "I can run a Next JS project on my local device." },
-        { "id": "201.2", "slt": "I can use Mesh APIs to interact with a browser-wallet like Eternl or Nami." },
-        { "id": "201.3", "slt": "I can create a web app that renders differently if a user holds a Cardano token." },
-        { "id": "201.4", "slt": "I can query the blockchain with GraphQL and Koios." },
-        { "id": "201.5", "slt": "I can use git to create a feature branch and submit a merge request." }
+        { "id": "201.1", "slt": "Je peux exécuter un projet Next JS sur mon appareil local." },
+        { "id": "201.2", "slt": "Je peux utiliser les API Mesh pour interagir avec un portefeuille de navigateur comme Eternl ou Nami." },
+        { "id": "201.3", "slt": "Je peux créer une application Web qui s'affiche différemment si un utilisateur détient un jeton Cardano." },
+        { "id": "201.4", "slt": "Je peux interroger la blockchain en utilisant GraphQL et Koios." },
+        { "id": "201.5", "slt": "Je peux utiliser git pour créer une branche de fonctionnalité et soumettre une demande de fusion." }
       ]
     },
     {
       "number": 202,
-      "title": "Three Ways to Mint a Token",
+      "title": "Trois Façons De Créer Un Jeton",
       "slts": [
-        { "id": "202.1", "slt": "I can mint a Cardano native asset using Mesh APIs." },
-        { "id": "202.2", "slt": "I can mint native assets with native scripts using cardano-cli." },
-        { "id": "202.3", "slt": "I can mint a native asset using a Plutus Minting script." }
+        { "id": "202.1", "slt": "Je peux créer un actif natif Cardano à l'aide des API Mesh." },
+        { "id": "202.2", "slt": "Je peux créer des actifs natifs avec des programmes natifs à l'aide de cardano-cli." },
+        { "id": "202.3", "slt": "Je peux créer un actif natif à l'aide d'un programme Plutus de gestion monétaire." }
       ]
     },
     {
       "number": 203,
-      "title": "Three Ways to Mint an NFT",
+      "title": "Trois Façons De Créer Un NFT",
       "slts": [
-        { "id": "203.1", "slt": "I can add metadata to a Cardano transaction." },
-        { "id": "203.2", "slt": "I can create a Cardano NFT that adheres to CIP-25 standards." },
-        { "id": "203.3", "slt": "I know where to learn more about Cardano Improvement Proposals." },
-        { "id": "203.4", "slt": "I can contribute to new standards in this development ecosystem." }
+        { "id": "203.1", "slt": "Je peux ajouter des métadonnées à une transaction Cardano." },
+        { "id": "203.2", "slt": "Je peux créer un NFT sur Cardano qui respecte les normes du CIP-25." },
+        { "id": "203.3", "slt": "Je sais où en savoir plus sur les propositions d'amélioration de Cardano." },
+        { "id": "203.4", "slt": "Je peux contribuer à de nouvelles normes dans cet écosystème de développement." }
       ]
     },
     {
       "number": 204,
-      "title": "PPBL Faucet Project",
+      "title": "Projet PPBL Faucet",
       "slts": [
-        { "id": "204.1", "slt": "I can deploy an instance of a Plutus script with custom parameters" },
-        { "id": "204.2", "slt": "I can contribute to a headless, decentralized application." }
+        { "id": "204.1", "slt": "Je peux déployer une instance d'un programme Plutus avec des paramètres personnalisés." },
+        { "id": "204.2", "slt": "Je peux contribuer à une application décentralisée sans point d'accès frontal." }
       ]
     },
     {
       "number": 301,
-      "title": "Writing and Using Plutus Validators",
+      "title": "Composer et Utiliser Les Validateurs Plutus",
       "slts": [
-        { "id": "301.1", "slt": "I can write a Plutus Spending validator." },
-        { "id": "301.2", "slt": "I know enough haskell to understand some common validator design patterns." },
-        { "id": "301.3", "slt": "I understand how Datum is used in Plutus validators." },
-        { "id": "301.4", "slt": "I understand how Redeemers are used in Plutus validators." }
+        { "id": "301.1", "slt": "Je peux composer un validateur Plutus de Dépense." },
+        { "id": "301.2", "slt": "Je connais suffisamment sur Haskell pour comprendre certains modèles de conception de validateurs courants." },
+        { "id": "301.3", "slt": "Je comprends comment la Donnée est utilisée dans les validateurs Plutus." },
+        { "id": "301.4", "slt": "Je comprends comment les Rédempteurs sont utilisés dans les validateurs Plutus." }
       ]
     },
     {
       "number": 302,
-      "title": "On-Chain Essentials: Plutus",
+      "title": "Essentiels Sur Réseau : Plutus",
       "slts": [
-        { "id": "302.1", "slt": "I can plan and implement my own Plutus contracts" },
-        { "id": "302.2", "slt": "I can create, update and maintain a Plutus project." },
-        { "id": "302.3", "slt": "I can use datum, redeemer and custom logic effectively." },
+        { "id": "302.1", "slt": "Je peux planifier et mettre en application mes propres contrats Plutus." },
+        { "id": "302.2", "slt": "Je peux créer, mettre à jour et maintenir un projet Plutus." },
+        { "id": "302.3", "slt": "Je peux utiliser efficacement les données, les rédempteurs et la logique personnalisée." },
         { "id": "302.4", "slt": "I can convert Datums and Redeemers to JSON files." },
-        { "id": "302.5", "slt": "I undstand how time works on Plutus (POSIXTime) and Ledger (Slot Number)." },
+        { "id": "302.5", "slt": "Je comprends comment le temps est mesuré sur Plutus (POSIXTime) et sur le Registre (Nombre Slot)." },
         {
           "id": "302.6",
-          "slt": "I can analyze the performance of a Plutus validator by viewing its size, memory and CPU exection costs."
+          "slt": "Je peux analyser les performances d'un validateur Plutus en visualisant sa taille, sa mémoire et ses coûts d'exécution CPU."
         },
-        { "id": "302.7", "slt": "I can deploy a Plutus reference script." },
+        { "id": "302.7", "slt": "Je peux déployer un programme de référence Plutus." },
         {
           "id": "302.8",
-          "slt": "I can run Plutus documentation locally and write comments properly in order to generate haddock for a new project."
+          "slt": "Je peux exécuter la documentation de Plutus localement et écrire des commentaires correctement afin de générer du format haddock pour un nouveau projet."
         },
-        { "id": "302.9", "slt": "I can secure Datum, Redeemer and Contract Parameters for my SC and project." }
+        { "id": "302.9", "slt": "Je peux sécuriser les données, rédempteurs et paramètres contextuels de mon contrat intelligent et projet" }
       ]
     },
     {
       "number": 303,
-      "title": "On-Chain Essentials: Aiken",
+      "title": "Essentiels Sur Réseau : Aiken",
       "slts": [
-        { "id": "303.1", "slt": "I can write a Plutus script using Aiken." },
-        { "id": "303.2", "slt": "I can implement Plutus business logic in Aiken." }
+        { "id": "303.1", "slt": "Je peux composer un programme Plutus en utilisant Aiken." },
+        { "id": "303.2", "slt": "Je peux implémenter une logique d'affaire Plutus dans Aiken." }
       ]
     },
     {
       "number": 304,
-      "title": "Off-Chain Essentials: Transactions, UI, and Queries",
+      "title": "Essentiels Hors Réseau: Transactions, Interfaces, and Requêtes",
       "slts": [
         {
           "id": "304.1",
-          "slt": "I can make programmatic queries of historical transactions using Koios and GraphQL."
+          "slt": "Je peux faire des requêtes programmatiques de l'historique des transactions en utilisant Koios et GraphQL."
         },
         {
           "id": "304.2",
-          "slt": "I can create user interfaces which enable the user to interact with the blockchain by forming appropriate transactions for some interaction."
+          "slt": "Je peux créer des interfaces qui permettent à l'utilisateur d'interagir avec la blockchain en formant des transactions appropriées pour certaines interactions."
         },
-        { "id": "304.3", "slt": "I can use Kupo to create an index of on-chain data." }
+        { "id": "304.3", "slt": "Je peux utiliser Kupo pour créer un index de données sur réseau." }
       ]
     },
     {
       "number": 305,
-      "title": "Intro to Testing and Optimization",
+      "title": "Introduction Aux Tests Et Optimisation",
       "slts": [
-        { "id": "305.1", "slt": "I can run tests using shell, nix and cabal." },
-        { "id": "305.2", "slt": "I can express a property in QuickCheck" },
-        { "id": "305.3", "slt": "I can explain how CI adds value to a project team." },
-        { "id": "305.4", "slt": "I can explain the outcomes of verification and audit." },
-        { "id": "305.5", "slt": "I can test a validation script written in Aiken." }
+        { "id": "305.1", "slt": "Je peux formuler des tests en utilisant la ligne de commande, nix et cabal." },
+        { "id": "305.2", "slt": "Je peux exprimer une propriété dans QuickCheck." },
+        { "id": "305.3", "slt": "Je peux expliquer comment CI ajoute de la valeur à une équipe." },
+        { "id": "305.4", "slt": "Je peux expliquer les résultats de la vérification et de l'audit." },
+        { "id": "305.5", "slt": "Je peux tester un programme de validation écrit en Aiken." }
       ]
     },
-    { "number": 401, "title": "Introducing Gimbal Project Treasury and Escrow", "slts": [] }
+    { "number": 401, "title": "Présentation De La Trésorerie Et Entiercement Du Projet Gimbal", "slts": [] }
   ]
 }
