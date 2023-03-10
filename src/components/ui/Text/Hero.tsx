@@ -15,7 +15,9 @@ export default function CallToActionWithAnnotation() {
           <Heading fontWeight={600} fontSize={{ base: "4xl", sm: "2xl", md: "6xl" }} lineHeight={"150%"}>
             Gimbalabs presents: <br />
             <Text as={"span"} color={"theme.green"}>
-              Plutus Project-Based Learning<br/>2023
+              Plutus Project-Based Learning
+              <br />
+              2023
             </Text>
           </Heading>
           <Text fontSize="xl">
@@ -53,7 +55,7 @@ export default function CallToActionWithAnnotation() {
               <Icon as={Arrow} w={71} position={"absolute"} right={-71} top={"10px"} />
             </Box>
           </Stack>
-          <Box>Add License Message + social links</Box>
+          <Box>Add License Message</Box>
         </Stack>
       </Container>
     </>

@@ -1,37 +1,35 @@
-
 import {
-    Box,
-    Button,
-    Container,
-    Divider,
-    Grid,
-    GridItem,
-    Heading,
-    ListItem,
-    OrderedList,
-    Stack,
-    StackDivider,
-    Text,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Grid,
+  GridItem,
+  Heading,
+  ListItem,
+  OrderedList,
+  Stack,
+  StackDivider,
+  Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import * as React from "react";
 
 import SLT from "@/src/components/ui/Text/SLT";
+import GetHelp from "../Course/GetHelp";
 
 // Props
 // SLT
 // children
 // Next Lesson?
 
-
 type Props = {
-    children?: React.ReactNode;
-    moduleNumber: number;
-    sltId: string;
-  };
+  children?: React.ReactNode;
+  moduleNumber: number;
+  sltId: string;
+};
 
 const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId }) => {
-
   return (
     <>
       <Box w="90%" marginLeft="1em" marginTop="2em">
@@ -45,8 +43,12 @@ const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId }) => {
           <Button my="1em">Continue to Lesson 2</Button>
         </Link> */}
       </Box>
+      <Divider py="5" />
+      <Box w="50%" mx="auto" mt="10">
+        <GetHelp />
+      </Box>
     </>
   );
-}
+};
 
-export default LessonLayout
+export default LessonLayout;

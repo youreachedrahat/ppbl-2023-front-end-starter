@@ -7,6 +7,7 @@ import WithSubnavigation from "../components/ui/Text/Navbar";
 
 import "@fontsource/miriam-libre";
 import "@fontsource/open-sans";
+import SocialLinks from "../components/lms/Course/SocialLinks";
 
 const theme = extendTheme({
   colors: {
@@ -34,14 +35,14 @@ const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
-        py: "5"
-      }
+        py: "5",
+      },
     },
     Link: {
       baseStyle: {
-        color: "theme.yellow"
-      }
-    }
+        color: "theme.yellow",
+      },
+    },
   },
   styles: {
     global: {
@@ -78,6 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <WithSubnavigation />
             <Component {...pageProps} />
           </Box>
+          <SocialLinks />
         </ChakraProvider>
       </ApolloProvider>
     </MeshProvider>

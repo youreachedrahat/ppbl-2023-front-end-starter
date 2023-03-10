@@ -1,8 +1,10 @@
 import Head from "next/head";
-import Hero from "../components/ui/Text/Hero";
+import GetHelp from "@/src/components/lms/Course/GetHelp";
+import Hero from "@/src/components/ui/Text/Hero";
+import { Box, Divider } from "@chakra-ui/react";
+import SocialLinks from "../components/lms/Course/SocialLinks";
 
 export default function Home() {
-
   return (
     <>
       <Head>
@@ -12,6 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+      <Divider w="50%" mx="auto" />
+      <Box w="50%" mx="auto" my="10">
+        <GetHelp />
+      </Box>
     </>
   );
 }
