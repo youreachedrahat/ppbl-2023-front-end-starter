@@ -12,7 +12,7 @@ export default function Lesson1011() {
 
     return (
         <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
-        <SLT id="101.1">I can compile a plutus validator to Untyped Plutus Core (UPLC).</SLT>
+        {/* <SLT id="101.1">I can compile a plutus validator to Untyped Plutus Core (UPLC).</SLT> */}
         <Grid templateColumns="repeat(2, 1fr)" gap={10}>
           <AssignmentComponent>
             <Text>Assignment description goes here</Text>

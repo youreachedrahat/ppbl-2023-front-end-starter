@@ -18,9 +18,24 @@ export default function CallToActionWithAnnotation() {
               Plutus Project-Based Learning<br/>2023
             </Text>
           </Heading>
-          <Text fontSize="xl">The goal of PPBL 2023 is to support people like you <br /> to become Contributors to real Projects.</Text>
           <Text fontSize="xl">
-            The course is mastery-based <br />and you can move through it at your speed.
+            The goal of{" "}
+            <Text as="span" fontWeight="900" color="theme.green">
+              PPBL 2023
+            </Text>{" "}
+            is to support people like you <br /> to become{" "}
+            <Text as="span" fontWeight="900" color="theme.green">
+              Contributors
+            </Text>{" "}
+            to real{" "}
+            <Text as="span" fontWeight="900" color="theme.green">
+              Projects
+            </Text>
+            .
+          </Text>
+          <Text fontSize="xl">
+            The course is mastery-based <br />
+            and you can move through it at your speed.
           </Text>
           <Stack direction={"column"} spacing={3} align={"center"} alignSelf={"center"} position={"relative"}>
             <Button
@@ -38,9 +53,7 @@ export default function CallToActionWithAnnotation() {
               <Icon as={Arrow} w={71} position={"absolute"} right={-71} top={"10px"} />
             </Box>
           </Stack>
-          <Box>
-            Add License Message + social links
-          </Box>
+          <Box>Add License Message + social links</Box>
         </Stack>
       </Container>
     </>

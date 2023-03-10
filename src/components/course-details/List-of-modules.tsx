@@ -6,16 +6,16 @@ import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
 const ListOfModules = () => {
   return (
     <Container maxWidth="80%" marginLeft="0">
-      <Heading size="2xl" color="theme.blue" my="1em">
+      <Heading size="2xl" color="theme.blue" my="5">
         Plutus PBL Course Outline
       </Heading>
       <Text fontSize="xl" pb="5">
-        Each Module has a number. The Student Learning Targets (SLTs) in each Module are also numbered. The purpose of
+        Course modules are numbered. The Student Learning Targets (SLTs) in each Module are also numbered. The purpose of
         this numbering system is to give all of us a quick way to reference what you are learning.
       </Text>
       <Text fontSize="xl" pb="5">
-        When you get stuck, you can start by saying, "I need help with SLT 102.3", which is a quick indication that you
-        are learning to build transactions using cardano-cli. For an overview of what you will learn in PPBL 2023, take
+        When you get stuck, you can start by saying, &rdquo;I need help with SLT 102.3&rdquo;, which is a quick indication that you
+        are &rdquo;learning to build transactions using cardano-cli&rdquo;. For an overview of what you will learn in PPBL 2023, take
         a look at the SLTs below.
       </Text>
       <Text fontSize="lg" fontWeight="bold" color="theme.yellow" pb="5">

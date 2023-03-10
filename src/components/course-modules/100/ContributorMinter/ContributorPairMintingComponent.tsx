@@ -1,4 +1,4 @@
-import { Box, Text, Heading, Button, FormControl, Input } from "@chakra-ui/react";
+import { Box, Text, Heading, Button, FormControl, Input, FormLabel, FormHelperText } from "@chakra-ui/react";
 import { Transaction, Mint, Action, AssetMetadata, Data, Recipient } from "@meshsdk/core";
 import { useWallet, useAddress } from "@meshsdk/react";
 import { useFormik } from "formik";
@@ -30,7 +30,7 @@ const ContributorPairMintingComponent = () => {
   });
 
   useEffect(() => {
-    const _name = "PPBL2023Demo" + formik.values.contributorAlias;
+    const _name = "PPBL2023" + formik.values.contributorAlias;
     setContributorTokenName(_name);
   }, [formik.values.contributorAlias]);
 
@@ -54,7 +54,7 @@ const ContributorPairMintingComponent = () => {
   };
 
   const handleMintingTransaction = async () => {
-    if (address && contributorTokenName && contributorTokenName != "PPBL2023Demo") {
+    if (address && contributorTokenName && contributorTokenName != "PPBL2023") {
       const assetMetadata: AssetMetadata = {
         name: contributorTokenName,
         image: "https://www.gimbalabs.com/g.png",
@@ -90,9 +90,12 @@ const ContributorPairMintingComponent = () => {
       <Heading size="md" py="3">
         Mint a Contributor Token Pair
       </Heading>
-      <FormControl color="black">
+      <FormControl color="theme.dark">
+        <FormLabel color="theme.light">
+          Write Your Alias Here
+        </FormLabel>
         <Input
-          my="3"
+          mb="3"
           bg="white"
           id="contributorAlias"
           name="contributorAlias"
@@ -100,6 +103,7 @@ const ContributorPairMintingComponent = () => {
           value={formik.values.contributorAlias}
           placeholder="Enter an Alias for your token"
         />
+      <FormHelperText py="2">Preview the name of your token on this button:</FormHelperText>
       </FormControl>
       <Button colorScheme="green" onClick={handleMintingTransaction}>
         Mint Your {contributorTokenName}

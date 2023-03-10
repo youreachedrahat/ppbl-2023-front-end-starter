@@ -24,11 +24,11 @@ type mdxComponents = {
 export const components: mdxComponents = {
   code: ({ node, inline, className, children, ...props }: CodeProps): ReactNode => {
     const match = /language-(\w+)/.exec(className || '');
-    const { onCopy, hasCopied } = useClipboard(children);
+    // const { onCopy, hasCopied } = useClipboard(children);
 
     return !inline && match ? (
       <Box pos="relative">
-        <IconButton
+        {/* <IconButton
           pos="absolute"
           top="1rem"
           right="1rem"
@@ -44,17 +44,17 @@ export const components: mdxComponents = {
           PreTag="div"
           children={String(children).replace(/\n$/, '')}
           {...props}
-        />
+        /> */}
       </Box>
     ) : (
       <code className={className} {...props}>
-        <SyntaxHighlighter
+        {/* <SyntaxHighlighter
           language={match ? match[1] : undefined}
           style={nord}
           PreTag="span"
           children={children.replace(/\n$/, '')}
           customStyle={{ fontSize: "medium", paddingTop: "0.2em", paddingBottom: "0.2em", paddingLeft: "0.5em", paddingRight: "0.5em" }}
-        />
+        /> */}
       </code>
     );
   },

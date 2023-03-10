@@ -39,10 +39,11 @@ const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId }) => {
         <Divider py="5" />
 
         {children}
-        <Divider />
+        {/* Navigation buttons in progress */}
+        {/* <Divider />
         <Link href="/modules/100/1002">
           <Button my="1em">Continue to Lesson 2</Button>
-        </Link>
+        </Link> */}
       </Box>
     </>
   );

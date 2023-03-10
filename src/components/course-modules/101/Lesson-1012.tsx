@@ -12,7 +12,7 @@ export default function Lesson1012() {
 
     return (
         <Stack maxWidth="80%" marginLeft="1em" marginTop="2em" divider={<StackDivider borderColor="theme.three" />}>
-        <SLT id="101.2">I understand the role that UPLC plays in a decentralized application on Cardano.</SLT>
+        {/* <SLT id="101.2">I understand the role that UPLC plays in a decentralized application on Cardano.</SLT> */}
         <Grid templateColumns="repeat(2, 1fr)" gap={10}>
           <AssignmentComponent>
             <Text>Assignment description goes here</Text>

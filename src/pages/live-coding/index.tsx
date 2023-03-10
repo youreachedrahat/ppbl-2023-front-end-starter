@@ -1,7 +1,7 @@
 import { Heading, Box, Text } from "@chakra-ui/react";
 import Head from "next/head";
 
-import events from "@/src/data/live-coding/events.json"
+import events from "@/src/data/live-coding/events-english.json"
 
 export default function LiveCoding() {
   return (
@@ -12,13 +12,13 @@ export default function LiveCoding() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box>
+      <Box w="50%" mx="auto">
         <Heading py="10" size="4xl">Live Coding</Heading>
 
         <Heading>Gimbalabs - English</Heading>
-        {events.events.map((event: any) => (
-          <Box m="5" p="5" bg="theme.green" color="theme.dark">
-            <Text>{event.title}</Text>
+        {events.events.map((event: any, i) => (
+          <Box key={i} m="3" p="3" bg="theme.green" color="theme.dark">
+            <Text fontSize="lg" fontWeight="bold">{event.title}</Text>
             <Text>{event.date}</Text>
             <Text>{event.description}</Text>
           </Box>
