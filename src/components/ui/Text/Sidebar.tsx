@@ -39,7 +39,7 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps) => {
   // Check if the current path is the module path without an item slug
   useEffect(() => {
     if (router.asPath === modulePath && items.length > 0) {
-      router.push(`${modulePath}/${items[0].slug}`);
+      router.push(`${modulePath}/${items[selected].slug}`);
     }
   }, [router.asPath]);
 

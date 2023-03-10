@@ -1,9 +1,10 @@
 import SLTs301 from "@/src/components/course-modules/301/301-SLTs";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
-import { items } from "@/src/data/modules/301";
-
+import slt from "@/src/data/slts-english.json"
 
 const Module301Lessons = () => {
+
+  const moduleSelected = slt.modules.find((m) => m.number === 301);
 
   const status = null
 
@@ -12,7 +13,7 @@ const Module301Lessons = () => {
   ]
 
   return (
-    <ModuleLessons items={items} modulePath="/modules/301" selected={0} lessons={lessons} status={status}/>
+    <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/301" selected={0} lessons={lessons} status={status}/>
   )
           
 };

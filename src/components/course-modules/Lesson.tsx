@@ -2,7 +2,6 @@ import Sidebar from "@/src/components/ui/Text/Sidebar";
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { GetStaticProps, GetStaticPaths } from "next";
 import { Divider, Grid, GridItem } from "@chakra-ui/react";
 
 type Item = {

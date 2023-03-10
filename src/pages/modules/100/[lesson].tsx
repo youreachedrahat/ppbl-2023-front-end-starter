@@ -5,13 +5,16 @@ import Lesson1003 from "@/src/components/course-modules/100/Lesson-1003";
 import Lesson1004 from "@/src/components/course-modules/100/Lesson-1004";
 import Status100 from "@/src/components/course-modules/100/Status100";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
-import { items } from "@/src/data/modules/100";
-import { GetStaticPaths, GetStaticProps } from "next";
+import slt from "@/src/data/slts-english.json"
 
 const Module100Lessons = () => {
 
+  const moduleSelected = slt.modules.find((m) => m.number === 100);
+
   const status = <Status100 />
 
+  // Sidebar items are generated from module.lessons i.e. from the JSON file
+  // Here we simply set the contents by matching the slug and key
   const lessons = [
     { key:"slts", component:<SLTs100 />},
     { key:"1001", component:<Lesson1001 />},
@@ -21,7 +24,7 @@ const Module100Lessons = () => {
   ]
 
   return (
-    <ModuleLessons items={items} modulePath="/modules/100" selected={0} lessons={lessons} status={status}/>
+    <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/100" selected={0} lessons={lessons} status={status}/>
   )
           
 };

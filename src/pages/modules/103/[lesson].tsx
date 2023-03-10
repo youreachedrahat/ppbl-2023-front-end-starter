@@ -1,18 +1,26 @@
 import SLTs103 from "@/src/components/course-modules/103/103-SLTs";
+import ComingSoon from "@/src/components/course-modules/ComingSoon";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
-import { items } from "@/src/data/modules/103";
+import slt from "@/src/data/slts-english.json"
 
 
 const Module103Lessons = () => {
 
+  const moduleSelected = slt.modules.find((m) => m.number === 103);
+
   const status = null
 
+  // Sidebar items are generated from module.lessons i.e. from the JSON file
+  // Here we simply set the contents by matching the slug and key
   const lessons = [
-    { key:"slts", component:<SLTs103 />},
+    { key:"slts", component:<><SLTs103 /><ComingSoon /></>},
+    { key:"1031", component:<ComingSoon />},
+    { key:"1032", component:<ComingSoon />},
+    { key:"1033", component:<ComingSoon />},
   ]
 
   return (
-    <ModuleLessons items={items} modulePath="/modules/103" selected={0} lessons={lessons} status={status}/>
+    <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/103" selected={0} lessons={lessons} status={status}/>
   )
           
 };
