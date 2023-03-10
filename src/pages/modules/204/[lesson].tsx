@@ -1,4 +1,5 @@
 import SLTs204 from "@/src/components/course-modules/204/204-SLTs";
+import ComingSoon from "@/src/components/course-modules/ComingSoon";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
 import slt from "@/src/data/slts-english.json"
 
@@ -10,7 +11,9 @@ const Module204Lessons = () => {
   const status = null
 
   const lessons = [
-    { key:"slts", component:<SLTs204 />},
+    { key:"slts", component:<><SLTs204 /><ComingSoon /></>},
+    { key:"2041", component:<ComingSoon />},
+    { key:"2042", component:<ComingSoon />},
   ]
 
   return (

@@ -85,7 +85,7 @@ import {
             align={'center'}
             direction={'row'}
             spacing={6}>
-            <Button
+            {/* <Button
               as={'a'}
               display={{ base: 'none', lg: 'inline-flex' }}
               fontSize={'sm'}
@@ -104,7 +104,7 @@ import {
                 bg: 'theme.blue',
               }}>
               Sign Up
-            </Button>
+            </Button> */}
             <CardanoWallet />
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}

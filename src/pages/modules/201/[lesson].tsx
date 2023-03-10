@@ -1,4 +1,5 @@
 import SLTs201 from "@/src/components/course-modules/201/201-SLTs";
+import ComingSoon from "@/src/components/course-modules/ComingSoon";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
 import slt from "@/src/data/slts-english.json"
 
@@ -11,7 +12,12 @@ const Module201Lessons = () => {
   // Sidebar items are generated from module.lessons i.e. from the JSON file
   // Here we simply set the contents by matching the slug and key
   const lessons = [
-    { key:"slts", component:<SLTs201 />},
+    { key:"slts", component:<><SLTs201 /><ComingSoon /></>},
+    { key:"2011", component:<ComingSoon />},
+    { key:"2012", component:<ComingSoon />},
+    { key:"2013", component:<ComingSoon />},
+    { key:"2014", component:<ComingSoon />},
+    { key:"2015", component:<ComingSoon />},
   ]
 
   return (
