@@ -40,7 +40,7 @@ export default function Lesson1002() {
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
             To make it easy for developers to build and test applications on Cardano, IOHK provides{" "}
-            <CLink>Testnet Faucets</CLink> within the{" "}
+            <CLink href="https://docs.cardano.org/cardano-testnet/tools/faucet" target="_blank">Testnet Faucets</CLink> within the{" "}
             <CLink href="https://docs.cardano.org/" target="_blank">Cardano Ecosystem documentation</CLink>.
           </Text>
           <Text fontSize="lg" py="3">
