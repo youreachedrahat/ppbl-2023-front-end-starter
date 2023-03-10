@@ -1,7 +1,20 @@
-import { Heading, Box, Text } from "@chakra-ui/react";
+import {
+  Heading,
+  Box,
+  Text,
+  Table,
+  TableContainer,
+  Thead,
+  Th,
+  Tbody,
+  Tr,
+  Td,
+  Link as CLink,
+  Divider,
+} from "@chakra-ui/react";
 import Head from "next/head";
 
-import events from "@/src/data/live-coding/events-english.json"
+import events from "@/src/data/live-coding/events-english.json";
 
 export default function LiveCoding() {
   return (
@@ -12,19 +25,39 @@ export default function LiveCoding() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box w="50%" mx="auto">
-        <Heading py="10" size="4xl">Live Coding</Heading>
+      <Box w="70%" mx="auto">
+        <Heading py="10" size="2xl">
+          Plutus PBL Live Coding Sessions:
+        </Heading>
 
         <Heading>Gimbalabs - English</Heading>
-        {events.events.map((event: any, i) => (
-          <Box key={i} m="3" p="3" bg="theme.green" color="theme.dark">
-            <Text fontSize="lg" fontWeight="bold">{event.title}</Text>
-            <Text>{event.date}</Text>
-            <Text>{event.description}</Text>
-          </Box>
-        ))}
+        <TableContainer>
+          <Table>
+            <Thead>
+              <Th>Date</Th>
+              <Th>Title</Th>
+              <Th>Description</Th>
+              <Th>Register</Th>
+            </Thead>
+            <Tbody>
+              {events.events.map((event: any, i) => (
+                <Tr key={i} bg="theme.darkGray" color="theme.light">
+                  <Td>{event.date}</Td>
+                  <Td>{event.title}</Td>
+                  <Td>{event.description}</Td>
+                  <Td>
+                    <CLink href={event.regLink} target="_blank" color="theme.light">
+                      Registration Link
+                    </CLink>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+        <Divider py="5" />
         <Heading>Gimbalabs Indonesia</Heading>
-
+        <Divider py="5" />
         <Heading>Gimbalabs Vietnam</Heading>
       </Box>
     </>
