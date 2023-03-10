@@ -19,22 +19,22 @@
         },
         {
           "slug": "1001",
-          "name": "Lesson 1",
+          "name": "Lesson 1: Connect a Wallet to Cardano Preprod",
           "video": "pjdXKsRXtzw"
         },
         {
           "slug": "1002",
-          "name": "Lesson 2",
+          "name": "Lesson 2: Get tAda from Preprod Faucet",
           "video": "CnXzI4B_pmU"
         },
         {
           "slug": "1003",
-          "name": "Lesson 3",
+          "name": "Lesson 3: Securing your private keys",
           "video": "bFrBf7IJmWo"
         },
         {
           "slug": "1004",
-          "name": "Lesson 4",
+          "name": "Lesson 4: Get your PPBL 2023 Token",
           "video": "tD5hVDC06iM"
         }
       ]
