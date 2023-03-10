@@ -13,7 +13,7 @@ import ComingSoon from "@/src/components/course-modules/ComingSoon";
 
 const Module101Lessons = () => {
 
-  const module = slt.modules.find((m) => m.number === 101);
+  const moduleSelected = slt.modules.find((m) => m.number === 101);
 
   const status = <Status101 />
 
@@ -29,7 +29,7 @@ const Module101Lessons = () => {
   ]
 
   return (
-    <ModuleLessons items={module?.lessons ?? []} modulePath="/modules/101" selected={0} lessons={lessons} status={status} />
+    <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/101" selected={0} lessons={lessons} status={status} />
   )
           
 };

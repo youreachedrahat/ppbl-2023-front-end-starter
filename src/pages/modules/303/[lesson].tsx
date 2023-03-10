@@ -4,7 +4,7 @@ import slt from "@/src/data/slts-english.json"
 
 const Module303Lessons = () => {
 
-  const module = slt.modules.find((m) => m.number === 303);
+  const moduleSelected = slt.modules.find((m) => m.number === 303);
 
   const status = null
 
@@ -13,7 +13,7 @@ const Module303Lessons = () => {
   ]
 
   return (
-    <ModuleLessons items={module?.lessons ?? []} modulePath="/modules/303" selected={0} lessons={lessons} status={status}/>
+    <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/303" selected={0} lessons={lessons} status={status}/>
   )
           
 };
