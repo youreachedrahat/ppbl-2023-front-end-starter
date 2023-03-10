@@ -18,7 +18,7 @@ const GetStarted = () => {
   ]
 
   return (
-    <ModuleLessons items={items} modulePath="/get-started/" selected={0} lessons={lessons} status={null} />
+    <ModuleLessons items={items} modulePath="/get-started" selected={0} lessons={lessons} status={null} />
   )
           
 };

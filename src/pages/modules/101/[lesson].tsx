@@ -6,13 +6,17 @@ import Lesson1014 from "@/src/components/course-modules/101/Lesson-1014";
 import { default as Example } from "@/src/components/course-modules/101/Example.mdx";
 import Status101 from "@/src/components/course-modules/101/Status101";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
-import { items } from "@/src/data/modules/101";
+import slt from "@/src/data/slts-english.json"
 
 
 const Module101Lessons = () => {
 
+  const module = slt.modules.find((m) => m.number === 101);
+
   const status = <Status101 />
 
+  // Sidebar items are generated from module.lessons i.e. from the JSON file
+  // Here we simply set the contents by matching the slug and key
   const lessons = [
     { key:"slts", component:<SLTs101 />},
     { key:"1011", component:<Lesson1011 />},
@@ -23,7 +27,7 @@ const Module101Lessons = () => {
   ]
 
   return (
-    <ModuleLessons items={items} modulePath="/modules/101" selected={0} lessons={lessons} status={status} />
+    <ModuleLessons items={module?.lessons ?? []} modulePath="/modules/101" selected={0} lessons={lessons} status={status} />
   )
           
 };
