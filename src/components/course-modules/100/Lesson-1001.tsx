@@ -49,7 +49,7 @@ export default function Lesson1001() {
           </Text>
         </GridItem>
         <GridItem>
-          <VideoComponent videoId="9hwa4wEl41k">How to connect your wallet to Pre-Production Testnet:</VideoComponent>
+          <VideoComponent videoId="pjdXKsRXtzw">How to connect your wallet to Pre-Production Testnet:</VideoComponent>
         </GridItem>
       </Grid>
       <Divider py="5" />

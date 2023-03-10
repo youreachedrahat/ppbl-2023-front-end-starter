@@ -25,7 +25,7 @@ export default function Lesson1003() {
           </Text>
         </GridItem>
         <GridItem>
-          <VideoComponent videoId="aaaaa">Private Keys</VideoComponent>
+          <VideoComponent videoId="bFrBf7IJmWo">Private Keys</VideoComponent>
         </GridItem>
       </Grid>
       <Divider py="5" />

@@ -63,7 +63,7 @@ export default function Lesson1004() {
           <Text>Review this video, or follow the steps below to mint your PPBL2023 Token.</Text>
         </GridItem>
         <GridItem>
-          <VideoComponent videoId="aaaaa">About Your New Contributor Token</VideoComponent>
+          <VideoComponent videoId="tD5hVDC06iM">About Your New Contributor Token</VideoComponent>
         </GridItem>
       </Grid>
       <Divider py="5" />

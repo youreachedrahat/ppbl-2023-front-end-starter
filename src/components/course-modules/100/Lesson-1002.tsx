@@ -49,7 +49,7 @@ export default function Lesson1002() {
           </Text>
         </GridItem>
         <GridItem>
-          <VideoComponent videoId="aaaaa">How to get tAda from the Preprod Faucet</VideoComponent>
+          <VideoComponent videoId="CnXzI4B_pmU">How to get tAda from the Preprod Faucet</VideoComponent>
         </GridItem>
       </Grid>
       <Divider py="5" />
