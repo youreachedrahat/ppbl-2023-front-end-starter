@@ -2,16 +2,17 @@ import Sidebar from "@/src/components/ui/Text/Sidebar";
 import React from "react";
 import Head from "next/head";
 
-import { items } from "@/src/data/modules/204";
+import slt from "@/src/data/slts-english.json"
 
 const Module204 = () => {
+  const moduleSelected = slt.modules.find((m) => m.number === 204);
   return (
     <>
     <Head>
       <title>PPBL Module 204</title>
     </Head>
     <div>
-      <Sidebar items={items} modulePath="/modules/204" selected={0} />
+      <Sidebar items={moduleSelected?.lessons ?? []} modulePath="/modules/204" selected={0} />
     </div>
     </>
   );
