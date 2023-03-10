@@ -6,7 +6,6 @@ import Lesson1004 from "@/src/components/course-modules/100/Lesson-1004";
 import Status100 from "@/src/components/course-modules/100/Status100";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
 import { items } from "@/src/data/modules/100";
-import { GetStaticPaths, GetStaticProps } from "next";
 
 const Module100Lessons = () => {
 

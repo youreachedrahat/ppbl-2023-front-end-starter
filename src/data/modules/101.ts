@@ -19,8 +19,8 @@ export const items = [
     slug: "1004",
     name: "Lesson 4",
   },
-  {
-    slug: "example",
-    name: "MDX Example",
-  },
+  // {
+  //   slug: "example",
+  //   name: "MDX Example",
+  // },
 ];
