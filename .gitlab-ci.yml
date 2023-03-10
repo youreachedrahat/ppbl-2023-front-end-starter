@@ -1,7 +1,5 @@
-stages:
-    - build
-
-build-code-job:
+build-job:
     stage: build
     script:
+        - yarn
         - yarn build
