@@ -5,30 +5,30 @@ import React from "react";
 const Governance = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em">
-      <Heading size="2xl" color="theme.blue">
+      <Heading size="2xl" color="theme.blue" my="10">
         Beyond Contibution is Goverance
       </Heading>
       <Text fontSize="xl" marginTop="1em">
-        Our intention is for you be more than a Contributor to projects.
+        Our long-term intention is for you be <Text as="span" fontWeight="bold" color="theme.green">more than a contributor</Text> to projects.
       </Text>
       <Text fontSize="xl" marginTop="1em">
-        We want you to be a decision maker, who helps answer the question:
+        We want you to be a <Text as="span" fontWeight="bold" color="theme.green">decision maker</Text>, who helps answer the question:
       </Text>
 
-      <Heading size="4xl" color="theme.green" my="1em">
+      <Heading size="2xl" color="theme.blue" my="10">
         &rdquo;What will we do next?&rdquo;
       </Heading>
-      <Text fontSize="xl" my="1em">
-        We believe that when people are educated, they are better prepared to make decisions.
+      <Text fontSize="xl" fontWeight="bold" color="theme.green" my="1em">
+        We believe that community education is essential for building great governance systems.
       </Text>
       <Text fontSize="xl" my="1em">
-        We believe that the best way to get educated is by doing things.
+        We believe that we learn best by doing things.
       </Text>
       <Text fontSize="xl" my="1em">
         So let&rsquo;s get started.
       </Text>
       <Link href="/modules/100">
-        <Button my="1em">Get Started with Module 100</Button>
+        <Button my="10">Get Started with Module 100</Button>
       </Link>
     </Container>
   );

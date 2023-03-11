@@ -24,7 +24,7 @@ const AboutSLTs = () => {
       </Heading>
       <OrderedList marginLeft="3em">
         <ListItem fontSize="xl" py="2">
-          PPBL2023 Consists of 14 course Modules
+          PPBL 2023 consists of 14 course Modules
         </ListItem>
         <ListItem fontSize="xl" py="2">
           Each Module starts with a list of Student Learning Targets (SLTs)
