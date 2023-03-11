@@ -44,7 +44,7 @@ const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId }) => {
         </Link> */}
       </Box>
       <Divider py="5" />
-      <Box w="50%" mx="auto" mt="10">
+      <Box mt="10">
         <GetHelp />
       </Box>
     </>

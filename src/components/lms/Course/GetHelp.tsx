@@ -15,34 +15,39 @@ import Link from "next/link";
 
 const GetHelp = () => {
   return (
-    <Box p="5" bg="theme.lightGray" borderRadius="lg">
-      <Heading size="lg" pb="5" textAlign="center">
+    <Flex direction="row" p="3">
+      <Spacer />
+      
+      <Heading size="lg" textAlign="center">
         Need Help?
       </Heading>
-      <Divider />
-      <Grid py="5" templateColumns="repeat(2, 1fr)" gap={10}>
-        <Flex direction="column" bg="theme.green" color="theme.dark" p="1" justifyItems="center">
-          <Text fontSize="xl" textAlign="center" pt="2">
-            Ask Questions on Discord
-          </Text>
-          <CLink href="https://discord.gg/Va7DXqSSn8" target="_blank">
-            <Box w="80%" mx="auto" my="5" py="3" bg="theme.yellow" borderRadius="lg" _hover={{ bg: "theme.blue"}}>
-              <Text textAlign="center" color="theme.dark">Join Gimbalabs Discord</Text>
-            </Box>
-          </CLink>
-        </Flex>
-        <Flex direction="column" bg="theme.green" color="theme.dark" p="1" justifyItems="center">
-          <Text fontSize="xl" textAlign="center" pt="2">
-            Join Plutus PBL Live Coding
-          </Text>
-          <Link href="/live-coding">
-            <Box w="80%" mx="auto" my="5" py="3" bg="theme.yellow" borderRadius="lg" _hover={{ bg: "theme.blue"}}>
-              <Text textAlign="center">View Live Coding Calendar</Text>
-            </Box>
-          </Link>
-        </Flex>
-      </Grid>
-    </Box>
+      <Spacer />
+      <Flex direction="column" justifyItems="center">
+        <Text fontSize="xl" textAlign="center">
+          Ask Questions on Discord
+        </Text>
+        <CLink href="https://discord.gg/Va7DXqSSn8" target="_blank">
+          <Box mt="2" bg="theme.yellow" borderRadius="lg" _hover={{ bg: "theme.blue" }}>
+            <Text textAlign="center" color="theme.dark">
+              Join Gimbalabs Discord
+            </Text>
+          </Box>
+        </CLink>
+      </Flex>
+      <Spacer />
+      <Flex direction="column" justifyItems="center">
+        <Text fontSize="xl" textAlign="center">
+          Join Plutus PBL Live Coding
+        </Text>
+        <Link href="/live-coding">
+          <Box mt="2" bg="theme.yellow" color="theme.dark" borderRadius="lg" _hover={{ bg: "theme.blue" }}>
+            <Text textAlign="center">View Live Coding Calendar</Text>
+          </Box>
+        </Link>
+      </Flex>
+      <Spacer />
+
+    </Flex>
   );
 };
 

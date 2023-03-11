@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <Hero />
       <Divider w="50%" mx="auto" />
-      <Box w="50%" mx="auto" my="10">
+      <Box w="70%" mx="auto" my="10">
         <GetHelp />
       </Box>
     </>
