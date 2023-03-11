@@ -17,61 +17,65 @@ type CodeProps = {
 };
 
 type mdxComponents = {
-  code: ({ node, inline, className, children, ...props }: CodeProps) => ReactNode;
+  code: React.FC<CodeProps>;
   // add other components here as needed
 };
 
-export const components: mdxComponents = {
-  code: ({ node, inline, className, children, ...props }: CodeProps): ReactNode => {
-    const match = /language-(\w+)/.exec(className || '');
-    // const { onCopy, hasCopied } = useClipboard(children);
+const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props }) => {
+  const match = /language-(\w+)/.exec(className || '');
+  // const { onCopy, hasCopied } = useClipboard(children);
 
-    return !inline && match ? (
-      <Box pos="relative">
-        {/* <IconButton
-          pos="absolute"
-          top="1rem"
-          right="1rem"
-          size="sm"
-          icon={<FaCopy />}
-          aria-label="Copy code"
-          onClick={onCopy}
-          isDisabled={hasCopied}
-        />
-        <SyntaxHighlighter
-          language={match[1]}
-          style={dracula}
-          PreTag="div"
-          children={String(children).replace(/\n$/, '')}
-          {...props}
-        /> */}
-      </Box>
-    ) : (
-      <code className={className} {...props}>
-        {/* <SyntaxHighlighter
-          language={match ? match[1] : undefined}
-          style={nord}
-          PreTag="span"
-          children={children.replace(/\n$/, '')}
-          customStyle={{ fontSize: "medium", paddingTop: "0.2em", paddingBottom: "0.2em", paddingLeft: "0.5em", paddingRight: "0.5em" }}
-        /> */}
-      </code>
-    );
-  },
+  return !inline && match ? (
+    <Box pos="relative">
+      {/* <IconButton
+        pos="absolute"
+        top="1rem"
+        right="1rem"
+        size="sm"
+        icon={<FaCopy />}
+        aria-label="Copy code"
+        onClick={onCopy}
+        isDisabled={hasCopied}
+      /> */}
+      <SyntaxHighlighter
+        language={match[1]}
+        style={dracula}
+        PreTag="div"
+        {...props}
+      >
+        {String(children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    </Box>
+  ) : (
+    <code className={className} {...props}>
+      <SyntaxHighlighter
+        language={match ? match[1] : undefined}
+        style={nord}
+        PreTag="span"
+        customStyle={{ fontSize: "medium", paddingTop: "0.2em", paddingBottom: "0.2em", paddingLeft: "0.5em", paddingRight: "0.5em" }}
+      >
+        {children.replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    </code>
+  );
+};
+
+export const components: mdxComponents = {
+  code,
   // add other components here as needed
 };
 
 type Props = {
   children?: React.ReactNode;
-};
-const MDXLessonLayout: React.FC<Props> = ({ children }) => {
+  };
+  const MDXLessonLayout: React.FC<Props> = ({ children }) => {
   return (
-    <Box w="80%" p="5" className="mdx-content">
-      <MDXProvider components={components as Components}>
-        {children}
-      </MDXProvider>
-    </Box>
+  <Box w="80%" p="5" className="mdx-content">
+  <MDXProvider components={components as Components}>
+  {children}
+  </MDXProvider>
+  </Box>
   );
-};
-
-export default MDXLessonLayout;
+  };
+  
+  export default MDXLessonLayout;
