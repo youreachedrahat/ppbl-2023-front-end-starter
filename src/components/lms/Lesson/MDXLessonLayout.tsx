@@ -23,11 +23,11 @@ type mdxComponents = {
 
 const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || '');
-  const { onCopy, hasCopied } = useClipboard(children);
+  // const { onCopy, hasCopied } = useClipboard(children);
 
   return !inline && match ? (
     <Box pos="relative">
-      <IconButton
+      {/* <IconButton
         pos="absolute"
         top="1rem"
         right="1rem"
@@ -36,7 +36,7 @@ const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
         aria-label="Copy code"
         onClick={onCopy}
         isDisabled={hasCopied}
-      />
+      /> */}
       <SyntaxHighlighter
         language={match[1]}
         style={dracula}
