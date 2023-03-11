@@ -17,6 +17,7 @@ import * as React from "react";
 
 import SLT from "@/src/components/ui/Text/SLT";
 import GetHelp from "../Course/GetHelp";
+import LessonNavigation from "./LessonNavigation";
 
 // Props
 // SLT
@@ -27,9 +28,10 @@ type Props = {
   children?: React.ReactNode;
   moduleNumber: number;
   sltId: string;
+  slug: string;
 };
 
-const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId }) => {
+const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId, slug }) => {
   return (
     <>
       <Box w="90%" marginLeft="1em" marginTop="2em">
@@ -37,11 +39,8 @@ const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId }) => {
         <Divider py="5" />
 
         {children}
-        {/* Navigation buttons in progress */}
-        {/* <Divider />
-        <Link href="/modules/100/1002">
-          <Button my="1em">Continue to Lesson 2</Button>
-        </Link> */}
+
+      <LessonNavigation moduleNumber={moduleNumber} currentSlug={slug} />
       </Box>
       <Divider py="5" />
       <Box mt="10">

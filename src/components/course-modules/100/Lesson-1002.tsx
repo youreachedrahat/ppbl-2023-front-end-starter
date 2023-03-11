@@ -35,7 +35,7 @@ export default function Lesson1002() {
   }, [connected, network, lovelace]);
 
   return (
-    <LessonLayout moduleNumber={100} sltId="100.2">
+    <LessonLayout moduleNumber={100} sltId="100.2" slug="1002">
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
@@ -81,9 +81,6 @@ export default function Lesson1002() {
           )}
         </SuccessComponent>
       </AssignmentComponent>
-      <Link href="/modules/100/1003">
-        <Button my="1em">Continue to Lesson 3</Button>
-      </Link>
     </LessonLayout>
   );
 }

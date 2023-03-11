@@ -39,7 +39,7 @@ export default function Lesson1004() {
   }, [walletAssets]);
 
   return (
-    <LessonLayout moduleNumber={100} sltId="100.4">
+    <LessonLayout moduleNumber={100} sltId="100.4" slug="1004">
       <Grid mx="auto" fontSize="lg" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text py="3">

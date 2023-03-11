@@ -8,7 +8,7 @@ import VideoComponent from "../../lms/Lesson/VideoComponent";
 
 export default function Lesson1003() {
   return (
-    <LessonLayout moduleNumber={100} sltId="100.3">
+    <LessonLayout moduleNumber={100} sltId="100.3" slug="1003">
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text fontSize="lg" py="3">
@@ -43,10 +43,6 @@ export default function Lesson1003() {
         </Text>
         <SuccessComponent mastery={false}>You are confident that no one else can access your keys.</SuccessComponent>
       </AssignmentComponent>
-
-      <Link href="/modules/100/1004">
-        <Button my="1em">Continue to Lesson 4</Button>
-      </Link>
     </LessonLayout>
   );
 }

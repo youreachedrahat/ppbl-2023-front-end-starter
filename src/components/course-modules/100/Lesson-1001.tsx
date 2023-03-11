@@ -27,7 +27,7 @@ export default function Lesson1001() {
   const network = useNetwork();
 
   return (
-    <LessonLayout moduleNumber={100} sltId="100.1">
+    <LessonLayout moduleNumber={100} sltId="100.1" slug="1001">
       <Grid mx="auto" fontSize="xl" fontWeight="semibold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
           <Text py="3">
@@ -84,9 +84,6 @@ export default function Lesson1001() {
           </>
         </SuccessComponent>
       </AssignmentComponent>
-      <Link href="/modules/100/1002">
-        <Button my="1em">Continue to Lesson 2</Button>
-      </Link>
     </LessonLayout>
   );
 }
