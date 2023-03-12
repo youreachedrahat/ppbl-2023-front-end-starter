@@ -5,8 +5,8 @@ import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
 
 const ListOfModules = () => {
   return (
-    <Container maxWidth="80%" marginLeft="0">
-      <Heading size="2xl" color="theme.blue" my="5">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+      <Heading size="2xl" color="theme.blue">
         Plutus PBL Course Outline
       </Heading>
       <Text fontSize="xl" pb="5">

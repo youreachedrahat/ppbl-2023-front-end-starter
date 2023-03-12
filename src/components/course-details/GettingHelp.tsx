@@ -5,8 +5,8 @@ import GetHelp from "../lms/Course/GetHelp";
 
 const GettingHelp = () => {
   return (
-    <Container maxWidth="70%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue" my="10">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+      <Heading size="2xl" color="theme.blue">
         What happens when I get stuck?
       </Heading>
       <Text py="3">

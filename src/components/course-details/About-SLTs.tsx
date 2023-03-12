@@ -15,7 +15,7 @@ import React from "react";
 
 const AboutSLTs = () => {
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color="theme.blue">
         About Student Learning Targets (SLTs)
       </Heading>
