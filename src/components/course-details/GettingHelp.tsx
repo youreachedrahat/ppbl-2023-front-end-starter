@@ -31,6 +31,15 @@ const GettingHelp = () => {
         Look for the following buttons at the bottom of each lesson page:
       </Text>
       <GetHelp />
+      <Heading size="xl" color="theme.blue" my="0.8em">
+        Next:
+      </Heading>
+      <Text fontSize="xl" my="5">
+        All of our work leads toward Governance.
+      </Text>
+      <Link href="/get-started/governance">
+        <Button>How does PPBL connect to Governance?</Button>
+      </Link>
     </Container>
   );
 };

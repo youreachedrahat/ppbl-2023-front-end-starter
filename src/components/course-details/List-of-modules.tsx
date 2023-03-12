@@ -26,10 +26,10 @@ const ListOfModules = () => {
         Next:
       </Heading>
       <Text fontSize="xl" my="5">
-        All of our work leads toward Governance.
+        How to get help with Plutus Project-Based Learning
       </Text>
       <Link href="/get-started/governance">
-        <Button>How does PPBL connect to Governance?</Button>
+        <Button>What should I do when I need help?</Button>
       </Link>
     </Container>
   );
