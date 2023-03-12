@@ -1,8 +1,10 @@
-import { Flex, Box, Link as CLink, Center, Spacer } from "@chakra-ui/react";
+import { Flex, Box, Link as CLink, Center, Spacer, Divider } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaDiscord } from "react-icons/fa";
 
 const SocialLinks = () => {
   return (
+    <>
+    <Divider />
     <Box bg="theme.lightGray" p="5">
       <Center fontSize="4xl" color="theme.yellow">
         <Spacer />
@@ -20,6 +22,7 @@ const SocialLinks = () => {
         <Spacer />
       </Center>
     </Box>
+    </>
   );
 };
 
