@@ -12,6 +12,10 @@ export const items = [
       name: "List of Course Modules",
     },
     {
+      slug: "getting-help",
+      name: "Getting Help",
+    },
+    {
       slug: "governance",
       name: "Governance",
     },

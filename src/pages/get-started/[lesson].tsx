@@ -5,6 +5,7 @@ import ListOfModules from "@/src/components/course-details/List-of-modules";
 import PBLFramework from "@/src/components/course-details/PBL-framework";
 import { items } from "@/src/data/get-started";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
+import GettingHelp from "@/src/components/course-details/GettingHelp";
 
 
 
@@ -14,6 +15,7 @@ const GetStarted = () => {
     { key:"framework", component:<PBLFramework />},
     { key:"slts", component:<AboutSLTs />},
     { key:"modules", component:<ListOfModules />},
+    { key:"getting-help", component:<GettingHelp />},
     { key:"governance", component:<Governance />}
   ]
 

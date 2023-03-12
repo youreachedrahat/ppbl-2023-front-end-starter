@@ -17,26 +17,26 @@ import React from "react";
 
 const PBLFramework = () => {
   return (
-    <Container maxWidth="90%" mx="auto" marginTop="2em" w="80%">
+    <Container maxWidth="90%" mx="auto" marginTop="2em" w="80%" fontSize="xl">
       <Heading size="lg" color="theme.blue" lineHeight="1.4">
         The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real
         Projects.
       </Heading>
-      <Text fontSize="lg" py="5">
+      <Text py="5">
         <Text as="span" fontWeight="bold" color="theme.green">
           Plutus PBL 2023
         </Text>{" "}
         is one example of a PBL course. Maybe you can imagine some others.
       </Text>
       
-      <Text fontSize="lg" py="5">
+      <Text py="5">
         Every Project-Based Learning course consists of a series of{" "}
         <Text as="span" fontWeight="bold" color="theme.green">
           Modules
         </Text>
         .
       </Text>
-      <Text fontSize="lg" py="5">
+      <Text py="5">
         In this Plutus PBL course, there are 14 Modules. New modules will be published every Monday from now through
         2023-05-08.
       </Text>
@@ -48,38 +48,38 @@ const PBLFramework = () => {
           <Grid templateColumns="repeat(5, 1fr)" gap={5} p="5">
             <GridItem colSpan={3}>
               <Box>
-                <Text fontWeight="bold" fontSize="lg" m="3" color="white">
+                <Text fontWeight="bold" m="3" color="white">
                   Onboarding (100):
                 </Text>
 
-                <Text fontSize="lg" m="3" color="white">
+                <Text m="3" color="white">
                   What is that? How can I get started?
                 </Text>
 
                 <Divider my="8" />
 
-                <Text fontWeight="bold" fontSize="lg" m="3" color="white">
+                <Text fontWeight="bold" m="3" color="white">
                   Building Background Knowledge (200):
                 </Text>
-                <Text fontSize="lg" m="3" color="white">
+                <Text m="3" color="white">
                   How does it work? What do I need to know?
                 </Text>
 
                 <Divider my="8" />
 
-                <Text fontWeight="bold" fontSize="lg" m="3" color="white">
+                <Text fontWeight="bold" m="3" color="white">
                   Specializing (300):
                 </Text>
-                <Text fontSize="lg" m="3" color="white">
+                <Text m="3" color="white">
                   How did you build it?
                 </Text>
 
                 <Divider my="8" />
 
-                <Text fontWeight="bold" fontSize="lg" m="3" color="white">
+                <Text fontWeight="bold" m="3" color="white">
                   Contributing (400):
                 </Text>
-                <Text fontSize="lg" m="3" color="white">
+                <Text m="3" color="white">
                   How can I contribute?
                 </Text>
               </Box>
@@ -94,7 +94,7 @@ const PBLFramework = () => {
       <Heading size="xl" color="theme.blue" py="2">
         Next:
       </Heading>
-      <Text fontSize="lg" my="5">
+      <Text my="5">
         Each module consists of a set of Student Learning Targets (SLTs) that describe what you will learn in the
         course.
       </Text>
