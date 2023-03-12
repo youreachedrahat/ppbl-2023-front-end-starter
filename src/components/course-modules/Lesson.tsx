@@ -37,11 +37,8 @@ const ModuleLessons = ({ items, modulePath, selected, lessons, status }: Props) 
       {status}
       <Grid templateColumns="repeat(6, 1fr)">
         <Sidebar items={items} modulePath={modulePath} selected={itemIndex} />
-        <GridItem colSpan={5}>
-          <>
-            {component && component}
-            <Divider my="2em" />
-          </>
+        <GridItem colSpan={5} mb="2em">
+          {component && component}
         </GridItem>
       </Grid>
     </>

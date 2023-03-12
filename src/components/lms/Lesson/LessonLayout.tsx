@@ -42,7 +42,7 @@ const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId, slug }) 
 
       <LessonNavigation moduleNumber={moduleNumber} currentSlug={slug} />
       </Box>
-      <Divider py="5" />
+      <Divider py="5" w="90%"  marginLeft="1em"/>
       <Box mt="10">
         <GetHelp />
       </Box>

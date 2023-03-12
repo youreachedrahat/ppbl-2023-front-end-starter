@@ -3,6 +3,7 @@ import Link from "next/link";
 import * as React from "react";
 
 import slts from "@/src/data/slts-english.json";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 // import slts from "@/src/data/slts-indonesian.json";
 
 type Props = {
@@ -30,13 +31,19 @@ const LessonNavigation: React.FC<Props> = ({ moduleNumber, currentSlug }) => {
     <Flex direction="row" p="2" bg="theme.lightGray">
       {previousLesson && (
         <Link href={`/modules/${moduleNumber}/${previousLesson.slug}`}>
-          <Text>Continue to {previousLesson.name}</Text>
+          <Flex alignItems="center" style={{ display: 'inline-flex' }} color="white" _hover={{bgColor: "theme.yellow", color: "black"}} p="2" borderRadius="lg">
+            <FaChevronLeft />
+            <Text ml="2">{previousLesson.name}</Text>
+          </Flex>
         </Link>
       )}
       <Spacer />
       {nextLesson && (
         <Link href={`/modules/${moduleNumber}/${nextLesson.slug}`}>
-          <Text>Continue to {nextLesson.name}</Text>
+          <Flex alignItems="center" style={{ display: 'inline-flex' }} color="white" _hover={{bgColor: "theme.yellow", color: "black"}} p="2" borderRadius="lg">
+            <Text mr="2">{nextLesson.name}</Text>
+            <FaChevronRight />
+          </Flex>
         </Link>
       )}
     </Flex>
