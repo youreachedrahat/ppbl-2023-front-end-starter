@@ -58,6 +58,8 @@ const ContributorPairMintingComponent = () => {
   const [contributorTokenName, setContributorTokenName] = useState<string | undefined>(undefined);
   const [successfulTxHash, setSuccessfulTxHash] = useState<string | null>(null);
 
+  const tokenNameList: string[] = []
+
   // Chakra Modal -> Successful Minting Tx
   const { isOpen: isSuccessOpen, onOpen: onSuccessOpen, onClose: onSuccessClose } = useDisclosure();
   const { isOpen: isErrorOpen, onOpen: onErrorOpen, onClose: onErrorClose } = useDisclosure();
@@ -113,6 +115,10 @@ const ContributorPairMintingComponent = () => {
     console.error(error);
     return <Heading size="lg">Error loading data...</Heading>;
   }
+
+  data.utxos.forEach((utxo: any) => {
+    tokenNameList.push(hexToString(utxo.tokens[0].asset.assetName).substring(3))
+  })
 
   const handleMintingTransaction = async () => {
     if (address && contributorTokenName && contributorTokenName != "PPBL2023") {
@@ -172,9 +178,13 @@ const ContributorPairMintingComponent = () => {
           />
           <FormHelperText py="2">Preview the name of your token on this button:</FormHelperText>
         </FormControl>
-        <Button colorScheme="green" onClick={handleMintingTransaction}>
-          Mint Your {contributorTokenName}
-        </Button>
+        {contributorTokenName && tokenNameList.includes(contributorTokenName) ? (
+          <Text>Please choose a unique token name.</Text>
+        ) : (
+          <Button colorScheme="green" onClick={handleMintingTransaction}>
+            Mint Your {contributorTokenName}
+          </Button>
+        )}
         <Accordion allowToggle py="5">
           <AccordionItem>
             <AccordionButton>
@@ -184,10 +194,10 @@ const ContributorPairMintingComponent = () => {
             </AccordionButton>
             <AccordionPanel>
               <Grid templateColumns="repeat(5, 1fr)" gap={3}>
-                {data.utxos.map((utxo: any, i: number) => (
+                {tokenNameList.map((tName: any, i: number) => (
                   <GridItem key={i} p="1" bg="theme.light" color="theme.dark">
                     <Text fontSize="sm" fontWeight="bold">
-                      {hexToString(utxo.tokens[0].asset.assetName).substring(3)}
+                      {tName}
                     </Text>
                   </GridItem>
                 ))}
