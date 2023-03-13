@@ -1,12 +1,13 @@
-import { Button, Container, Divider, Heading, ListItem, OrderedList, Text, Link as CLink } from "@chakra-ui/react";
+import { Button, Container, Divider, Heading, ListItem, OrderedList, Text, Link as CLink, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import GetHelp from "../lms/Course/GetHelp";
 
 const GettingHelp = () => {
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue">
+      <Heading size="2xl" color={textColorBlue}>
         What happens when I get stuck?
       </Heading>
       <Text py="3">
@@ -31,7 +32,7 @@ const GettingHelp = () => {
         Look for the following buttons at the bottom of each lesson page:
       </Text>
       <GetHelp />
-      <Heading size="xl" color="theme.blue" my="0.8em">
+      <Heading size="xl" color={textColorBlue} my="0.8em">
         Next:
       </Heading>
       <Text fontSize="xl" my="5">

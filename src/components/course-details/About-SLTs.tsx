@@ -9,14 +9,16 @@ import {
   Text,
   UnorderedList,
   Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
 const AboutSLTs = () => {
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue">
+      <Heading size="2xl" color={textColorBlue}>
         About Student Learning Targets (SLTs)
       </Heading>
       <Heading size="lg" color="theme.green">
@@ -43,7 +45,7 @@ const AboutSLTs = () => {
         </ListItem>
       </OrderedList>
       <Divider py="5" />
-      <Heading size="xl" color="theme.blue">
+      <Heading size="xl" color={textColorBlue}>
         What is a Student Learning Target?
       </Heading>
       <Text fontSize="xl" mb="5">
@@ -53,7 +55,7 @@ const AboutSLTs = () => {
         SLTs should help you understand why we created each lesson.
       </Text>
       <Divider py="5" />
-      <Heading size="xl" color="theme.blue">
+      <Heading size="xl" color={textColorBlue}>
         Next:
       </Heading>
       <Text fontSize="xl" mb="5">

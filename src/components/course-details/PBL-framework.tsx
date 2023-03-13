@@ -11,14 +11,16 @@ import {
   Grid,
   GridItem,
   Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
 const PBLFramework = () => {
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue" lineHeight="1.2em">
+      <Heading size="2xl" color={textColorBlue} lineHeight="1.2em">
         The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real
         Projects.
       </Heading>
@@ -91,7 +93,7 @@ const PBLFramework = () => {
         </Stack>
       </Container>
       <Divider my="3" />
-      <Heading size="xl" color="theme.blue" py="2">
+      <Heading size="xl" color={textColorBlue} py="2">
         Next:
       </Heading>
       <Text my="5">
