@@ -17,8 +17,8 @@ import React from "react";
 
 const PBLFramework = () => {
   return (
-    <Container maxWidth="90%" mx="auto" marginTop="2em" w="80%" fontSize="xl">
-      <Heading size="lg" color="theme.blue" lineHeight="1.4">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+      <Heading size="2xl" color="theme.blue" lineHeight="1.2em">
         The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real
         Projects.
       </Heading>

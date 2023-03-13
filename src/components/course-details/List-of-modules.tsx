@@ -5,8 +5,8 @@ import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
 
 const ListOfModules = () => {
   return (
-    <Container maxWidth="80%" marginLeft="0">
-      <Heading size="2xl" color="theme.blue" my="5">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+      <Heading size="2xl" color="theme.blue">
         Plutus PBL Course Outline
       </Heading>
       <Text fontSize="xl" pb="5">
@@ -26,10 +26,10 @@ const ListOfModules = () => {
         Next:
       </Heading>
       <Text fontSize="xl" my="5">
-        All of our work leads toward Governance.
+        How to get help with Plutus Project-Based Learning
       </Text>
-      <Link href="/get-started/governance">
-        <Button>How does PPBL connect to Governance?</Button>
+      <Link href="/get-started/getting-help">
+        <Button>What should I do when I need help?</Button>
       </Link>
     </Container>
   );

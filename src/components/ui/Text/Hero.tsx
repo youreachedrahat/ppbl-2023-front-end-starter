@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { CardanoWallet, useWallet } from "@meshsdk/react";
 import { useState } from "react";
-import { Box, Heading, Container, Text, Button, Stack, Icon, createIcon } from "@chakra-ui/react";
+import { Box, Heading, Container, Text, Button, Stack, Icon, Link as CLink, createIcon } from "@chakra-ui/react";
 
 export default function CallToActionWithAnnotation() {
   const { connected, wallet } = useWallet();
@@ -55,7 +55,7 @@ export default function CallToActionWithAnnotation() {
               <Icon as={Arrow} w={71} position={"absolute"} right={-71} top={"10px"} />
             </Box>
           </Stack>
-          <Box>Add License Message</Box>
+          <Box><CLink href="https://gitlab.com/gimbalabs/ppbl-2023/ppbl-front-end-template-2023/-/blob/main/LICENSE" target="_blank">View License</CLink> </Box>
         </Stack>
       </Container>
     </>

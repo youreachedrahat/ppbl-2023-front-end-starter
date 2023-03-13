@@ -5,8 +5,8 @@ import GetHelp from "../lms/Course/GetHelp";
 
 const GettingHelp = () => {
   return (
-    <Container maxWidth="70%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue" my="10">
+    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+      <Heading size="2xl" color="theme.blue">
         What happens when I get stuck?
       </Heading>
       <Text py="3">
@@ -31,6 +31,15 @@ const GettingHelp = () => {
         Look for the following buttons at the bottom of each lesson page:
       </Text>
       <GetHelp />
+      <Heading size="xl" color="theme.blue" my="0.8em">
+        Next:
+      </Heading>
+      <Text fontSize="xl" my="5">
+        All of our work leads toward Governance.
+      </Text>
+      <Link href="/get-started/governance">
+        <Button>How does PPBL connect to Governance?</Button>
+      </Link>
     </Container>
   );
 };
