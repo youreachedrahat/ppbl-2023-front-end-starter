@@ -26,7 +26,7 @@ const Module101Lessons = () => {
     { key:"1012", component:<ComingSoon />},
     { key:"1013", component:<ComingSoon />},
     { key:"1014", component:<ComingSoon />},
-    { key:"example", component:<Example />}
+    // { key:"example", component:<Example />}
   ]
 
   return (
