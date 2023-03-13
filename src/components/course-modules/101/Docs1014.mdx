@@ -5,10 +5,24 @@
 - It's wild - as of the start of this course, nix is in transition. Just like other groups are building SC languages, the Nix/Haskell stack is in progress too.
 - So what should we do about it? One option is to skip this lesson entirely - you can learn a lot of key concepts without touching this lesson.
 - However, maybe you want to participate. Here's how.
-	- I can get `nix-shell` working...
+	- I can get `nix develop` working...
+	- Or if not, at least `nix-shell` -- will continue to develop / troubleshoot!
 - We'll continue to update this Lesson AND this Module in the months to come.
 - Collect some links and questions from `ask-nix-nixos` in IOG Technical
 - Share Discord links too: IOG, MLabs, etc
+
+#### One approach that works:
+- `plutus-apps` checkout `v1.2.0`
+- `nix develop`
+- `cabal repl` in GPTE Plutus on branch `small.cabal`
+- We can build always succeeds from here.
+
+#### What does this approach require?
+- Install nix
+- Clone our starter repo (whatever it is!) -- make it.
+- Clone plutus-apps, start nix shell (takes time, bandwidth, hard drive)
+- `cd` to starter - run cabal repl
+- Compile...
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";

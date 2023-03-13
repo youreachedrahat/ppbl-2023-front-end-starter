@@ -62,22 +62,32 @@
         },
         {
           "slug": "1011",
-          "name": "Lesson 1",
+          "name": "Lesson 1: Compiling Plutus Scripts",
           "video": ""
         },
         {
           "slug": "1012",
-          "name": "Lesson 2",
+          "name": "Lesson 2: The role of UPLC",
           "video": ""
         },
         {
           "slug": "1013",
-          "name": "Lesson 3",
+          "name": "Lesson 3: Demeter.run and PlutusTx",
           "video": ""
         },
         {
           "slug": "1014",
-          "name": "Lesson 4",
+          "name": "Lesson 4: PlutusTx in a local environment",
+          "video": ""
+        },
+        {
+          "slug": "1015",
+          "name": "Lesson 5: Aiken",
+          "video": ""
+        },
+        {
+          "slug": "1016",
+          "name": "Lesson 6: Plu-TS",
           "video": ""
         }
       ]
