@@ -7,38 +7,38 @@ const GettingHelp = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color="theme.blue">
-        What happens when I get stuck?
+        Bagaimana jika saya buntu ketika mencari jawaban?
       </Heading>
       <Text py="3">
-        You will probably have questions as you work through this Plutus Project-Based Learning course. We hope that you do! 
+        Anda mungkin akan memiliki pertanyaan-pertanyaan ketika mengerjakan kursus ini.
       </Text>
       <Text py="3">
-        This course is designed to show you some essential information, and then for you
-        to go try some things. The wonderful thing about trying things is that it helps you find out what you know and do not know.
+        Kursus ini dirancang untuk menunjukan kepada Anda beberapa informasi yang penting, kemudian Anda
+        harus mempraktekannya sendiri. Hal yang luar biasa dari praktek adalah ketika Anda melakukannya sendiri maka Anda akan menemukan apa yang Anda ketahui dan tidak Anda ketahui.
       </Text>
       <Text py="3">
-        Sometimes you will find out that you know something new, and other times, you might get stuck.
+        Ketika mempraktekannya, Anda menyadari bahwa Anda sudah memahami materi tersebut dan mendapat pengetahuan baru, tetapi di lain waktu mungkin Anda akan mengalami buntu ketika mencari jawaban. 
       </Text>
       <Text py="3">
-        If you get stuck there are two ways to ask for help:
+        Jika Anda buntu, ada dua cara untuk meminta bantuan:
       </Text>
       <OrderedList ml="10" mb="10">
-        <ListItem pl="3">Ask for help on <CLink href="https://discord.gg/Va7DXqSSn8">Gimbalabs Discord</CLink></ListItem>
-        <ListItem pl="3">Join a <CLink><Link href="/live-coding">Plutus PBL Live Coding Session every Wednesday or Thursday from 1430-1600 UTC</Link></CLink></ListItem>
+        <ListItem pl="3">Ajukan pertanyaan di <CLink href="https://discord.gg/Va7DXqSSn8">Gimbalabs Discord</CLink></ListItem>
+        <ListItem pl="3">Ikuti <CLink><Link href="/live-coding">Plutus PBL Live Coding Session setiap Rabu atau Kamis di jam 14.30-16.00 UTC</Link></CLink></ListItem>
       </OrderedList>
       <Divider py="3" />
       <Text py="3" fontWeight="bold" color="theme.green">
-        Look for the following buttons at the bottom of each lesson page:
+        Cari tombol berikutnya di bagian bawah setiap halaman pelajaran:
       </Text>
       <GetHelp />
       <Heading size="xl" color="theme.blue" my="0.8em">
-        Next:
+        Berikutnya:
       </Heading>
       <Text fontSize="xl" my="5">
-        All of our work leads toward Governance.
+        Semua yang kami kerjakan mengarah pada Tata Kelola.
       </Text>
       <Link href="/get-started/governance">
-        <Button>How does PPBL connect to Governance?</Button>
+        <Button>Bagaimana hubungan PPBL dengan Tata Kelola?</Button>
       </Link>
     </Container>
   );

@@ -7,29 +7,29 @@ const ListOfModules = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color="theme.blue">
-        Plutus PBL Course Outline
+        Garis Besar Kursus Plutus PBL
       </Heading>
       <Text fontSize="xl" pb="5">
-        Course modules are numbered. The Student Learning Targets (SLTs) in each Module are also numbered. The purpose of
-        this numbering system is to give all of us a quick way to reference what you are learning.
+        Setiap modul diberi nomor. Target Pembelajaran Siswa (TPS) di setiap Modul juga diberi nomor. Tujuan dari 
+        sistem penomoran ini memberikan kita semua cara yang cepat untuk mereferensikan apa yang Anda pelajari.
       </Text>
       <Text fontSize="xl" pb="5">
-        When you get stuck, you can start by saying, &rdquo;I need help with SLT 102.3&rdquo;, which is a quick indication that you
-        are &rdquo;learning to build transactions using cardano-cli&rdquo;. For an overview of what you will learn in PPBL 2023, take
-        a look at the SLTs below.
+        Saat Anda buntu, Anda dapat berkomentar, &rdquo;Saya butuh bantuan dengan TPS 102.3&rdquo;, yang merupakan indikasi cepat bahwa Anda
+        sudah &rdquo;belajar membuat transaksi menggunakan cardano-cli&rdquo;. Untuk melihat gambaran menyeluruh tentang apa yang akan Anda pelajari di PPBL 2023, 
+        lihat TPS di bawah ini.
       </Text>
       <Text fontSize="lg" fontWeight="bold" color="theme.yellow" pb="5">
-        Click on a Module to view Student Learning Targets.
+        Klik Modul untuk melihat Target Pembelajaran Siswa.
       </Text>
       <ModuleListWithSLTs />
       <Heading size="xl" color="theme.blue" my="0.8em">
-        Next:
+        Berikutnya:
       </Heading>
       <Text fontSize="xl" my="5">
-        How to get help with Plutus Project-Based Learning
+        Cara mendapatkan bantuan
       </Text>
       <Link href="/get-started/getting-help">
-        <Button>What should I do when I need help?</Button>
+        <Button>Apa yang harus saya lakukan ketika saya membutuhkan bantuan?</Button>
       </Link>
     </Container>
   );

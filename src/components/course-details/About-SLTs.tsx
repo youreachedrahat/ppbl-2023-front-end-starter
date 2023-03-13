@@ -17,50 +17,50 @@ const AboutSLTs = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color="theme.blue">
-        About Student Learning Targets (SLTs)
+        Target Pembelajaran Siswa (TPS)
       </Heading>
       <Heading size="lg" color="theme.green">
-        Here is how this course works:
+        Berikut adalah proses pembelajaran di kursus ini:
       </Heading>
       <OrderedList marginLeft="3em">
         <ListItem fontSize="xl" py="2">
-          PPBL 2023 consists of 14 course Modules
+          PPBL2023 terdiri dari 14 modul
         </ListItem>
         <ListItem fontSize="xl" py="2">
-          Each Module starts with a list of Student Learning Targets (SLTs)
+          Setiap modul dimulai dengan daftar Target Pembelajaran Siswa (TPS)
         </ListItem>
         <ListItem fontSize="xl" py="2">
-          The lessons in each module are designed to help you master each Student Learning Target.
+          Pelajaran di setiap modul dirancang untuk membantu Anda menguasai setiap Target Pembelajaran Siswa (TPS).
         </ListItem>
         <ListItem fontSize="xl" py="2">
-          You will complete projects to learn through experience how Cardano works.
+          menyelesaikan proyek - proyek untuk mendapatkan pembelajaran dan pengalaman mengenai bagaimana Cardano bekerja.
         </ListItem>
         <ListItem fontSize="xl" py="2">
-          Along the way, you will demonstrate mastery of the SLTs.
+          Selama di kursus ini, kamu akan mendemonstrasikan penguasaan materi TPS.
         </ListItem>
         <ListItem fontSize="xl" py="2">
-          Together, we will explore ways to use Cardano and Plutus to share a record of what you have learned.
+          Bersama - sama, kita akan mengeksplorasi cara menggunakan Cardano dan Plutus lalu membagikan catatan maupun dokumentasi mengenai apa yang telah Anda pelajari.
         </ListItem>
       </OrderedList>
       <Divider py="5" />
       <Heading size="xl" color="theme.blue">
-        What is a Student Learning Target?
+        Apa itu Target Pembelajaran Siswa?
       </Heading>
       <Text fontSize="xl" mb="5">
-        A student learning target describes what you will know or be able to do at the end of each Module.
+        Target pembelajaran siswa menjelaskan apa yang akan Anda ketahui atau dapat lakukan di setiap akhir modul. 
       </Text>
       <Text fontSize="xl" my="5">
-        SLTs should help you understand why we created each lesson.
+        TPS akan membantu Anda memahami alasan dibalik setiap modul pembelajan yang kami rancang untuk mengajarkan sesuatu yang penting.
       </Text>
       <Divider py="5" />
       <Heading size="xl" color="theme.blue">
-        Next:
+        Berikutnya:
       </Heading>
       <Text fontSize="xl" mb="5">
-        Take a look at the list of Course Modules and Student Learning Targets in PPBL 2023.
+        Mari kita lihat daftar modul di kursus ini dan Target Pembelajaran Siswa dalam PPBL 2023.
       </Text>
       <Link href="/get-started/modules">
-        <Button>Show me the Modules and SLTs</Button>
+        <Button>Tunjukan pada saya daftar modul pembelajaran dan TPS</Button>
       </Link>
     </Container>
   );
