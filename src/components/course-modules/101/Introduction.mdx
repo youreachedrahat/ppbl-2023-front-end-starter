@@ -1,17 +1,33 @@
-import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx"
+# Introduction to Module 101:
 
-# Introduction to Module 101: 
+In this module you will start to see documentation - it looks like this!
 
-"This is a plutus script. There are many ways to create a plutus script. 
+"This is a plutus script. There are many ways to create a plutus script.
 
-Depending on your goals as a developer, you'll take different approaches. 
+Depending on your goals as a developer, you'll take different approaches.
 
 If you want to be a Smart Contract developer, we strongly recommend getting nix set up. Or do we! That's the question for Sunday/Monday
 
-If you want to build applications, maybe you just need to make friends with a SC dev. 
+If you want to build applications, maybe you just need to make friends with a SC dev.
 
-Either way, this course is designed to help you understand how Cardano works, so that you can start building. 
+Either way, this course is designed to help you understand how Cardano works, so that you can start building.
 
-In this module, we will survey some approaches to building plutus scripts, and then in Module 102 and beyond, you'll start to see how to use them." 
+In this module, we will survey some approaches to building plutus scripts, and then in Module 102 and beyond, you'll start to see how to use them."
 
-export default ({children}) => <MDXLessonLayout>{children}</MDXLessonLayout>
+## Here is some code:
+
+```javascript
+const run = "all";
+```
+
+```bash
+cardano-cli query utxo
+```
+
+```haskell
+getAllTx :: TxOut
+getAllTx = ...
+```
+
+import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
+export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

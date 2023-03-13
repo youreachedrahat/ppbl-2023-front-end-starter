@@ -1,9 +1,9 @@
 import { Box, Button, IconButton, useClipboard } from "@chakra-ui/react";
 import * as React from "react";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dracula, nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula, nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { FaCopy } from "react-icons/fa";
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Components } from "@mdx-js/react/lib";
 
@@ -22,7 +22,7 @@ type mdxComponents = {
 };
 
 const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props }) => {
-  const match = /language-(\w+)/.exec(className || '');
+  const match = /language-(\w+)/.exec(className || "");
   // const { onCopy, hasCopied } = useClipboard(children);
 
   return !inline && match ? (
@@ -37,13 +37,8 @@ const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
         onClick={onCopy}
         isDisabled={hasCopied}
       /> */}
-      <SyntaxHighlighter
-        language={match[1]}
-        style={dracula}
-        PreTag="div"
-        {...props}
-      >
-        {String(children).replace(/\n$/, '')}
+      <SyntaxHighlighter language={match[1]} style={dracula} PreTag="div" {...props}>
+        {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
     </Box>
   ) : (
@@ -52,9 +47,15 @@ const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
         language={match ? match[1] : undefined}
         style={nord}
         PreTag="span"
-        customStyle={{ fontSize: "medium", paddingTop: "0.2em", paddingBottom: "0.2em", paddingLeft: "0.5em", paddingRight: "0.5em" }}
+        customStyle={{
+          fontSize: "medium",
+          paddingTop: "0.2em",
+          paddingBottom: "0.2em",
+          paddingLeft: "0.5em",
+          paddingRight: "0.5em",
+        }}
       >
-        {children.replace(/\n$/, '')}
+        {children.replace(/\n$/, "")}
       </SyntaxHighlighter>
     </code>
   );
@@ -67,15 +68,13 @@ export const components: mdxComponents = {
 
 type Props = {
   children?: React.ReactNode;
-  };
-  const MDXLessonLayout: React.FC<Props> = ({ children }) => {
+};
+const MDXLessonLayout: React.FC<Props> = ({ children }) => {
   return (
-  <Box w="80%" p="5" className="mdx-content">
-  <MDXProvider components={components as Components}>
-  {children}
-  </MDXProvider>
-  </Box>
+    <Box p="5" bg="black" className="mdx-content">
+      <MDXProvider components={components as Components}>{children}</MDXProvider>
+    </Box>
   );
-  };
-  
-  export default MDXLessonLayout;
+};
+
+export default MDXLessonLayout;
