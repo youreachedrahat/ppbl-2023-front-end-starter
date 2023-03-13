@@ -17,17 +17,17 @@ import SuccessComponent from "@/src/components/lms/Lesson/SuccessComponent";
 import LessonLayout from "@/src/components/lms/Lesson/LessonLayout";
 import VideoComponent from "@/src/components/lms/Lesson/VideoComponent";
 
-import Docs1013 from "@/src/components/course-modules/101/Docs1013.mdx"
-
+import Docs1013 from "@/src/components/course-modules/101/Docs1013.mdx";
 
 export default function Lesson1013() {
   return (
     <LessonLayout moduleNumber={101} sltId="101.3" slug="1013">
       <Grid mx="auto" fontSize="lg" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
-          <Text py="3">Write details about the lesson here</Text>
-          <Text py="3">Write details about the lesson here</Text>
-          <Text>Share some links, reference the video</Text>
+          <Text py="3">We have some options. We will start in the cloud.</Text>
+          <Text py="3">Why demeter.run is helpful</Text>
+          <Text py="3">What you need</Text>
+          <Text py="3">Give it a try - see video</Text>
         </GridItem>
         <GridItem>
           <VideoComponent videoId="">VIDEO DESCRIPTION</VideoComponent>

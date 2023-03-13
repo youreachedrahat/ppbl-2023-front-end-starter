@@ -23,9 +23,10 @@ export default function Lesson1012() {
     <LessonLayout moduleNumber={101} sltId="101.2" slug="1012">
       <Grid mx="auto" fontSize="lg" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
-          <Text py="3">Write details about the lesson here</Text>
-          <Text py="3">Write details about the lesson here</Text>
-          <Text>Share some links, reference the video</Text>
+          <Text py="3">UPLC and readability</Text>
+          <Text py="3">UPLC and applications</Text>
+          <Text py="3">Pathways to UPLC</Text>
+          <Text py="3">How to use it...that will be for the rest of our course!</Text>
         </GridItem>
         <GridItem>
           <VideoComponent videoId="">VIDEO DESCRIPTION</VideoComponent>
@@ -34,9 +35,7 @@ export default function Lesson1012() {
       <Divider py="5" />
 
       <AssignmentComponent>
-        <Text>Replace with documentation - import from MDX</Text>
-        <SuccessComponent mastery={false}></SuccessComponent>
-        <Example />
+       <Text>At the end of this module, we will have several compiled plutus scripts - we will compare them. In this course, you will see how Untyped Plutus Core is one part of a dApp</Text>
       </AssignmentComponent>
     </LessonLayout>
   );
