@@ -54,6 +54,24 @@ const theme = extendTheme({
           mb: "4",
           color: "theme.blue",
         },
+        h2: {
+          fontSize: "2xl",
+          fontWeight: "700",
+          mb: "4",
+          color: "theme.green",
+        },
+        h3: {
+          fontSize: "xl",
+          fontWeight: "400",
+          mb: "4",
+          color: "theme.green",
+        },
+        h4: {
+          fontSize: "lg",
+          fontWeight: "700",
+          mb: "4",
+          color: "theme.blue",
+        },
         p: {
           fontSize: "lg",
           lineHeight: "2",
