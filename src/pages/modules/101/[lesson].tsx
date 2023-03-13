@@ -3,7 +3,7 @@ import SLTs101 from "@/src/components/course-modules/101/101-SLTs";
 // import Lesson1012 from "@/src/components/course-modules/101/Lesson-1012";
 // import Lesson1013 from "@/src/components/course-modules/101/Lesson-1013";
 // import Lesson1014 from "@/src/components/course-modules/101/Lesson-1014";
-import { default as Example } from "@/src/components/course-modules/101/Example.mdx";
+// import { default as Example } from "@/src/components/course-modules/101/Example.mdx";
 // import Status101 from "@/src/components/course-modules/101/Status101";
 import ModuleLessons from "@/src/components/course-modules/Lesson";
 import slt from "@/src/data/slts-english.json"
