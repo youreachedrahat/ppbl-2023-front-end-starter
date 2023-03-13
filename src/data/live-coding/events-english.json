@@ -2,51 +2,51 @@
     "events": [
         {
             "date": "2023-03-15",
-            "title": "Welcome to PPBL 2023",
+            "title": "Welcome to Plutus PBL 2023",
             "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
             "recordingLink": "",
             "links": [""],
-            "description": "Kicking off PPBL 2023"
+            "description": "Meet your PPBL Team"
         },
         {
             "date": "2023-03-16",
-            "title": "Lesson 100.3: Best Practices for Wallet Security",
+            "title": "Wallet Security",
             "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
             "recordingLink": "",
-            "links": [""],
-            "description": "Best practices and open discussion"
+            "links": ["https://plutuspbl.io/modules/100/1003"],
+            "description": "What are some tips for protecting your private keys?"
         },
         {
             "date": "2023-03-17",
-            "title": "Smart Contract Gladiator: Give Unto Caesar",
+            "title": "Smart Contract Gladiator",
             "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
             "recordingLink": "",
             "links": [""],
-            "description": "..."
+            "description": "Designing voting systems"
         },
         {
             "date": "2023-03-22",
-            "title": "Pathways to Plutus",
+            "title": "What is \"Plutus\"?",
             "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
             "recordingLink": "",
             "links": [""],
-            "description": "Kicking off PPBL 2023"
+            "description": "Student Q&A + options for writing smart contracts"
         },
         {
             "date": "2023-03-23",
-            "title": "More Pathways to Plutus",
+            "title": "Set up a local development environment",
             "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
             "recordingLink": "",
             "links": [""],
-            "description": "Kicking off PPBL 2023"
+            "description": "Student Q&A + live demo"
         },
         {
             "date": "2023-03-24",
-            "title": "Smart Contract Gladiator: Join the Senate!",
+            "title": "Smart Contract Gladiator",
             "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
             "recordingLink": "",
             "links": [""],
-            "description": "..."
+            "description": "Designing voting systems"
         }
     ]
 }
