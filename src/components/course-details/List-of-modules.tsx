@@ -28,7 +28,7 @@ const ListOfModules = () => {
       <Text fontSize="xl" my="5">
         How to get help with Plutus Project-Based Learning
       </Text>
-      <Link href="/get-started/governance">
+      <Link href="/get-started/getting-help">
         <Button>What should I do when I need help?</Button>
       </Link>
     </Container>
