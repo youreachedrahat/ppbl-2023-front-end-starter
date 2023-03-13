@@ -39,6 +39,19 @@ export const script = new Script(
 
 - To compile run `yarn start`
 
+- By default you'll see the result in the terminal, as given in `index.ts`.
+
+- You can save if you want to. Install `yarn @types/node` and change `index.ts` to
+```ts
+import { script } from "./contract";
+import fs from 'fs';
+
+fs.writeFile('always-succeed.plutus', JSON.stringify(script.toJson(), undefined, 2), (err: any) => {
+    if (err) throw err;
+    console.log("validator compiled succesfully! 🎉\n");
+});
+```
+
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
