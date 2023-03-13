@@ -6,29 +6,29 @@ const Governance = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color="theme.blue">
-        Beyond Contibution is Goverance
+        Melampaui Kontribusi adalah Tata Kelola Yang Diharapkan
       </Heading>
       <Text marginTop="1em">
-        Our long-term intention is for you be <Text as="span" fontWeight="bold" color="theme.green">more than a contributor</Text> to projects.
+        Niat kami dalam jangka panjang ialah menjadikan Anda <Text as="span" fontWeight="bold" color="theme.green">lebih dari seorang kontributor</Text> proyek.
       </Text>
       <Text marginTop="1em">
-        We want you to be a <Text as="span" fontWeight="bold" color="theme.green">decision maker</Text>, who helps answer the question:
+        Kami ingin anda menjadi <Text as="span" fontWeight="bold" color="theme.green">pengambil keputusan</Text>, yang membantu menjawab pertanyaan:
       </Text>
 
       <Heading size="2xl" color="theme.blue" my="10">
-        &rdquo;What will we do next?&rdquo;
+        &rdquo;Selanjutnya, apa yang akan kita lakukan?&rdquo;
       </Heading>
       <Text fontWeight="bold" color="theme.green" my="1em">
-        We believe that community education is essential for building great governance systems.
+        Kami percaya bahwa pendidikan sangat penting untuk membangun sistem tata kelola yang hebat.
       </Text>
       <Text my="1em">
-        We believe that we learn best by doing things.
+        Kami percaya bahwa proses pembelajaran yang baik adalah dengan mempraktekan apa yang telah dipelajari.
       </Text>
       <Text my="1em">
-        So let&rsquo;s get started.
+        Jadi&rsquo; mari kita mulai.
       </Text>
       <Link href="/modules/100">
-        <Button my="10">Get Started with Module 100</Button>
+        <Button my="10">Mulai dengan modul 100</Button>
       </Link>
     </Container>
   );
