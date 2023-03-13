@@ -12,37 +12,29 @@ cd plu-ts-starter
 ```
 - To install plu-ts run `yarn`
 
-- Find contract `src/contract.ts`. Always succeed contract looks like this
+- By default the template is "always succeed". But let us look into the code and try to understand a bit.
+
+- Find contract `src/contract.ts`. Ignore or delete `src/MyDatum/` and `src/MyRedeemer` for now. Always succeed contract looks like this
 ```ts
 import { bool, compile, makeValidator, pBool, pfn, pstruct, Script, ScriptType, V2 } from "@harmoniclabs/plu-ts";
 
-// modify the Datum as you prefer
-const MyDatum = pstruct({
-    NoDatum: {}
+const Data = pstruct({
+    Anything: {}
 });
 
-// modify the Redeemer as you prefer
-const MyRedeemer = pstruct({
-    Option1: {}
-});
-
-
-export const contract = pfn([ MyDatum.type, MyRedeemer.type, V2.PScriptContext.type ],  bool)
+export const contract = pfn([ Data.type, Data.type, V2.PScriptContext.type ],  bool)
 (( datum, redeemer, ctx ) =>
     // always suceeds
     pBool( true )
 );
 
 export const untypedValidator = makeValidator( contract );
-
 export const compiledContract = compile( untypedValidator );
 
 export const script = new Script(
     ScriptType.PlutusV2,
     compiledContract
 );
-
-export default contract;
 ```
 
 - To compile run `yarn start`
