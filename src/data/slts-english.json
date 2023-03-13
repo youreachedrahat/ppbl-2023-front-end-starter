@@ -52,7 +52,8 @@
           "id": "101.4",
           "slt": "I can set up a local Plutus development environment using nix shell, and use it to compile a .plutus script."
         },
-        { "id": "101.5", "slt": "I can write an \"always succeeds\" validator script in Aiken." }
+        { "id": "101.5", "slt": "I can write an \"always succeeds\" validator script in Aiken." },
+        { "id": "101.6", "slt": "I can write an \"always succeeds\" validator script in Plu-TS." }
       ],
       "lessons": [
         {
