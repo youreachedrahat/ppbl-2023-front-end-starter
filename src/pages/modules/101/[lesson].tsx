@@ -20,7 +20,7 @@ const Module101Lessons = () => {
   // Sidebar items are generated from module.lessons i.e. from the JSON file
   // Here we simply set the contents by matching the slug and key
   const lessons = [
-    { key:"slts", component:<><SLTs101 /><ComingSoon /></>},
+    { key:"slts", component:<SLTs101 />},
     { key:"1011", component:<Lesson1011 />},
     { key:"1012", component:<Lesson1012 />},
     { key:"1013", component:<Lesson1013 />},
