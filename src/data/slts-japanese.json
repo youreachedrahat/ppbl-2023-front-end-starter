@@ -322,9 +322,9 @@
       "updatedDate": "2023-05-01",
       "slts": [
         { "id": "301.1", "slt": "バリデータPlutus Spendingを書ける。" },
-        { "id": "301.2", "slt": "I know enough haskell to understand some common validator design patterns." },
-        { "id": "301.3", "slt": "I understand how Datum is used in Plutus validators." },
-        { "id": "301.4", "slt": "I understand how Redeemers are used in Plutus validators." }
+        { "id": "301.2", "slt": "私はHaskellを十分に知っているので、最も一般的なバリデータのデザインパターンをいくつか理解することができます。" },
+        { "id": "301.3", "slt": "PlutusのバリデータでDatumがどのように使われているかは理解できた。" },
+        { "id": "301.4", "slt": "PlutusのバリデータでRedeemerがどのように使われているのかがよくわかりました。" }
       ],
       "lessons":[
         {
