@@ -63,7 +63,7 @@ const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
 };
 
 const CustomLink: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, children, ...rest }) => (
-  <a href={href} style={{ color: "#0044CC", fontWeight: "bold", textDecoration: "underline" }} {...rest}>
+  <a href={href} style={{ color: "#EBBA6F", fontWeight: "bold" }} {...rest}>
     {children}
   </a>
 );
@@ -79,7 +79,7 @@ type Props = {
 };
 const MDXLessonLayout: React.FC<Props> = ({ children }) => {
   return (
-    <Box p="5" bg="black" className="mdx-content" color="white">
+    <Box px="10" py="5" w="80%" bg="black" className="mdx-content" color="white">
       <MDXProvider components={components as Components}>{children}</MDXProvider>
     </Box>
   );
