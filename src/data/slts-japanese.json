@@ -41,18 +41,18 @@
     },
     {
       "number": 101,
-      "title": "Write Your First Smart Contract",
+      "title": "最初のスマートコントラクトを書く",
       "releaseDate": "2023-03-20",
       "updatedDate": "2023-03-20",
       "slts": [
-        { "id": "101.1", "slt": "I can compile a plutus validator to Untyped Plutus Core (UPLC)." },
-        { "id": "101.2", "slt": "I understand the role that UPLC plays in a decentralized application on Cardano." },
-        { "id": "101.3", "slt": "I can use Demeter.run to compile a .plutus script." },
+        { "id": "101.1", "slt": "Plutus ValidatorをUntyped Plutus Core（UPLC）にコンパイルすることができる。" },
+        { "id": "101.2", "slt": "カルダノ上の分散型アプリケーションにおいてUPLCが果たす役割を理解しました。" },
+        { "id": "101.3", "slt": "Demeter.runを使って.plutusスクリプトをコンパイルすることができます。" },
         {
           "id": "101.4",
-          "slt": "I can set up a local Plutus development environment using nix shell, and use it to compile a .plutus script."
+          "slt": "nix shellを使ってローカルにPlutusの開発環境を構築し、それを使って.plutusのスクリプトをコンパイルすることができるのです。"
         },
-        { "id": "101.5", "slt": "I can write an \"always succeeds\" validator script in Aiken." }
+        { "id": "101.5", "slt": "Aikenで「Always Succeeds」バリデータースクリプトを書くことができる。" }
       ],
       "lessons": [
         {
@@ -89,16 +89,16 @@
     },
     {
       "number": 102,
-      "title": "Build Your First Transactions",
+      "title": "最初のトランザクションを構築する",
       "releaseDate": "2023-03-27",
       "updatedDate": "2023-03-27",
       "slts": [
-        { "id": "102.1", "slt": "I can query the blockchain using cardano-cli." },
-        { "id": "102.2", "slt": "I can create a wallet using cardano-cli." },
-        { "id": "102.3", "slt": "I can build a simple transaction using cardano-cli." },
-        { "id": "102.4", "slt": "I can lock funds at a contract address using cardano-cli." },
-        { "id": "102.5", "slt": "I can unlock funds from a contract address using cardano-cli." },
-        { "id": "102.6", "slt": "I can use bash scripts to build re-usable transactions." }
+        { "id": "102.1", "slt": "cardano-cliを使ってBlockchainに問い合わせることができますね。" },
+        { "id": "102.2", "slt": "cardano-cliを使ってウォレットを作成することができますね。" },
+        { "id": "102.3", "slt": "cardano-cliを使って簡単なトランザクションを構築することができますね。" },
+        { "id": "102.4", "slt": "cardano-cliを使って契約アドレスに資金をロックすることができますね。" },
+        { "id": "102.5", "slt": "契約アドレスからcardano-cliを使って資金をロック解除することができる" },
+        { "id": "102.6", "slt": "Bash Scriptsを使って再利用可能なトランザクションを構築することができる" }
       ],
       "lessons":[
         {
