@@ -1,7 +1,36 @@
-# Documentation Lesson 101.4
+# Documentation
+### How to set up a local Plutus development environment
 
-#### 101.4: Your own environment - and why it's wild right now
-- Nix - is this learning target right?
+## Is it worth it?
+That's up to you. We still think so, but we are paying close attention to other options (and sharing them with you in this course).
+
+## Getting Started
+- Prereqs
+- Hardware constraints
+
+## Step By Step
+### Install Nix
+
+### Clone plutus-apps repo
+Clone the repo and checkout...
+```bash
+git clone ...
+cd plutus-apps
+git checkout v1.2.0
+```
+
+### Clone the provide Plutus Starter from Gimbalabs
+
+### Finally, compile!
+Now that you have completed this steps, you have a lot of power. We know this was challenging, but from here, you are ready to test ideas locally without depending on...
+
+### Some choices:
+- `plutus-apps` checkout `v1.2.0`
+- `nix develop`
+- `cabal repl` in GPTE Plutus on branch `small.cabal`
+- We can build always succeeds from here.
+
+## The Plot Thickens - YOU ARE IN IT
 - It's wild - as of the start of this course, nix is in transition. Just like other groups are building SC languages, the Nix/Haskell stack is in progress too.
 - So what should we do about it? One option is to skip this lesson entirely - you can learn a lot of key concepts without touching this lesson.
 - However, maybe you want to participate. Here's how.
@@ -11,18 +40,6 @@
 - Collect some links and questions from `ask-nix-nixos` in IOG Technical
 - Share Discord links too: IOG, MLabs, etc
 
-#### One approach that works:
-- `plutus-apps` checkout `v1.2.0`
-- `nix develop`
-- `cabal repl` in GPTE Plutus on branch `small.cabal`
-- We can build always succeeds from here.
-
-#### What does this approach require?
-- Install nix
-- Clone our starter repo (whatever it is!) -- make it.
-- Clone plutus-apps, start nix shell (takes time, bandwidth, hard drive)
-- `cd` to starter - run cabal repl
-- Compile...
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";

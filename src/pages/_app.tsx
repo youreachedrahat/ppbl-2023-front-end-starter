@@ -81,8 +81,7 @@ const theme = extendTheme({
         },
         li: {
           pl: "2",
-          py: "2",
-          listStyleType: "square",
+          py: "1",
         },
       },
     },

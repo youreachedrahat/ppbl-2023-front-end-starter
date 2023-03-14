@@ -24,7 +24,7 @@ export default function Lesson1013() {
     <LessonLayout moduleNumber={101} sltId="101.3" slug="1013">
       <Grid mx="auto" fontSize="lg" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
         <GridItem w="90%" mx="auto">
-          <Text py="3">We have some options. We will start in the cloud.</Text>
+          <Text py="3">What is demeter.run</Text>
           <Text py="3">Why demeter.run is helpful</Text>
           <Text py="3">What you need</Text>
           <Text py="3">Give it a try - see video</Text>
@@ -36,8 +36,11 @@ export default function Lesson1013() {
       <Divider py="5" />
 
       <AssignmentComponent>
-        <Text>Replace with documentation - import from MDX</Text>
-        <SuccessComponent mastery={false}></SuccessComponent>
+        <Text py="3">
+          You will know you are successful if you can see a file called always-succeeds.plutus in your Demeter
+          development environment. Take a look at the video above to see what this looks like. Follow along with the
+          video or the documentation below.
+        </Text>
         <Docs1013 />
       </AssignmentComponent>
     </LessonLayout>

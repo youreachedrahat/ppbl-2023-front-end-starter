@@ -79,7 +79,7 @@ type Props = {
 };
 const MDXLessonLayout: React.FC<Props> = ({ children }) => {
   return (
-    <Box px="10" py="5" w="80%" bg="black" className="mdx-content" color="white">
+    <Box px="10" py="5" bg="#232323" className="mdx-content" color="white">
       <MDXProvider components={components as Components}>{children}</MDXProvider>
     </Box>
   );

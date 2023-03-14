@@ -34,8 +34,6 @@ export default function Lesson1014() {
       <Divider py="5" />
 
       <AssignmentComponent>
-        <Text>Replace with documentation - import from MDX</Text>
-        <SuccessComponent mastery={false}></SuccessComponent>
         <Docs1014 />
       </AssignmentComponent>
     </LessonLayout>
