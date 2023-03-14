@@ -2,7 +2,7 @@ import Sidebar from "@/src/components/ui/Text/Sidebar";
 import React from "react";
 import Head from "next/head";
 
-import slt from "@/src/data/slts-english.json"
+import slt from "@/src/data/slts-japanese.json"
 
 const Module100 = () => {
 
