@@ -140,13 +140,13 @@
     },
     {
       "number": 103,
-      "title": "What You Will Learn in This Course",
+      "title": "このコースで学べること",
       "releaseDate": "2023-03-27",
       "updatedDate": "2023-03-27",
       "slts": [
-        { "id": "103.1", "slt": "I can make a contribution to an open source project using git." },
-        { "id": "103.2", "slt": "I can re-use code from existing projects." },
-        { "id": "103.3", "slt": "I can ask questions on Cardano Stack Exchange." }
+        { "id": "103.1", "slt": "gitを使ってオープンソースプロジェクトに貢献できる。" },
+        { "id": "103.2", "slt": "既存のプロジェクトのコードを再利用できる" },
+        { "id": "103.3", "slt": "Cardano Stack Exchangeで質問することができる。" }
       ],
       "lessons":[
         {
@@ -173,15 +173,15 @@
     },
     {
       "number": 201,
-      "title": "Build a Front End Dapp Template",
+      "title": "Front End Dappのテンプレートを構築する",
       "releaseDate": "2023-04-03",
       "updatedDate": "2023-04-03",
       "slts": [
-        { "id": "201.1", "slt": "I can run a Next JS project on my local device." },
-        { "id": "201.2", "slt": "I can use Mesh APIs to interact with a browser-wallet like Eternl or Nami." },
-        { "id": "201.3", "slt": "I can create a web app that renders differently if a user holds a Cardano token." },
-        { "id": "201.4", "slt": "I can query the blockchain with GraphQL and Koios." },
-        { "id": "201.5", "slt": "I can use git to create a feature branch and submit a merge request." }
+        { "id": "201.1", "slt": "ローカル端末でNext JSのプロジェクトを実行することができる。" },
+        { "id": "201.2", "slt": "Meshの様々なAPIを使って、EternlやNamiのようなBrowser-Walletと対話することができます。" },
+        { "id": "201.3", "slt": "ユーザーがCardanoトークンを保持している場合に、異なるレンダリングを行うWeb Appを作成することができます" },
+        { "id": "201.4", "slt": "GraphQLとKoiosでBlockchainに問い合わせることができる" },
+        { "id": "201.5", "slt": "gitを使って機能ブランチを作成し、マージリクエストを送信することができます。" }
       ],
       "lessons":[
         {
@@ -218,13 +218,13 @@
     },
     {
       "number": 202,
-      "title": "Three Ways to Mint a Token",
+      "title": "トークンをMintする3つの方法。",
       "releaseDate": "2023-04-10",
       "updatedDate": "2023-04-10",
       "slts": [
-        { "id": "202.1", "slt": "I can mint a Cardano native asset using Mesh APIs." },
-        { "id": "202.2", "slt": "I can mint native assets with native scripts using cardano-cli." },
-        { "id": "202.3", "slt": "I can mint a native asset using a Plutus Minting script." }
+        { "id": "202.1", "slt": "Mesh APIsを使ってCardanoネイティブアセットをMintできる。" },
+        { "id": "202.2", "slt": "私は、Cardano-cliを使用して、ネイティブスクリプトを使用して、ネイティブアセットをMintすることができます。" },
+        { "id": "202.3", "slt": "Plutus Mintingスクリプトを使用してネイティブアセットをMintできる。" }
       ],
       "lessons":[
         {
