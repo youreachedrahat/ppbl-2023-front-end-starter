@@ -14,27 +14,27 @@
       "lessons": [
         {
           "slug": "slts",
-          "name": "Module 100 Overview + SLTs",
+          "name": "モジュール100の概要＋SLT",
           "video": ""
         },
         {
           "slug": "1001",
-          "name": "Lesson 1: Connect a Wallet to Preprod",
+          "name": "レッスン1: ウォレットをPreprodに接続する",
           "video": ""
         },
         {
           "slug": "1002",
-          "name": "Lesson 2: Get tAda from PreProd Faucet",
+          "name": "レッスン2：Preprodの蛇口からtAdaを取得する",
           "video": ""
         },
         {
           "slug": "1003",
-          "name": "Lesson 3: Storing your private keys",
+          "name": "レッスン3: 秘密鍵の保管。",
           "video": ""
         },
         {
           "slug": "1004",
-          "name": "Lesson 4: Get your PPBL 2023 Token",
+          "name": "レッスン4：PPBL 2023 Tokenを入手する。",
           "video": ""
         }
       ]
