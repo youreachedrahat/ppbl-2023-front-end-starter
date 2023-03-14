@@ -2,14 +2,14 @@
   "modules": [
     {
       "number": 100,
-      "title": "Getting Started",
+      "title": "Getting Started", 
       "releaseDate": "2023-03-13",
       "updatedDate": "2023-03-13",
       "slts": [
-        { "id": "100.1", "slt": "I can connect a Cardano wallet to the pre-production test network." },
-        { "id": "100.2", "slt": "I can get free tAda on the pre-production testnet." },
-        { "id": "100.3", "slt": "I know how to safely store my keys." },
-        { "id": "100.4", "slt": "I can mint a PPBL Contributor Token." }
+        { "id": "100.1", "slt": "私は Cardano 財布をプリプロダクション・テストネットにつなげることができます" },
+        { "id": "100.2", "slt": "プリプロダクションテストネットで無料の「tAda」を入手できます" },
+        { "id": "100.3", "slt": "鍵を安全に保管する方法を知っています" },
+        { "id": "100.4", "slt": "トークン「PPBLコントリビューター」を鋳造することができます。" }
       ], 
       "lessons": [
         {
