@@ -97,28 +97,30 @@ const ContributorPairMintingComponent = () => {
     data: 1618033988,
   };
 
-  const { data, loading, error } = useQuery(CONTRIBUTOR_TOKEN_QUERY, {
-    variables: {
-      contractAddress: contributorReferenceAddress,
-    },
-  });
+  // const { data, loading, error } = useQuery(CONTRIBUTOR_TOKEN_QUERY, {
+  //   variables: {
+  //     contractAddress: contributorReferenceAddress,
+  //   },
+  // });
 
-  if (loading) {
-    return (
-      <Center p="10">
-        <Spinner size="xl" speed="1.0s" />
-      </Center>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <Center p="10">
+  //       <Spinner size="xl" speed="1.0s" />
+  //     </Center>
+  //   );
+  // }
 
-  if (error) {
-    console.error(error);
-    return <Heading size="lg">Error loading data...</Heading>;
-  }
+  // if (error) {
+  //   console.error(error);
+  //   return <Heading size="lg">Error loading data...</Heading>;
+  // }
 
-  data.utxos.forEach((utxo: any) => {
-    tokenNameList.push(hexToString(utxo.tokens[0].asset.assetName).substring(3))
-  })
+  // data?.utxos.forEach((utxo: any) => {
+
+  //     tokenNameList.push(hexToString(utxo.tokens[0].asset.assetName).substring(3))
+  
+  // })
 
   const handleMintingTransaction = async () => {
     if (address && contributorTokenName && contributorTokenName != "PPBL2023") {
@@ -178,14 +180,17 @@ const ContributorPairMintingComponent = () => {
           />
           <FormHelperText py="2">Preview the name of your token on this button:</FormHelperText>
         </FormControl>
-        {contributorTokenName && tokenNameList.includes(contributorTokenName) ? (
+        {/* {contributorTokenName && tokenNameList.includes(contributorTokenName) ? (
           <Text>Please choose a unique token name.</Text>
         ) : (
           <Button colorScheme="green" onClick={handleMintingTransaction}>
             Mint Your {contributorTokenName}
           </Button>
-        )}
-        <Accordion allowToggle py="5">
+        )} */}
+        <Button colorScheme="green" onClick={handleMintingTransaction}>
+            Mint Your {contributorTokenName}
+          </Button>
+        {/* <Accordion allowToggle py="5">
           <AccordionItem>
             <AccordionButton>
               <Text py="3">
@@ -204,7 +209,7 @@ const ContributorPairMintingComponent = () => {
               </Grid>
             </AccordionPanel>
           </AccordionItem>
-        </Accordion>
+        </Accordion> */}
       </Box>
       <Modal
         key="successMintingModal"

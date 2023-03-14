@@ -21,9 +21,9 @@ const SuccessComponent: React.FC<Props> = ({ children, mastery }) => {
         )}
       </Center>
       <Center>
-        <Text fontSize="lg" py="3">
+        <Box fontSize="lg" py="3">
           {children}
-        </Text>
+        </Box>
       </Center>
     </Box>
   );
