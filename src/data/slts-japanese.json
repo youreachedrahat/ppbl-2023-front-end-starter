@@ -356,25 +356,25 @@
     },
     {
       "number": 302,
-      "title": "On-Chain Essentials: Plutus",
+      "title": "On-Chain エッセンシャルズ。Plutus",
       "releaseDate": "2023-05-08",
       "updatedDate": "2023-05-08",
       "slts": [
-        { "id": "302.1", "slt": "I can plan and implement my own Plutus contracts" },
-        { "id": "302.2", "slt": "I can create, update and maintain a Plutus project." },
-        { "id": "302.3", "slt": "I can use datum, redeemer and custom logic effectively." },
-        { "id": "302.4", "slt": "I can convert Datums and Redeemers to JSON files." },
-        { "id": "302.5", "slt": "I undstand how time works on Plutus (POSIXTime) and Ledger (Slot Number)." },
+        { "id": "302.1", "slt": "自分でPlutusの契約を企画・実行できる" },
+        { "id": "302.2", "slt": "Plutusプロジェクトの作成、更新、保守ができる。" },
+        { "id": "302.3", "slt": "datum、redeemer、カスタムロジックを効果的に使うことができる。" },
+        { "id": "302.4", "slt": "DatumやRedeemerをJSONファイルに変換することができます。" },
+        { "id": "302.5", "slt": "Plutus（POSIXTime）とLedger（Slot Number）で時間がどう動くかは知っている。" },
         {
           "id": "302.6",
-          "slt": "I can analyze the performance of a Plutus validator by viewing its size, memory and CPU exection costs."
+          "slt": "そのサイズ、メモリ、CPUの実行コストを見ることで、Plutusバリデーターのパフォーマンスを分析することができるんだ。"
         },
-        { "id": "302.7", "slt": "I can deploy a Plutus reference script." },
+        { "id": "302.7", "slt": "Plutusのリファレンススクリプトをデプロイすることができる。" },
         {
           "id": "302.8",
-          "slt": "I can run Plutus documentation locally and write comments properly in order to generate haddock for a new project."
+          "slt": "新しいプロジェクトのためにhaddockを生成するために、ローカルでPlutusのドキュメントを実行し、適切にコメントを書くことができるのです。"
         },
-        { "id": "302.9", "slt": "I can secure Datum, Redeemer and Contract Parameters for my SC and project." }
+        { "id": "302.9", "slt": "私のスマートコントラクトと私のプロジェクトに、Datum、Redeemer、Contract Parametersを確保することができます。" }
       ],
       "lessons":[
         {
@@ -431,12 +431,12 @@
     },
     {
       "number": 303,
-      "title": "On-Chain Essentials: Aiken",
+      "title": "On-Chain エッセンシャルズ。Aiken",
       "releaseDate": "2023-05-08",
       "updatedDate": "2023-05-08",
       "slts": [
-        { "id": "303.1", "slt": "I can write a Plutus script using Aiken." },
-        { "id": "303.2", "slt": "I can implement Plutus business logic in Aiken." }
+        { "id": "303.1", "slt": "Aikenを使ってPlutusのスクリプトが書ける。" },
+        { "id": "303.2", "slt": "PlutusのビジネスロジックをAikenで実装できるんです。" }
       ],
       "lessons":[
         {
@@ -458,19 +458,19 @@
     },
     {
       "number": 304,
-      "title": "Off-Chain Essentials: Transactions, UI, and Queries",
+      "title": "On-Chain エッセンシャルズ。 トランザクション、ユーザーインターフェース（UI）、クエリ。",
       "releaseDate": "2023-05-08",
       "updatedDate": "2023-05-08",
       "slts": [
         {
           "id": "304.1",
-          "slt": "I can make programmatic queries of historical transactions using Koios and GraphQL."
+          "slt": "KoiosとGraphQLを使えば、過去のトランザクションからProgrammaticなクエリーを作ることができます。"
         },
         {
           "id": "304.2",
-          "slt": "I can create user interfaces which enable the user to interact with the blockchain by forming appropriate transactions for some interaction."
+          "slt": "私は、ユーザーがブロックチェーンと対話することを可能にするユーザーインターフェース（UI）を作成することができます：（ある対話のために）適切な取引を形成することによって。"
         },
-        { "id": "304.3", "slt": "I can use Kupo to create an index of on-chain data." }
+        { "id": "304.3", "slt": "Kupoを使ってon-chainデータのindexを作ることができるんだ。" }
       ],
       "lessons":[
         {
@@ -497,15 +497,15 @@
     },
     {
       "number": 305,
-      "title": "Intro to Testing and Optimization",
+      "title": "テストと最適化入門",
       "releaseDate": "2023-05-15",
       "updatedDate": "2023-05-15",
       "slts": [
-        { "id": "305.1", "slt": "I can run tests using shell, nix and cabal." },
-        { "id": "305.2", "slt": "I can express a property in QuickCheck" },
-        { "id": "305.3", "slt": "I can explain how CI adds value to a project team." },
-        { "id": "305.4", "slt": "I can explain the outcomes of verification and audit." },
-        { "id": "305.5", "slt": "I can test a validation script written in Aiken." }
+        { "id": "305.1", "slt": "shell、nix、cabalを使ってテストを実行することができます。" },
+        { "id": "305.2", "slt": "QuickCheckを使うと、プロパティを表現できるんです。" },
+        { "id": "305.3", "slt": "私は、CIがプロジェクトチームにどのような価値をもたらすかを説明することができます。" },
+        { "id": "305.4", "slt": "検証・監査の結果を説明できる。" },
+        { "id": "305.5", "slt": "Aikenで書かれたバリデータスクリプトをテストすることができる。" }
       ],
       "lessons":[
         {
@@ -542,7 +542,7 @@
     },
     {
       "number": 401,
-      "title": "Introducing Gimbal Project Treasury and Escrow",
+      "title": "Gimbal Project TreasuryとEscrowの紹介",
       "releaseDate": "2023-05-15",
       "updatedDate": "2023-05-15",
       "slts": [],
