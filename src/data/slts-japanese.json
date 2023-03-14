@@ -251,14 +251,14 @@
     },
     {
       "number": 203,
-      "title": "Three Ways to Mint an NFT",
+      "title": "ミントNFTの3つの方法",
       "releaseDate": "2023-04-17",
       "updatedDate": "2023-04-17",
       "slts": [
-        { "id": "203.1", "slt": "I can add metadata to a Cardano transaction." },
-        { "id": "203.2", "slt": "I can create a Cardano NFT that adheres to CIP-25 standards." },
-        { "id": "203.3", "slt": "I know where to learn more about Cardano Improvement Proposals." },
-        { "id": "203.4", "slt": "I can contribute to new standards in this development ecosystem." }
+        { "id": "203.1", "slt": "CardanoのトランザクションにMetadataを追加することができる。" },
+        { "id": "203.2", "slt": "CIP-25の規格に準拠したCardano NFTを作ることができるんだ。" },
+        { "id": "203.3", "slt": "Cardano 改善案について詳しく知ることができる場所を知っている。" },
+        { "id": "203.4", "slt": "この開発エコシステムに新しい規格で貢献できる。" }
       ],
       "lessons":[
         {
@@ -294,8 +294,8 @@
       "releaseDate": "2023-04-24",
       "updatedDate": "2023-04-24",
       "slts": [
-        { "id": "204.1", "slt": "I can deploy an instance of a Plutus script with custom parameters" },
-        { "id": "204.2", "slt": "I can contribute to a headless, decentralized application." }
+        { "id": "204.1", "slt": "PlutusスクリプトのInstanceにカスタムパラメータを付けてデプロイすることができます。" },
+        { "id": "204.2", "slt": "Headlessや分散型アプリケーションの構築に貢献できる。" }
       ],
       "lessons":[
         {
@@ -317,11 +317,11 @@
     },
     {
       "number": 301,
-      "title": "Writing and Using Plutus Validators",
+      "title": "Plutusバリデーターの書き方と使い方",
       "releaseDate": "2023-05-01",
       "updatedDate": "2023-05-01",
       "slts": [
-        { "id": "301.1", "slt": "I can write a Plutus Spending validator." },
+        { "id": "301.1", "slt": "バリデータPlutus Spendingを書ける。" },
         { "id": "301.2", "slt": "I know enough haskell to understand some common validator design patterns." },
         { "id": "301.3", "slt": "I understand how Datum is used in Plutus validators." },
         { "id": "301.4", "slt": "I understand how Redeemers are used in Plutus validators." }
