@@ -55,7 +55,6 @@ export default function CallToActionWithAnnotation() {
               <Icon as={Arrow} w={71} position={"absolute"} right={-71} top={"10px"} />
             </Box>
           </Stack>
-          <Box><CLink href="https://gitlab.com/gimbalabs/ppbl-2023/ppbl-front-end-template-2023/-/blob/main/LICENSE" target="_blank">View License</CLink> </Box>
         </Stack>
       </Container>
     </>

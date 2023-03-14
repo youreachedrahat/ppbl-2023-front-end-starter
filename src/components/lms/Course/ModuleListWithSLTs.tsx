@@ -13,6 +13,7 @@ import {
   AccordionIcon,
   Divider,
   Badge,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
@@ -23,7 +24,7 @@ import slts from "@/src/data/slts-english.json";
 import Link from "next/link";
 
 const ModuleListWithSLTs = () => {
-  
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   const showPPBL = (mid: number) => {
     let level = ""
     let color = "#fef469"
@@ -57,7 +58,7 @@ const ModuleListWithSLTs = () => {
           <AccordionButton>
             <Box as="span" flex="1" textAlign="left">
               <Heading size="md" py="2" style={{ display: "inline-flex" }}>
-                <Text color="theme.blue" mr="4">
+                <Text color={textColorBlue} mr="4">
                   {module.number} :
                 </Text>
                 {module.title} 

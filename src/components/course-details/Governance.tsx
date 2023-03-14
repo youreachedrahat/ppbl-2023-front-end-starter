@@ -1,11 +1,12 @@
-import { Button, Container, Divider, Heading, Text } from "@chakra-ui/react";
+import { Button, Container, Divider, Heading, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
 const Governance = () => {
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue">
+      <Heading size="2xl" color={textColorBlue}>
         Beyond Contibution is Goverance
       </Heading>
       <Text marginTop="1em">
@@ -15,7 +16,7 @@ const Governance = () => {
         We want you to be a <Text as="span" fontWeight="bold" color="theme.green">decision maker</Text>, who helps answer the question:
       </Text>
 
-      <Heading size="2xl" color="theme.blue" my="10">
+      <Heading size="2xl" color={textColorBlue} my="10">
         &rdquo;What will we do next?&rdquo;
       </Heading>
       <Text fontWeight="bold" color="theme.green" my="1em">

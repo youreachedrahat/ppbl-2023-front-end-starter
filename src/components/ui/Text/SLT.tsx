@@ -1,4 +1,4 @@
-import { Box, Text, Heading } from "@chakra-ui/react";
+import { Box, Text, Heading, useColorModeValue } from "@chakra-ui/react";
 import * as React from "react";
 import slts from "@/src/data/slts-english.json";
 // import slts from "@/src/data/slts-indonesian.json";
@@ -18,11 +18,11 @@ const SLT: React.FC<Props> = ({ moduleNumber, id }) => {
   const currentModule = slts.modules.filter((module) => module.number == moduleNumber)[0]
   const items: SLT[] = currentModule.slts
   const currentSLT = items.filter((i) => i.id == id)[0]
-
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
 
   return (
     <Box borderLeft="1px" my="3" pl="5">
-      <Heading size="md" color="theme.blue">
+      <Heading size="md" color={textColorBlue}>
         SLT{" "}{id}
       </Heading>
       <Text fontSize="4xl">{currentSLT.slt}</Text>

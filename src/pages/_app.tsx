@@ -15,6 +15,7 @@ const theme = extendTheme({
       dark: "#121619",
       light: "#DDD8C4",
       blue: "#9BBAE6",
+      darkBlue: "#1560BD",
       green: "#79B995",
       gray: "#454545",
       lightGray: "#1c2634",
@@ -50,6 +51,24 @@ const theme = extendTheme({
         h1: {
           fontSize: "4xl",
           fontWeight: "900",
+          mb: "4",
+          color: "theme.blue",
+        },
+        h2: {
+          fontSize: "2xl",
+          fontWeight: "700",
+          mb: "4",
+          color: "theme.green",
+        },
+        h3: {
+          fontSize: "xl",
+          fontWeight: "400",
+          mb: "4",
+          color: "theme.green",
+        },
+        h4: {
+          fontSize: "lg",
+          fontWeight: "700",
           mb: "4",
           color: "theme.blue",
         },

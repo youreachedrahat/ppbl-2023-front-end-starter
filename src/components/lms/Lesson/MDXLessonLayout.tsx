@@ -18,6 +18,7 @@ type CodeProps = {
 
 type mdxComponents = {
   code: React.FC<CodeProps>;
+  a: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
   // add other components here as needed
 };
 
@@ -60,22 +61,29 @@ const code: React.FC<CodeProps> = ({ node, inline, className, children, ...props
   );
 };
 
+const CustomLink: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, children, ...rest }) => (
+  <a href={href} style={{ color: "#0044CC", fontWeight: "bold", textDecoration: "underline" }} {...rest}>
+    {children}
+  </a>
+);
+
 export const components: mdxComponents = {
   code,
+  a: CustomLink,
   // add other components here as needed
 };
 
 type Props = {
   children?: React.ReactNode;
-  };
-  const MDXLessonLayout: React.FC<Props> = ({ children }) => {
+};
+const MDXLessonLayout: React.FC<Props> = ({ children }) => {
   return (
   <Box w="80%" p="5" className="mdx-content">
   <MDXProvider components={components as Components}>
   {children}
   </MDXProvider>
-  </Box>
+    </Box>
   );
-  };
-  
-  export default MDXLessonLayout;
+};
+
+export default MDXLessonLayout;

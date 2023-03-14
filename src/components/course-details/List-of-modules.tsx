@@ -1,12 +1,13 @@
-import { Button, Container, Divider, Heading, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
+import { Button, Container, Divider, Heading, List, ListIcon, ListItem, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
 
 const ListOfModules = () => {
+  const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color="theme.blue">
+      <Heading size="2xl" color={textColorBlue}>
         Plutus PBL Course Outline
       </Heading>
       <Text fontSize="xl" pb="5">
@@ -22,7 +23,7 @@ const ListOfModules = () => {
         Click on a Module to view Student Learning Targets.
       </Text>
       <ModuleListWithSLTs />
-      <Heading size="xl" color="theme.blue" my="0.8em">
+      <Heading size="xl" color={textColorBlue} my="0.8em">
         Next:
       </Heading>
       <Text fontSize="xl" my="5">
