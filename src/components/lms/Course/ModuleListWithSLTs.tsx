@@ -18,8 +18,7 @@ import {
 import * as React from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
-import slts from "@/src/data/slts-japanese.json";
-// import slts from "@/src/data/slts-indonesian.json";
+import slts from "@/src/data/slts-english.json";
 
 import Link from "next/link";
 
@@ -30,7 +29,7 @@ const ModuleListWithSLTs = () => {
     let color = "#fef469"
 
     // 100 #fef469
-    // 200 
+    // 200
     // 300 #e67359
     // 400
     if(mid < 200){
@@ -45,7 +44,7 @@ const ModuleListWithSLTs = () => {
       level = "Contributing"
       color = "theme.green"
     }
-  
+
     return(
       <Box mr="5" px="1" bg={color} color="theme.dark" borderRadius="sm"><Text fontSize="sm">{level}</Text></Box>
     )
@@ -61,7 +60,7 @@ const ModuleListWithSLTs = () => {
                 <Text color={textColorBlue} mr="4">
                   {module.number} :
                 </Text>
-                {module.title} 
+                {module.title}
               </Heading>
             </Box>
             {showPPBL(module.number)}
