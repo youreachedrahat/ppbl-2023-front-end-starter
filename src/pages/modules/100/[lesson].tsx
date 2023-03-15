@@ -4,7 +4,7 @@ import Lesson1002 from "@/src/components/course-modules/100/Lesson-1002";
 import Lesson1003 from "@/src/components/course-modules/100/Lesson-1003";
 import Lesson1004 from "@/src/components/course-modules/100/Lesson-1004";
 import Status100 from "@/src/components/course-modules/100/Status100";
-import ModuleLessons from "@/src/components/course-modules/Lesson";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import slt from "@/src/data/slts-english.json"
 
 const Module100Lessons = () => {
@@ -26,7 +26,7 @@ const Module100Lessons = () => {
   return (
     <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/100" selected={0} lessons={lessons} status={status}/>
   )
-          
+
 };
 
 export default Module100Lessons;

@@ -1,4 +1,4 @@
-import SLTsItems from "@/src/components/course-modules/SLTs";
+import SLTsItems from "@/src/components/lms/Lesson/SLTs";
 import { Container, Divider, Heading, Box } from "@chakra-ui/react";
 import React from "react";
 

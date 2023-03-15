@@ -5,10 +5,11 @@ import SLTs101 from "@/src/components/course-modules/101/101-SLTs";
 // import Lesson1014 from "@/src/components/course-modules/101/Lesson-1014";
 // import { default as Example } from "@/src/components/course-modules/101/Example.mdx";
 // import Status101 from "@/src/components/course-modules/101/Status101";
-import ModuleLessons from "@/src/components/course-modules/Lesson";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
+import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
+
 import slt from "@/src/data/slts-english.json"
 
-import ComingSoon from "@/src/components/course-modules/ComingSoon";
 import Status100 from "@/src/components/course-modules/100/Status100";
 
 
