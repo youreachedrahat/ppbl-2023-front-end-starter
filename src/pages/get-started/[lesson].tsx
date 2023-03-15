@@ -4,7 +4,7 @@ import Governance from "@/src/components/course-details/Governance";
 import ListOfModules from "@/src/components/course-details/List-of-modules";
 import PBLFramework from "@/src/components/course-details/PBL-framework";
 import { items } from "@/src/data/get-started";
-import ModuleLessons from "@/src/components/course-modules/Lesson";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import GettingHelp from "@/src/components/course-details/GettingHelp";
 
 
@@ -22,7 +22,7 @@ const GetStarted = () => {
   return (
     <ModuleLessons items={items} modulePath="/get-started" selected={0} lessons={lessons} status={null} />
   )
-          
+
 };
 
 export default GetStarted;
