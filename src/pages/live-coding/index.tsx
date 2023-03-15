@@ -34,7 +34,8 @@ export default function LiveCoding() {
         </Heading>
 
         <Heading>Gimbalabs - English</Heading>
-        <TableContainer>
+        <Heading size="md" py="5">Upcoming:</Heading>
+        <TableContainer pb="5">
           <Table size="sm">
             <Thead>
               <Tr>
@@ -46,15 +47,42 @@ export default function LiveCoding() {
               </Tr>
             </Thead>
             <Tbody>
-              {events.events.map((event: any, i) => (
+              {events.events.filter((ev: any) => !ev.complete).map((event: any, i) => (
                 <Tr key={i} bg={bgColor} color={textColor}>
                   <Td>{event.date}</Td>
                   <Td>{event.time}</Td>
                   <Td>{event.title}</Td>
                   <Td>{event.description}</Td>
                   <Td>
-                    <CLink href={event.regLink} target="_blank" color="theme.cyan">
+                    <CLink href={event.regLink} target="_blank" color="theme.green">
                       Registration Link
+                    </CLink>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+        <Heading size="md" py="5">Past Meetings:</Heading>
+        <TableContainer>
+          <Table size="sm">
+            <Thead>
+              <Tr>
+                <Th>Date</Th>
+                <Th>Title</Th>
+                <Th>Description</Th>
+                <Th>Recording</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {events.events.filter((ev: any) => ev.complete).map((event: any, i) => (
+                <Tr key={i} bg={bgColor} color={textColor}>
+                  <Td>{event.date}</Td>
+                  <Td>{event.title}</Td>
+                  <Td>{event.description}</Td>
+                  <Td>
+                    <CLink href={event.recordingLink} target="_blank" color="theme.yellow">
+                      View Meeting Recording
                     </CLink>
                   </Td>
                 </Tr>

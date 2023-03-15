@@ -5,9 +5,10 @@
             "time": "1430-1600 utc",
             "title": "Welcome to Plutus PBL 2023",
             "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-            "recordingLink": "",
+            "recordingLink": "https://www.youtube.com/live/2ACJlnUfVL4",
             "links": [""],
-            "description": "Meet your PPBL Team"
+            "description": "Meet your PPBL Team",
+            "complete": true
         },
         {
             "date": "2023-03-16",
