@@ -14,9 +14,7 @@ export default function Lesson1015() {
   return (
     <LessonLayout moduleNumber={101} sltId="101.5" slug="1015">
       <LessonIntroAndVideo lessonData={lessonDetails} />
-
       <AssignmentComponent>
-        <Text>Replace with documentation - import from MDX</Text>
         <SuccessComponent mastery={false}></SuccessComponent>
         <Docs1015 />
       </AssignmentComponent>
