@@ -79,7 +79,7 @@ export default function Lesson1001() {
                 </Text>
               </>
             ) : (
-              <Text>Your wallet is connected to to Preproduction Testnet.</Text>
+              <Text>Your wallet is connected to Preproduction Testnet.</Text>
             )}
           </>
         </SuccessComponent>
