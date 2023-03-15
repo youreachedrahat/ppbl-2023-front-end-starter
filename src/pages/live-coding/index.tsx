@@ -35,10 +35,11 @@ export default function LiveCoding() {
 
         <Heading>Gimbalabs - English</Heading>
         <TableContainer>
-          <Table>
+          <Table size="sm">
             <Thead>
               <Tr>
                 <Th>Date</Th>
+                <Th>Time</Th>
                 <Th>Title</Th>
                 <Th>Description</Th>
                 <Th>Register</Th>
@@ -48,6 +49,7 @@ export default function LiveCoding() {
               {events.events.map((event: any, i) => (
                 <Tr key={i} bg={bgColor} color={textColor}>
                   <Td>{event.date}</Td>
+                  <Td>{event.time}</Td>
                   <Td>{event.title}</Td>
                   <Td>{event.description}</Td>
                   <Td>
