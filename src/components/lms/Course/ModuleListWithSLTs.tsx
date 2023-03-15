@@ -18,7 +18,7 @@ import {
 import * as React from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
-import slts from "@/src/data/slts-english.json";
+import slts from "@/src/data/slts-japanese.json";
 // import slts from "@/src/data/slts-indonesian.json";
 
 import Link from "next/link";
