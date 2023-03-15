@@ -1,5 +1,5 @@
 import SLTs303 from "@/src/components/course-modules/303/303-SLTs";
-import ModuleLessons from "@/src/components/course-modules/Lesson";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import slt from "@/src/data/slts-english.json"
 
 const Module303Lessons = () => {
@@ -15,7 +15,7 @@ const Module303Lessons = () => {
   return (
     <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/303" selected={0} lessons={lessons} status={status}/>
   )
-          
+
 };
 
 export default Module303Lessons;

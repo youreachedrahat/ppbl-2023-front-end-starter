@@ -6,10 +6,10 @@ import Lesson1014 from "@/src/components/course-modules/101/Lesson-1014";
 import Lesson1015 from "@/src/components/course-modules/101/Lesson-1015";
 import Lesson1016 from "@/src/components/course-modules/101/Lesson-1016";
 import Status101 from "@/src/components/course-modules/101/Status101";
-import ModuleLessons from "@/src/components/course-modules/Lesson";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import slt from "@/src/data/slts-english.json"
 
-import ComingSoon from "@/src/components/course-modules/ComingSoon";
+import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
 
 
 const Module101Lessons = () => {

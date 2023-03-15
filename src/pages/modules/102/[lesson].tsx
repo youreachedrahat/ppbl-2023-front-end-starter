@@ -1,6 +1,6 @@
 import SLTs102 from "@/src/components/course-modules/102/102-SLTs";
-import ComingSoon from "@/src/components/course-modules/ComingSoon";
-import ModuleLessons from "@/src/components/course-modules/Lesson";
+import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import slt from "@/src/data/slts-english.json"
 
 
@@ -25,7 +25,7 @@ const Module102Lessons = () => {
   return (
     <ModuleLessons items={moduleSelected?.lessons ?? []} modulePath="/modules/102" selected={0} lessons={lessons} status={status}/>
   )
-          
+
 };
 
 export default Module102Lessons;

@@ -1,0 +1,80 @@
+{
+  "lessons": [
+    {
+      "slug": "1011",
+      "introduction": [],
+      "links": [{ "url": "", "linkText": "" }],
+      "videoHeading": "What does it mean to compile a Plutus script?",
+      "youtubeId": "",
+      "successComponent": false,
+      "assignmentComponent": true,
+      "markdownComponent": false
+    },
+    {
+      "slug": "1012",
+      "introduction": [
+        "So UPLC can be compiled from many different sources.",
+        "Once it is compiled, UPLC can be represented as bytecode.",
+        "Then, this bytecode can be used in decentralized applications. In Module 102 we will start to build transactions using compiled Plutus Scripts. In Module 201, we will start to use the scripts in a javascript-based front-end.",
+        "How to use it...that will be for the rest of our course!"
+      ],
+      "links": [{ "url": "", "linkText": "" }],
+      "videoHeading": "",
+      "youtubeId": "",
+      "successComponent": false,
+      "assignmentComponent": true,
+      "markdownComponent": true
+    },
+    {
+      "slug": "1013",
+      "introduction": [
+        "What is demeter.run",
+        "Why demeter.run is helpful",
+        "What you need",
+        "Give it a try - see video"
+      ],
+      "links": [{ "url": "", "linkText": "" }],
+      "videoHeading": "VIDEO DESCRIPTION",
+      "youtubeId": "",
+      "successComponent": false,
+      "assignmentComponent": true,
+      "markdownComponent": true
+    },
+    {
+      "slug": "1014",
+      "introduction": [],
+      "links": [{ "url": "", "linkText": "" }],
+      "videoHeading": "VIDEO DESCRIPTION",
+      "youtubeId": "",
+      "successComponent": false,
+      "assignmentComponent": true,
+      "markdownComponent": true
+    },
+    {
+      "slug": "1015",
+      "introduction": [
+        "Aiken is a new programming language and toolkit for developing smart contracts on Cardano",
+        "The Aiken language was written in Rust, but Aiken is not Rust. When we use Aiken, we will use some Rust tooling."
+      ],
+      "links": [
+        { "linkText": "Aiken Programming Language", "url": "https://aiken-lang.org/" },
+        { "linkText": "The Aiken documentation is helpful. We recommend taking a look!", "url": "https://aiken-lang.org/getting-started" }
+      ],
+      "videoHeading": "",
+      "youtubeId": "",
+      "successComponent": false,
+      "assignmentComponent": true,
+      "markdownComponent": true
+    },
+    {
+      "slug": "1016",
+      "introduction": [],
+      "links": [{ "url": "", "linkText": "" }],
+      "videoHeading": "VIDEO DESCRIPTION",
+      "youtubeId": "",
+      "successComponent": false,
+      "assignmentComponent": true,
+      "markdownComponent": true
+    }
+  ]
+}
