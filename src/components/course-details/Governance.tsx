@@ -7,7 +7,7 @@ const Governance = () => {
   return (
     <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color={textColorBlue}>
-        Beyond Contibution is Goverance
+        Beyond Contribution is Goverance
       </Heading>
       <Text marginTop="1em">
         Our long-term intention is for you be <Text as="span" fontWeight="bold" color="theme.green">more than a contributor</Text> to projects.
