@@ -26,11 +26,11 @@
         },
         {
             "date": "2023-03-22",
-            "title": "What is \"Plutus\"?",
+            "title": "What is \"Plutus Core\"?",
             "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
             "recordingLink": "",
             "links": [""],
-            "description": "Student Q&A + options for writing smart contracts"
+            "description": "Student Q&A + options for compiling to Plutus Core"
         },
         {
             "date": "2023-03-23",

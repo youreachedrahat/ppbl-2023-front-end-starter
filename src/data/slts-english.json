@@ -45,7 +45,7 @@
       "releaseDate": "2023-03-20",
       "updatedDate": "2023-03-20",
       "slts": [
-        { "id": "101.1", "slt": "I can compile a plutus validator to Untyped Plutus Core (UPLC)." },
+        { "id": "101.1", "slt": "I can compile a validator to Untyped Plutus Core (UPLC)." },
         { "id": "101.2", "slt": "I understand the role that UPLC plays in a decentralized application on Cardano." },
         { "id": "101.3", "slt": "I can use Demeter.run to compile a .plutus script." },
         {
