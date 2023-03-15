@@ -15,50 +15,32 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Center,
-  Spinner,
-  Grid,
-  GridItem,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
-import { Transaction, Mint, Action, AssetMetadata, Data, Recipient } from "@meshsdk/core";
+import { Transaction, Mint, Action, AssetMetadata, Data, Recipient, KoiosProvider } from "@meshsdk/core";
 import { useWallet, useAddress } from "@meshsdk/react";
 import { useFormik } from "formik";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { contributorPlutusMintingScript } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { contributorReferenceAddress } from "@/src/cardano/plutus/contributorReferenceValidator";
-import { gql, useQuery } from "@apollo/client";
 import { hexToString } from "@/src/utils";
-
-const CONTRIBUTOR_TOKEN_QUERY = gql`
-  query GetTreasuryUTxOs($contractAddress: String!) {
-    utxos(where: { address: { _eq: $contractAddress } }) {
-      value
-      tokens {
-        asset {
-          policyId
-          assetName
-        }
-        quantity
-      }
-    }
-  }
-`;
 
 const ContributorPairMintingComponent = () => {
   const { connected, wallet } = useWallet();
   const address = useAddress();
   const [asset, setAsset] = useState<Mint | undefined>(undefined);
+  const [contribReferenceList, setContribReferenceList] = useState<string[] | undefined>(undefined);
+
+  const koiosProvider = new KoiosProvider("preprod");
 
   const [contributorTokenName, setContributorTokenName] = useState<string | undefined>(undefined);
   const [successfulTxHash, setSuccessfulTxHash] = useState<string | null>(null);
-
-  const tokenNameList: string[] = []
 
   // Chakra Modal -> Successful Minting Tx
   const { isOpen: isSuccessOpen, onOpen: onSuccessOpen, onClose: onSuccessClose } = useDisclosure();
@@ -78,6 +60,26 @@ const ContributorPairMintingComponent = () => {
     setContributorTokenName(_name);
   }, [formik.values.contributorAlias]);
 
+  useEffect(() => {
+    const fetchContributorReferenceUTxOs = async () => {
+      const tokenNameList: string[] = [];
+      const _contributionRefUTxO = await koiosProvider.fetchAddressUTxOs(contributorReferenceAddress);
+      console.log(_contributionRefUTxO);
+      _contributionRefUTxO.forEach((utxo: any) => {
+        const contribUnit = utxo.output.amount[1].unit
+        const contribTokenName = hexToString(contribUnit.substring(62))
+        tokenNameList.push(contribTokenName)
+        // tokenNameList.push(hexToString(utxo.output.amount[1].unit).substring(59));
+      });
+      console.log(tokenNameList);
+      setContribReferenceList(tokenNameList);
+    };
+
+    if (contributorReferenceAddress) {
+      fetchContributorReferenceUTxOs();
+    }
+  }, [contributorReferenceAddress]);
+
   const contributor_datum: Data = {
     alternative: 0,
     fields: [5, []],
@@ -96,31 +98,6 @@ const ContributorPairMintingComponent = () => {
     tag: "MINT",
     data: 1618033988,
   };
-
-  // const { data, loading, error } = useQuery(CONTRIBUTOR_TOKEN_QUERY, {
-  //   variables: {
-  //     contractAddress: contributorReferenceAddress,
-  //   },
-  // });
-
-  // if (loading) {
-  //   return (
-  //     <Center p="10">
-  //       <Spinner size="xl" speed="1.0s" />
-  //     </Center>
-  //   );
-  // }
-
-  // if (error) {
-  //   console.error(error);
-  //   return <Heading size="lg">Error loading data...</Heading>;
-  // }
-
-  // data?.utxos.forEach((utxo: any) => {
-
-  //     tokenNameList.push(hexToString(utxo.tokens[0].asset.assetName).substring(3))
-  
-  // })
 
   const handleMintingTransaction = async () => {
     if (address && contributorTokenName && contributorTokenName != "PPBL2023") {
@@ -180,36 +157,35 @@ const ContributorPairMintingComponent = () => {
           />
           <FormHelperText py="2">Preview the name of your token on this button:</FormHelperText>
         </FormControl>
-        {/* {contributorTokenName && tokenNameList.includes(contributorTokenName) ? (
+        {contributorTokenName && contribReferenceList && contribReferenceList.includes(contributorTokenName) ? (
           <Text>Please choose a unique token name.</Text>
         ) : (
           <Button colorScheme="green" onClick={handleMintingTransaction}>
             Mint Your {contributorTokenName}
           </Button>
-        )} */}
-        <Button colorScheme="green" onClick={handleMintingTransaction}>
-            Mint Your {contributorTokenName}
-          </Button>
-        {/* <Accordion allowToggle py="5">
-          <AccordionItem>
-            <AccordionButton>
-              <Text py="3">
-                Is your token name unique? Click here to view a list of PPBL2023 Tokens that have been minted so far.
-              </Text>
-            </AccordionButton>
-            <AccordionPanel>
-              <Grid templateColumns="repeat(5, 1fr)" gap={3}>
-                {tokenNameList.map((tName: any, i: number) => (
-                  <GridItem key={i} p="1" bg="theme.light" color="theme.dark">
-                    <Text fontSize="sm" fontWeight="bold">
-                      {tName}
-                    </Text>
-                  </GridItem>
-                ))}
-              </Grid>
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion> */}
+        )}
+        {contribReferenceList && (
+          <Accordion allowToggle py="5">
+            <AccordionItem>
+              <AccordionButton>
+                <Text py="3">
+                  Is your token name unique? Click here to view a list of PPBL2023 Tokens that have been minted so far.
+                </Text>
+              </AccordionButton>
+              <AccordionPanel>
+                <Grid templateColumns="repeat(5, 1fr)" gap={3}>
+                  {contribReferenceList.map((tName: any, i: number) => (
+                    <GridItem key={i} p="1" bg="theme.light" color="theme.dark">
+                      <Text fontSize="sm" fontWeight="bold">
+                        {tName}
+                      </Text>
+                    </GridItem>
+                  ))}
+                </Grid>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+        )}
       </Box>
       <Modal
         key="successMintingModal"
@@ -223,7 +199,10 @@ const ContributorPairMintingComponent = () => {
           <ModalHeader fontSize="3xl">Success: Minting Transaction Submitted</ModalHeader>
           <ModalBody>
             <Text py="2">Minting Transaction Hash: {successfulTxHash}</Text>
-            <Text py="2">It may take a few minutes for this tx to show up on a blockchain explorer. Wait a few minutes and then refresh this page to see how it changes.</Text>
+            <Text py="2">
+              It may take a few minutes for this tx to show up on a blockchain explorer. Wait a few minutes and then
+              refresh this page to see how it changes.
+            </Text>
           </ModalBody>
           <ModalFooter>
             <Button bg="white" color="gray.700" onClick={onSuccessClose}>
