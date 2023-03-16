@@ -1,45 +1,32 @@
-# When you talk about Plutus are you talking about Plutus or Plutus (or Plutus)?
+import { Text } from "@chakra-ui/react";
 
-**In this course, you will learn how to write to UPLC (Plutus Core). One of the ways we will get there is by writing SCs in PlutusTx.**
+# What is "Plutus"?
 
-Plutus Core is a **low-level** language used for the core logic of smart contracts, while Plutus Tx is a **higher-level** language used for writing the parts of the smart contract that interact with the Cardano blockchain.
+The first thing we want you to know is that "Plutus" actually means a few different things:
 
-> would a diagram be helpful? I remember this being one of the most confounding things when I began
-("Plutus" being used to mean at least two different things )
+- [Plutus Platform](https://developers.cardano.org/docs/smart-contracts/plutus/) refers to the comprehensive "smart contract platform of the Cardano blockchain".
+- [Plutus Core](https://github.com/input-output-hk/plutus) refers to the code that is actually used on-chain.
+- [PlutusTx](https://plutus.readthedocs.io/en/latest/tutorials/plutus-tx.html) is a human-readable programming language based on Haskell. <br />(When people say you have to know Haskell to develop on Cardano, this is what they mean.)
 
-This course is called Plutus PBL, and in this module we are going to show you how to create your first smart contracts
-in Plutus **and in other languages**. 
+### We assume that you will have questions about all of these points! That is why this module exists.
 
-This course is really about **Plutus Core**. 
+## About Plutus Core
 
-
-You'll learn the role of Plutus Core by looking at the entire decentralized applications.
-
-Great question! We must start by distinguishing between two different meanings of "Plutus".
-
-## "Plutus" as in "PlutusTx"
-
-[PlutusTx](https://plutus.readthedocs.io/en/latest/tutorials/plutus-tx.html) is a human-readable programming language based on Haskell. When people say you have to know Haskell
-to be a Plutus developer, this is what they are talkikng about.
-"This is a plutus script. There are many ways to create a plutus script.
-
-However, PlutusTx is just one part of the greater Plutus platform (need precise language here).
-
-Initially, PlutusTx was the only way to write a Plutus Smart Contract. However, as we speak, new languages are emerging.
-
-## "Plutus" as in "Untyped Plutus Core," or "UPLC"
-
-Depending on your goals as a developer, you'll take different approaches. You will often hear UPLC referred to as "Plutus Core".
+### In this course, you will learn how to write and use smart contracts that compile to "Untyped Plutus Core".
+### Untyped Plutus Core is often referred to by its abbreviation, UPLC, or simply as "Plutus Core".
+### *This Plutus PBL course is really about Plutus Core: how to write it and how to use it.*
 
 
-## What does it all mean for you?
-If you want to be a Smart Contract developer, we strongly recommend getting nix set up. Or do we! That's the question for Sunday/Monday
 
-If you want to build applications, maybe you just need to make friends with a SC dev.
+## About PlutusTx
+One of the ways to write smart contracts that compile to UPLC is by writing smart contracts in PlutusTx, but PlutusTx is just one option. In this course we will explore other options for writing smart contracts.
 
-Either way, this course is designed to help you understand how Cardano works, so that you can start building.
+If you are learning Cardano development for the first time, you picked an exciting time to jump in. Initially, PlutusTx was the only way to write a Plutus Smart Contract. Right now, new languages are going live.
 
-In this module, we will survey some approaches to building plutus scripts, and then in Module 102 and beyond, you'll start to see how to use them."
+## Let's find out what works for you.
+
+If you want to build on Cardano, you have choices for how to get started. The purpose of this module is to show you some of your choices, and to show you what Plutus Core looks like.
+
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

@@ -74,12 +74,13 @@ const theme = extendTheme({
         },
         p: {
           fontSize: "lg",
-          lineHeight: "2",
+          py: "2"
         },
         ul: {
           ml: "6",
         },
         li: {
+          fontSize: "lg",
           pl: "2",
           py: "1",
         },

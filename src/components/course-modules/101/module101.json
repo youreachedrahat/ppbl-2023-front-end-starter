@@ -2,7 +2,9 @@
   "lessons": [
     {
       "slug": "1011",
-      "introduction": [],
+      "introduction": [
+        "This course is called Plutus PBL, and in this module we are going to show you how to create your first smart contracts in Plutus and in other languages."
+      ],
       "links": [{ "url": "", "linkText": "" }],
       "videoHeading": "What does it mean to compile a Plutus script?",
       "youtubeId": "",
@@ -53,8 +55,9 @@
     {
       "slug": "1015",
       "introduction": [
-        "Aiken is a new programming language and toolkit for developing smart contracts on Cardano",
-        "The Aiken language was written in Rust, but Aiken is not Rust. When we use Aiken, we will use some Rust tooling."
+        "Aiken is a new language for developing smart contracts on Cardano. If you have a background in Rust development, you might find yourself at home with Aiken.",
+        "The Aiken language was written in Rust, but Aiken is not Rust. When we use Aiken, we will use some Rust tooling.",
+        "To get started, watch this video or follow along with the documentation below."
       ],
       "links": [
         { "linkText": "Aiken Programming Language", "url": "https://aiken-lang.org/" },
@@ -68,8 +71,12 @@
     },
     {
       "slug": "1016",
-      "introduction": [],
-      "links": [{ "url": "", "linkText": "" }],
+      "introduction": [
+        "plu-ts is a new language for developing smart contracts on Cardano. If you have a background in Javascript or Typescript development, you might find yourself at home with PluTS.",
+        "plu-ts is written in Typescript and can be embedded in any existing Javascript or Typescript project.",
+        "To get started, watch this video or follow along with the documentation below."
+      ],
+      "links": [{ "url": "https://pluts.harmoniclabs.tech/", "linkText": "plu-ts official site" }],
       "videoHeading": "VIDEO DESCRIPTION",
       "youtubeId": "",
       "successComponent": false,
