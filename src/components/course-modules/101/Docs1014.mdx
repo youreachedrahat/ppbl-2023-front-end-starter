@@ -11,20 +11,27 @@
 <br />
 ---
 
-### 2. Clone the provided Plutus Starter from Gimbalabs
+### 2. Clone the provided PPBL2023 Plutus Template from Gimbalabs
+If you haven't already, create a new directory for course repos. Here is how to make a `ppbl2023` directory:
 ```bash
-git clone ...
+mkdir ppbl2023
+cd ppbl2023
 ```
 
-We will use this repository in Step 5. First, we must install and run "plutus-apps".
+In `/ppbl2023`, clone the PPBL Plutus Template
+```bash
+git clone https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template
+```
+
+We will use this repository in Step 5. Run `cd ..` to get back to `/ppbl2023`. Then continue to Step 3.
 
 <br />
 ---
 
 ### 3. Clone plutus-apps repo
-[The Plutus Application Framework](https://github.com/input-output-hk/plutus-apps), also known as `plutus-apps`, provides a range of tools for developing distributed applications on Cardano. It is not a perfect tool, and it may provide more tooling than you need right now. However, we find that when developers want to go deeper into creating dApps with Plutus, `plutus-apps` is a great place to start learning.
+[The Plutus Application Framework](https://github.com/input-output-hk/plutus-apps), also known as `plutus-apps`, provides a range of tools for developing distributed applications on Cardano. It is not a perfect tool, and it may provide *more* tooling than you need right now. However, we find that when developers want to go deeper into creating dApps with Plutus, `plutus-apps` is a great place to start learning.
 
-To get started, clone the [plutus-apps repo](https://github.com/input-output-hk/plutus-apps). Then, check out the most recent version, which is currently `v1.2.0` (released March 2023).
+To get started, clone the [plutus-apps repo](https://github.com/input-output-hk/plutus-apps). Then, checkout the most recent version, which is currently `v1.2.0` (released March 2023).
 
 ```bash
 git clone https://github.com/input-output-hk/plutus-apps
@@ -34,7 +41,7 @@ git checkout v1.2.0
 <br />
 ---
 
-### 4. In `plutus-apps`, run `nix develop` or `nix-shell`
+### 4. Use Nix to run `plutus-apps`
 - As of the start of this course, nix is in transition.
 - That is why there are two different commands you might try.
 
@@ -45,17 +52,27 @@ nix develop
 or:
 
 ```bash
+GC_DONT_GC=1 nix develop
+```
+
+If you can explain exactly what this means, please reach out!
+
+```bash
 cd plutus-apps
 nix-shell
 ```
 
-It is possible that both of these will not work. If that happens, we will be ready to help you!
+It is possible that none of these will work for you. If that happens, we are ready to help you!
 <br />
 ---
 
-### 5. Run `cabal repl` in the Gimblabs Starter, and write a validator
+### 5. Run `cabal repl` in the PPBL2023 Plutus Template, and write a validator
 
-Now that you have completed this steps, you have a lot of power. We know this was challenging, but from here, you are ready to test ideas locally without depending on...
+```bash
+[plutus-apps] ../ppbl2023-plutus-template $ cabal repl
+...
+AlwaysSucceeds.Compiler> writeAlwaysSucceedsScript 
+```
 
 ### Some choices:
 
