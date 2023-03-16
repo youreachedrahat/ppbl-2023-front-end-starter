@@ -5,7 +5,7 @@
       "introduction": [
         "In this course, you will learn how to write smart contracts that can be used on the Cardano blockchain. In this module, we will take our first look at some of the smart contract languages on Cardano.",
         "All of these languages have some things in common.",
-        "All of these languages share some basic design patterns, even though each language might \"look\" different.",
+        "All of these languages share some basic design patterns, even though each language looks a little different.",
         "All of these langauges compile to Untyped Plutus Core, which is the language is actually used on the Cardano blockchain.",
         "To see what UPLC looks like, watch this video."
       ],
@@ -115,7 +115,7 @@
     {
       "slug": "1016",
       "introduction": [
-        "plu-ts is a new language for developing smart contracts on Cardano. If you have a background in Javascript or Typescript development, you might find yourself at home with PluTS.",
+        "plu-ts is a new language for developing smart contracts on Cardano. If you have a background in Javascript or Typescript development, you might find yourself at home with plu-ts.",
         "plu-ts is written in Typescript and can be embedded in any existing Javascript or Typescript project.",
         "To get started, watch this video or follow along with the documentation below."
       ],
