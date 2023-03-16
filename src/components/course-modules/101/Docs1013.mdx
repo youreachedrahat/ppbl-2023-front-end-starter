@@ -1,25 +1,30 @@
 # Documentation
 ### How to use Demeter.run to compile an Always Succeeds script from PlutusTx
 
-## Getting Started
-- Create an account on Demeter.run
-- Review PPP lecture:
-- We can use different repositories. For this exmaple, we use https://github.com/txpipe/plutus-starter-kit from TxPipe
+## Step by Step: Overview
+1. Create a free account at [demeter.run](https://demeter.run)
+2. Start a project with the [Plutus Hello World repo from TxPipe](https://github.com/txpipe/plutus-starter-kit)
+3. Open Visual Studio Code in the browser
+4. Wait for `cabal update` to run
+5. Run `exec` -- check and add notes
 
-## Step by Step
-	- Using: https://github.com/txpipe/plutus-starter-kit - get up to step of opening vs code
-	- When you open VS Code in the browser, `cabal update` will run. This may take a while the first time. When that's complete, you'll get a message to close the terminal.
-	- Close terminal and reopen.
-	- (All of this is much faster after the first time - as you'll see locally too)
-	- Now run `cabal repl`
-	- We can play around
-	- Read repo docs - see how some nice Haskell is provided.
-	- But this is a pretty advance validator already! Our goal is to make one that will always work.
-	- Ok and you can keep the hello.plutus as well - that might be fun for some future experiments!
-## NEAT | IMPORTANT | TOUGH
-- Next up: try some other templates. Try Plutus Pioneers.
-- What we didn't cover: versioning - this template is from December...
+## Step by Step: Details
+- Using: https://github.com/txpipe/plutus-starter-kit - get up to step of opening vs code
+- When you open VS Code in the browser, `cabal update` will run. This may take a while the first time. When that's complete, you'll get a message to close the terminal.
+- Close terminal and reopen.
+- (All of this is much faster after the first time - as you'll see locally too)
+- Now run `cabal repl`
+- We can play around
+- Read repo docs - see how some nice Haskell is provided.
+- But this is a pretty advance validator already! Our goal is to make one that will always work.
+- Ok and you can keep the hello.plutus as well - that might be fun for some future experiments!
 
+## Notes (video?)
+How does versioning work in Plutus?
+
+## Keep Exploring:
+- Review [this Plutus Pioneers lecture that introduces Demeter.run](https://iog-academy.gitbook.io/plutus-pioneers-program-fourth-cohort/lectures/lecture-01/lesson-01)
+- Try starting a project in Demeter.run from different starter template. You can [review some options here]().
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

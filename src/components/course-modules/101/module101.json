@@ -3,52 +3,92 @@
     {
       "slug": "1011",
       "introduction": [
-        "This course is called Plutus PBL, and in this module we are going to show you how to create your first smart contracts in Plutus and in other languages."
+        "In this course, you will learn how to write smart contracts that can be used on the Cardano blockchain. In this module, we will take our first look at some of the smart contract languages on Cardano.",
+        "All of these languages have some things in common.",
+        "All of these languages share some basic design patterns, even though each language might \"look\" different.",
+        "All of these langauges compile to Untyped Plutus Core, which is the language is actually used on the Cardano blockchain.",
+        "To see what UPLC looks like, watch this video."
       ],
-      "links": [{ "url": "", "linkText": "" }],
-      "videoHeading": "What does it mean to compile a Plutus script?",
+      "links": [],
+      "videoHeading": "What does it mean to \"compile a Plutus script\"?",
       "youtubeId": "",
       "successComponent": false,
+      "success": {
+        "criteria": "you can compile a contract to UPLC from the language of your choice.",
+        "text": "To master this learning target, you must attempt at least one of the approaches suggested in Lessons 101.3 through 101.6. Are you ready? If so, move on to Lesson 2."
+      },
       "assignmentComponent": true,
       "markdownComponent": false
     },
     {
       "slug": "1012",
       "introduction": [
-        "So UPLC can be compiled from many different sources.",
-        "Once it is compiled, UPLC can be represented as bytecode.",
-        "Then, this bytecode can be used in decentralized applications. In Module 102 we will start to build transactions using compiled Plutus Scripts. In Module 201, we will start to use the scripts in a javascript-based front-end.",
-        "How to use it...that will be for the rest of our course!"
+        "Once you compile a smart contract to UPLC, what can you do with it?",
+        "This is question we will cover in depth in Modules 102 and 201.",
+        "In Module 102 we will start to build transactions using compiled Plutus scripts.",
+        "In Module 201, we will start to use our Plutus scripts in a javascript-based front-end.",
+        "Watch this video to start learning more about the role of UPLC in a decentralized application."
       ],
-      "links": [{ "url": "", "linkText": "" }],
+      "links": [],
       "videoHeading": "",
       "youtubeId": "",
       "successComponent": false,
+      "success": {
+        "criteria": "you can explain how Plutus scripts are used in a Cardano application.",
+        "text": "At the end of this module, you will have your first compiled Plutus scripts. In Modules 102 and 201 you will start to learn how to use them. Later in this course, we will ask you about this learning target again."
+      },
       "assignmentComponent": true,
       "markdownComponent": true
     },
     {
       "slug": "1013",
       "introduction": [
-        "What is demeter.run",
-        "Why demeter.run is helpful",
-        "What you need",
-        "Give it a try - see video"
+        "Demeter.run is a cloud-based Cardano development platform built by TxPipe.",
+        "Demeter is a very helpful tool for anyone who wants to get started quickly with Cardano development. Many developers start with Demeter to get an initial feel for how Cardano works.",
+        "To see how to get started, watch this video."
       ],
-      "links": [{ "url": "", "linkText": "" }],
-      "videoHeading": "VIDEO DESCRIPTION",
+      "links": [
+        { "url": "https://demeter.run/", "linkText": "demeter.run" },
+        { "url": "https://txpipe.io/", "linkText": "TxPipe" },
+        {
+          "url": "https://iog-academy.gitbook.io/plutus-pioneers-program-fourth-cohort/lectures/lecture-01/lesson-01",
+          "linkText": "Demeter.run is introduced in Plutus Pioneers"
+        },
+        {
+          "url": "https://github.com/txpipe/plutus-starter-kit",
+          "linkText": "For this lesson, we will use the Plutus Hello World project from TxPipe"
+        }
+      ],
+      "videoHeading": "Getting Started with Demeter.run",
       "youtubeId": "",
       "successComponent": false,
+      "success": {
+        "criteria": "you can see a file called always-succeeds.plutus in your Demeter development environment.",
+        "text": "To complete this lesson, follow the documentation below."
+      },
       "assignmentComponent": true,
       "markdownComponent": true
     },
     {
       "slug": "1014",
-      "introduction": [],
-      "links": [{ "url": "", "linkText": "" }],
-      "videoHeading": "VIDEO DESCRIPTION",
+      "introduction": [
+        "Experienced Plutus developers will tell you that setting up a local environment for writing PlutusTX is one of the hardest parts about learning Plutus.",
+        "This is one of the reasons that developers are so excited about new languages like Aiken and plu-ts, which we will investigate in Lessons 101.5 and 101.6.",
+        "Still, we want you to have the option of building with PlutusTx on your own computer.",
+        "Follow along with this video, or join us at Plutus PBL Live coding on 2023-03-23 to see a live demonstration and to ask questions."
+      ],
+      "links": [
+        { "url": "https://nixos.org/", "linkText": "Nix: official site" },
+        { "url": "https://nixos.org/", "linkText": "Plutus Apps repository on GitHub" },
+        { "url": "https://nixos.org/", "linkText": "Gimbalabs Starter template on GitLab" }
+      ],
+      "videoHeading": "Setting up your own Plutus development environment",
       "youtubeId": "",
       "successComponent": false,
+      "success": {
+        "criteria": "you can compile a .plutus file from PlutusTx on your computer.",
+        "text": "Review the video above, or follow along with the documentation below. If you get stuck, please ask questions - you are now part of a community where a lot of people know what it's like to struggle with this step!"
+      },
       "assignmentComponent": true,
       "markdownComponent": true
     },
@@ -61,9 +101,12 @@
       ],
       "links": [
         { "linkText": "Aiken Programming Language", "url": "https://aiken-lang.org/" },
-        { "linkText": "The Aiken documentation is helpful. We recommend taking a look!", "url": "https://aiken-lang.org/getting-started" }
+        {
+          "linkText": "The Aiken documentation is helpful. We recommend taking a look!",
+          "url": "https://aiken-lang.org/getting-started"
+        }
       ],
-      "videoHeading": "",
+      "videoHeading": "Getting started with Aiken",
       "youtubeId": "",
       "successComponent": false,
       "assignmentComponent": true,
@@ -77,7 +120,7 @@
         "To get started, watch this video or follow along with the documentation below."
       ],
       "links": [{ "url": "https://pluts.harmoniclabs.tech/", "linkText": "plu-ts official site" }],
-      "videoHeading": "VIDEO DESCRIPTION",
+      "videoHeading": "Getting started with plu-ts",
       "youtubeId": "",
       "successComponent": false,
       "assignmentComponent": true,

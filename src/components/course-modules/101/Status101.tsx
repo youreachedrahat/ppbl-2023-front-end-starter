@@ -31,10 +31,12 @@ const Status101: React.FC<Props> = ({ children }) => {
 
   return (
     <Flex direction="row" justifyContent="center" alignItems="center">
-        <StatusBox condition={connected && (network == 0)} text="101.1" />
-        <StatusBox condition={connected && network === 0 && Boolean(Number (lovelaceString) > 0)} text="101.2" />
-        <StatusBox condition={test3} text="101.3" />
-        <StatusBox condition={connected && network === 0 &&connectedPPBL2023Token != undefined} text="101.4" />
+        <StatusBox condition={false} text="101.1: Long Term" />
+        <StatusBox condition={false} text="101.2: Thinking in Dapps" />
+        <StatusBox condition={false} text="101.3: Demeter.run" />
+        <StatusBox condition={false} text="101.4: Local Env" />
+        <StatusBox condition={false} text="101.5: Aiken" />
+        <StatusBox condition={false} text="101.6: plu-ts" />
     </Flex>
   );
 };

@@ -1,50 +1,87 @@
-# Documentation
-### How to set up a local Plutus development environment
+# How to set up a local Plutus development environment
 
-## Is it worth it?
-That's up to you. We still think so, but we are paying close attention to other options (and sharing them with you in this course).
+## Step by Step:
 
-## Getting Started
-- Prereqs
-- Hardware constraints
+### 1. Install Nix
+- Go to [nixos.org](http://nixos.org)
+- Click the "Download" button and follow the instructions for your operating system.
+- The [Nix documentation](https://nixos.org/learn.html) is very good. If you are interested in understanding this tool, we recommend spending some time review the documentation.
+- If you have questions, be sure to [drop a line on Gimbalabs Discord](https://discord.gg/Va7DXqSSn8) or [join us at Live Coding](/live-coding)
 
-## Step By Step
-### Install Nix
+<br />
+---
 
-### Clone plutus-apps repo
-Clone the repo and checkout...
+### 2. Clone the provided Plutus Starter from Gimbalabs
 ```bash
 git clone ...
+```
+
+We will use this repository in Step 5. First, we must install and run "plutus-apps".
+
+<br />
+---
+
+### 3. Clone plutus-apps repo
+[The Plutus Application Framework](https://github.com/input-output-hk/plutus-apps), also known as `plutus-apps`, provides a range of tools for developing distributed applications on Cardano. It is not a perfect tool, and it may provide more tooling than you need right now. However, we find that when developers want to go deeper into creating dApps with Plutus, `plutus-apps` is a great place to start learning.
+
+To get started, clone the [plutus-apps repo](https://github.com/input-output-hk/plutus-apps). Then, check out the most recent version, which is currently `v1.2.0` (released March 2023).
+
+```bash
+git clone https://github.com/input-output-hk/plutus-apps
 cd plutus-apps
 git checkout v1.2.0
 ```
+<br />
+---
 
-### Clone the provide Plutus Starter from Gimbalabs
+### 4. In `plutus-apps`, run `nix develop` or `nix-shell`
+- As of the start of this course, nix is in transition.
+- That is why there are two different commands you might try.
 
-### Finally, compile!
+```bash
+cd plutus-apps
+nix develop
+```
+or:
+
+```bash
+cd plutus-apps
+nix-shell
+```
+
+It is possible that both of these will not work. If that happens, we will be ready to help you!
+<br />
+---
+
+### 5. Run `cabal repl` in the Gimblabs Starter, and write a validator
+
 Now that you have completed this steps, you have a lot of power. We know this was challenging, but from here, you are ready to test ideas locally without depending on...
 
 ### Some choices:
+
 - `plutus-apps` checkout `v1.2.0`
 - `nix develop`
 - `cabal repl` in GPTE Plutus on branch `small.cabal`
 - We can build always succeeds from here.
 
-## The Plot Thickens - YOU ARE IN IT
-- It's wild - as of the start of this course, nix is in transition. Just like other groups are building SC languages, the Nix/Haskell stack is in progress too.
-
-
+## This story is still unfolding!
 - Connect to status of all of these SC languages right now -- when will each be "safe"?
-
 - So what should we do about it? One option is to skip this lesson entirely - you can learn a lot of key concepts without touching this lesson.
 - However, maybe you want to participate. Here's how.
-	- I can get `nix develop` working...
-	- Or if not, at least `nix-shell` -- will continue to develop / troubleshoot!
+  - I can get `nix develop` working...
+  - Or if not, at least `nix-shell` -- will continue to develop / troubleshoot!
 - We'll continue to update this Lesson AND this Module in the months to come.
-- Collect some links and questions from `ask-nix-nixos` in IOG Technical
-- Share Discord links too: IOG, MLabs, etc
 
+## Is PlutusTx worth it?
 
+Good question. We're really not sure, and we are paying close attention to other options (and sharing them with you in this course). We will continue to investigate options for building applications on Cardano.
+
+## Helpful Links
+
+- [IOG Developer Discord]() - screen shot? Of ask-nix-os, or?
+- [MLabs]()
+- []()
+- []()
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

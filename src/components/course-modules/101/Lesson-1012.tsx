@@ -1,9 +1,10 @@
-import { Text } from "@chakra-ui/react";
+import { Heading, Text, Box } from "@chakra-ui/react";
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import LessonLayout from "@/src/components/lms/Lesson/LessonLayout";
 import LessonIntroAndVideo from "@/src/components/lms/Lesson/LessonIntroAndVideo";
 
 import module from "./module101.json";
+import YouWillKnowYouAreSuccessfulIf from "../../lms/Lesson/YouWillKnowYouAreSuccessfulIf";
 
 export default function Lesson1012() {
   const slug = "1012";
@@ -13,13 +14,12 @@ export default function Lesson1012() {
     <LessonLayout moduleNumber={101} sltId="101.2" slug="1012">
       <LessonIntroAndVideo lessonData={lessonDetails} />
 
-      <AssignmentComponent>
-        <Text>
-          We will continue our journey toward mastery of SLTs 101.1 and 101.2 throughout this course. At the end of this
-          module, we will have several compiled plutus scripts - we will compare them. In this course, you will see how
-          Untyped Plutus Core is one part of a dApp.
-        </Text>
-      </AssignmentComponent>
+      {lessonDetails?.success && (
+          <YouWillKnowYouAreSuccessfulIf
+            criteria={lessonDetails?.success?.criteria}
+            text={lessonDetails?.success.text}
+          />
+        )}
     </LessonLayout>
   );
 }

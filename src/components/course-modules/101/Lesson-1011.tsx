@@ -1,9 +1,10 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Box, Heading } from "@chakra-ui/react";
 import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import LessonLayout from "@/src/components/lms/Lesson/LessonLayout";
 import LessonIntroAndVideo from "@/src/components/lms/Lesson/LessonIntroAndVideo";
 
 import module from "./module101.json";
+import YouWillKnowYouAreSuccessfulIf from "../../lms/Lesson/YouWillKnowYouAreSuccessfulIf";
 
 export default function Lesson1011() {
   const slug = "1011";
@@ -14,13 +15,14 @@ export default function Lesson1011() {
       <LessonIntroAndVideo lessonData={lessonDetails} />
       <AssignmentComponent>
         <Text>
-          In this Module, you will not see a Mastery Status on each Lesson. Instead, look for where it says &rdquo;You
-          will know you are successful if...&rdquo;
+          In Module 101, you will not see your Mastery Status on each Lesson. Instead, look for messages like this:
         </Text>
-        <Text>
-          SLT 101.1 is a &rdquo;big picture&rdquo; learning target. This means that you can always improve, but you
-          might never be done -- there will always be something new to learn about plutus validators!
-        </Text>
+        {lessonDetails?.success && (
+          <YouWillKnowYouAreSuccessfulIf
+            criteria={lessonDetails?.success?.criteria}
+            text={lessonDetails?.success.text}
+          />
+        )}
       </AssignmentComponent>
     </LessonLayout>
   );

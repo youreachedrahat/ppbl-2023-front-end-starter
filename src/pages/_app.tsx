@@ -79,6 +79,9 @@ const theme = extendTheme({
         ul: {
           ml: "6",
         },
+        ol: {
+          ml: "6",
+        },
         li: {
           fontSize: "lg",
           pl: "2",
