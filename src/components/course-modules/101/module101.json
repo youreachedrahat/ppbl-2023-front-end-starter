@@ -9,9 +9,11 @@
         "All of these langauges compile to Untyped Plutus Core, which is the language is actually used on the Cardano blockchain.",
         "To see what UPLC looks like, watch this video."
       ],
-      "links": [],
+      "links": [
+        { "url": "https://well-typed.com/blog/2022/08/plutus-cores/", "linkText": "Well-Typed Blog: The Plutus Compilation Pipeline" }
+      ],
       "videoHeading": "What does it mean to \"compile a Plutus script\"?",
-      "youtubeId": "",
+      "youtubeId": "CnXzI4B_pmU",
       "successComponent": false,
       "success": {
         "criteria": "you can compile a contract to UPLC from the language of your choice.",
@@ -31,7 +33,7 @@
       ],
       "links": [],
       "videoHeading": "",
-      "youtubeId": "",
+      "youtubeId": "CnXzI4B_pmU",
       "successComponent": false,
       "success": {
         "criteria": "you can explain how Plutus scripts are used in a Cardano application.",
@@ -55,12 +57,12 @@
           "linkText": "Demeter.run is introduced in Plutus Pioneers"
         },
         {
-          "url": "https://github.com/txpipe/plutus-starter-kit",
-          "linkText": "For this lesson, we will use the Plutus Hello World project from TxPipe"
+          "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template",
+          "linkText": "PPBL2023 Plutus Template"
         }
       ],
       "videoHeading": "Getting Started with Demeter.run",
-      "youtubeId": "",
+      "youtubeId": "CnXzI4B_pmU",
       "successComponent": false,
       "success": {
         "criteria": "you can see a file called always-succeeds.plutus in your Demeter development environment.",
@@ -79,11 +81,11 @@
       ],
       "links": [
         { "url": "https://nixos.org/", "linkText": "Nix: official site" },
-        { "url": "https://nixos.org/", "linkText": "Plutus Apps repository on GitHub" },
-        { "url": "https://nixos.org/", "linkText": "Gimbalabs Starter template on GitLab" }
+        { "url": "https://github.com/input-output-hk/plutus-apps", "linkText": "Plutus Apps repository on GitHub" },
+        { "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template", "linkText": "PPBL 2023 Plutus Template on GitLab" }
       ],
       "videoHeading": "Setting up your own Plutus development environment",
-      "youtubeId": "",
+      "youtubeId": "CnXzI4B_pmU",
       "successComponent": false,
       "success": {
         "criteria": "you can compile a .plutus file from PlutusTx on your computer.",
@@ -107,7 +109,7 @@
         }
       ],
       "videoHeading": "Getting started with Aiken",
-      "youtubeId": "",
+      "youtubeId": "CnXzI4B_pmU",
       "successComponent": false,
       "assignmentComponent": true,
       "markdownComponent": true
@@ -121,7 +123,7 @@
       ],
       "links": [{ "url": "https://pluts.harmoniclabs.tech/", "linkText": "plu-ts official site" }],
       "videoHeading": "Getting started with plu-ts",
-      "youtubeId": "",
+      "youtubeId": "CnXzI4B_pmU",
       "successComponent": false,
       "assignmentComponent": true,
       "markdownComponent": true

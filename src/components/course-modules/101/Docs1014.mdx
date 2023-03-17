@@ -66,28 +66,20 @@ It is possible that none of these will work for you. If that happens, we are rea
 <br />
 ---
 
-### 5. Run `cabal repl` in the PPBL2023 Plutus Template, and write a validator
+### 5. Run `cabal update` and then `cabal repl` in the PPBL2023 Plutus Template
 
 ```bash
+[plutus-apps] ../ppbl2023-plutus-template $ cabal update
 [plutus-apps] ../ppbl2023-plutus-template $ cabal repl
-...
-AlwaysSucceeds.Compiler> writeAlwaysSucceedsScript 
 ```
 
-### Some choices:
+<br />
+---
 
-- `plutus-apps` checkout `v1.2.0`
-- `nix develop`
-- `cabal repl` in GPTE Plutus on branch `small.cabal`
-- We can build always succeeds from here.
-
-## This story is still unfolding!
-- Connect to status of all of these SC languages right now -- when will each be "safe"?
-- So what should we do about it? One option is to skip this lesson entirely - you can learn a lot of key concepts without touching this lesson.
-- However, maybe you want to participate. Here's how.
-  - I can get `nix develop` working...
-  - Or if not, at least `nix-shell` -- will continue to develop / troubleshoot!
-- We'll continue to update this Lesson AND this Module in the months to come.
+### 6. In the repl, write the Always Succeeds script
+```bash
+AlwaysSucceeds.Compiler> writeAlwaysSucceedsScript 
+```
 
 ## Is PlutusTx worth it?
 
