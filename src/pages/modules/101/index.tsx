@@ -4,8 +4,6 @@ import Head from "next/head";
 
 import slt from "@/src/data/slts-english.json"
 
-import { Grid, GridItem } from "@chakra-ui/react";
-
 const Module101 = () => {
   const moduleSelected = slt.modules.find((m) => m.number === 101);
   return (
