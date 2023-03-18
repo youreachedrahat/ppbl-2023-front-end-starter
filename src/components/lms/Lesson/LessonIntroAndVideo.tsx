@@ -22,7 +22,7 @@ const LessonIntroAndVideo: React.FC<Props> = ({ lessonData }) => {
               </Heading>
               <UnorderedList>
                 {lessonData.links.map((link: { linkText: string; url: string }, index: number) => (
-                  <ListItem fontSize="md" py="1">
+                  <ListItem key={index} fontSize="md" py="1">
                     <CLink href={link.url} target="_blank">
                       {link.linkText}
                     </CLink>
