@@ -4,16 +4,16 @@
       "slug": "1011",
       "introduction": [
         "In this course, you will learn how to write smart contracts that can be used on the Cardano blockchain. In this module, we will take our first look at some of the smart contract languages on Cardano.",
-        "All of these languages have some things in common.",
         "All of these languages share some basic design patterns, even though each language looks a little different.",
-        "All of these langauges compile to Untyped Plutus Core, which is the language is actually used on the Cardano blockchain.",
-        "To see what UPLC looks like, watch this video."
+        "All of these langauges compile to Untyped Plutus Core (UPLC). UPLC can be encoded in Concise Binary Object Representation (CBOR), and this CBOR can be used on the blockchain.",
+        "To see what this CBOR looks like, watch this video."
       ],
       "links": [
-        { "url": "https://well-typed.com/blog/2022/08/plutus-cores/", "linkText": "Well-Typed Blog: The Plutus Compilation Pipeline" }
+        { "url": "https://well-typed.com/blog/2022/08/plutus-cores/", "linkText": "Well-Typed Blog: The Plutus Compilation Pipeline" },
+        { "url": "https://cbor.io/", "linkText": "About CBOR" }
       ],
       "videoHeading": "What does it mean to \"compile a Plutus script\"?",
-      "youtubeId": "CnXzI4B_pmU",
+      "youtubeId": "dDkAdzvzrbg",
       "successComponent": false,
       "success": {
         "criteria": "you can compile a contract to UPLC from the language of your choice.",
@@ -25,15 +25,13 @@
     {
       "slug": "1012",
       "introduction": [
-        "Once you compile a smart contract to UPLC, what can you do with it?",
-        "This is question we will cover in depth in Modules 102 and 201.",
-        "In Module 102 we will start to build transactions using compiled Plutus scripts.",
-        "In Module 201, we will start to use our Plutus scripts in a javascript-based front-end.",
-        "Watch this video to start learning more about the role of UPLC in a decentralized application."
+        "Once you compile a smart contract to Plutus Core, what can you do with it?",
+        "This is question we will cover in depth in Modules 102 and 201. In Module 102 we will start to build transactions using compiled Plutus scripts. In Module 201, we will start to use our Plutus scripts in a javascript-based front-end.",
+        "Watch this video to start learning more about the role of Plutus Core in a decentralized application."
       ],
       "links": [],
       "videoHeading": "",
-      "youtubeId": "CnXzI4B_pmU",
+      "youtubeId": "cEVNWr8NKi8",
       "successComponent": false,
       "success": {
         "criteria": "you can explain how Plutus scripts are used in a Cardano application.",
@@ -62,7 +60,7 @@
         }
       ],
       "videoHeading": "Getting Started with Demeter.run",
-      "youtubeId": "CnXzI4B_pmU",
+      "youtubeId": "HQRQcN_zDsI",
       "successComponent": false,
       "success": {
         "criteria": "you can see a file called always-succeeds.plutus in your Demeter development environment.",
@@ -85,7 +83,7 @@
         { "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template", "linkText": "PPBL 2023 Plutus Template on GitLab" }
       ],
       "videoHeading": "Setting up your own Plutus development environment",
-      "youtubeId": "CnXzI4B_pmU",
+      "youtubeId": "-lOwuhH4fRk",
       "successComponent": false,
       "success": {
         "criteria": "you can compile a .plutus file from PlutusTx on your computer.",
@@ -109,7 +107,7 @@
         }
       ],
       "videoHeading": "Getting started with Aiken",
-      "youtubeId": "CnXzI4B_pmU",
+      "youtubeId": "gbn8LYkVOG8",
       "successComponent": false,
       "assignmentComponent": true,
       "markdownComponent": true
@@ -123,7 +121,7 @@
       ],
       "links": [{ "url": "https://pluts.harmoniclabs.tech/", "linkText": "plu-ts official site" }],
       "videoHeading": "Getting started with plu-ts",
-      "youtubeId": "CnXzI4B_pmU",
+      "youtubeId": "mdXvalGT4U4",
       "successComponent": false,
       "assignmentComponent": true,
       "markdownComponent": true
