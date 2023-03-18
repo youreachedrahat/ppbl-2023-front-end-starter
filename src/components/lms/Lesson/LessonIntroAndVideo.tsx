@@ -16,7 +16,7 @@ const LessonIntroAndVideo: React.FC<Props> = ({ lessonData }) => {
             </Text>
           ))}
           {lessonData.links.length > 0 && (
-            <Box mt="2" p="2" bg="theme.lightGray">
+            <Box mt="2" p="2" bg="theme.lightGray" color="white">
               <Heading pt="2" pb="1" size="md">
                 LINKS
               </Heading>

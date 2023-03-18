@@ -27,7 +27,7 @@ plu-ts-starter $ yarn
 ---
 ### Step 3: Replace `contract.ts` with Always Succeeds
 - By default the template is "always succeeds". But let us look into the code and try to understand a bit.
-- Find contract `src/contract.ts`. Ignore or delete `src/MyDatum/` and `src/MyRedeemer` for now. 
+- Find contract `src/contract.ts`. Ignore or delete `src/MyDatum/` and `src/MyRedeemer/` for now. 
 - The Always Succeeds validator looks like this (you can copy this code):
 ```ts
 import { bool, compile, makeValidator, pBool, pfn, pstruct, Script, ScriptType, V2 } from "@harmoniclabs/plu-ts";
