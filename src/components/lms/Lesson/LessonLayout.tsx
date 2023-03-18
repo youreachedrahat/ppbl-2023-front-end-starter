@@ -3,11 +3,13 @@ import {
   Button,
   Container,
   Divider,
+  Flex,
   Grid,
   GridItem,
   Heading,
   ListItem,
   OrderedList,
+  Spacer,
   Stack,
   StackDivider,
   Text,
@@ -29,9 +31,10 @@ type Props = {
   moduleNumber: number;
   sltId: string;
   slug: string;
+  nextModule?: string;
 };
 
-const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId, slug }) => {
+const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId, slug, nextModule }) => {
   return (
     <>
       <Box w="90%" marginLeft="1em" marginTop="2em">
@@ -41,6 +44,15 @@ const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId, slug }) 
         {children}
 
       <LessonNavigation moduleNumber={moduleNumber} currentSlug={slug} />
+
+      {nextModule && (
+        <Flex direction="row">
+          <Spacer />
+          <Link href={`/modules/${nextModule}/slts`}>
+            <Button my="1em">Proceed to Module {nextModule}</Button>
+          </Link>
+        </Flex>
+      )}
       </Box>
       <Divider py="5" w="90%"  marginLeft="1em"/>
       <Box mt="10">
