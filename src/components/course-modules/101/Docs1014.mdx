@@ -23,7 +23,14 @@ In `/ppbl2023`, clone the PPBL Plutus Template
 git clone https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template
 ```
 
-We will use this repository in Steps 5 and 6. Run `cd ..` to get back to `/ppbl2023`. Then continue to Step 3.
+In `/ppbl2023-plutus-template`, create an `/output` directory.
+```bash
+cd ppbl2023-plutus-template
+mkdir output
+cd ..
+```
+
+We will use this repository in Step 5 and compile to the `/output` directory in Step 6.
 
 <br />
 ---
@@ -43,7 +50,7 @@ git checkout v1.2.0
 
 ### 4. Use Nix to run `plutus-apps`
 - As of the start of this course, nix is in transition.
-- That is why there are two different commands you might try.
+- That is why there are two different commands you might try: `nix develop` or `nix-shell`
 
 ```bash
 cd plutus-apps
@@ -52,14 +59,20 @@ nix develop
 or:
 
 ```bash
+cd plutus-apps
+nix-shell
+```
+
+Sometimes, both of these will not work. For example if you get a "segmentation fault" error, you may want to try:
+
+```bash
 GC_DONT_GC=1 nix develop
 ```
 
-If you can explain exactly what this means, please reach out!
+or
 
 ```bash
-cd plutus-apps
-nix-shell
+GC_DONT_GC=1 nix-shell
 ```
 
 It is possible that none of these will work for you. If that happens, we are ready to help you!
@@ -67,16 +80,38 @@ It is possible that none of these will work for you. If that happens, we are rea
 ---
 
 ### 5. Run `cabal update` and then `cabal repl` in the PPBL2023 Plutus Template
+After you get `nix develop` or `nix-shell` running, you will be able to navigate from within the nix terminal. For example, if you are using the directory structure suggested above, your terminal might look like this when you change directories to `ppbl2023-plutus-template`.
+
+```bash
+[plutus-apps]$ cd ..
+[plutus-apps] .. $ cd ppbl2023-plutus-template/
+[plutus-apps] ../ppbl2023-plutus-template $ 
+```
+
+After you navigate to `ppbl2023-plutus-template`, run `cabal update`, then `cabal repl`:
 
 ```bash
 [plutus-apps] ../ppbl2023-plutus-template $ cabal update
+...
 [plutus-apps] ../ppbl2023-plutus-template $ cabal repl
+...
 ```
+
+Each of these commands will take some time the first time you run them.
+
 
 <br />
 ---
 
 ### 6. In the repl, write the Always Succeeds script
+If `cabal repl` runs successfully, you will see a message like this:
+```bash
+Ok, two modules loaded.
+AlwaysSucceeds.Compiler> 
+```
+
+Now you can simply run `writeAlwaysSucceedsScript` to compile `always-succeeds.plutus`.
+
 ```bash
 AlwaysSucceeds.Compiler> writeAlwaysSucceedsScript 
 ```

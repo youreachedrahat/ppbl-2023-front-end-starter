@@ -25,9 +25,11 @@
     {
       "slug": "1012",
       "introduction": [
-        "Once you compile a smart contract to Plutus Core, what can you do with it?",
-        "This is question we will cover in depth in Modules 102 and 201. In Module 102 we will start to build transactions using compiled Plutus scripts. In Module 201, we will start to use our Plutus scripts in a javascript-based front-end.",
-        "Watch this video to start learning more about the role of Plutus Core in a decentralized application."
+        "There is some debate over whether the term \"smart contract\" is really the best way to describe the code we use on a blockchain. On Cardano, we use the word \"validator\".",
+        "A validator defines the rules for unlocking tokens from a Cardano address.",
+        "In this module, you will see how to compile validators to UPLC.",
+        "This should raise a new question: after you compile a smart contract to Plutus Core, what can you do with it? Keep this question in mind. We will continue to ask it throughout the course.",
+        "Watch this video to see one way to think about the role of validators and UPLC in a decentralized application."
       ],
       "links": [],
       "videoHeading": "",
@@ -35,7 +37,7 @@
       "successComponent": false,
       "success": {
         "criteria": "you can explain how Plutus scripts are used in a Cardano application.",
-        "text": "At the end of this module, you will have your first compiled Plutus scripts. In Modules 102 and 201 you will start to learn how to use them. Later in this course, we will ask you about this learning target again."
+        "text": "At the end of this module, you will have your first compiled Plutus scripts. Then, in Modules 102 and 201 you will start to use them."
       },
       "assignmentComponent": true,
       "markdownComponent": true
@@ -63,7 +65,7 @@
       "youtubeId": "HQRQcN_zDsI",
       "successComponent": false,
       "success": {
-        "criteria": "you can see a file called always-succeeds.plutus in your Demeter development environment.",
+        "criteria": "you can see the file \"always-succeeds.plutus\" in your Demeter development environment.",
         "text": "To complete this lesson, follow the documentation below."
       },
       "assignmentComponent": true,
@@ -86,7 +88,7 @@
       "youtubeId": "-lOwuhH4fRk",
       "successComponent": false,
       "success": {
-        "criteria": "you can compile a .plutus file from PlutusTx on your computer.",
+        "criteria": "you can compile always-succeeds.plutus from the PPBL 2023 Plutus Template on your computer.",
         "text": "Review the video above, or follow along with the documentation below. If you get stuck, please ask questions - you are now part of a community where a lot of people know what it's like to struggle with this step!"
       },
       "assignmentComponent": true,
@@ -109,6 +111,10 @@
       "videoHeading": "Getting started with Aiken",
       "youtubeId": "gbn8LYkVOG8",
       "successComponent": false,
+      "success": {
+        "criteria": "you can see a \"plutus.json\" file after running \"aiken build\".",
+        "text": "Review the video above, or follow along with the documentation below. If you get stuck, ask for help at Live Coding or on Gimbalabs Discord."
+      },
       "assignmentComponent": true,
       "markdownComponent": true
     },
@@ -123,6 +129,10 @@
       "videoHeading": "Getting started with plu-ts",
       "youtubeId": "mdXvalGT4U4",
       "successComponent": false,
+      "success": {
+        "criteria": "you can compile always-succeeds.plutus by running \"npm run start\".",
+        "text": "Review the video above, or follow along with the documentation below. If you get stuck, ask for help at Live Coding or on Gimbalabs Discord."
+      },
       "assignmentComponent": true,
       "markdownComponent": true
     }

@@ -6,6 +6,7 @@ import Lesson1014 from "@/src/components/course-modules/101/Lesson-1014";
 import Lesson1015 from "@/src/components/course-modules/101/Lesson-1015";
 import Lesson1016 from "@/src/components/course-modules/101/Lesson-1016";
 import Status101 from "@/src/components/course-modules/101/Status101";
+import Summary101 from "@/src/components/course-modules/101/Summary101";
 import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import slt from "@/src/data/slts-english.json"
 
@@ -28,6 +29,7 @@ const Module101Lessons = () => {
     { key:"1014", component:<Lesson1014 />},
     { key:"1015", component:<Lesson1015 />},
     { key:"1016", component:<Lesson1016 />},
+    { key:"summary", component:<Summary101 />},
   ]
 
   return (

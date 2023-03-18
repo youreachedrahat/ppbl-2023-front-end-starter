@@ -1,10 +1,9 @@
-import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
 import LessonLayout from "@/src/components/lms/Lesson/LessonLayout";
 import LessonIntroAndVideo from "@/src/components/lms/Lesson/LessonIntroAndVideo";
+import YouWillKnowYouAreSuccessfulIf from "@/src/components/lms/Lesson/YouWillKnowYouAreSuccessfulIf";
 
 import Docs1014 from "@/src/components/course-modules/101/Docs1014.mdx";
 import module from "./module101.json";
-import YouWillKnowYouAreSuccessfulIf from "../../lms/Lesson/YouWillKnowYouAreSuccessfulIf";
 
 export default function Lesson1014() {
   const slug = "1014";
