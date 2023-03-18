@@ -15,7 +15,7 @@
       "time": "1430-1600 utc",
       "title": "Wallet Security",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/live/2ACJlnUfVL4",
       "links": [
         "https://github.com/jefdaj/horcrux#developer-quickstart",
         "https://www.qubes-os.org/",
@@ -31,9 +31,10 @@
       "time": "1630-1800 utc",
       "title": "Smart Contract Gladiator",
       "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/live/_L_W30E2KG4",
       "links": [""],
-      "description": "Designing voting systems"
+      "description": "Designing voting systems",
+      "complete": true
     },
     {
       "date": "2023-03-22",
