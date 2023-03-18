@@ -74,15 +74,18 @@ const theme = extendTheme({
         },
         p: {
           fontSize: "lg",
-          lineHeight: "1.4",
+          py: "2"
         },
         ul: {
           ml: "6",
         },
+        ol: {
+          ml: "6",
+        },
         li: {
+          fontSize: "lg",
           pl: "2",
-          py: "2",
-          listStyleType: "square",
+          py: "1",
         },
       },
     },

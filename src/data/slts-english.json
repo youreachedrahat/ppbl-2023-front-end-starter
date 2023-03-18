@@ -45,14 +45,15 @@
       "releaseDate": "2023-03-20",
       "updatedDate": "2023-03-20",
       "slts": [
-        { "id": "101.1", "slt": "I can compile a plutus validator to Untyped Plutus Core (UPLC)." },
+        { "id": "101.1", "slt": "I can compile a validator to Untyped Plutus Core (UPLC)." },
         { "id": "101.2", "slt": "I understand the role that UPLC plays in a decentralized application on Cardano." },
         { "id": "101.3", "slt": "I can use Demeter.run to compile a .plutus script." },
         {
           "id": "101.4",
-          "slt": "I can set up a local Plutus development environment using nix shell, and use it to compile a .plutus script."
+          "slt": "I can set up a local Plutus development environment using nix, and use it to compile a .plutus script."
         },
-        { "id": "101.5", "slt": "I can write an \"always succeeds\" validator script in Aiken." }
+        { "id": "101.5", "slt": "I can write an \"always succeeds\" validator script in Aiken." },
+        { "id": "101.6", "slt": "I can write an \"always succeeds\" validator script in Plu-TS." }
       ],
       "lessons": [
         {
@@ -62,22 +63,37 @@
         },
         {
           "slug": "1011",
-          "name": "Lesson 1",
+          "name": "Lesson 1: Compiling Plutus Scripts",
           "video": ""
         },
         {
           "slug": "1012",
-          "name": "Lesson 2",
+          "name": "Lesson 2: The role of UPLC",
           "video": ""
         },
         {
           "slug": "1013",
-          "name": "Lesson 3",
+          "name": "Lesson 3: Demeter.run and PlutusTx",
           "video": ""
         },
         {
           "slug": "1014",
-          "name": "Lesson 4",
+          "name": "Lesson 4: PlutusTx in a local environment",
+          "video": ""
+        },
+        {
+          "slug": "1015",
+          "name": "Lesson 5: Aiken",
+          "video": ""
+        },
+        {
+          "slug": "1016",
+          "name": "Lesson 6: Plu-TS",
+          "video": ""
+        },
+        {
+          "slug": "summary",
+          "name": "Module 101 Summary",
           "video": ""
         }
       ]

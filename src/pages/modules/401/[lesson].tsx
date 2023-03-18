@@ -1,6 +1,9 @@
 import SLTs401 from "@/src/components/course-modules/401/401-SLTs";
 import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
+<<<<<<< HEAD
 import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
+=======
+>>>>>>> module-101-planning
 import slt from "@/src/data/slts-english.json"
 
 

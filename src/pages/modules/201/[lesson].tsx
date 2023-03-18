@@ -1,6 +1,11 @@
 import SLTs201 from "@/src/components/course-modules/201/201-SLTs";
+<<<<<<< HEAD
 import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
+=======
+import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
+import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
+>>>>>>> module-101-planning
 import slt from "@/src/data/slts-english.json"
 
 const Module201Lessons = () => {

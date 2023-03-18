@@ -1,0 +1,75 @@
+# How to build always-succeeds.plutus in plu-ts
+
+## Step by Step
+To get started with plu-ts, we will follow the [Hello plu-ts tutorial in the official plu-ts documentation](https://pluts.harmoniclabs.tech/docs/examples/Hello%20World)
+
+<br />
+---
+### Step 1: Clone plu-ts-starter
+```bash
+git clone https://github.com/HarmonicLabs/plu-ts-starter.git
+cd plu-ts-starter
+```
+<br />
+---
+### Step 2: Install Packages
+To install plu-ts run `npm install` or `yarn`
+```bash
+plu-ts-starter $ npm install
+```
+
+or
+
+```bash
+plu-ts-starter $ yarn
+```
+<br />
+---
+### Step 3: Replace `contract.ts` with Always Succeeds
+- By default the template is "always succeeds". But let us look into the code and try to understand a bit.
+- Find contract `src/contract.ts`. Ignore or delete `src/MyDatum/` and `src/MyRedeemer` for now. 
+- The Always Succeeds validator looks like this (you can copy this code):
+```ts
+import { bool, compile, makeValidator, pBool, pfn, pstruct, Script, ScriptType, V2 } from "@harmoniclabs/plu-ts";
+
+const Data = pstruct({
+    Anything: {}
+});
+
+export const contract = pfn([ Data.type, Data.type, V2.PScriptContext.type ],  bool)
+(( datum, redeemer, ctx ) =>
+    // always suceeds
+    pBool( true )
+);
+
+export const untypedValidator = makeValidator( contract );
+export const compiledContract = compile( untypedValidator );
+
+export const script = new Script(
+    ScriptType.PlutusV2,
+    compiledContract
+);
+```
+<br />
+---
+### Step 4: Compile to Plutus Core:
+- To compile run `yarn start`
+- By default you'll see the result in the terminal, as given in `index.ts`.
+<br />
+---
+### Step 5 (Optional): Save a file as `always-succeeds.plutus`:
+You can save as a Plutus script if you want to. Install `yarn @types/node` and change `index.ts` to
+```ts
+import { script } from "./contract";
+import fs from 'fs';
+
+fs.writeFile('always-succeeds.plutus', JSON.stringify(script.toJson(), undefined, 2), (err: any) => {
+    if (err) throw err;
+    console.log("validator compiled succesfully! 🎉\n");
+});
+```
+
+
+
+import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
+export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
