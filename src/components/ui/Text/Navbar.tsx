@@ -402,6 +402,10 @@ import { color } from "framer-motion";
     //   children: plutusChildren.children,
     // },
     {
+      label: 'Contributors',
+      href: "/contributors"
+    },
+    {
       label: 'Live Coding',
       href: "/live-coding"
     }
