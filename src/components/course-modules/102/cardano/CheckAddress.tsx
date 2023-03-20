@@ -45,7 +45,7 @@ const CheckAddress = () => {
         Check Your New Address
       </Heading>
       <FormControl color="theme.dark">
-        <FormLabel color="theme.light">Paste address here:</FormLabel>
+        <FormLabel color="theme.light">Paste your new wallet address here:</FormLabel>
         <Input
           mb="3"
           bg="white"
@@ -56,7 +56,7 @@ const CheckAddress = () => {
           placeholder="Preprod Address"
         />
         <FormHelperText py="2">Use any address - for now!</FormHelperText>
-        <Button onClick={handleClick}>query addr</Button>
+        <Button onClick={handleClick}>Check Address</Button>
         {addressUTxOs && (
           <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">
             <pre>{JSON.stringify(addressUTxOs, null, 2)}</pre>

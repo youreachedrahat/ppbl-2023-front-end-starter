@@ -1,39 +1,88 @@
-# How to install cardano-node and cardano-cli
-- Achieving this SLT is sasy - once you are able to access a Cardano Node
-- Setting up is the hard part - syncing a node
+# How to query the blockchain with cardano-cli
 
-You will know you are successful if you can run `cardano-cli query tip` and see that your node is synced to 100%
+Let's start with some good news: after you install Cardano Node and synchronize it with the Cardano network, it's really easy to query the blockchain using `cardano-cli`.
 
-## What is Cardano Node?
-- A cardano-node is...
-- `cardano-cli` is packaged with it!
+The bad news is that setting up a Cardano Node for the first time can be very time consuming, and there are strict hardware requirements.
 
-## Setting Up:
+Luckily, there is some more good news to follow that! If you cannot set up Cardano Node on your own computer, it is provided by [Demeter.run](https://demeter.run).
 
-### Locally:
-> [https://github.com/input-output-hk/cardano-node](https://github.com/input-output-hk/cardano-node)
-- Video: a few things to point out
-- Downloading binary vs. building from source
-- Most important to highlight config files: https://book.world.dev.cardano.org/environments.html.
-- Provide the boilerplate for starting a node. In docs + as script
+## How to know you're successful:
+You will know you are successful on SLT 102.1 if you can run `cardano-cli query tip` and see that your node is synced to 100%.
 
-### Demeter:
-- If you set up a Demeter instance, we have good news for you. You can use it to complete this module!
-- Here is how (might become video playlist)
-
-## Let's build some quick scripts
-- if you're new bash, we've got you - a little at a time!
-- provided in repo
-
-### Starting Cardano Node:
-
-
-### Querying chain tip:
+When you write this query:
 ```bash
-cardano-cli query tip --testnet-magic 1
+$ cardano-cli query tip --testnet-magic 1
+```
+
+You should see a result like this:
+
+
+```bash
+{
+    "block": 744805,
+    "epoch": 58,
+    "era": "Babbage",
+    "hash": "914c7d9277fbe2de044a2ed2948d2a9cec92459ef0421e84f1f60c5d4d5dcbde",
+    "slot": 23653837,
+    "syncProgress": "100.00"
+}
+```
+Our goal is to see the `syncProgress` is at "100.00". Let's talk about how to get there.
+
+<br />
+---
+
+## Run cardano-node (and cardano-cli) on your computer
+
+
+### What is Cardano Node?
+- A Cardano Node is the software that runs the Cardano blockchain. Here are some resources for learning more about it:
+- [https://docs.cardano.org/learn/cardano-node](https://docs.cardano.org/learn/cardano-node)
+- [https://github.com/input-output-hk/cardano-node](https://github.com/input-output-hk/cardano-node)
+
+### What is Cardano Command Line Tool (cardano-cli)?
+When you install Cardano Node, you also get `cardano-cli` along with it.
+- [cardano-cli reference]()
+
+### Install cardano-node and cardano-cli
+> [https://github.com/input-output-hk/cardano-node](https://github.com/input-output-hk/cardano-node)
+- Downloading binary vs. building from source
+- Video: a few things to point out
+
+### Download Configuation Files
+Most important to highlight config files: [https://book.world.dev.cardano.org/environments.html](https://book.world.dev.cardano.org/environments.html).
+
+### Run cardano-node
+Provide the boilerplate for starting a node. In docs + as script
+
+```bash
+#!/usr/bin/env bash
+
+cardano-node run \
+--topology ~/src/testnet-config-preproduction/topology.json \
+--database-path ~/hd2/cardano/testnet-pre-production/db \
+--socket-path ~/hd2/cardano/testnet-pre-production/db/node.socket \
+--host-addr 0.0.0.0 \
+--port 3001 \
+--config ~/src/testnet-config-preproduction/config.json
+
 ```
 
 
+<br />
+---
+
+## Use Demeter.run
+- If you set up a Demeter instance, we have good news for you. You can use it to complete this module!
+- Watch the video above
+
+
+<br />
+---
+
+## Helpful Scripts:
+- if you're new bash, we've got you - a little at a time!
+- provided in repo
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";

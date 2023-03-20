@@ -14,15 +14,7 @@ export default function Lesson1021() {
   return (
     <LessonLayout moduleNumber={102} sltId="102.1" slug={slug}>
       <LessonIntroAndVideo lessonData={lessonDetails} />
-      <AssignmentComponent>
-        {lessonDetails?.success && (
-          <YouWillKnowYouAreSuccessfulIf
-            criteria={lessonDetails?.success?.criteria}
-            text={lessonDetails?.success.text}
-          />
-        )}
-        <Docs1021 />
-      </AssignmentComponent>
+      <Docs1021 />
     </LessonLayout>
   );
 }

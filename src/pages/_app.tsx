@@ -88,6 +88,28 @@ const theme = extendTheme({
           py: "1",
         },
       },
+      ".demo-component": {
+        h1: {
+          fontSize: "md",
+          py: "0",
+          color: "theme.green"
+        },
+        h2: {
+          fontSize: "xl",
+          py: "0",
+          color: "theme.green"
+        },
+        h3: {
+          fontSize: "md",
+          py: "0",
+          color: "theme.green"
+        },
+        h4: {
+          fontSize: "md",
+          py: "0",
+          color: "theme.green"
+        }
+      }
     },
   },
 });
