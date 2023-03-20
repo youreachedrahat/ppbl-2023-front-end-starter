@@ -18,8 +18,6 @@ import Head from "next/head";
 import events from "@/src/data/live-coding/events-english.json";
 
 export default function LiveCoding() {
-  const bgColor = useColorModeValue("white", "theme.darkGray");
-  const textColor = useColorModeValue("black", "white");
   return (
     <>
       <Head>
@@ -48,7 +46,7 @@ export default function LiveCoding() {
             </Thead>
             <Tbody>
               {events.events.filter((ev: any) => !ev.complete).map((event: any, i) => (
-                <Tr key={i} bg={bgColor} color={textColor}>
+                <Tr key={i}>
                   <Td>{event.date}</Td>
                   <Td>{event.time}</Td>
                   <Td>{event.title}</Td>
@@ -76,7 +74,7 @@ export default function LiveCoding() {
             </Thead>
             <Tbody>
               {events.events.filter((ev: any) => ev.complete).map((event: any, i) => (
-                <Tr key={i} bg={bgColor} color={textColor}>
+                <Tr key={i}>
                   <Td>{event.date}</Td>
                   <Td>{event.title}</Td>
                   <Td>{event.description}</Td>

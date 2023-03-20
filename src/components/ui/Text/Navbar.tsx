@@ -224,6 +224,10 @@ const modulesChildren: fromJsonChildren = modules;
       childrenHasChildren: modulesChildren.childrenHasChildren,
     },
     {
+      label: 'Contributors',
+      href: "/contributors"
+    },
+    {
       label: 'Live Coding',
       href: "/live-coding"
     }
