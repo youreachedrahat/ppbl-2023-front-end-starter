@@ -29,7 +29,7 @@ export default function Lesson1001() {
   return (
     <LessonLayout moduleNumber={100} sltId="100.1" slug="1001">
       <Grid mx="auto" fontSize="xl" fontWeight="semibold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
-        <GridItem w="90%" mx="auto">
+        <GridItem w="90%" mx="auto" colSpan={[2, 1]}>
           <Text py="3">
             Usually, when we talk about Cardano, we are talking about the &rdquo;Cardano Mainnet&rdquo;.
           </Text>
@@ -48,7 +48,7 @@ export default function Lesson1001() {
             Your first task in PPBL 2023 is to connect a browser-based wallet to Preprod.
           </Text>
         </GridItem>
-        <GridItem>
+        <GridItem colSpan={[2, 1]}>
           <VideoComponent videoId="pjdXKsRXtzw">How to connect your wallet to Pre-Production Testnet:</VideoComponent>
         </GridItem>
       </Grid>

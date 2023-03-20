@@ -15,12 +15,12 @@ export default function Home() {
       </Head>
       <Hero />
       <Divider w="70%" mx="auto" />
-      <Box w="70%" mx="auto" my="10">
+      <Box w={["100%", "70%"]} mx="auto" my="10">
         <GetHelp />
       </Box>
       <Divider w="70%" mx="auto" />
 
-      <Center py="10">
+      <Center py={["5", "10"]}>
         <CLink
           href="https://gitlab.com/gimbalabs/ppbl-2023/ppbl-front-end-template-2023/-/blob/main/LICENSE"
           target="_blank"

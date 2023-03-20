@@ -37,7 +37,7 @@ export default function Lesson1002() {
   return (
     <LessonLayout moduleNumber={100} sltId="100.2" slug="1002">
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
-        <GridItem w="90%" mx="auto">
+        <GridItem w="90%" mx="auto" colSpan={[2, 1]}>
           <Text fontSize="lg" py="3">
             To make it easy for developers to build and test applications on Cardano, IOHK provides{" "}
             <CLink href="https://docs.cardano.org/cardano-testnet/tools/faucet" target="_blank">Testnet Faucets</CLink> within the{" "}
@@ -48,7 +48,7 @@ export default function Lesson1002() {
             steps below.
           </Text>
         </GridItem>
-        <GridItem>
+        <GridItem colSpan={[2, 1]}>
           <VideoComponent videoId="CnXzI4B_pmU">How to get tAda from the Preprod Faucet</VideoComponent>
         </GridItem>
       </Grid>

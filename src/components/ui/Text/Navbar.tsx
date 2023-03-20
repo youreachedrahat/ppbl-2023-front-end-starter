@@ -38,6 +38,7 @@ import {
     const { colorMode, toggleColorMode } = useColorMode()
     const styleImage = { filter: colorMode === "light" ? "none" : "invert(1)" };
     const navBackgroud = useColorModeValue("white", "theme.lightGray")
+    const showNavButtons = useBreakpointValue({ base: false, md: true });
 
     return (
       <Box>
@@ -105,7 +106,7 @@ import {
               }}>
               Sign Up
             </Button> */}
-            <CardanoWallet />
+            {showNavButtons && <CardanoWallet />}
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
             </Button>

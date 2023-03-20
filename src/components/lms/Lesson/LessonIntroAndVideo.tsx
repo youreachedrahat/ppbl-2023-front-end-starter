@@ -9,7 +9,7 @@ const LessonIntroAndVideo: React.FC<Props> = ({ lessonData }) => {
   return (
     <>
       <Grid mx="auto" fontSize="lg" fontWeight="medium" templateColumns="repeat(2, 1fr)" gap={6}>
-        <GridItem w="95%" mx="auto">
+        <GridItem w="95%" mx="auto" colSpan={[2, 1]}>
           {lessonData.introduction.map((sentence: string, index: number) => (
             <Text key={index} py="3">
               {sentence}
@@ -32,7 +32,7 @@ const LessonIntroAndVideo: React.FC<Props> = ({ lessonData }) => {
             </Box>
           )}
         </GridItem>
-        <GridItem>
+        <GridItem colSpan={[2, 1]}>
           <VideoComponent videoId={lessonData.youtubeId}>{lessonData.videoHeading}</VideoComponent>
         </GridItem>
       </Grid>

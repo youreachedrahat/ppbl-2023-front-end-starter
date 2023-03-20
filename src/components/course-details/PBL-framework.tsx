@@ -19,8 +19,8 @@ import React from "react";
 const PBLFramework = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color={textColorBlue} lineHeight="1.2em">
+    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+      <Heading size={["lg", "2xl"]} color={textColorBlue} lineHeight="1.2em">
         The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real
         Projects.
       </Heading>
@@ -30,7 +30,7 @@ const PBLFramework = () => {
         </Text>{" "}
         is one example of a PBL course. Maybe you can imagine some others.
       </Text>
-      
+
       <Text py="5">
         Every Project-Based Learning course consists of a series of{" "}
         <Text as="span" fontWeight="bold" color="theme.green">
@@ -42,13 +42,13 @@ const PBLFramework = () => {
         In this Plutus PBL course, there are 14 Modules. New modules will be published every Monday from now through
         2023-05-08.
       </Text>
-      <Container maxWidth="90%" bgColor="theme.lightGray" marginTop="2em" marginLeft="0">
+      <Container maxWidth={["100%", "90%"]} bgColor="theme.lightGray" marginTop="2em" marginLeft="0">
         <Stack>
           <Heading size="md" lineHeight="1.4" mt="1em" color="white" textAlign="center">
             Modules are numbered and organized with the PBL Framework:
           </Heading>
           <Grid templateColumns="repeat(5, 1fr)" gap={5} p="5">
-            <GridItem colSpan={3}>
+            <GridItem colSpan={[5, 3]}>
               <Box>
                 <Text fontWeight="bold" m="3" color="white">
                   Onboarding (100):
@@ -86,7 +86,7 @@ const PBLFramework = () => {
                 </Text>
               </Box>
             </GridItem>
-            <GridItem colSpan={2}>
+            <GridItem colSpan={[5, 2]}>
               <Image src="/PBLFramework.png" width="100%" alt="pblframework" />
             </GridItem>
           </Grid>

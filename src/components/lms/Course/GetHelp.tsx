@@ -15,9 +15,9 @@ import Link from "next/link";
 
 const GetHelp = () => {
   return (
-    <Flex direction="row" p="3">
+    <Flex direction={["column", "row"]} p="3">
       <Spacer />
-      
+
       <Heading size="lg" textAlign="center">
         Need Help?
       </Heading>

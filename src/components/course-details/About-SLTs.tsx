@@ -17,11 +17,11 @@ import React from "react";
 const AboutSLTs = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
-      <Heading size="2xl" color={textColorBlue}>
+    <Container maxWidth={["95%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+      <Heading size={["lg", "2xl"]} color={textColorBlue}>
         About Student Learning Targets (SLTs)
       </Heading>
-      <Heading size="lg" color="theme.green">
+      <Heading size={["md", "lg"]} color="theme.green">
         Here is how this course works:
       </Heading>
       <OrderedList marginLeft="3em">

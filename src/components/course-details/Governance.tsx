@@ -5,7 +5,7 @@ import React from "react";
 const Governance = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
       <Heading size="2xl" color={textColorBlue}>
         Beyond Contribution is Governance
       </Heading>

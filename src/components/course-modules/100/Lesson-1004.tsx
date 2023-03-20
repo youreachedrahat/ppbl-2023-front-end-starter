@@ -41,7 +41,7 @@ export default function Lesson1004() {
   return (
     <LessonLayout moduleNumber={100} sltId="100.4" slug="1004" nextModule="101">
       <Grid mx="auto" fontSize="lg" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
-        <GridItem w="90%" mx="auto">
+        <GridItem w="90%" mx="auto" colSpan={[2, 1]}>
           <Text py="3">
             For our first project, we will focus on the{" "}
             <Text as="span" color="theme.green" fontWeight="bold">
@@ -62,7 +62,7 @@ export default function Lesson1004() {
           </Text>
           <Text>Review this video, or follow the steps below to mint your PPBL2023 Token.</Text>
         </GridItem>
-        <GridItem>
+        <GridItem colSpan={[2, 1]}>
           <VideoComponent videoId="tD5hVDC06iM">About Your New Contributor Token</VideoComponent>
         </GridItem>
       </Grid>

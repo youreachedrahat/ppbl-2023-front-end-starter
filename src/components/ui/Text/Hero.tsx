@@ -10,9 +10,9 @@ export default function CallToActionWithAnnotation() {
   const [loading, setLoading] = useState<boolean>(false);
   return (
     <>
-      <Container maxW={"4xl"}>
+      <Container maxW={["2xl", "4xl"]}>
         <Stack as={Box} textAlign={"center"} spacing={{ base: 30, md: 14 }} py={{ base: 140, md: 100 }}>
-          <Heading fontWeight={600} fontSize={{ base: "4xl", sm: "2xl", md: "6xl" }} lineHeight={"150%"}>
+          <Heading fontWeight={600} fontSize={{ base: "2xl", sm: "2xl", md: "6xl" }} lineHeight={"150%"}>
             Gimbalabs presents: <br />
             <Text as={"span"} color={"theme.green"}>
               Plutus Project-Based Learning
@@ -20,7 +20,7 @@ export default function CallToActionWithAnnotation() {
               2023
             </Text>
           </Heading>
-          <Text fontSize="xl">
+          <Text fontSize={["lg", "xl"]}>
             The goal of{" "}
             <Text as="span" fontWeight="900" color="theme.green">
               PPBL 2023
@@ -35,7 +35,7 @@ export default function CallToActionWithAnnotation() {
             </Text>
             .
           </Text>
-          <Text fontSize="xl">
+          <Text fontSize={["lg", "xl"]}>
             The course is mastery-based <br />
             and you can move through it at your speed.
           </Text>

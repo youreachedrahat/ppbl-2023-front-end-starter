@@ -10,7 +10,7 @@ export default function Lesson1003() {
   return (
     <LessonLayout moduleNumber={100} sltId="100.3" slug="1003">
       <Grid mx="auto" fontWeight="bold" lineHeight="200%" templateColumns="repeat(2, 1fr)" gap={6}>
-        <GridItem w="90%" mx="auto">
+        <GridItem w="90%" mx="auto" colSpan={[2, 1]}>
           <Text fontSize="lg" py="3">
             We think it&rsquo;s wonderful that this PPBL course can tell you that you&rsquo;ve mastered the first two SLTs. But
             &rdquo;Mastery&rdquo; cannot always be measured directly.
@@ -24,7 +24,7 @@ export default function Lesson1003() {
             UTC. This session will be recorded and posted to this lesson page.
           </Text>
         </GridItem>
-        <GridItem>
+        <GridItem colSpan={[2, 1]}>
           <VideoComponent videoId="bFrBf7IJmWo">Private Keys</VideoComponent>
         </GridItem>
       </Grid>

@@ -28,7 +28,7 @@ export default function LiveCoding() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box w="70%" mx="auto">
+      <Box w={["95%", "70%"]} mx="auto">
         <Heading py="10" size="2xl">
           Plutus PBL Live Coding Sessions:
         </Heading>

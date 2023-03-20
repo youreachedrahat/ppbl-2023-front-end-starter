@@ -5,7 +5,7 @@ import React from "react";
 
 const SLTs100 = () => {
   return (
-    <Container maxWidth="90%" marginTop="2em">
+    <Container maxWidth={["100%", "90%"]} marginTop="2em">
       <SLTsItems moduleTitle="Module 100" moduleNumber={100} />
       <Divider my="5" />
       <Box bg="theme.lightGray" color="white" p="5">

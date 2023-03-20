@@ -6,7 +6,7 @@ import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
 const ListOfModules = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
       <Heading size="2xl" color={textColorBlue}>
         Plutus PBL Course Outline
       </Heading>
@@ -30,7 +30,7 @@ const ListOfModules = () => {
         How to get help with Plutus Project-Based Learning
       </Text>
       <Link href="/get-started/getting-help">
-        <Button>What should I do when I need help?</Button>
+        <Button>How to get help</Button>
       </Link>
     </Container>
   );

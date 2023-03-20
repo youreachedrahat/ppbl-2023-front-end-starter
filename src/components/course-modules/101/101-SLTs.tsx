@@ -7,7 +7,7 @@ import Introduction from "@/src/components/course-modules/101/Introduction.mdx";
 
 const SLTs101 = () => {
   return (
-    <Container maxWidth="90%" marginTop="2em">
+    <Container maxWidth={["100%", "90%"]} marginTop="2em">
       <SLTsItems moduleTitle="Module 101" moduleNumber={101} />
       <Divider mt="5" />
       <Box py="5">
@@ -16,7 +16,7 @@ const SLTs101 = () => {
       <Flex direction="row">
         <Spacer />
       <Link href="/modules/101/1011">
-        <Button my="1em">Take me to Lesson 101.1: Compiling Plutus Scripts</Button>
+        <Button my="1em">Get Started</Button>
       </Link>
       </Flex>
     </Container>

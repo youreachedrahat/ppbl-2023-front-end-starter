@@ -7,7 +7,7 @@ type Props = {
 };
 const YouWillKnowYouAreSuccessfulIf: React.FC<Props> = ({ criteria, text }) => {
   return (
-    <Box w="60%" mx="auto" my="10" p="5" bg="theme.green" color="theme.dark" fontSize="lg">
+    <Box w={["95", "60%"]} mx="auto" my="10" p="5" bg="theme.green" color="theme.dark" fontSize="lg">
       <Heading size="md" py="3">
         You will know you are successful if{" "}{criteria}
       </Heading>

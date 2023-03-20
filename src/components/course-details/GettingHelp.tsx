@@ -6,12 +6,12 @@ import GetHelp from "../lms/Course/GetHelp";
 const GettingHelp = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
-    <Container maxWidth="80%" marginLeft="1em" marginTop="2em" fontSize="xl">
+    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
       <Heading size="2xl" color={textColorBlue}>
         What happens when I get stuck?
       </Heading>
       <Text py="3">
-        You will probably have questions as you work through this Plutus Project-Based Learning course. We hope that you do! 
+        You will probably have questions as you work through this Plutus Project-Based Learning course. We hope that you do!
       </Text>
       <Text py="3">
         This course is designed to show you some essential information, and then for you
@@ -39,7 +39,7 @@ const GettingHelp = () => {
         All of our work leads toward Governance.
       </Text>
       <Link href="/get-started/governance">
-        <Button>How does PPBL connect to Governance?</Button>
+        <Button>Governance</Button>
       </Link>
     </Container>
   );
