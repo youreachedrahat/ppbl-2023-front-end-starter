@@ -6,6 +6,7 @@ import YouWillKnowYouAreSuccessfulIf from "@/src/components/lms/Lesson/YouWillKn
 
 import module from "./module102.json";
 import Docs1022 from "@/src/components/course-modules/102/Docs1022.mdx";
+import CheckAddress from "./cardano/CheckAddress";
 
 export default function Lesson1022() {
   const slug = "1022";
@@ -15,12 +16,6 @@ export default function Lesson1022() {
     <LessonLayout moduleNumber={102} sltId="102.2" slug={slug}>
       <LessonIntroAndVideo lessonData={lessonDetails} />
       <AssignmentComponent>
-        {lessonDetails?.success && (
-          <YouWillKnowYouAreSuccessfulIf
-            criteria={lessonDetails?.success?.criteria}
-            text={lessonDetails?.success.text}
-          />
-        )}
         <Docs1022 />
       </AssignmentComponent>
     </LessonLayout>
