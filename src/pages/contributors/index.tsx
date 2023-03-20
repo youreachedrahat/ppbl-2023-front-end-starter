@@ -64,33 +64,36 @@ export default function Contributors() {
             <Thead>
               <Tr>
                 <Th>Token</Th>
-                <Th>Metadatum</Th>
+                <Th>Metadatum (int)</Th>
+                <Th>Metadatum (list)</Th>
               </Tr>
             </Thead>
             <Tbody>
               {data.utxos.map((utxo: any) => (
-                <Tr>
+                <Tr key={utxo}>
                   <Td>{hexToString(utxo.tokens[0].asset.assetName)}</Td>
                   <Td>
-                    {JSON.stringify(utxo.datum.value.fields,null,2)}
-                    {/* {utxo.datum.value.fields.map((item: refMetadatum) => (
+                    {utxo.datum.value.fields.map((item: refMetadatum) => (
                       <>
                       {item.int?
-                      <Tr>int: {item.int}</Tr>
+                      <Tr key={null}>{item.int}</Tr>
                       :
                       null}
-                      {item.list?
-                      <>
-                      <Tr>list:</Tr>
-                      {item.list.map((item2: {"bytes": String}) => (
-                        <Tr>{item2.bytes}</Tr>
-                      ))}
                       </>
+                    ))}
+                  </Td>
+                  <Td>
+                    {utxo.datum.value.fields.map((item: refMetadatum) => (
+                      <>
+                      {item.list?
+                        item.list.map((item2: {"bytes": String}) => (
+                          <Tr key={null}>{item2.bytes}</Tr>
+                      ))
                       :
                       null
                       }
                       </>
-                    ))} */}
+                    ))}
                   </Td>
                 </Tr>
               ))}
