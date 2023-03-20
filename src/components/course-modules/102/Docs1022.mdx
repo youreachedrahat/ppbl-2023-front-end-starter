@@ -1,4 +1,42 @@
-# Lesson 102.2 Documentation
+# 102.2: Create Wallet
+- `cardano-cli address build` - for both keys and validator scripts
+- let's take a look at some contract addresses
+- FUN - review each of the Plutus scripts --> into docs
+
+## Build an address
+### Here is how:
+```bash
+cardano-cli key-gen...
+```
+
+### And here is a script:
+> Why do we use scripts?
+- Link
+
+## Building Contract Addresses:
+Now that you have seen how to build a wallet address, let's take a look at some Contract Addresses. Now is a good time to review Lesson 101.1
+```bash
+cardano-cli address build --payment-script-file
+```
+
+### PlutusTx
+addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla
+- Has [a history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla)
+
+### Aiken
+addr_test1wzd7s978pzla9qdwjshnme9wvlwfrrajzwcztpay7uynx9qalqts7
+- Has [a history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wzd7s978pzla9qdwjshnme9wvlwfrrajzwcztpay7uynx9qalqts7)
+
+### plu-ts
+addr_test1wr5vjne65nh3zfp9ndf6xnk02uxkzlsdtczsu7pxw8gatuqzdca8z
+- As of the start of this course, [no history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wr5vjne65nh3zfp9ndf6xnk02uxkzlsdtczsu7pxw8gatuqzdca8z)
+
+## Proof!
+It is time for some on chain proof. Use this form to check if you have sent your Contrib token to this address...
+
+## What's Next?
+- In Lesson 102.3, we will build a simple transaction that sends your Contributor Token back to your Browser Wallet.
+- In Lesson 102.4 we will build our first transactions using the contract addresses above.
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

@@ -1,4 +1,40 @@
-# Lesson 102.1 Documentation
+# How to install cardano-node and cardano-cli
+- Achieving this SLT is sasy - once you are able to access a Cardano Node
+- Setting up is the hard part - syncing a node
+
+You will know you are successful if you can run `cardano-cli query tip` and see that your node is synced to 100%
+
+## What is Cardano Node?
+- A cardano-node is...
+- `cardano-cli` is packaged with it!
+
+## Setting Up:
+
+### Locally:
+> [https://github.com/input-output-hk/cardano-node](https://github.com/input-output-hk/cardano-node)
+- Video: a few things to point out
+- Downloading binary vs. building from source
+- Most important to highlight config files: https://book.world.dev.cardano.org/environments.html.
+- Provide the boilerplate for starting a node. In docs + as script
+
+### Demeter:
+- If you set up a Demeter instance, we have good news for you. You can use it to complete this module!
+- Here is how (might become video playlist)
+
+## Let's build some quick scripts
+- if you're new bash, we've got you - a little at a time!
+- provided in repo
+
+### Starting Cardano Node:
+
+
+### Querying chain tip:
+```bash
+cardano-cli query tip --testnet-magic 1
+```
+
+
+
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
