@@ -1,22 +1,8 @@
+import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/queries/contributorQueries";
 import { hexToString } from "@/src/utils";
 import { gql, useQuery } from "@apollo/client";
 import { Box, Center, Flex, Heading, Spacer, Spinner, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
 import Head from "next/head";
-
-const CONTRIBUTOR_TOKEN_QUERY = gql`
-  query QueryReferenceAddress($contractAddress: String!) {
-    utxos(where: { address: { _eq: $contractAddress } }) {
-      tokens {
-        asset {
-          assetName
-        }
-      }
-      datum {
-        value
-      }
-    }
-  }
-`;
 
 type refMetadatum = {
   "int": number,
