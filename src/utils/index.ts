@@ -1,3 +1,7 @@
+import { treasury } from "@/gpte-config";
+import { Asset, UTxO } from "@meshsdk/core";
+import { GraphQLUTxO } from "../types/cardanoGraphQL";
+
 export function stringToHex(str: string) {
     var arr = []
     for(var i = 0; i < str.length; i++){
@@ -15,3 +19,47 @@ export function hexToString(input: string)
 	}
 	return str;
  }
+
+
+export function GraphQLToMeshUTxO(utxoFromQuery: GraphQLUTxO) {
+	const lovelace: Asset = {
+	  unit: "lovelace",
+	  quantity: utxoFromQuery.value,
+	};
+  
+	const assets: Asset[] = [lovelace];
+  
+	if (utxoFromQuery.tokens[0]) {
+	  const gimbals: Asset = {
+		unit: utxoFromQuery.tokens[0].asset.policyId + utxoFromQuery.tokens[0].asset.assetName,
+		quantity: utxoFromQuery.tokens[0].quantity,
+	  };
+	  assets.push(gimbals);
+	}
+  
+	const _meshUTxO: UTxO = {
+	  input: {
+		outputIndex: utxoFromQuery.index,
+		txHash: utxoFromQuery.txHash,
+	  },
+	  output: {
+		address: treasury.address,
+		amount: assets,
+		plutusData: utxoFromQuery.datum?.bytes,
+	  },
+	};
+  
+	return _meshUTxO;
+  }
+  
+  export function GraphQLToDatum(utxoFromQuery: GraphQLUTxO) {
+	const ProjectList: string[] = []
+  
+	if(utxoFromQuery.datum?.value){
+	  utxoFromQuery.datum.value.fields[0].list.forEach((project: any) => {
+		ProjectList.push(project.bytes)
+	  })
+	}
+  
+	return ProjectList
+  }
