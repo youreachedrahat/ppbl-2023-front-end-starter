@@ -62,6 +62,33 @@
       "recordingLink": "",
       "links": [""],
       "description": "Designing voting systems"
+    },
+ {
+      "date": "2023-03-29",
+      "time": "1430-1600 utc",
+      "title": "What does it mean to run a Cardano Node?",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Student Q&A + discussion"
+    },
+    {
+      "date": "2023-03-30",
+      "time": "1430-1600 utc",
+      "title": "Using Cardano CLI",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Student Q&A + live demo"
+    },
+    {
+      "date": "2023-03-31",
+      "time": "1630-1800 utc",
+      "title": "Smart Contract Gladiator",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Modular voting systems"
     }
   ]
 }
