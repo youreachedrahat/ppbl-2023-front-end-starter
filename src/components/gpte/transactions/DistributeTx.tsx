@@ -3,7 +3,7 @@ import { useAddress, useWallet } from "@meshsdk/react";
 import { escrowAddress, escrowReferenceUTxO, projectAsset, contributorPolicyID, issuerPolicyID, metadataKey } from "gpte-config";
 import { useQuery } from "@apollo/client";
 import { Asset, Transaction, UTxO } from "@meshsdk/core";
-import { ESCROW_QUERY } from "@/src/queries/escrowQueries"; 
+import { ESCROW_QUERY } from "@/src/data/queries/escrowQueries"; 
 import { hexToString } from "@/src/utils";
 import { GraphQLInputUTxO, GraphQLToken, GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import { ProjectTxMetadata } from "@/src/types/project";

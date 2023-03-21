@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { escrowAddress, escrowReferenceUTxO, projectAsset, contributorPolicyID, issuerPolicyID, metadataKey } from "gpte-config";
 import { gql, useQuery } from "@apollo/client";
-import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/queries/contributorQueries";
+import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/data/queries/contributorQueries";
 import { Asset, Transaction, UTxO } from "@meshsdk/core";
 import { GraphQLToDatum, hexToString  } from "@/src/utils";
 import { GraphQLInputUTxO, GraphQLToken, GraphQLUTxO  } from "@/src/types/cardanoGraphQL";

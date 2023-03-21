@@ -1,17 +1,20 @@
-import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/queries/contributorQueries";
+import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/data/queries/contributorQueries";
 import { hexToString } from "@/src/utils";
 import { gql, useQuery } from "@apollo/client";
-import { Box, Center, Flex, Heading, Spacer, Spinner, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Input, Spacer, Spinner, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
 import Head from "next/head";
+import { useState } from "react";
 
 type refMetadatum = {
   "int": number,
   "list": [{
-    "bytes": String
+    "bytes": string
   }]
 }
 
 export default function Contributors() {
+
+  const [searchTerm, setSearchTerm] = useState<string>('100PPBL2023');
 
   const { data, loading, error } = useQuery(CONTRIBUTOR_TOKEN_QUERY, {
     variables: {
@@ -45,7 +48,17 @@ export default function Contributors() {
           PPBL Tokens:
         </Heading>
 
-        <TableContainer>
+        <Flex direction="row" justify="flex-start" align={'center'}>
+          <Text fontSize="-moz-initial" mr="2">SEARCH :</Text>
+          <Input
+            w="-moz-max-content"
+            placeholder='Search by asset name'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </Flex>
+
+        <TableContainer mt="4">
           <Table variant='simple'>
             <Thead>
               <Tr>
@@ -55,34 +68,39 @@ export default function Contributors() {
               </Tr>
             </Thead>
             <Tbody>
-              {data.utxos.map((utxo: any) => (
-                <Tr key={utxo}>
-                  <Td>{hexToString(utxo.tokens[0].asset.assetName)}</Td>
-                  <Td>
-                    {utxo.datum.value.fields.map((item: refMetadatum) => (
-                      <>
-                      {item.int?
-                      <Tr key={null}>{item.int}</Tr>
-                      :
-                      null}
-                      </>
-                    ))}
-                  </Td>
-                  <Td>
-                    {utxo.datum.value.fields.map((item: refMetadatum) => (
-                      <>
-                      {item.list?
-                        item.list.map((item2: {"bytes": String}) => (
-                          <Tr key={null}>{item2.bytes}</Tr>
-                      ))
-                      :
-                      null
-                      }
-                      </>
-                    ))}
-                  </Td>
-                </Tr>
-              ))}
+              {data.utxos
+                .filter((utxo: any) =>
+                  hexToString(utxo.tokens[0].asset.assetName)
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+                )
+                .map((utxo: any) => (
+                  <Tr key={utxo}>
+                    <Td>{hexToString(utxo.tokens[0].asset.assetName)}</Td>
+                    <Td>
+                      {utxo.datum.value.fields.map((item: refMetadatum) => (
+                        <>
+                          {item.int ? (
+                            <Tr key={null}>{item.int}</Tr>
+                          ) : null}
+                        </>
+                      ))}
+                    </Td>
+                    <Td>
+                      {utxo.datum.value.fields.map((item: refMetadatum) => (
+                        <>
+                        {item.list?
+                          item.list.map((item2: {"bytes": string}) => (
+                            <Tr key={null}>{hexToString(item2.bytes)}</Tr>
+                        ))
+                        :
+                        null
+                        }
+                        </>
+                      ))}
+                    </Td>
+                  </Tr>
+                ))}
             </Tbody>
           </Table>
         </TableContainer>

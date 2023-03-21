@@ -3,7 +3,7 @@ import { Box, Heading, Text, Center, Spinner, Grid, UnorderedList, ListItem, But
 
 import { projectAsset, treasury } from "gpte-config";
 import { GraphQLToken, GraphQLUTxO } from "@/src/types/cardanoGraphQL";
-import { TREASURY_UTXO_QUERY } from "../../../queries/treasuryQueries";
+import { TREASURY_UTXO_QUERY } from "../../../data/queries/treasuryQueries";
 import { hexToString } from "../../../utils";
 import { useState } from "react";
 import CommitmentTx from "@/src/components/gpte/transactions/CommitmentTx";
