@@ -38,7 +38,7 @@ export default function CommitToCurrentProject() {
     <Box my="5" p="5" bg="#343434">
       <Heading color="white">Current List of Projects</Heading>
       <Text py="3" w="50%">
-        Here is the inline datum at the Treasury UTxO. We can use it to make a list of approved "Projects", whether
+        Here is the inline datum at the Treasury UTxO. We can use it to make a list of approved Projects, whether
         these projects are Course Modules, or funded Projects. Use any part of this component to start making
         good-looking GPTE examples!
       </Text>
@@ -49,7 +49,7 @@ export default function CommitToCurrentProject() {
       </Heading>
       <UnorderedList>
         {data.utxos[0].datum.value.fields[0].list.map((d: any) => (
-          <ListItem>{hexToString(d.bytes)}</ListItem>
+          <ListItem key={null}>{hexToString(d.bytes)}</ListItem>
         ))}
       </UnorderedList>
 
@@ -61,7 +61,7 @@ export default function CommitToCurrentProject() {
       <Text py="2">For now, this template allows Contributor to select any approved project from a list.</Text>
       <Heading py="3">Choose a Module or Project to Commit To:</Heading>
       {data.utxos[0].datum.value.fields[0].list.map((d: any) => (
-        <Button colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
+        <Button key={null} colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
           {hexToString(d.bytes)}
         </Button>
       ))}
