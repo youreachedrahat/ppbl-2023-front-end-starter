@@ -119,7 +119,7 @@
         },
         {
           "slug": "1021",
-          "name": "Lesson 1: Query the Blockchain",
+          "name": "Lesson 1: Introducing cardano-cli",
           "video": ""
         },
         {
@@ -130,6 +130,11 @@
         {
           "slug": "1023",
           "name": "Lesson 3: Build a Simple Transaction",
+          "video": ""
+        },
+        {
+          "slug": "assignment1021",
+          "name": "Mastery Check 102.1",
           "video": ""
         },
         {

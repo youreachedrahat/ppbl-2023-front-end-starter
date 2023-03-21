@@ -15,9 +15,7 @@ export default function Lesson1022() {
   return (
     <LessonLayout moduleNumber={102} sltId="102.2" slug={slug}>
       <LessonIntroAndVideo lessonData={lessonDetails} />
-      <AssignmentComponent>
-        <Docs1022 />
-      </AssignmentComponent>
+      <Docs1022 />
     </LessonLayout>
   );
 }

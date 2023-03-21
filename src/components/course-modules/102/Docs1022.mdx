@@ -1,18 +1,80 @@
-import CheckAddress from "./cardano/CheckAddress";
+# How to create a wallet using cardano-cli
+To create a wallet, we will use three commands. In this lesson, we will focus on each of these commands, one at a time:
+1. `cardano-cli address key-gen` creates a public key and a private key
+2. `cardano-cli stake-address key-gen` creates a public staking key and a private staking key
+3. `cardano-cli address build` generates a Cardano Address
 
-# 102.2: Create Wallet
 
-- `cardano-cli address build` - for both keys and validator scripts
-- let's take a look at some contract addresses
-- FUN - review each of the Plutus scripts --> into docs
+
+Each command will generate some new files. Before getting started, create a new directory where these files will be saved.
+
+## cardano-cli address key-gen
+Use `cardano-cli address key-gen` to generate a new pair of key files:
+- The `verification-key-file`, also known as a **public key**
+- The `signing-key-file` also known as a **private key**
+
+To generate a pair of key files, use this command:
+```bash
+cardano-cli address key-gen --verification-key-file payment.vkey --signing-key-file payment.skey
+```
+
+The file names `payment.vkey` and `payment.skey` can be whatever you'd like. These are the customary file names.
+
+### Important: Private Keys are JUST LIKE mnemonics
+
+You must protect your `signing-key-file` just like you protect your mnemonic words, because it will be used to unlock your tokens.
+
+The `verification-key-file` is public, and can be shared with anyone.
+
 
 <br />
 ---
 
-## Building a wallet address
+## cardano-cli stake-address key-gen
+A different pair of key files is used to create staking credentials, like this:
 
-### Here is how:
+```bash
+cardano-cli stake-address key-gen --verification-key-file stake.vkey --signing-key-file stake.skey
+```
 
+You can build a wallet address with or without staking credentials.
+
+<br />
+---
+
+## cardano-cli address build
+A Cardano address can be generated from Public Key files, like this:
+
+```bash
+cardano-cli address build \
+--payment-verification-key-file payment.vkey \
+--stake-verification-key-file stake.vkey \
+--out-file payment.addr --testnet-magic 1
+```
+
+### A few things to notice:
+The same verification key can be used to create addresses on different networks. Above, we used `--testnet-magic 1` because we are using Preprod. Instead, look at what happens when you try this:
+```bash
+cardano-cli address build \
+--payment-verification-key-file payment.vkey \
+--stake-verification-key-file stake.vkey \
+--out-file payment.addr --mainnet
+```
+
+We can also build addresses without staking credentials, like this:
+
+```bash
+cardano-cli address build \
+--payment-verification-key-file payment.vkey \
+--out-file payment.addr --testnet-magic 1
+```
+
+
+
+<br />
+---
+
+## Putting it all together, we have:
 ```bash
 cardano-cli address key-gen \
 --verification-key-file payment.vkey \
@@ -29,71 +91,81 @@ cardano-cli address build \
 --testnet-magic 1
 ```
 
-### And here is a script:
-
-> Why do we use scripts?
-
-- Link
-
+In Lesson 102.6, we will look at a bash script that automates this process.
 
 <br />
 ---
 
-## Building a contract address
-The process to build a Contract Address is similar to building a wallet address.
+## Extension: Building contract addresses
+The command `cardano-cli address build` can also be used to build contract addresses. In [Lesson 101.2](/modules/101/1012) we compared wallet addresses and contract addresses.
 
-Now that you have seen how to build a wallet address, let's take a look at some Contract Addresses. Now is a good time to review Lesson 101.1
+To build an address from Plutus script, we simply replace the verification key file with a Plutus script:
 
 ```bash
-cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds.plutus
+$ cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds.plutus
 ```
 
-### PlutusTx
+**Example Output: PlutusTx**
+```bash
+$ cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds-plutusTx.plutus
+addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2klaabc
+```
 
-addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla
+This address [has a history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla)!
 
-- Has [a history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla)
 
-### Aiken
-
+**Example Output: Aiken**
+```bash
+$ cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds-aiken.plutus
 addr_test1wzd7s978pzla9qdwjshnme9wvlwfrrajzwcztpay7uynx9qalqts7
+```
 
-- Has [a history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wzd7s978pzla9qdwjshnme9wvlwfrrajzwcztpay7uynx9qalqts7)
+This address [has a history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wzd7s978pzla9qdwjshnme9wvlwfrrajzwcztpay7uynx9qalqts7)!
 
-### plu-ts
-
+**Example Output: plu-ts**
+```bash
+$ cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds-plu-ts.plutus
 addr_test1wr5vjne65nh3zfp9ndf6xnk02uxkzlsdtczsu7pxw8gatuqzdca8z
+```
+As of the start of this course, this address [has no history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wr5vjne65nh3zfp9ndf6xnk02uxkzlsdtczsu7pxw8gatuqzdca8z)
 
-- As of the start of this course, [no history on Cardanoscan](https://preprod.cardanoscan.io/address/addr_test1wr5vjne65nh3zfp9ndf6xnk02uxkzlsdtczsu7pxw8gatuqzdca8z)
-
-<br />
----
-
-## Demonstrate Mastery
-To demonstrate mastery of SLT 102.2, send your PPBL 2023 to the new address you generated with `cardano-cli`.
-
-If you feel uncertain about doing this, try sending just a few `tAda` first. Then, look for your address on [Cardanoscan Preprod](https://preprod.cardanoscan.io), to confirm that the transaction worked.
+We will use these contract addresses in Lessons [102.4](/modules/102/1024) and [102.5](/modules/102/1025).
 
 <br />
 ---
 
-## Proof of Mastery?
 
-It is time for some on chain proof. Use this form to check if you have sent your Contrib token to this address...
+## Keep Exploring:
+You can learn about any `cardano-cli` command by entering it in your terminal. For example:
 
-<CheckAddress />
+```bash
+$ cardano-cli address key-gen
+Usage: cardano-cli address key-gen [--normal-key | --extended-key | --byron-key]
+            --verification-key-file FILE
+            --signing-key-file FILE
 
-### But is it really Proof?
+  Create an address key pair.
 
-That is ok, but how do we know this is your address? You could have given us any address, really! If you are asking this question - welcome to the party! Now we are ready to think a bit more about your Contributor token.
+Available options:
+  --normal-key             Use a normal Shelley-era key (default).
+  --extended-key           Use an extended ed25519 Shelley-era key.
+  --byron-key              Use a Byron-era key.
+  --verification-key-file FILE
+                           Output filepath of the verification key.
+  --signing-key-file FILE  Output filepath of the signing key.
+  -h,--help                Show this help text
+
+```
+
+To see more examples, watch the video above.
 
 <br />
 ---
 
 ## What's Next?
 
-- In Lesson 102.3, we will build a simple transaction that sends your Contributor Token from, and then back to, your Browser Wallet.
-- In Lesson 102.4 we will build our first transactions using the contract addresses above.
+- In Lesson 102.3, we will send some transactions to and from your new wallet address.
+- In Lessons 102.4 and 102.5, we will build our first transactions using the contract addresses above.
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

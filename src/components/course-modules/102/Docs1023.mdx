@@ -1,37 +1,55 @@
-import CheckTxFromAddressWithPolicyID from "./cardano/CheckTxFromAddressWithPolicyID";
+# Build a Simple Tx with cardano-cli
 
+## Definitions: Transactions and UTxOs
+- A "transaction" is used to move value from one address to another on Cardano
+- Every transaction takes one or more UTxOs as input and creates one or more UTxOs as output.
 
-# Lesson 102.3 Documentation
+Deep look at Live Coding April 5 or so.
+As always, the video above provides a quick overview and some tips...
 
-## 102.3: build simple tx
-- On the front end, a confirmation form
-- Which raises the question: how will we know this address was yours? Contributor tokens provide an answer
-	- (Side note: can we write a contract so that datum can be left behind only if contrib token was present? could mint, of course...)
+## 1. Select UTxOs
+It can help to set some variables that we will reuse. For example,
+```bash
+$ SENDER=<THE ADDRESS GENERATED IN LESSON 102.2>
+$ SENDERKEY=<THE SIGNING KEY FOR THIS ADDRESS>
+```
 
-## Build a Tx
+Then, view your list of UTxOs by using:
+```bash
+$ cardano-cli query utxo --testnet-magic 1 --address $SENDER
+```
 
+## 2. Build a Tx
 ### By copy and pasting:
 ```bash
-cardano-cli transaction build \
+$ cardano-cli transaction build \
 
 ```
 
-To learn more, look at the [cardano-cli Reference](https://github.com/input-output-hk/cardano-node/blob/master/doc/reference/cardano-node-cli-reference.md)
+## 3. Sign a Tx
+### By copy and pasting:
+```bash
+$ cardano-cli transaction sign \
 
-### With provided script
-It's the bash above, in a file. Here it is
+```
 
-## Check UTxOs at Address:
-With simple Koios MediaQueryList
+## 4. Submit a Tx
+### By copy and pasting:
+```bash
+$ cardano-cli transaction submit \
 
-We would like to use this Koios query, but it does not really work.
+```
 
-## Check if Tx has been sent from address
-With a GraphQL query
-<CheckTxFromAddressWithPolicyID />
+## Put it all together:
 
-## Note: UTxOs vs. Transactions
-We can query either - so how?
+
+<br />
+---
+
+## Automating Processes with Bash Scripts
+See [Lesson 102.6](/modules/102/1026)
+
+
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

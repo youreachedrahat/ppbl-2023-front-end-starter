@@ -3,11 +3,16 @@
     {
       "slug": "1021",
       "introduction": [
-        "",
-        ""
+        "At the end of this lesson, you will know how to write blockchain queries using cardano-cli. The Cardano Command Line Interface, or cardano-cli, is included when you install Cardano Node.",
+        "Cardano Node is the software that runs the Cardano blockchain on a computer.",
+        "We will practice writing queries with cardano-cli throughout Module 102. You will see that simple queries take only a moment to execute.",
+        "Setting up a Cardano Node so that you can make queries can be a bit trickier. In this lesson, we will explore two ways of accessing the Cardano Preprod network."
       ],
       "links": [
-        { "url": "", "linkText": "" }
+        { "url": "https://docs.cardano.org/learn/cardano-node", "linkText": "Official Docs: Cardano Node" },
+        { "url": "https://github.com/input-output-hk/cardano-node", "linkText": "Cardano Node on IOHK GitHub" },
+        { "url": "https://github.com/input-output-hk/cardano-node/blob/master/doc/reference/cardano-node-cli-reference.md", "linkText": "cardano-cli reference" },
+        { "url": "https://book.world.dev.cardano.org/environments.html", "linkText": "Cardano Network Configuration Files" }
       ],
       "videoHeading": "",
       "youtubeId": "",
@@ -22,11 +27,12 @@
     {
       "slug": "1022",
       "introduction": [
-        "",
-        ""
+        "Cardano CLI can do more than just query the blockchain. It can also be use to build a transaction, register a stake pool, or create a new Cardano address.",
+        "In this lesson, you will see how to create a new \"wallet\" using cardano-cli.",
+        "You will also see that building a Contract address is similar to building a wallet address."
       ],
       "links": [
-        { "url": "", "linkText": "" }
+        { "url": "", "linkText": "PPBL Toolbox Repo" }
       ],
       "videoHeading": "",
       "youtubeId": "",
