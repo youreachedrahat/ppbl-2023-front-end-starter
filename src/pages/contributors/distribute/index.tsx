@@ -6,11 +6,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { escrowAddress, escrowReferenceUTxO, projectAsset, contributorPolicyID, issuerPolicyID, metadataKey } from "gpte-config";
 import { gql, useQuery } from "@apollo/client";
-import { CONTRIBUTOR_TOKEN_QUERY } from "@/queries/contributorQueries";
+import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/queries/contributorQueries";
 import { Asset, Transaction, UTxO } from "@meshsdk/core";
-import { GraphQLToDatum, hexToString } from "@/utils";
-import { GraphQLInputUTxO, GraphQLToken, GraphQLUTxO, ProjectTxMetadata } from "@/types";
-import DistributeTx from "@/components/gpte/transactions/DistributeTx";
+import { GraphQLToDatum, hexToString  } from "@/src/utils";
+import { GraphQLInputUTxO, GraphQLToken, GraphQLUTxO  } from "@/src/types/cardanoGraphQL";
+import DistributeTx from "@/src/components/gpte/transactions/DistributeTx";
+import { ProjectTxMetadata } from "@/src/types/project";
 
 const ESCROW_QUERY = gql`
   query UtxosAtEscrowAddress($address: String!) {
