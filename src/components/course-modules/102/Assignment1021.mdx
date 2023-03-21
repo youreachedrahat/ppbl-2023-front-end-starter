@@ -1,0 +1,79 @@
+import CheckAddressHasContributorToken from "./cardano/CheckAddressHasContributorToken";
+import CheckTxFromAddressWithPolicyID from "./cardano/CheckTxFromAddressWithPolicyID";
+// import CheckAssociatedWallet from "./cardano/CheckAssociatedWallet";
+import SLTSmall from "../../ui/Text/SLTSmall";
+
+# Mastery Assignment: Build Two Transactions
+This is a guided Mastery Assignment. We will help you get started on a task, and hopefully you will learn some new things along the way. When you are done, there will be on-chain evidence of your success!
+
+Along the way, we will encounter new questions about how the blockchain works.
+
+## In this assignment you demonstrate mastery of these learning targets:
+<SLTSmall moduleNumber={102} id="102.1" />
+<SLTSmall moduleNumber={102} id="102.2" />
+<SLTSmall moduleNumber={102} id="102.3" />
+
+
+## How will I demonstrate mastery?
+Great question. We've been wondering the same thing!
+
+For example, if we consider SLT 102.2:
+- How will we know that you created a particular address?
+- How will we know that that the address is actually yours?
+
+In this assignment, we will begin to explore how a Contributor Token can be used.
+
+<br />
+---
+
+## Using the Contributor Token
+
+Send your Contributor Token from your **Browser Wallet** to the address you created in [Lesson 102.2](/modules/102/1022). After you do, check your status here:
+
+<CheckAddressHasContributorToken />
+
+<br />
+---
+
+## Does this Count as Proof of Mastery?
+Using the form
+
+It is time for some on chain proof. Use this form to check if you have sent your Contrib token to this address...
+
+### But is it really Proof?
+That is ok, but how do we know this is your address? You could have given us any address, really! If you are asking this question - welcome to the party! Now we are ready to think a bit more about your Contributor token.
+
+<br />
+---
+
+## Check if Tx has been sent from address
+Instead of looking at the UTxOs that are *currently* at a wallet address, we can look at the transactions that have been sent to and from that address.
+
+### UTxO = current state
+
+### Transaction = historical record
+
+
+<CheckTxFromAddressWithPolicyID />
+
+<br />
+---
+
+## So here is your assignment:
+Build two transactions with the wallet you generated in [Lesson 102.2](/modules/102/1022).
+
+1. Send a `splitUTxO` transaction from this wallet and back to this wallet with three outputs. One output should contain 10 ada, another with 15, and one with 25.
+2. Send your Contributor Token from your CLI wallet back to your browser wallet.
+
+
+a. get connected Address
+b. query this address for a Tx In with Contrib Token
+c. get the address of wallet that send tx in (b)
+d. check that address in (c) sent a Tx that satisfies (1) above.
+
+# Check Assoc Experiment
+{/* <CheckAssociatedWallet /> */}
+
+
+import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
+export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

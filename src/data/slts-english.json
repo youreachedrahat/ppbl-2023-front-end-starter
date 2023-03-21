@@ -134,7 +134,7 @@
         },
         {
           "slug": "assignment1021",
-          "name": "Mastery Check 102.1",
+          "name": "Mastery Assignment: Build Two Transactions",
           "video": ""
         },
         {
@@ -150,6 +150,11 @@
         {
           "slug": "1026",
           "name": "Lesson 6: Using Bash",
+          "video": ""
+        },
+        {
+          "slug": "assignment1022",
+          "name": "Mastery Assignment: Change Your Lucky Number",
           "video": ""
         }
       ]

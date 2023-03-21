@@ -6,7 +6,7 @@ import YouWillKnowYouAreSuccessfulIf from "@/src/components/lms/Lesson/YouWillKn
 
 import module from "./module102.json";
 import Docs1022 from "@/src/components/course-modules/102/Docs1022.mdx";
-import CheckAddress from "./cardano/CheckAddress";
+import CheckAddress from "./cardano/CheckAddressHasContributorToken";
 
 export default function Lesson1022() {
   const slug = "1022";

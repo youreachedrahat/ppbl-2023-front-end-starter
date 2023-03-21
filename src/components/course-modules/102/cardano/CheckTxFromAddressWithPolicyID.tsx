@@ -1,6 +1,6 @@
 import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { gql, useLazyQuery } from "@apollo/client";
-import { Box, Heading, FormControl, FormLabel, Input, Button, Center, Spinner, Divider, Text } from "@chakra-ui/react";
+import { Box, Heading, FormControl, FormLabel, Input, Button, Center, Spinner, Divider, Text, Badge } from "@chakra-ui/react";
 import { useWallet, useAddress } from "@meshsdk/react";
 import { useFormik } from "formik";
 import * as React from "react";
@@ -65,12 +65,13 @@ const CheckTxFromAddressWithPolicyID = () => {
 
   return (
     <Box borderColor="theme.four" bg="theme.lightGray" p="5" className="demo-component">
+      <Badge size="lg">You will learn how to build this component in Module 201</Badge>
       <Heading size="md" py="3">
         Check Transaction from Address with Policy ID
       </Heading>
       <Text w="50%" py="3">
         This query returns the hash of any transaction with inputs from the provided address that included a PPBL 2023
-        Contributor Token in an output. You will learn how to build this component in Module 201.
+        Contributor Token in an output.
       </Text>
       <FormControl color="theme.dark" pt="5">
         <FormLabel color="theme.light">Paste a Cardano Preprod Address here:</FormLabel>
@@ -95,9 +96,16 @@ const CheckTxFromAddressWithPolicyID = () => {
           <Box fontSize="sm" fontWeight="bold" p="2" color="theme.light">
             Address: {queryAddress}
           </Box>
-          <Box bg="theme.light" color="theme.dark" p="3" fontSize="sm">
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </Box>
+          {data && (data.transactions.length > 0 ? (
+          <>
+            <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">
+              <Box>Success!</Box>
+              <pre>{JSON.stringify(data, null, 2)}</pre>
+            </Box>
+          </>
+        ) : (
+          <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">This address does not hold a Contributor Token</Box>
+        ))}
         </>
       )}
     </Box>

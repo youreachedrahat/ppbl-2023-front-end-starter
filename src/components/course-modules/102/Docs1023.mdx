@@ -7,7 +7,7 @@
 Deep look at Live Coding April 5 or so.
 As always, the video above provides a quick overview and some tips...
 
-## 1. Select UTxOs
+## 1. Set Variables and Select UTxOs
 It can help to set some variables that we will reuse. For example,
 ```bash
 $ SENDER=<THE ADDRESS GENERATED IN LESSON 102.2>
@@ -19,11 +19,21 @@ Then, view your list of UTxOs by using:
 $ cardano-cli query utxo --testnet-magic 1 --address $SENDER
 ```
 
+We can also set a variable for the UTxO we want to spend:
+```bash
+$ UTXO_IN=<TxHash>#<TxId>
+```
+
 ## 2. Build a Tx
-### By copy and pasting:
+
+Here is a simple transaction with one input and two outputs:
 ```bash
 $ cardano-cli transaction build \
-
+--testnet-magic 1 \
+--tx-in
+--tx-out
+--change-address
+...
 ```
 
 ## 3. Sign a Tx
