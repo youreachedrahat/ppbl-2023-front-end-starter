@@ -4,15 +4,15 @@ Now that you have a new address, we can use it.
 
 You will need some tADA in your new wallet. In this module, we will distinguish between the "Browser Wallet" that you created in [Lesson 100.1](/modules/100/1001) and the "CLI Wallet" that you created in [Lesson 102.2](/modules/102/1022).
 
-## Your First Task:
-Send 100 tADA from your Browser Wallet to your CLI Wallet.
+## Your Task:
+Send 100 tADA from your Browser Wallet to your CLI Wallet. Watch the video above or keep reading to learn how.
 
 ## Definitions: Transactions and UTxOs
-- A "transaction" is used to move value from one address to another on Cardano
-- Every transaction takes one or more UTxOs as input and creates one or more UTxOs as output.
+- A **transaction** is used to move value from one address to another on Cardano
+- Every transaction takes one or more **Unspent Transaction Outputs, or UTxOs**, as input and creates one or more UTxOs as output.
 
-Deep look at Live Coding April 5 or so.
-As always, the video above provides a quick overview and some tips...
+<br />
+---
 
 ## 1. Set Variables and Select UTxOs
 It can help to set some variables that we will reuse. For example,
@@ -31,6 +31,11 @@ We can also set a variable for the UTxO we want to spend:
 $ UTXO_IN=<TxHash>#<TxId>
 ```
 
+#### Watch the video above to see how to complete this step.
+
+
+---
+
 ## 2. Build a Tx
 
 Here is a simple transaction with one input and two outputs:
@@ -39,11 +44,16 @@ $ cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $UTXO_IN \
---tx-out $RECEIVERADDRESS+$LOVELACE_TO_SEND \
+--tx-out $SENDERADDRESS+$LOVELACE_TO_SEND \
 --change-address $SENDERADDRESS \
 --out-file simple-tx.raw
 ...
 ```
+
+#### Watch the video above to see how to complete this step.
+
+<br />
+---
 
 ## 3. Sign a Tx
 ### By copy and pasting:
@@ -56,6 +66,9 @@ $ cardano-cli transaction sign \
 
 ```
 
+<br />
+---
+
 ## 4. Submit a Tx
 ### By copy and pasting:
 ```bash
@@ -65,13 +78,16 @@ $ cardano-cli transaction submit \
 
 ```
 
+<br />
+---
+
 ## Put it all together:
 ```bash
 cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $UTXO_IN \
---tx-out $RECEIVERADDRESS+$LOVELACE_TO_SEND \
+--tx-out $SENDERADDRESS+$LOVELACE_TO_SEND \
 --change-address $SENDERADDRESS \
 --out-file simple-tx.raw
 
