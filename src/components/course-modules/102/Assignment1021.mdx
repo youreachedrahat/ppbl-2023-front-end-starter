@@ -69,7 +69,7 @@ Build two transactions with the **CLI wallet** you built in [Lesson 102.2](/modu
 
 ## How to send a Cardano Native Asset in a transaction:
 ```bash
- cardano-cli transaction build \
+cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $TXIN_LOVELACE \
@@ -87,8 +87,31 @@ cardano-cli transaction sign \
 cardano-cli transaction submit \
 --tx-file send-contrib-token.signed \
 --testnet-magic 1
-
 ```
+
+## How to build a split UTxO Transaction:
+```bash
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $TXIN_LOVELACE \
+--tx-out $SENDERADDRESS+10000000 \
+--tx-out $SENDERADDRESS+15000000 \
+--tx-out $SENDERADDRESS+25000000 \
+--change-address $SENDERADDRESS \
+--out-file split-utxo.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDERKEY \
+--testnet-magic 1 \
+--tx-body-file split-utxo.raw \
+--out-file split-utxo.signed
+
+cardano-cli transaction submit \
+--tx-file split-utxo.signed \
+--testnet-magic 1
+```
+
 <br />
 ---
 
