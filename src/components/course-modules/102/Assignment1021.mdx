@@ -3,12 +3,12 @@ import CheckTxFromAddressWithPolicyID from "./cardano/CheckTxFromAddressWithPoli
 import CheckAssociatedWallet from "./cardano/CheckAssociatedWallet";
 import SLTSmall from "../../ui/Text/SLTSmall";
 
-# Mastery Assignment: Build Two Transactions
+# Mastery Assignment 102.M1: Build Two Transactions
 This is a guided Mastery Assignment. We will help you get started on a task, and hopefully you will learn some new things along the way. When you are done, there will be on-chain evidence of your success!
 
 Along the way, we will encounter new questions about how the blockchain works.
 
-## In this assignment you demonstrate mastery of these learning targets:
+## In this assignment you will demonstrate mastery of these learning targets:
 <SLTSmall moduleNumber={102} id="102.1" />
 <SLTSmall moduleNumber={102} id="102.2" />
 <SLTSmall moduleNumber={102} id="102.3" />
@@ -21,14 +21,16 @@ For example, if we consider SLT 102.2:
 - How will we know that you created a particular address?
 - How will we know that that the address is actually yours?
 
-In this assignment, we will begin to explore how a Contributor Token can be used.
+In this assignment, we will begin to answer these questions by using your **PPBL2023 Contributor Token**.
 
 <br />
 ---
 
 ## Using the Contributor Token
 
-Send your Contributor Token from your **Browser Wallet** to the address you created in [Lesson 102.2](/modules/102/1022). After you do, check your status here:
+Send your Contributor Token from your **Browser Wallet** to the **CLI Wallet** you created in [Lesson 102.2](/modules/102/1022).
+
+After you do, check your status here:
 
 <CheckAddressHasContributorToken />
 
@@ -59,21 +61,40 @@ Instead of looking at the UTxOs that are *currently* at a wallet address, we can
 <br />
 ---
 
-## So here is your assignment:
-Build two transactions with the wallet you generated in [Lesson 102.2](/modules/102/1022).
+## Here is your assignment:
+Build two transactions with the **CLI wallet** you built in [Lesson 102.2](/modules/102/1022). By completing this assignment, you will create an on-chain record that your Browser Wallet and CLI Wallet are associated with each other.
 
 1. Send a `splitUTxO` transaction from this wallet and back to this wallet with three outputs. One output should contain 10 ada, another with 15, and one with 25.
 2. Send your Contributor Token from your CLI wallet back to your browser wallet.
 
+## How to send a Cardano Native Asset in a transaction:
+```bash
+ cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $TXIN_LOVELACE \
+--tx-in $TXIN_CONTRIB \
+--tx-out $BROWSERADDRESS+"1500000 + 1 $CONTRIBUTOR_ASSET" \
+--change-address $SENDERADDRESS \
+--out-file send-contrib-token.raw
 
-a. get connected Address
-b. query this address for a Tx In with Contrib Token
-c. get the address of wallet that send tx in (b)
-d. check that address in (c) sent a Tx that satisfies (1) above.
+cardano-cli transaction sign \
+--signing-key-file $SENDERKEY \
+--testnet-magic 1 \
+--tx-body-file send-contrib-token.raw \
+--out-file send-contrib-token.signed
 
-# Check Assoc Experiment
+cardano-cli transaction submit \
+--tx-file send-contrib-token.signed \
+--testnet-magic 1
+
+```
+<br />
+---
+
+# Mastery Check:
 <CheckAssociatedWallet />
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
-export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
+export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>

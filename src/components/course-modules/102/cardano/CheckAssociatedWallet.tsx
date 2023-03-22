@@ -1,29 +1,13 @@
 import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { gql, useLazyQuery } from "@apollo/client";
-import {
-  Box,
-  Heading,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Center,
-  Spinner,
-  Divider,
-  Text,
-  Badge,
-} from "@chakra-ui/react";
+import { Box, Heading, Center, Spinner, Text, Badge } from "@chakra-ui/react";
 import { useWallet, useAddress } from "@meshsdk/react";
-import { useFormik } from "formik";
 import * as React from "react";
 import { useEffect, useState } from "react";
 
-// Must check that input and output address w/ token are different. We can check that 
-// connected address != outputs.address
-
-// Use this query to get address to which Contrib Token was sent:
+// We use this query to get the address to which Contrib Token was sent:
 const TX_FROM_ADDRESS_WITH_POLICYID = gql`
-  query TxFromAddressWithPolicyId($address: String!, $tokenPolicyId: Hash28Hex!) {
+  query TxFromAddressWithPolicyId($browserWalletAddress: String!, $tokenPolicyId: Hash28Hex!) {
     transactions(
       where: {
         _and: [
@@ -34,6 +18,7 @@ const TX_FROM_ADDRESS_WITH_POLICYID = gql`
       }
     ) {
       hash
+      includedAt
       outputs {
         address
         tokens {
@@ -46,9 +31,13 @@ const TX_FROM_ADDRESS_WITH_POLICYID = gql`
   }
 `;
 
-// Then use this query to confirm that the token has been returned
+// Then use this query to confirm that the token has been returned from the CLI Wallet to the Browser Wallet:
 const TX_TO_ADDRESS_WITH_POLICYID = gql`
-  query TxFromAddressWithPolicyId($address: String!, $tokenPolicyId: Hash28Hex!) {
+  query TxFromAddressWithPolicyId(
+    $cliWalletAddress: String!
+    $browserWalletAddress: String!
+    $tokenPolicyId: Hash28Hex!
+  ) {
     transactions(
       where: {
         _and: [
@@ -64,13 +53,22 @@ const TX_TO_ADDRESS_WITH_POLICYID = gql`
   }
 `;
 
-// Finally, when we have a CLI address, check that it has the correct Tx to self:
+// Finally, when we know the CLI Wallet address, we check that it sent the Split UTxO Transaction to itself:
 const SPLIT_TX_FROM_CLI_ADDRESS = gql`
-  query TxFromAddress($address: String!) {
+  query TxFromAddress($cliWalletAddress: String!) {
     transactions(
-      where: { _and: [{ inputs: { address: { _eq: $address } } }, { outputs: { address: { _eq: $address } } }] }
+      where: {
+        _and: [
+          { inputs: { address: { _eq: $cliWalletAddress } } }
+          { outputs: { address: { _eq: $cliWalletAddress } } }
+        ]
+      }
     ) {
       hash
+      outputs {
+        address
+        value
+      }
     }
   }
 `;
@@ -80,6 +78,8 @@ const CheckAssociatedWallet = () => {
   const address = useAddress();
 
   const [cliAddress, setCliAddress] = useState<string | undefined>(undefined);
+  const [contributorTokenSentBackToBrowserWallet, setContributorTokenSentBackToBrowserWallet] = useState(false);
+  const [cliAddressHasSplitTx, setCliAddressHasSplitTx] = useState(false);
 
   const [getTx1, { loading: loadingTx1, error: errorTx1, data: dataTx1 }] = useLazyQuery(TX_FROM_ADDRESS_WITH_POLICYID);
   const [getTx2, { loading: loadingTx2, error: errorTx2, data: dataTx2 }] = useLazyQuery(TX_TO_ADDRESS_WITH_POLICYID);
@@ -89,7 +89,7 @@ const CheckAssociatedWallet = () => {
     if (address) {
       getTx1({
         variables: {
-          address: address,
+          browserWalletAddress: address,
           tokenPolicyId: contributorTokenPolicyId,
         },
       });
@@ -97,18 +97,58 @@ const CheckAssociatedWallet = () => {
   }, [address]);
 
   // If we have dataTx1, we can look at the outputs of that transaction, and set our CLI Address
-  // useEffect(() => {
-  //   if (dataTx1) {
-  //     
-  //   }
-  // }, [dataTx1]);
+  useEffect(() => {
+    if (dataTx1) {
+      // we may want to order the transactions from most recent - there are options here
+      // After this works, refactor with Types
+      const _contributorOutput = dataTx1.transactions[0].outputs.find(
+        (output: any) => output.tokens[0]?.asset.policyId == contributorTokenPolicyId
+      );
+      const _cliAddress = _contributorOutput.address;
+      setCliAddress(_cliAddress);
+    }
+  }, [dataTx1]);
 
-  // Then we say, ok, did a tx come back from the cli wallet to browser wallet?
+  // If a CLI Address is found, run the TX_TO_ADDRESS_WITH_POLICYID and SPLIT_TX_FROM_CLI_ADDRESS queries
+  useEffect(() => {
+    if (cliAddress) {
+      getTx2({
+        variables: {
+          cliWalletAddress: cliAddress,
+          browserWalletAddress: address,
+          tokenPolicyId: contributorTokenPolicyId,
+        },
+      });
+      getTx3({
+        variables: {
+          cliWalletAddress: cliAddress,
+        },
+      });
+    }
+  }, [cliAddress]);
+
+  // Was the Contributor Token sent back to the Browser Wallet?
+  useEffect(() => {
+    if (dataTx2 && dataTx2.transactions.length > 0) {
+      setContributorTokenSentBackToBrowserWallet(true);
+    }
+  }, [dataTx2]);
 
   // And if so, did the cli wallet make the split tx?
+  useEffect(() => {
+    if (dataTx3 && dataTx3.transactions.length > 0) {
+      const _hasThreeOutputs = dataTx3.transactions.filter((tx: any) => tx.outputs.length >= 3);
+      _hasThreeOutputs.forEach((tx: any) => {
+        const _ten = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000);
+        const _fifteen = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000);
+        const _twentyfive = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000);
+        setCliAddressHasSplitTx(_ten && _fifteen && _twentyfive);
+      });
+    }
+  }, [dataTx3]);
 
 
-  if (loadingTx1 || loadingTx2) {
+  if (loadingTx1 || loadingTx2 || loadingTx3) {
     return (
       <Center flexDirection="column">
         <Heading>Loading</Heading>
@@ -117,7 +157,7 @@ const CheckAssociatedWallet = () => {
     );
   }
 
-  if (errorTx1 || errorTx2) {
+  if (errorTx1 || errorTx2 || loadingTx3) {
     return (
       <Center>
         <Heading>Error</Heading>
@@ -131,31 +171,31 @@ const CheckAssociatedWallet = () => {
       <Heading size="md" py="3">
         Check Connected Browser Wallet for Tx with CLI Wallet
       </Heading>
-      <Text w="50%" py="3">
-        This query returns true iff...
-      </Text>
 
-      <pre>{JSON.stringify(dataTx1, null, 2)}</pre>
+      <Text>YOUR CLI ADDRESS IS {cliAddress}</Text>
 
-      {/* {data && (
-        <>
-          <Divider pt="5" />
-          <Heading size="md">Query Result</Heading>
-          <Box fontSize="sm" fontWeight="bold" p="2" color="theme.light">
-            Address: {queryAddress}
-          </Box>
-          {data && (data.transactions.length > 0 ? (
-          <>
-            <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">
-              <Box>Success!</Box>
-              <pre>{JSON.stringify(data, null, 2)}</pre>
-            </Box>
-          </>
-        ) : (
-          <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">This address does not hold a Contributor Token</Box>
-        ))}
-        </>
-      )} */}
+      {contributorTokenSentBackToBrowserWallet ? (
+        <Box bg="theme.green" p="5">
+          YES TOKEN IS RETURNED! - STATUS - SHOW BOTH ADDRESSES AND TOKEN NAME
+        </Box>
+      ) : (
+        <Box bg="theme.green" p="5">
+          No, token has not been returned!
+        </Box>
+      )}
+
+      {cliAddressHasSplitTx ? (
+        <Box bg="theme.green" mt="5" p="5">
+          <Text>Success!</Text>
+          <Text>
+            The address {cliAddress} has a Split UTxO transaction with outputs of 10, 15, and 25 tADA. Nice work!
+          </Text>
+        </Box>
+      ) : (
+        <Box bg="theme.green" p="5">
+          Not yet, make sure to build, sign, and submit the Split UTxO transaction described above.
+        </Box>
+      )}
     </Box>
   );
 };
