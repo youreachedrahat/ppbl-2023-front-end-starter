@@ -41,45 +41,37 @@
       "time": "1430-1600 utc",
       "title": "What is \"Plutus\"?",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
-      "links": [""],
-      "description": "Student Q&A + options for writing smart contracts"
+      "recordingLink": "https://www.youtube.com/watch?v=wmLvRJM6x64",
+      "links": ["https://nixos.wiki/wiki/Flakes"],
+      "description": "Student Q&A + options for writing smart contracts",
+      "complete": true
     },
     {
       "date": "2023-03-23",
       "time": "1430-1600 utc",
-      "title": "Set up a local development environment",
+      "title": "Generating different CBOR for Plutus Core",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
       "recordingLink": "",
       "links": [""],
       "description": "Student Q&A + live demo"
     },
     {
-      "date": "2023-03-24",
-      "time": "1630-1800 utc",
-      "title": "Smart Contract Gladiator",
-      "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
-      "recordingLink": "",
-      "links": [""],
-      "description": "Designing voting systems"
-    },
- {
       "date": "2023-03-29",
-      "time": "1430-1600 utc",
-      "title": "What does it mean to run a Cardano Node?",
-      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
-      "links": [""],
-      "description": "Student Q&A + discussion"
-    },
-    {
-      "date": "2023-03-30",
       "time": "1430-1600 utc",
       "title": "Using Cardano CLI",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
       "recordingLink": "",
       "links": [""],
-      "description": "Student Q&A + live demo"
+      "description": "Student Q&A, demo + discussion"
+    },
+    {
+      "date": "2023-03-30",
+      "time": "1430-1600 utc",
+      "title": "How do we create proof that you have mastered a learning target?",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Student Q&A + discussion"
     },
     {
       "date": "2023-03-31",
