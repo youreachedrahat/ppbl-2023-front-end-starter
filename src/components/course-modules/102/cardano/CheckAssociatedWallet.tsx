@@ -18,19 +18,23 @@ import { useFormik } from "formik";
 import * as React from "react";
 import { useEffect, useState } from "react";
 
-const TX_TO_ADDRESS_WITH_POLICYID = gql`
+// Must check that input and output address w/ token are different. We can check that 
+// connected address != outputs.address
+
+// Use this query to get address to which Contrib Token was sent:
+const TX_FROM_ADDRESS_WITH_POLICYID = gql`
   query TxFromAddressWithPolicyId($address: String!, $tokenPolicyId: Hash28Hex!) {
     transactions(
       where: {
         _and: [
+          { inputs: { address: { _eq: $browserWalletAddress } } }
           { inputs: { tokens: { asset: { policyId: { _eq: $tokenPolicyId } } } } }
-          { outputs: { address: { _eq: $address } } }
           { outputs: { tokens: { asset: { policyId: { _eq: $tokenPolicyId } } } } }
         ]
       }
     ) {
       hash
-      inputs {
+      outputs {
         address
         tokens {
           asset {
@@ -42,6 +46,25 @@ const TX_TO_ADDRESS_WITH_POLICYID = gql`
   }
 `;
 
+// Then use this query to confirm that the token has been returned
+const TX_TO_ADDRESS_WITH_POLICYID = gql`
+  query TxFromAddressWithPolicyId($address: String!, $tokenPolicyId: Hash28Hex!) {
+    transactions(
+      where: {
+        _and: [
+          { inputs: { address: { _eq: $cliWalletAddress } } }
+          { inputs: { tokens: { asset: { policyId: { _eq: $tokenPolicyId } } } } }
+          { outputs: { address: { _eq: $browserWalletAddress } } }
+          { outputs: { tokens: { asset: { policyId: { _eq: $tokenPolicyId } } } } }
+        ]
+      }
+    ) {
+      hash
+    }
+  }
+`;
+
+// Finally, when we have a CLI address, check that it has the correct Tx to self:
 const SPLIT_TX_FROM_CLI_ADDRESS = gql`
   query TxFromAddress($address: String!) {
     transactions(
@@ -58,8 +81,9 @@ const CheckAssociatedWallet = () => {
 
   const [cliAddress, setCliAddress] = useState<string | undefined>(undefined);
 
-  const [getTx1, { loading: loadingTx1, error: errorTx1, data: dataTx1 }] = useLazyQuery(TX_TO_ADDRESS_WITH_POLICYID);
-  const [getTx2, { loading: loadingTx2, error: errorTx2, data: dataTx2 }] = useLazyQuery(SPLIT_TX_FROM_CLI_ADDRESS);
+  const [getTx1, { loading: loadingTx1, error: errorTx1, data: dataTx1 }] = useLazyQuery(TX_FROM_ADDRESS_WITH_POLICYID);
+  const [getTx2, { loading: loadingTx2, error: errorTx2, data: dataTx2 }] = useLazyQuery(TX_TO_ADDRESS_WITH_POLICYID);
+  const [getTx3, { loading: loadingTx3, error: errorTx3, data: dataTx3 }] = useLazyQuery(SPLIT_TX_FROM_CLI_ADDRESS);
 
   useEffect(() => {
     if (address) {
@@ -72,17 +96,17 @@ const CheckAssociatedWallet = () => {
     }
   }, [address]);
 
-  // pick up here
-  useEffect(() => {
-    const result: string = ""
+  // If we have dataTx1, we can look at the outputs of that transaction, and set our CLI Address
+  // useEffect(() => {
+  //   if (dataTx1) {
+  //     
+  //   }
+  // }, [dataTx1]);
 
-    if (dataTx1) {
-      dataTx1.data.transactions.forEach((tx) => tx.inputs.forEach((input) => input.tokens.)
-    }
+  // Then we say, ok, did a tx come back from the cli wallet to browser wallet?
 
+  // And if so, did the cli wallet make the split tx?
 
-
-  }, [dataTx1]);
 
   if (loadingTx1 || loadingTx2) {
     return (
