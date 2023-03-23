@@ -1,7 +1,15 @@
-# Lesson 102.4 Documentation
+# How to lock tokens at a contract address
 
-## 102.4: locking funds
-- many always succeeds, we can use any/all
+Locking tokens at a contract is very similar to sending a transaction to any wallet address, with one key difference.
+
+### Big idea: when sending a transaction to a contract address, we must include datum in the tx-out.
+
+<br />
+---
+
+## Which Always Succeeds will you use?
+- Before you build a locking Tx, you decide which "Always Succeeds" contract to use. Some options are [summarized in Module 101](/modules/101/summary).
+- You can build the address for any Plutus script, as shown in [Lessson 102.2](/modules/102/1022).
 
 ## Locking Funds is a simple tx
 - But we need datum.

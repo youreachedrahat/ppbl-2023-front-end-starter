@@ -1,12 +1,19 @@
 # How to create a wallet using cardano-cli
 
 ## To create a wallet, we will use three commands.
-In this lesson, we will focus on each of these commands, one at a time:
+In this lesson, we will focus on each of these commands:
 1. `cardano-cli address key-gen` creates a public key and a private key
 2. `cardano-cli stake-address key-gen` creates a public staking key and a private staking key
 3. `cardano-cli address build` generates a Cardano Address
 
-#### Each command will generate some new files. Before getting started, create a new directory where these files will be saved.
+Each command will generate some new files. Before getting started, create a new directory where these files will be saved. For example, in our `/PPBL2023/` directory:
+```bash
+ mkdir my-new-wallet
+ cd my-new-wallet
+```
+
+<br />
+---
 
 ## 1. cardano-cli address key-gen
 Use `cardano-cli address key-gen` to generate a new pair of key files:
@@ -22,9 +29,9 @@ The file names `payment.vkey` and `payment.skey` can be whatever you'd like. The
 
 ### Important: Private Keys are JUST LIKE mnemonics
 
-You must protect your `signing-key-file` just like you protect your mnemonic words, because it will be used to unlock your tokens.
+You must protect your `signing-key-file` (in this case `payment.skey`) just like you protect your mnemonic words, because it will be used to unlock your tokens.
 
-The `verification-key-file` is public, and can be shared with anyone.
+The `verification-key-file` (in this case `payment.vkey`) is public, and can be shared with anyone, just like a wallet address.
 
 
 <br />
@@ -37,13 +44,15 @@ A different pair of key files is used to create staking credentials, like this:
 cardano-cli stake-address key-gen --verification-key-file stake.vkey --signing-key-file stake.skey
 ```
 
+Here, the private key file `stake.skey` is used to sign transactions that involve stake registration.
+
 You can build a wallet address with or without staking credentials.
 
 <br />
 ---
 
 ## 3. cardano-cli address build
-A Cardano address can be generated from Public Key files, like this:
+A Cardano address can be generated from a public key file, like this:
 
 ```bash
 cardano-cli address build \
@@ -52,7 +61,6 @@ cardano-cli address build \
 --out-file payment.addr --testnet-magic 1
 ```
 
-### A few things to notice:
 The same verification key can be used to create addresses on different networks. Above, we used `--testnet-magic 1` because we are using Preprod. Instead, look at what happens when you try this:
 ```bash
 cardano-cli address build \
@@ -96,15 +104,14 @@ In Lesson 102.6, we will look at a bash script that automates this process.
 <br />
 ---
 
-## Extension: Building contract addresses
-### "cardano-cli address build" can also be used to build a contract address!
+# How to Build a Contract Address
 
-In [Lesson 101.2](/modules/101/1012) we compared wallet addresses and contract addresses.
+In [Lesson 101.2](/modules/101/1012) you heard that contract addresses can be derived from Plutus scripts. Here is how.
 
-To build an address from Plutus script, we simply replace the verification key file with a Plutus script:
+To build an address from Plutus script, we simply replace the verification key file with a `payment-script-file`. The file can be a Plutus script.
 
 ```bash
-$ cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds.plutus
+cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds.plutus
 ```
 
 ## Examples:

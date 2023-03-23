@@ -27,9 +27,9 @@
     {
       "slug": "1022",
       "introduction": [
-        "Cardano CLI can do more than just query the blockchain. It can also be use to build a transaction, register a stake pool, or create a new Cardano address.",
+        "Cardano CLI can do more than just query the blockchain. It can also be used to build a transaction, register a stake pool, or create a new Cardano address.",
         "In this lesson, you will see how to create a new \"wallet\" using cardano-cli.",
-        "You will also see that building a Contract address is similar to building a wallet address."
+        "You will also see that building a contract address is similar to building a wallet address."
       ],
       "links": [
         { "url": "", "linkText": "PPBL Toolbox Repo" }
@@ -47,11 +47,12 @@
     {
       "slug": "1023",
       "introduction": [
-        "",
-        ""
+        "We can use cardano-cli to build transactions that send tokens from one address to another.",
+        "In this lesson you will start to learn what is happening \"behind the scenes\" when sending tADA in a user-friendly browser wallet.",
+        "To talk about about transactions on Cardano, you must also talk about UTxOs.",
+        "A UTxO is an \"Unspent Transaction Output\". This feels like a mouthful at first, but it actually means exactly what it says. Take a moment to think about it word by word: you're probably getting the right idea."
       ],
       "links": [
-        { "url": "", "linkText": "" }
       ],
       "videoHeading": "",
       "youtubeId": "",

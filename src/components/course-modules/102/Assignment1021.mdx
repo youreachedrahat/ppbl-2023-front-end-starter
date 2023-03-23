@@ -4,46 +4,52 @@ import CheckAssociatedWallet from "./cardano/CheckAssociatedWallet";
 import SLTSmall from "../../ui/Text/SLTSmall";
 
 # Mastery Assignment 102.M1: Build Two Transactions
-This is a guided Mastery Assignment. We will help you get started on a task, and hopefully you will learn some new things along the way. When you are done, there will be on-chain evidence of your success!
+#### This is a guided Mastery Assignment.
 
-Along the way, we will encounter new questions about how the blockchain works.
+This documentation will help you get started on a task, and you will have a chance to demonstrate mastery of some SLTs.
+
+Hopefully you will learn some things along the way. We will encounter some questions about how the blockchain works.
+
+When you are done, there will be on-chain evidence of your success!
 
 ## In this assignment you will demonstrate mastery of these learning targets:
 <SLTSmall moduleNumber={102} id="102.1" />
 <SLTSmall moduleNumber={102} id="102.2" />
 <SLTSmall moduleNumber={102} id="102.3" />
 
+<br />
+---
 
 ## How will I demonstrate mastery?
-Great question. We've been wondering the same thing!
+Great question. We've been wondering the same thing.
 
 For example, if we consider SLT 102.2:
 - How will we know that you created a particular address?
-- How will we know that that the address is actually yours?
+- How will we know that that the address is actually "yours"?
 
-In this assignment, we will begin to answer these questions by using your **PPBL2023 Contributor Token**.
+In this assignment, we will investigate these questions by using your **PPBL2023 Contributor Token**.
 
 <br />
 ---
 
-## Using the Contributor Token
-
+## Do This First: Send Contributor Token to CLI Wallet
 Send your Contributor Token from your **Browser Wallet** to the **CLI Wallet** you created in [Lesson 102.2](/modules/102/1022).
 
-After you do, check your status here:
+### After you do, check the status of your CLI Wallet here:
 
 <CheckAddressHasContributorToken />
 
 <br />
 ---
 
-## Does this Count as Proof of Mastery?
-Using the form
+## What Does this Prove?
+In [Lesson 100.4](/modules/100/1004), you saw that we can check if a browser wallet holds a token. The form above shows that we can do the same for *any* blockchain address - even if it is not the connected wallet.
 
-It is time for some on chain proof. Use this form to check if you have sent your Contrib token to this address...
+If we know that anyone can drop any address into this form, then how can we know whether an address belongs to "you"?
 
-### But is it really Proof?
-That is ok, but how do we know this is your address? You could have given us any address, really! If you are asking this question - welcome to the party! Now we are ready to think a bit more about your Contributor token.
+Additionally, the form above is only looking for ***any*** PPBL2023 token, not yours in particular.
+
+If you understand these problems, welcome to an exciting frontier of blockchain development! Now we are ready to think a bit more about on-chain proof.
 
 <br />
 ---
@@ -52,11 +58,21 @@ That is ok, but how do we know this is your address? You could have given us any
 Instead of looking at the UTxOs that are *currently* at a wallet address, we can look at the transactions that have been sent to and from that address.
 
 ### UTxO = current state
+Remember that UTxOs are *current*. UTxOs represent the status, right now, of all value on the blockchain.
 
 ### Transaction = historical record
+If we want to look at the history of blockchain, we must look at transactions. We can look at the record of any Tx, the inputs it consumed, and the outputs it created.
 
+### We can check whether an address has ever sent the token:
 
 <CheckTxFromAddressWithPolicyID />
+
+<br />
+---
+
+## Still, what does *that* prove?
+
+Keep thinking about it as you work on the assigment below. In this course, we will keep asking.
 
 <br />
 ---
@@ -64,45 +80,26 @@ Instead of looking at the UTxOs that are *currently* at a wallet address, we can
 ## Here is your assignment:
 Build two transactions with the **CLI wallet** you built in [Lesson 102.2](/modules/102/1022). By completing this assignment, you will create an on-chain record that your Browser Wallet and CLI Wallet are associated with each other.
 
-1. Send a `splitUTxO` transaction from this wallet and back to this wallet with three outputs. One output should contain 10 ada, another with 15, and one with 25.
+1. Send a `splitUTxO` transaction from your CLI Wallet and back to itself with three outputs. One output should contain 10 ada, another with 15, and one with 25.
 2. Send your Contributor Token from your CLI wallet back to your browser wallet.
 
-## How to send a Cardano Native Asset in a transaction:
+<br />
+---
+
+## Tx #1: How to build a split UTxO Transaction:
 ```bash
 cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $TXIN_LOVELACE \
---tx-in $TXIN_CONTRIB \
---tx-out $BROWSERADDRESS+"1500000 + 1 $CONTRIBUTOR_ASSET" \
---change-address $SENDERADDRESS \
---out-file send-contrib-token.raw
-
-cardano-cli transaction sign \
---signing-key-file $SENDERKEY \
---testnet-magic 1 \
---tx-body-file send-contrib-token.raw \
---out-file send-contrib-token.signed
-
-cardano-cli transaction submit \
---tx-file send-contrib-token.signed \
---testnet-magic 1
-```
-
-## How to build a split UTxO Transaction:
-```bash
-cardano-cli transaction build \
---babbage-era \
---testnet-magic 1 \
---tx-in $TXIN_LOVELACE \
---tx-out $SENDERADDRESS+10000000 \
---tx-out $SENDERADDRESS+15000000 \
---tx-out $SENDERADDRESS+25000000 \
---change-address $SENDERADDRESS \
+--tx-out $SENDER_ADDRESS+10000000 \
+--tx-out $SENDER_ADDRESS+15000000 \
+--tx-out $SENDER_ADDRESS+25000000 \
+--change-address $SENDER_ADDRESS \
 --out-file split-utxo.raw
 
 cardano-cli transaction sign \
---signing-key-file $SENDERKEY \
+--signing-key-file $SENDER_KEY \
 --testnet-magic 1 \
 --tx-body-file split-utxo.raw \
 --out-file split-utxo.signed
@@ -115,7 +112,32 @@ cardano-cli transaction submit \
 <br />
 ---
 
-# Mastery Check:
+## Tx #2: How to send a Cardano Native Asset in a transaction:
+```bash
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $TXIN_LOVELACE \
+--tx-in $TXIN_CONTRIB \
+--tx-out $BROWSER_ADDRESS+"1500000 + 1 $CONTRIBUTOR_ASSET" \
+--change-address $SENDER_ADDRESS \
+--out-file send-contrib-token.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDER_KEY \
+--testnet-magic 1 \
+--tx-body-file send-contrib-token.raw \
+--out-file send-contrib-token.signed
+
+cardano-cli transaction submit \
+--tx-file send-contrib-token.signed \
+--testnet-magic 1
+```
+
+<br />
+---
+
+## You will know you are successful if:
 <CheckAssociatedWallet />
 
 

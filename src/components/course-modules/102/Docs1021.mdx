@@ -90,7 +90,7 @@ Create a new directory and save all of the Pre-Production Testnet files to this 
 When you run `cardano-node`, you will save a copy of the blockchain on your computer. Create a new directory where you will save this database. For example:
 
 ```bash
-$ mkdir -p cardano/pre-production/db
+mkdir -p cardano/pre-production/db
 ```
 
 ### 4c. Run cardano-node
@@ -119,7 +119,7 @@ export CARDANO_NODE_SOCKET_PATH=<YOUR PATH TO>/cardano/pre-production/db/node.so
 
 Then, you can write your first query with `cardano-cli`:
 ```bash
-$ cardano-cli query tip --testnet-magic 1
+cardano-cli query tip --testnet-magic 1
 ```
 
 `syncProgress` is a percentage out of `100.00`. You can track the status of your node by repeating the `query tip` command.
@@ -127,7 +127,7 @@ $ cardano-cli query tip --testnet-magic 1
 To see what happens when you query a different network, try this:
 
 ```bash
-$ cardano-cli query tip --mainnet
+cardano-cli query tip --mainnet
 ```
 You will see an error. What does it say?
 
@@ -139,7 +139,7 @@ When your node is synced, you can use it to get information about any address on
 
 Try this:
 ```bash
-$ cardano-cli query utxo --testnet-magic 1 --address <ANY CARDANO PREPROD ADDRESS>
+cardano-cli query utxo --testnet-magic 1 --address <ANY CARDANO PREPROD ADDRESS>
 ```
 
 What do you notice?
@@ -150,12 +150,9 @@ We will discuss this in the next lesson, and [at Live Coding](/live-coding). For
 ---
 
 ## How to know you're successful:
-You will know you are successful on SLT 102.1 if you can run the following queries:
-
-
 When you write this query:
 ```bash
-$ cardano-cli query tip --testnet-magic 1
+cardano-cli query tip --testnet-magic 1
 ```
 
 You should see a result like this:
@@ -175,7 +172,7 @@ If your node is fully synced, you will see that `syncProgress` is at "100.00".
 
 When you write this query:
 ```bash
-$ cardano-cli query utxo --testnet-magic 1 --address <ADDRESS>
+cardano-cli query utxo --testnet-magic 1 --address <ADDRESS>
 ```
 You should see a list of UTxOs.
 

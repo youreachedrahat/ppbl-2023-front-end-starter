@@ -1,7 +1,7 @@
 import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { gql, useLazyQuery } from "@apollo/client";
-import { Box, Heading, Center, Spinner, Text, Badge } from "@chakra-ui/react";
-import { useWallet, useAddress } from "@meshsdk/react";
+import { Box, Heading, Center, Spinner, Text, Badge, Flex, Stack, Divider } from "@chakra-ui/react";
+import { useWallet, useAddress, CardanoWallet } from "@meshsdk/react";
 import * as React from "react";
 import { useEffect, useState } from "react";
 
@@ -72,6 +72,38 @@ const SPLIT_TX_FROM_CLI_ADDRESS = gql`
     }
   }
 `;
+
+type Props = {
+  children?: React.ReactNode;
+};
+
+const LoadingComponent: React.FC<Props> = ({ children }) => {
+  return (
+    <Center flexDirection="column" w="50%" mx="auto" bg="theme.yellow" color="theme.dark" my="5" borderRadius="md">
+      <Heading>Loading</Heading>
+      <Text>{children}</Text>
+      <Spinner />
+    </Center>
+  );
+};
+
+const ErrorComponent: React.FC<Props> = ({ children }) => {
+  return (
+    <Center>
+      <Heading>Error</Heading>
+      <Text>{children}</Text>
+      {/* <pre>{JSON.stringify(error)}</pre> */}
+    </Center>
+  );
+};
+
+const ConnectWalletMessage = () => {
+  return (
+    <Box bg="theme.yellow" color="theme.dark" p="5">
+      Connect a Browser Wallet
+    </Box>
+  );
+};
 
 const CheckAssociatedWallet = () => {
   const { connected, wallet } = useWallet();
@@ -147,55 +179,91 @@ const CheckAssociatedWallet = () => {
     }
   }, [dataTx3]);
 
-
-  if (loadingTx1 || loadingTx2 || loadingTx3) {
-    return (
-      <Center flexDirection="column">
-        <Heading>Loading</Heading>
-        <Spinner />
-      </Center>
-    );
-  }
-
-  if (errorTx1 || errorTx2 || loadingTx3) {
-    return (
-      <Center>
-        <Heading>Error</Heading>
-        {/* <pre>{JSON.stringify(error)}</pre> */}
-      </Center>
-    );
-  }
   return (
     <Box borderColor="theme.four" bg="theme.lightGray" p="5" className="demo-component">
       <Badge size="lg">We will discuss this Component at Live Coding on 2023-04-05</Badge>
       <Heading size="md" py="3">
-        Check Connected Browser Wallet for Tx with CLI Wallet
+        Connect Browser Wallet and Check Associated CLI Wallet
       </Heading>
-
-      <Text>YOUR CLI ADDRESS IS {cliAddress}</Text>
-
-      {contributorTokenSentBackToBrowserWallet ? (
-        <Box bg="theme.green" p="5">
-          YES TOKEN IS RETURNED! - STATUS - SHOW BOTH ADDRESSES AND TOKEN NAME
-        </Box>
-      ) : (
-        <Box bg="theme.green" p="5">
-          No, token has not been returned!
-        </Box>
-      )}
-
-      {cliAddressHasSplitTx ? (
-        <Box bg="theme.green" mt="5" p="5">
-          <Text>Success!</Text>
-          <Text>
-            The address {cliAddress} has a Split UTxO transaction with outputs of 10, 15, and 25 tADA. Nice work!
+      <Stack w="70%" mx="auto">
+        <Box my="3" p="3" bg="theme.lightGray" border="1px" borderColor="theme.blue" borderRadius="md">
+          <Text pb="3" fontSize="xl" fontWeight="bold" color="theme.light">
+            Get CLI Address
           </Text>
+          {loadingTx1 && <LoadingComponent>Getting Transactions from Browser Wallet</LoadingComponent>}
+          {errorTx1 && <ErrorComponent />}
+          {dataTx1 && (
+            <>
+              {cliAddress ? (
+                <Box bg="theme.green" color="theme.dark" p="5">
+                  <Text>Wallet Address: {cliAddress}</Text>
+                </Box>
+              ) : (
+                <Box bg="theme.yellow" p="5">
+                  <Text>
+                    There is no CLI Wallet associated with this Browser Wallet. Try sending your PPBL2023 to your CLI
+                    Address.
+                  </Text>
+                </Box>
+              )}
+            </>
+          )}
+          {!dataTx1 && <ConnectWalletMessage />}
         </Box>
-      ) : (
-        <Box bg="theme.green" p="5">
-          Not yet, make sure to build, sign, and submit the Split UTxO transaction described above.
+        <Box my="3" p="3" bg="theme.lightGray" border="1px" borderColor="theme.blue" borderRadius="md">
+          <Text pb="3" fontSize="xl" fontWeight="bold" color="theme.light">
+            Check that CLI Address sent PPBL2023 back to Browser Wallet
+          </Text>
+          {loadingTx2 && <LoadingComponent>Getting Transactions from CLI Wallet to Browser Wallet</LoadingComponent>}
+          {errorTx2 && <ErrorComponent />}
+          {dataTx2 && (
+            <>
+              {contributorTokenSentBackToBrowserWallet ? (
+                <Box bg="theme.green" color="theme.dark" p="5">
+                  <Text>Wallet Address: {cliAddress}</Text>
+                </Box>
+              ) : (
+                <Box bg="theme.yellow" p="5">
+                  <Text>
+                    There is no CLI Wallet associated with this Browser Wallet. Try sending Tx #2, as shown above.
+                  </Text>
+                </Box>
+              )}
+            </>
+          )}
+          {!dataTx2 && <ConnectWalletMessage />}
         </Box>
-      )}
+        <Box my="3" p="3" bg="theme.lightGray" border="1px" borderColor="theme.blue" borderRadius="md">
+          <Text pb="3" fontSize="xl" fontWeight="bold" color="theme.light">
+            Check CLI Address sent SplitUTxO Tx
+          </Text>
+          {loadingTx3 && <LoadingComponent>Checking CLI Wallet for SplitUTxO Tx</LoadingComponent>}
+          {errorTx3 && <ErrorComponent />}
+          {dataTx3 && (
+            <>
+              {cliAddressHasSplitTx ? (
+                <Box bg="theme.green" color="theme.dark" p="5">
+                  <Text>Success!</Text>
+                  <Text>
+                    The address {cliAddress} has a Split UTxO transaction with outputs of 10, 15, and 25 tADA. Nice
+                    work!
+                  </Text>
+                </Box>
+              ) : (
+                <Box bg="theme.yellow" p="5">
+                  <Box bg="theme.green" p="5">
+                    Not yet, make sure to build, sign, and submit Tx #1, async function name(params:type) {} described
+                    above.
+                  </Box>
+                </Box>
+              )}
+            </>
+          )}
+          {!dataTx3 && <ConnectWalletMessage />}
+        </Box>
+      </Stack>
+      <Divider my="5" py="5" />
+      <CardanoWallet />
     </Box>
   );
 };

@@ -1,34 +1,45 @@
 # Build a Simple Tx with cardano-cli
 
-Now that you have a new address, we can use it.
+Now that you built a new address, you can use it.
 
-You will need some tADA in your new wallet. In this module, we will distinguish between the "Browser Wallet" that you created in [Lesson 100.1](/modules/100/1001) and the "CLI Wallet" that you created in [Lesson 102.2](/modules/102/1022).
+In this module, we will distinguish between the "Browser Wallet" that you created in [Lesson 100.1](/modules/100/1001) and the "CLI Wallet" that you created in [Lesson 102.2](/modules/102/1022).
 
-## Your Task:
-Send 100 tADA from your Browser Wallet to your CLI Wallet. Watch the video above or keep reading to learn how.
+## Do This First: Send tADA to Your New Wallet
+You will need some tADA in your [new wallet](/modles/102/1022). Send at least 100 tADA from your Browser Wallet to your CLI Wallet.
+
+<br />
+---
 
 ## Definitions: Transactions and UTxOs
-- A **transaction** is used to move value from one address to another on Cardano
-- Every transaction takes one or more **Unspent Transaction Outputs, or UTxOs**, as input and creates one or more UTxOs as output.
+- A **transaction** is used to move value from one address to another.
+- On Cardano, "value" is stored in **UTxOs**, which is the abbreviation of "Unspent Transaction Output".
+- Every transaction takes one or more Unspent Transaction Outputs, or UTxOs, as input and creates one or more UTxOs as output.
+- After a transaction, the new UTxOs are "unspent", which means that they're available for spending.
+- Take a moment to think about what happens to the UTxOs that are used as input to transaction. Are they unspent anymore?
+
 
 <br />
 ---
 
 ## 1. Set Variables and Select UTxOs
-It can help to set some variables that we will reuse. For example,
+Now we will build a transaction, step-by-step, using `cardano-cli`.
+
+We will not always build transactions this way. This exploration is provided to help you learn about Transactions and UTxOs.
+
+When building transactions in the terminal, it can help to set some variables that we will reuse. For example:
 ```bash
-$ SENDERADDRESS=<THE ADDRESS GENERATED IN LESSON 102.2>
-$ SENDERKEY=<THE SIGNING KEY FOR THIS ADDRESS>
+SENDERADDRESS=<THE ADDRESS GENERATED IN LESSON 102.2>
+SENDERKEY=<THE SIGNING KEY FOR THIS ADDRESS>
 ```
 
-Then, view your list of UTxOs by using:
+Then, view your list of UTxOs:
 ```bash
-$ cardano-cli query utxo --testnet-magic 1 --address $SENDERADDRESS
+cardano-cli query utxo --testnet-magic 1 --address $SENDERADDRESS
 ```
 
-We can also set a variable for the UTxO we want to spend:
+And indicate the UTxO you want to spend:
 ```bash
-$ UTXO_IN=<TxHash>#<TxId>
+UTXO_IN=<TxHash>#<TxId>
 ```
 
 #### Watch the video above to see how to complete this step.
@@ -38,16 +49,23 @@ $ UTXO_IN=<TxHash>#<TxId>
 
 ## 2. Build a Tx
 
-Here is a simple transaction with one input and two outputs:
+When you are building on a blockchain, it is common to refer to a transaction as a "Tx". Look for it!
+
+Here is a simple transaction with one input and one output. We can specify the recipient address like this:
 ```bash
-$ cardano-cli transaction build \
+ RECIPIENT_ADDRESS=<Any preprod address>
+```
+
+If you set each of the variables correctly, you can copy and paste this `transaction build` command into the terminal:
+
+```bash
+cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $UTXO_IN \
---tx-out $SENDERADDRESS+$LOVELACE_TO_SEND \
+--tx-out $RECIPIENT_ADDRESS+$LOVELACE_TO_SEND \
 --change-address $SENDERADDRESS \
 --out-file simple-tx.raw
-...
 ```
 
 #### Watch the video above to see how to complete this step.
@@ -56,21 +74,24 @@ $ cardano-cli transaction build \
 ---
 
 ## 3. Sign a Tx
-### By copy and pasting:
+
+If `transaction build` was successful, sign the transaction. Here, the `--tx-body-file` must match the `--out-file` from Step 2:
+
 ```bash
 $ cardano-cli transaction sign \
 --signing-key-file $SENDERKEY \
 --testnet-magic 1 \
 --tx-body-file simple-tx.raw \
 --out-file simple-tx.signed
-
 ```
 
 <br />
 ---
 
 ## 4. Submit a Tx
-### By copy and pasting:
+
+It's the same idea moving from signing the transaction to submitting it:
+
 ```bash
 $ cardano-cli transaction submit \
 --tx-file simple-tx.signed \
@@ -81,7 +102,7 @@ $ cardano-cli transaction submit \
 <br />
 ---
 
-## Put it all together:
+## Putting it all together:
 ```bash
 cardano-cli transaction build \
 --babbage-era \
@@ -105,8 +126,11 @@ cardano-cli transaction submit \
 <br />
 ---
 
-## Automating Processes with Bash Scripts
-See [Lesson 102.6](/modules/102/1026)
+## That's the idea!
+
+In [Lesson 102.6](/modules/102/1026), we'll share a `bash` script that automates this transaction.
+
+But first, let's see what else we can do with `transaction build`.
 
 
 

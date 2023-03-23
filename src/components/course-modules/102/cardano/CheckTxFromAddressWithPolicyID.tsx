@@ -1,7 +1,19 @@
 import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { gql, useLazyQuery } from "@apollo/client";
-import { Box, Heading, FormControl, FormLabel, Input, Button, Center, Spinner, Divider, Text, Badge } from "@chakra-ui/react";
-import { useWallet, useAddress } from "@meshsdk/react";
+import {
+  Box,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Center,
+  Spinner,
+  Divider,
+  Text,
+  Badge,
+  Link as CLink,
+} from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as React from "react";
 import { useState } from "react";
@@ -22,8 +34,6 @@ const TX_FROM_ADDRESS_WITH_POLICYID = gql`
 `;
 
 const CheckTxFromAddressWithPolicyID = () => {
-  const { connected, wallet } = useWallet();
-  const address = useAddress();
 
   const [queryAddress, setQueryAddress] = useState<string | undefined>(undefined);
 
@@ -70,14 +80,15 @@ const CheckTxFromAddressWithPolicyID = () => {
         Check Transaction from Address with Policy ID
       </Heading>
       <Text w="50%" py="3">
-        This query returns the hash of any transaction with inputs from the provided address that included a PPBL 2023
+        This form returns the hash of any transaction from the provided address that included a PPBL 2023
         Contributor Token in an output.
       </Text>
       <FormControl color="theme.dark" pt="5">
-        <FormLabel color="theme.light">Paste a Cardano Preprod Address here:</FormLabel>
+        <FormLabel color="theme.light">Enter a Cardano Preprod Address:</FormLabel>
         <Input
           mb="3"
           bg="theme.dark"
+          color="theme.light"
           id="cardanoAddress"
           name="cardanoAddress"
           onChange={formik.handleChange}
@@ -96,16 +107,26 @@ const CheckTxFromAddressWithPolicyID = () => {
           <Box fontSize="sm" fontWeight="bold" p="2" color="theme.light">
             Address: {queryAddress}
           </Box>
-          {data && (data.transactions.length > 0 ? (
-          <>
-            <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">
-              <Box>Success!</Box>
-              <pre>{JSON.stringify(data, null, 2)}</pre>
-            </Box>
-          </>
-        ) : (
-          <Box bg="theme.light" color="theme.dark" mt="5" p="3" fontSize="sm">This address does not hold a Contributor Token</Box>
-        ))}
+          {data &&
+            (data.transactions.length > 0 ? (
+              <Box bg="theme.green" color="theme.dark" mt="5" p="3" fontSize="sm">
+                <Text>This address sent a transaction with a PPBL2023 Token as output.</Text>
+                <Text>
+                  TxHash:{" "}
+                  <CLink
+                    href={`https://preprod.cardanoscan.io/transaction/${data.transactions[0].hash}`}
+                    target="_blank"
+                    color="theme.lightGray"
+                  >
+                    {data.transactions[0].hash}
+                  </CLink>
+                </Text>
+              </Box>
+            ) : (
+              <Box bg="theme.yellow" color="theme.dark" mt="5" p="3" fontSize="sm">
+                There is no valid transaction from this address.
+              </Box>
+            ))}
         </>
       )}
     </Box>
