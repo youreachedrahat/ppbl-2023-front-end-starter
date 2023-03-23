@@ -1,8 +1,8 @@
 # How to lock tokens at a contract address
 
-Locking tokens at a contract is very similar to sending a transaction to any wallet address, with one key difference.
+Locking tokens at a contract is very similar to sending a transaction to any wallet address, with one key difference:
 
-### Big idea: when sending a transaction to a contract address, we must include datum in the tx-out.
+### When sending a transaction to a contract address, we must include datum in the tx-out.
 
 <br />
 ---
@@ -15,6 +15,27 @@ Locking tokens at a contract is very similar to sending a transaction to any wal
 - But we need datum.
 
 ## Step By Step
+
+## Putting it all together:
+```bash
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $UTXO_IN \
+--tx-out $SENDERADDRESS+$LOVELACE_TO_SEND \
+--change-address $SENDERADDRESS \
+--out-file simple-tx.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDERKEY \
+--testnet-magic 1 \
+--tx-body-file simple-tx.raw \
+--out-file simple-tx.signed
+
+cardano-cli transaction submit \
+--tx-file simple-tx.signed \
+--testnet-magic 1
+```
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
