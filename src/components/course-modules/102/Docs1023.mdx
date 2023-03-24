@@ -5,17 +5,17 @@ Now that you built a new address, you can use it.
 In this module, we will distinguish between the "Browser Wallet" that you created in [Lesson 100.1](/modules/100/1001) and the "CLI Wallet" that you created in [Lesson 102.2](/modules/102/1022).
 
 ## Do This First: Send tADA to Your New Wallet
-You will need some tADA in your [new wallet](/modles/102/1022). Send at least 100 tADA from your Browser Wallet to your CLI Wallet.
+You will need some tADA in your [new wallet](/modules/102/1022). Send at least 100 tADA from your Browser Wallet to your CLI Wallet.
 
 <br />
 ---
 
 ## Definitions: Transactions and UTxOs
-- A **transaction** is used to move value from one address to another.
-- On Cardano, "value" is stored in **UTxOs**, which is the abbreviation of "Unspent Transaction Output".
-- Every transaction takes one or more Unspent Transaction Outputs, or UTxOs, as input and creates one or more UTxOs as output.
-- After a transaction, the new UTxOs are "unspent", which means that they're available for spending.
-- Take a moment to think about what happens to the UTxOs that are used as input to transaction. Are they unspent anymore?
+- A **transaction** moves value from one address to another.
+- On Cardano, "value" is stored in **UTxOs**, the abbreviation "Unspent Transaction Output".
+- Every transaction takes Unspent Transaction Outputs, or UTxOs, as input and creates one or more UTxOs as output.
+- After a transaction, the new UTxOs are "unspent", which means they're available for spending.
+- Take a moment to think about what happens to the UTxOs used as input to a transaction. Are they unspent anymore?
 
 
 <br />
@@ -24,9 +24,9 @@ You will need some tADA in your [new wallet](/modles/102/1022). Send at least 10
 ## 1. Set Variables and Select UTxOs
 Now we will build a transaction, step-by-step, using `cardano-cli`.
 
-We will not always build transactions this way. This exploration is provided to help you learn about Transactions and UTxOs.
+We will only sometimes build transactions this way. We provide this exploration to help you learn about Transactions and UTxOs.
 
-When building transactions in the terminal, it can help to set some variables that we will reuse. For example:
+Building transactions in the terminal can help set some variables we will reuse. For example:
 ```bash
 SENDERADDRESS=<THE ADDRESS GENERATED IN LESSON 102.2>
 SENDERKEY=<THE SIGNING KEY FOR THIS ADDRESS>
@@ -49,7 +49,7 @@ UTXO_IN=<TxHash>#<TxId>
 
 ## 2. Build a Tx
 
-When you are building on a blockchain, it is common to refer to a transaction as a "Tx". Look for it!
+When building on a blockchain, referring to a transaction as a "Tx" is common. Look for it!
 
 Here is a simple transaction with one input and one output. We can specify the recipient address like this:
 ```bash

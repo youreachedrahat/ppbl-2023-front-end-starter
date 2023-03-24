@@ -5,14 +5,14 @@ The [PPBL 2023 Plutus Template](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-
 ---
 
 ## What is a bash script?
-A bash script, also known as a "shell script", provides a convenient way to re-use common processes.
+A bash script, or a "shell script", provides a convenient way to re-use common processes.
 
 Suppose you have a command that you use all the time, like:
 ```bash
 cardano-cli query tip --testnet-magic 1
 ```
 
-Instead of typing the same command again and again, you can place it a file called `getTip.sh`:
+Instead of typing the same command again and again, you can place it in a file called `getTip.sh`:
 ```bash
 #!/bin/bash
 
@@ -24,7 +24,7 @@ Then, you can simply run
 . getTip.sh
 ```
 
-Scripts can be much longer than one line - and that's what makes them so useful.
+Scripts can be much longer than one line - and that's what makes them so valuable.
 
 To learn more, check out the [Shell Scripting Tutorial](https://www.shellscript.sh/)
 
@@ -32,14 +32,14 @@ To learn more, check out the [Shell Scripting Tutorial](https://www.shellscript.
 ---
 
 ## How to use a bash script
-Of course, scripts will save you time. They can also be used as a form of documentation. Practice reading `.sh` files, so that you can understand how they work. The [scripts provided here](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts) are very similar to the documentation you have seen in Lessons 102.1 through 102.5.
+Of course, scripts will save you time. You can use them as documentation—practice reading `.sh` files to understand how they work. The [scripts provided here](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts) are very similar to the documentation you have seen in Lessons 102.1 through 102.5.
 
 
 <br />
 ---
 
 ## Use git pull to get the latest changes to PPBL 2023 Plutus Template
-- If you are using Demeter run, you can update the git repo from VS Code. Simply run `git pull` in `/repo`.
+- Using Demeter run, you can update the git repo from VS Code. Run `git pull` in `/repo`.
 - If you are working locally, navigate to `/ppbl2023-plutus-template` and run `git pull`.
 
 <br />
@@ -49,11 +49,11 @@ Of course, scripts will save you time. They can also be used as a form of docume
 <br />
 
 # Using Provided Scripts
-Last updated 2023-03-27. Additional bash scripts will be added over time.
+Last updated 2023-03-27. We will add bash scripts over time.
 
 ### Before you start, create a variables-private.sh file
 - If you are running a node and `cardano-cli` locally, make a copy of `variables-example.sh` called `variables-private.sh`
-- Update the `CARDANO_NODE_SOCKET_PATH` to match your enviroment.
+- Update the `CARDANO_NODE_SOCKET_PATH` to match your environment.
 - If you are using Demeter.run, you can skip this step - it is done for you.
 
 <br />
@@ -63,7 +63,7 @@ Last updated 2023-03-27. Additional bash scripts will be added over time.
 - [/ppbl2023-plutus-template/bash-scripts/queryTip.sh](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/blob/main/bash-scripts/queryTip.sh)
 - [Lesson 102.1](/modules/102/1021)
 
-Create new directory in current directory, then create a preprod addresss with staking credentials
+Create a new directory in the current directory, then create a pre-prod address with staking credentials
 
 Usage:
 ```bash
@@ -89,7 +89,7 @@ Example Output:
 - [/ppbl2023-plutus-template/bash-scripts/createPreprodWallet.sh](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/blob/main/bash-scripts/createPreprodWallet.sh)
 - [Lesson 102.2](/modules/102/1022)
 
-Create new directory in current directory, then create a preprod addresss with staking credentials. This script creates a new directory with all relevant wallet files.
+Create a new directory in the current directory, then create a pre-prod address with staking credentials. This script creates a new directory with all relevant wallet files.
 
 Usage:
 ```bash
@@ -147,7 +147,7 @@ Above, you can see scripts to accompany Lessons 102.1 through 102.3.
 
 How would you write scripts for interacting with smart contracts, as demonstrated in Lessons 102.4 and 102.5?
 
-Together, we will build scripts for interacting with smart contracts at an upcoming [Live Coding session](/live-coding).
+We will build scripts for interacting with smart contracts at an upcoming [Live Coding session](/live-coding).
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
