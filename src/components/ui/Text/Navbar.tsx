@@ -369,9 +369,7 @@ const MobileNavSubItem = ({ label, href }: NavItem) => {
     href?: string;
   }
 
-  import modules from "@/src/data/nav-items/modules.json"
-  import mastery from "@/src/data/nav-items/mastery.json"
-  import plutus from "@/src/data/nav-items/plutus.json"
+import modules from "@/src/data/nav-items/modules.json"
 import { color } from "framer-motion";
 
   interface fromJsonChildren {
@@ -380,8 +378,6 @@ import { color } from "framer-motion";
   }
 
   const modulesChildren: fromJsonChildren = modules;
-  const masteryChildren: fromJsonChildren = mastery;
-  const plutusChildren: fromJsonChildren = plutus;
 
   const NAV_ITEMS: Array<NavItem> = [
     {
@@ -393,14 +389,6 @@ import { color } from "framer-motion";
       href: "/get-started/modules",
       childrenHasChildren: modulesChildren.childrenHasChildren,
     },
-    // {
-    //   label: 'Mastery',
-    //   children: masteryChildren.children,
-    // },
-    // {
-    //   label: 'Plutus',
-    //   children: plutusChildren.children,
-    // },
     {
       label: 'Live Coding',
       href: "/live-coding"
