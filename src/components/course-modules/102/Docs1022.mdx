@@ -6,7 +6,7 @@ In this lesson, we will focus on each of these commands:
 2. `cardano-cli stake-address key-gen` creates a public staking key and a private staking key
 3. `cardano-cli address build` generates a Cardano Address
 
-Each command will generate some new files. Before getting started, create a new directory where these files will be saved. For example, in our `/PPBL2023/` directory:
+Each command will generate some new files. So, before getting started, create a new directory to save these files. For example, in our `/PPBL2023/` directory:
 ```bash
  mkdir my-new-wallet
  cd my-new-wallet
@@ -25,20 +25,20 @@ To generate a pair of key files, use this command:
 cardano-cli address key-gen --verification-key-file payment.vkey --signing-key-file payment.skey
 ```
 
-The file names `payment.vkey` and `payment.skey` can be whatever you'd like. These are the customary file names.
+The file names `payment.vkey` and `payment.skey` can be whatever you want. However, these are the customary file names.
 
 ### Important: Private Keys are JUST LIKE mnemonics
 
-You must protect your `signing-key-file` (in this case `payment.skey`) just like you protect your mnemonic words, because it will be used to unlock your tokens.
+You must protect your `signing-key-file` (in this case, `payment.skey`) just like you protect your mnemonic words because you will use them to unlock your tokens.
 
-The `verification-key-file` (in this case `payment.vkey`) is public, and can be shared with anyone, just like a wallet address.
+The `verification-key-file` (in this case, `payment.vkey`) is public, and you can share it with anyone, just like a wallet address.
 
 
 <br />
 ---
 
 ## 2. cardano-cli stake-address key-gen
-A different pair of key files is used to create staking credentials, like this:
+A different pair of key files are used to create staking credentials, like this:
 
 ```bash
 cardano-cli stake-address key-gen --verification-key-file stake.vkey --signing-key-file stake.skey
@@ -52,7 +52,7 @@ You can build a wallet address with or without staking credentials.
 ---
 
 ## 3. cardano-cli address build
-A Cardano address can be generated from a public key file, like this:
+You can generate a cardano address from a public key file like this:
 
 ```bash
 cardano-cli address build \
@@ -61,7 +61,8 @@ cardano-cli address build \
 --out-file payment.addr --testnet-magic 1
 ```
 
-The same verification key can be used to create addresses on different networks. Above, we used `--testnet-magic 1` because we are using Preprod. Instead, look at what happens when you try this:
+You can use the same verification key to create addresses on different networks. Above, we used `--testnet-magic 1` because we are using Preprod. Instead, look at what happens when you try this:
+
 ```bash
 cardano-cli address build \
 --payment-verification-key-file payment.vkey \
@@ -69,7 +70,7 @@ cardano-cli address build \
 --out-file payment.addr --mainnet
 ```
 
-We can also build addresses without staking credentials, like this:
+You can also build addresses without staking credentials, like this:
 
 ```bash
 cardano-cli address build \
@@ -99,16 +100,16 @@ cardano-cli address build \
 --testnet-magic 1
 ```
 
-In Lesson 102.6, we will look at a bash script that automates this process.
+In Lesson 102.6, you will look at a bash script that automates this process.
 
 <br />
 ---
 
 # How to Build a Contract Address
 
-In [Lesson 101.2](/modules/101/1012) you heard that contract addresses can be derived from Plutus scripts. Here is how.
+In [Lesson 101.2](/modules/101/1012), you heard that you could derive contract addresses from Plutus scripts. Here is how.
 
-To build an address from Plutus script, we simply replace the verification key file with a `payment-script-file`. The file can be a Plutus script.
+We replace the verification key file with a `payment-script-file` to build an address from the Plutus script. The file can be a Plutus script.
 
 ```bash
 cardano-cli address build --testnet-magic 1 --payment-script-file always-succeeds.plutus
@@ -175,7 +176,7 @@ To see more examples, watch the video above.
 
 ## What's Next?
 
-- In Lesson 102.3, we will send some transactions to and from your new wallet address.
+- In Lesson 102.3, we will send transactions to and from your new wallet address.
 - In Lessons 102.4 and 102.5, we will build our first transactions using the contract addresses above.
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
