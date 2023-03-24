@@ -1,39 +1,58 @@
 # How to lock tokens at a contract address
 
-Locking tokens at a contract is very similar to sending a transaction to any wallet address, with one key difference:
+Locking tokens in a contract address is very similar to sending a transaction to any wallet address, with one key difference:
 
-### When sending a transaction to a contract address, we must include datum in the tx-out.
+### When sending a transaction to a contract address, we must include DATUM in the tx-out.
+
+<br />
+---
+
+## What is Datum?
+Datum is information that can be included in a UTxO. When you `query utxo` for a address with `cardano-cli`, you can see whether each UTxO includes datum. Watch the video above to see how.
+
+You will use datum in a variety of ways throughout this course. For now, watch the video above for a quick overview, and look at the `transaction build` below to see how to include datum in a `tx-out`.
 
 <br />
 ---
 
 ## Which Always Succeeds will you use?
-- Before you build a locking Tx, you decide which "Always Succeeds" contract to use. Some options are [summarized in Module 101](/modules/101/summary).
-- You can build the address for any Plutus script, as shown in [Lessson 102.2](/modules/102/1022).
+- Before you build a locking Tx, decide which "Always Succeeds" contract to use. You can use any of the [Always Succeeds contracts that were built in Module 101, as summarized here](/modules/101/summary).
+- After you decide which Always Succeeds scripts to use, build the address for that Plutus script, as shown in [Lessson 102.2](/modules/102/1022).
 
-## Locking Funds is a simple tx
-- But we need datum.
+<br />
+---
 
-## Step By Step
+## Set Variables:
+```bash
+SENDER_ADDRESS=
+SENDER_KEY=
+CONTRACT_ADDRESS=
+UTXO_IN=
+LOVELACE_TO_LOCK=
+```
 
-## Putting it all together:
+<br />
+---
+
+## Build, Sign and Submit Transaction:
 ```bash
 cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $UTXO_IN \
---tx-out $SENDERADDRESS+$LOVELACE_TO_SEND \
---change-address $SENDERADDRESS \
---out-file simple-tx.raw
+--tx-out $CONTRACT_ADDRESS+$LOVELACE_TO_LOCK \
+--tx-out-inline-datum-value 1618 \
+--change-address $SENDER_ADDRESS \
+--out-file lock-always-succeeds.raw
 
 cardano-cli transaction sign \
---signing-key-file $SENDERKEY \
+--signing-key-file $SENDER_KEY \
 --testnet-magic 1 \
---tx-body-file simple-tx.raw \
---out-file simple-tx.signed
+--tx-body-file lock-always-succeeds.raw \
+--out-file lock-always-succeeds.signed
 
 cardano-cli transaction submit \
---tx-file simple-tx.signed \
+--tx-file lock-always-succeeds.signed \
 --testnet-magic 1
 ```
 

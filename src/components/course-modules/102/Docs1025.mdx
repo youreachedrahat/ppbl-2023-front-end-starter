@@ -1,14 +1,65 @@
-# Lesson 102.5 Documentation
+# How to unlock tokens from a contract address
+Unlocking tokens is little bit more complicated than locking tokens. 
 
-## 102.5: unlocking funds
-- hacking always succeeds
-- many always succeeds
-- Introduce the concept of reference script
+In an unlocking transaction, we must 
 
-## With Plutus Script
+Here, we provide the essentials, and an invitation to join a Live Coding session on March 30.
+
+<br />
+---
+
+## About Collateral
+
+<br />
+---
+
+## With Plutus Script and Inline Datum
 Now you have seen your first transactions - we can use our plutus scripts!
 
-## With Reference Scripts
+```bash
+CONTRACT_UTXO=
+PLUTUS_SCRIPT_FILE=
+COLLATERAL=
+```
+
+This time protocol params are required. Look at some errors.
+
+```bash
+cardano-cli transaction build \
+--testnet-magic 1 \
+--tx-in $CONTRACT_UTXO \
+--tx-in-script-file $PLUTUS_SCRIPT_FILE \
+--tx-in-inline-datum-present \
+--tx-in-redeemer-value 1000 \
+--tx-in-collateral $COLLATERAL \
+--change-address $SENDER_ADDRESS \
+--protocol-params-file protocol.json \
+--out-file unlock-always-succeeds.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDER_KEY \
+--testnet-magic 1 \
+--tx-body-file unlock-always-succeeds.raw \
+--out-file unlock-always-succeeds.signed
+
+cardano-cli transaction submit \
+--tx-file unlock-always-succeeds.signed \
+--testnet-magic 1
+```
+
+<br />
+---
+
+# Live Coding 2023-03-30
+Then add link to video here.
+
+## Introduction to Reference Scripts
+
+## Hashing Datum - Even in Always Succeeds, Datum Must Match:
+In this lesson you will unlock the UTxO that you locked in [Lesson 102.4](/modules/102/1024). The contract is an always succeeds contract, which means that anyone can unlock it, but even so, we must make sure that that datum matches. 
+
+Throughout this course, you will see different scenarios for unlocking UTxOs from Contract Addresses. The purpose of this example is to give you a place to start.
+
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
