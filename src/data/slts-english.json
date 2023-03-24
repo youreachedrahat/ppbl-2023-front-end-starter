@@ -119,32 +119,42 @@
         },
         {
           "slug": "1021",
-          "name": "Lesson 1",
+          "name": "Lesson 1: Introducing cardano-cli",
           "video": ""
         },
         {
           "slug": "1022",
-          "name": "Lesson 2",
+          "name": "Lesson 2: Build an Address",
           "video": ""
         },
         {
           "slug": "1023",
-          "name": "Lesson 3",
+          "name": "Lesson 3: Build a Simple Transaction",
+          "video": ""
+        },
+        {
+          "slug": "assignment1021",
+          "name": "Mastery Assignment: Build Two Transactions",
           "video": ""
         },
         {
           "slug": "1024",
-          "name": "Lesson 4",
+          "name": "Lesson 4: Lock tokens at a contract address",
           "video": ""
         },
         {
           "slug": "1025",
-          "name": "Lesson 5",
+          "name": "Lesson 5: Unlock tokens from a contract address",
+          "video": ""
+        },
+        {
+          "slug": "assignment1022",
+          "name": "Mastery Assignment: Change Your Lucky Number",
           "video": ""
         },
         {
           "slug": "1026",
-          "name": "Lesson 6",
+          "name": "Lesson 6: Using Bash",
           "video": ""
         }
       ]

@@ -1,0 +1,154 @@
+## Helpful Bash scripts
+The [PPBL 2023 Plutus Template](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template) includes bash scripts for some of the topics covered in this Module.
+
+<br />
+---
+
+## What is a bash script?
+A bash script, also known as a "shell script", provides a convenient way to re-use common processes.
+
+Suppose you have a command that you use all the time, like:
+```bash
+cardano-cli query tip --testnet-magic 1
+```
+
+Instead of typing the same command again and again, you can place it a file called `getTip.sh`:
+```bash
+#!/bin/bash
+
+cardano-cli query tip --testnet-magic 1
+```
+
+Then, you can simply run
+```bash
+. getTip.sh
+```
+
+Scripts can be much longer than one line - and that's what makes them so useful.
+
+To learn more, check out the [Shell Scripting Tutorial](https://www.shellscript.sh/)
+
+<br />
+---
+
+## How to use a bash script
+Of course, scripts will save you time. They can also be used as a form of documentation. Practice reading `.sh` files, so that you can understand how they work. The [scripts provided here](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts) are very similar to the documentation you have seen in Lessons 102.1 through 102.5.
+
+
+<br />
+---
+
+## Use git pull to get the latest changes to PPBL 2023 Plutus Template
+- If you are using Demeter run, you can update the git repo from VS Code. Simply run `git pull` in `/repo`.
+- If you are working locally, navigate to `/ppbl2023-plutus-template` and run `git pull`.
+
+<br />
+---
+
+<br />
+<br />
+
+# Using Provided Scripts
+Last updated 2023-03-27. Additional bash scripts will be added over time.
+
+### Before you start, create a variables-private.sh file
+- If you are running a node and `cardano-cli` locally, make a copy of `variables-example.sh` called `variables-private.sh`
+- Update the `CARDANO_NODE_SOCKET_PATH` to match your enviroment.
+- If you are using Demeter.run, you can skip this step - it is done for you.
+
+<br />
+---
+
+## queryTip.sh
+- [/ppbl2023-plutus-template/bash-scripts/queryTip.sh](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/blob/main/bash-scripts/queryTip.sh)
+- [Lesson 102.1](/modules/102/1021)
+
+Create new directory in current directory, then create a preprod addresss with staking credentials
+
+Usage:
+```bash
+$ . queryTip.sh
+```
+
+Example Output:
+```bash
+{
+    "block": 757556,
+    "epoch": 59,
+    "era": "Babbage",
+    "hash": "f36424305e8b6135d3211d6ea385d7c5461c18241d87fea44d34ba2f41da2e41",
+    "slot": 23983883,
+    "syncProgress": "100.00"
+}
+```
+
+<br />
+---
+
+## createPreprodWallet.sh
+- [/ppbl2023-plutus-template/bash-scripts/createPreprodWallet.sh](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/blob/main/bash-scripts/createPreprodWallet.sh)
+- [Lesson 102.2](/modules/102/1022)
+
+Create new directory in current directory, then create a preprod addresss with staking credentials. This script creates a new directory with all relevant wallet files.
+
+Usage:
+```bash
+$ . createPreprodWallet WALLETNAME
+```
+
+Example Output:
+```bash
+{"address": "addr_test1qpuh6nf2nsfkyfp7cvk367fpgk7kwc0vceugv4jsldwrjkh0zgxaje6qk3xrvuvxsgwps3x6m5pmjwcnzlqt7xpx7z3qzl6slp","pkh": "797d4d2a9c1362243ec32d1d792145bd6761ecc678865650fb5c395a", "walletName": "WALLETNAME"},
+```
+
+
+<br />
+---
+
+## getAddressUTxO.sh
+- [/ppbl2023-plutus-template/bash-scripts/getAddressUTxO.sh](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/blob/main/bash-scripts/getAddressUTxO.sh)
+- [Lesson 102.3](/modules/102/1023)
+
+Usage:
+```bash
+$ . getAddressUTxO ADDRESS
+```
+
+Example Output:
+```bash
+                           TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------
+1ed86a282df85b7b7c433dec5da9382e776c2c87f995cc59eb1ab12a6ea28e61     0        10000000 lovelace + TxOutDatumNone
+1ed86a282df85b7b7c433dec5da9382e776c2c87f995cc59eb1ab12a6ea28e61     1        15000000 lovelace + TxOutDatumNone
+1ed86a282df85b7b7c433dec5da9382e776c2c87f995cc59eb1ab12a6ea28e61     2        25000000 lovelace + TxOutDatumNone
+dac9c445340c5cd740c7e8a76bcd65828ca7378284f53a36c0dc48837075ea98     1        2000000 lovelace + 1 05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056.3232325050424c323032334a616d6573 + TxOutDatumNone
+dac9c445340c5cd740c7e8a76bcd65828ca7378284f53a36c0dc48837075ea98     2        47280625 lovelace + TxOutDatumNone
+
+```
+
+<br />
+---
+
+## sendLovelacePreprod.sh
+- [/ppbl2023-plutus-template/bash-scripts/sendLovelacePreprod.sh](https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/blob/main/bash-scripts/sendLovelacePreprod.sh)
+- [Lesson 102.3](/modules/102/1023)
+Usage:
+```bash
+$ . sendLovelacePreprod PATH_TO_WALLET_DIRECTORY
+```
+
+This is an interactive script. See if you can get it to work!
+
+<br />
+---
+
+## Practice:
+Above, you can see scripts to accompany Lessons 102.1 through 102.3.
+
+How would you write scripts for interacting with smart contracts, as demonstrated in Lessons 102.4 and 102.5?
+
+Together, we will build scripts for interacting with smart contracts at an upcoming [Live Coding session](/live-coding).
+
+
+import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
+export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;

@@ -21,7 +21,7 @@ const SLT: React.FC<Props> = ({ moduleNumber, id }) => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
 
   return (
-    <Box borderLeft="1px" mt="5" mb="2" pl="5">
+    <Box borderLeft="1px" pl="5" py="1">
       <Text fontSize="xl">SLT{" "}{id}:{" "}{currentSLT.slt}</Text>
     </Box>
   );
