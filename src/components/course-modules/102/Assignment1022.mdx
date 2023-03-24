@@ -24,15 +24,15 @@ These two tokens have a relationship, and they have similar names:
 - The token in your browser wallet has the name `222PPBL2023<YOUR ALIAS>`
 - The token at the contract address has the name `100PPBL2023<YOUR ALIAS>`
 
-This token pair represents a partial implementation of the design pattern suggested in [CIP 68 - Datum Metadata Standard](https://cips.cardano.org/cips/cip68/). Throughout PPBL 2023, we will work together to build our understanding of CIP 68, and we will decide whether it sufficiently supports the design of the PPBL 2023 Token. We will decide whether to fully adopt the CIP, or suggest changes to it, or draft a CIP of our own.
+This token pair partially implements the design pattern suggested in [CIP 68 - Datum Metadata Standard](https://cips.cardano.org/cips/cip68/). Throughout PPBL 2023, we will work together to build our understanding of CIP 68 and decide whether it sufficiently supports the design of the PPBL 2023 Token. Then, we will determine whether to fully adopt the CIP, suggest changes, or draft a CIP of our own.
 
 <br />
 ---
 
 ## What is a "CIP"?
-[CIP stands for "Cardano Improvement Proposal"](https://cips.cardano.org/), and the CIP process is an important feature of Cardano.
+[CIP stands for "Cardano Improvement Proposal"](https://cips.cardano.org/), and the CIP process is an essential feature of Cardano.
 
-We will continue to investigate different CIPs in this course. When we do, we will encounter new questions about protocol governance, standards, and more.
+We will continue to investigate different CIPs in this course. We will encounter new questions about protocol governance, standards, and more when we do.
 
 <br />
 ---
@@ -44,10 +44,10 @@ The PPBL 2023 Token implements only some of the core concepts outlined in CIP-68
 ### Concept #1: "Reference NFTs" and "User Tokens":
 Here is a description from CIP-68:
 
-*"The basic idea is to have two assets issued, where one references the other. We call these two a reference NFT and an user token, where the user token can be an NFT, FT or any other asset class that is transferable and represents any value. So, the user token is the actual asset that lives in a user's wallet."*
+*"The basic idea is to issue two assets, one referencing the other. We call these two a reference NFT and a user token, where the token can be an NFT, FT, or any other asset class that is transferable and represents any value. So, the user token is the asset that lives in a user's wallet."*
 
 ### Concept #2: Updating Token Metadatum
-We are able to update the metadatum associated with your PPBL 2023 Token. In this Mastery Assignment, you will see how.
+We can update the metadatum associated with your PPBL 2023 Token. In this Mastery Assignment, you will see how.
 
 ### Concept #3: Programmability
 When information is stored on-chain in `datum`, it can be referenced by a smart contract. We will investigate the implications of this as we continue through PPBL 2023.
@@ -57,7 +57,7 @@ When information is stored on-chain in `datum`, it can be referenced by a smart 
 
 ## What parts of CIP-68 are not implemented with PPBL 2023 Token?
 
-At [Live Coding on 2023-0000](/live-coding), we will discuss some of the ways that CIP-68 is *not* currently applied to the PPBL 2023 Token.
+At [Live Coding on 2023-0000](/live-coding), we will discuss how CIP-68 is *not* currently applied to the PPBL 2023 Token.
 
 Make sure to [read the CIP](https://cips.cardano.org/cips/cip68/) and bring your ideas.
 
@@ -65,7 +65,7 @@ Make sure to [read the CIP](https://cips.cardano.org/cips/cip68/) and bring your
 ---
 
 ## What does the datum on your PPBL 2023 Token look like?
-On chain, the PPBL 2023 reference datum looks like this:
+On-chain, the PPBL 2023 reference datum looks like this:
 
 ```json
 "inlineDatum": {
@@ -89,16 +89,16 @@ data ContributorReferenceDatum = ContributorReferenceDatum
   }
 ```
 
-In upcoming modules we will look at all of the above in detail.
+In upcoming modules, we will examine the above in detail.
 
 For now, here is what we want you to notice:
-1. `"int": 5` in the on-chain datum correspeonds to `luckyNumber` in the Plutus type.
-2. `"list": []` in the on-chain datum correspeonds to `completedModules` in the Plutus type.
+1. `"int": 5` in the on-chain datum corresponds to `luckyNumber` in the Plutus type.
+2. `"list": []` in the on-chain datum corresponds to `completedModules` in the Plutus type.
 
 Your PPBL 2023 Token was minted with the lucky number `5`, and with an empty list `[]` of completed modules.
 
 - In this assignment, you will change your lucky number.
-- As this course progresses, we will add to your list of completed modules.
+- As this course progresses, we will add completed modules to your list.
 
 
 <br />
@@ -106,9 +106,9 @@ Your PPBL 2023 Token was minted with the lucky number `5`, and with an empty lis
 
 ## Your Task: Update your lucky number.
 
-A Plutus validator stipulates that you will be able to change the Lucky Number for ONLY YOUR token. You review the [source code of the validator here](https://gitlab.com/gimbalabs/ppbl-2023/ppbl-plutus-starter-2023/-/blob/main/src/ContribToken/Validator.hs). For now, you do not need to understand everything written in this PlutusTx validation code.
+A Plutus validator stipulates that you can change the Lucky Number for ONLY YOUR token. Review the [source code of the validator here](https://gitlab.com/gimbalabs/ppbl-2023/ppbl-plutus-starter-2023/-/blob/main/src/ContribToken/Validator.hs). For now, you do not need to understand everything written in this PlutusTx validation code.
 
-In this assignment, we will use the compiled validation script to build a transaction.
+This assignment will use the compiled validation script to build a transaction.
 
 As we dive deeper into `PlutusTx`, we will use `ContribToken.Validator` as a case study.
 
@@ -183,14 +183,14 @@ CONTRACT_TX_IN=
 CONTRIBUTOR_REFERENCE_ASSET=
 ```
 
-Which `CONTRIBUTOR_REFERENCE_ASSET` is yours? There are few ways to find out, and we will leave that to you. Note that there are web-based tools [like this that convert from hexadecmial to text strings](https://string-functions.com/hex-string.aspx)
+Which `CONTRIBUTOR_REFERENCE_ASSET` is yours? There are a few ways to find out; we will leave that to you. Note that there are web-based tools [like this that convert from hexadecimal to text strings](https://string-functions.com/hex-string.aspx)
 
 
 <br />
 ---
 
 ### Step 5. Build the Transaction
-If you complete steps 1 through 4 correctly, you will be able to build this transaction. If you get errors, you might have to double check some of the variables. As always, please bring your questions to Live Coding or to Gimbalabs Discord.
+You can build this transaction if you complete steps 1 through 4 correctly. You might have to double-check some of the variables if you get errors. As always, please bring your questions to Live Coding or Gimbalabs Discord.
 
 
 ```bash
@@ -242,7 +242,7 @@ When building applications on Cardano, it is common to build complex transaction
 ---
 
 ## Reference Scripts
-You just build a transaction using an on-chain reference to a Plutus Script. This is another big idea that we will discuss in the weeks to come!
+You just built a transaction using an on-chain reference to a Plutus Script. Another big idea that we will discuss in the coming weeks!
 
 <br />
 ---
