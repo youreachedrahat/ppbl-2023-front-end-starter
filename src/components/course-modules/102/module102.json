@@ -32,7 +32,6 @@
         "You will also see that building a contract address is similar to building a wallet address."
       ],
       "links": [
-        { "url": "", "linkText": "PPBL Toolbox Repo" }
       ],
       "videoHeading": "",
       "youtubeId": "",
@@ -67,11 +66,10 @@
     {
       "slug": "1024",
       "introduction": [
-        "",
-        ""
+        "Locking tokens in a contract address is very similar to sending a transaction to any wallet address, with one key difference: When sending a transaction to a contract address, we must include \"datum\" in the tx-out.",
+        "In this introduction to smart contract transactions, we will lock some tokens at an Always Succeeds contract address."
       ],
       "links": [
-        { "url": "", "linkText": "" }
       ],
       "videoHeading": "",
       "youtubeId": "",
@@ -86,11 +84,12 @@
     {
       "slug": "1025",
       "introduction": [
-        "",
-        ""
+        "Unlocking tokens is more complicated than locking tokens.",
+        "In an unlocking transaction, we must follow the rules defined by a Plutus validator. We must also provide the necessary Plutus script, datum, and redeemer within the unlocking transaction.",
+        "In this lesson you will unlock the UTxO that you locked in Lesson 102.4. You might also unlock a UTxO locked by someone else - this is \"Always Succeeds\", after all!",
+        "Throughout this course, you will see different scenarios for unlocking UTxOs from Contract Addresses. The purpose of this example is to give you a place to start."
       ],
       "links": [
-        { "url": "", "linkText": "" }
       ],
       "videoHeading": "",
       "youtubeId": "",
@@ -105,11 +104,13 @@
     {
       "slug": "1026",
       "introduction": [
-        "",
-        ""
+        "Bash scripts, also known as Shell scripts, can make it very efficient to work on the command line.",
+        "Scripts are used to automate processes, and can be used on remote servers to perform frequent actions.",
+        "In this course, we will scripts as a form of documentation. Take a look at the provided scripts and see how well you can read them."
       ],
       "links": [
-        { "url": "", "linkText": "" }
+        { "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts", "linkText": "View bash-scripts in PPBL2023 Plutus Template" },
+        { "url": "https://www.shellscript.sh/", "linkText": "Shell Scripting Tutorial" }
       ],
       "videoHeading": "",
       "youtubeId": "",

@@ -1,29 +1,51 @@
 # How to unlock tokens from a contract address
-Unlocking tokens is little bit more complicated than locking tokens. 
-
-In an unlocking transaction, we must 
-
-Here, we provide the essentials, and an invitation to join a Live Coding session on March 30.
+Before we get started, there are a two new concepts you will need to know:
+1. Collateral
+2. Using `tx-in` from a contract address
 
 <br />
 ---
 
 ## About Collateral
+When interacting with a contract address, you must [specify a UTxO to be used as "collateral" in each transaction](https://docs.cardano.org/plutus/collateral-mechanism). As with the other concepts introduced in this module, there are details about collateral that we are not yet addressing here. For now, notice how `--tx-in-collateral` is used in the `transaction build` below. You will learn details about collateral later in the course.
 
 <br />
 ---
 
-## With Plutus Script and Inline Datum
-Now you have seen your first transactions - we can use our plutus scripts!
+## Using tx-in from a contract address
+When you want to spend a UTxO from a contract address, you must do more than simply specify the UTxO.
 
+In the `transaction build` below, look at these lines:
+
+```bash
+--tx-in $CONTRACT_UTXO \
+--tx-in-script-file $PLUTUS_SCRIPT_FILE \
+--tx-in-inline-datum-present \
+--tx-in-redeemer-value 1000 \
+```
+
+With `--tx-in`, you'll specify a UTxO as usual. Then, you must also specify:
+1. The Plutus script corresponding to the contract address from which the `$CONTRACT_UTXO` is being unlocked
+2. Datum
+3. Redeemer
+
+There are different ways to specify the script, datum, and redeemer.
+
+You guessed it - we will take a deeper look at all of these concepts throughout this course!
+
+<br />
+---
+
+## Unlock a UTxO from Always Succeeds
+
+### Set Variables
 ```bash
 CONTRACT_UTXO=
 PLUTUS_SCRIPT_FILE=
-COLLATERAL=
+COLLATERAL_UTXO=
 ```
 
-This time protocol params are required. Look at some errors.
-
+### Build, Sign, and Submit Tx:
 ```bash
 cardano-cli transaction build \
 --testnet-magic 1 \
@@ -31,7 +53,7 @@ cardano-cli transaction build \
 --tx-in-script-file $PLUTUS_SCRIPT_FILE \
 --tx-in-inline-datum-present \
 --tx-in-redeemer-value 1000 \
---tx-in-collateral $COLLATERAL \
+--tx-in-collateral $COLLATERAL_UTXO \
 --change-address $SENDER_ADDRESS \
 --protocol-params-file protocol.json \
 --out-file unlock-always-succeeds.raw
@@ -50,15 +72,12 @@ cardano-cli transaction submit \
 <br />
 ---
 
-# Live Coding 2023-03-30
-Then add link to video here.
+## What's Next?
+At Live Coding on 2023-03-30, we will provide a live demonstration that dives a bit deeper into scripts, datum, and redeemer:
+- you will see how to use a "Plutus Reference Script" to build a transaction with a Plutus script that is *already on-chain*.
+- we will explore the different ways of placing datum on-chain
 
-## Introduction to Reference Scripts
 
-## Hashing Datum - Even in Always Succeeds, Datum Must Match:
-In this lesson you will unlock the UTxO that you locked in [Lesson 102.4](/modules/102/1024). The contract is an always succeeds contract, which means that anyone can unlock it, but even so, we must make sure that that datum matches. 
-
-Throughout this course, you will see different scenarios for unlocking UTxOs from Contract Addresses. The purpose of this example is to give you a place to start.
 
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
