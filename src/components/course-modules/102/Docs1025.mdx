@@ -1,5 +1,5 @@
 # How to unlock tokens from a contract address
-Before we get started, there are a two new concepts you will need to know:
+Before we get started, there are two new concepts you will need to know:
 1. Collateral
 2. Using `tx-in` from a contract address
 
@@ -7,13 +7,13 @@ Before we get started, there are a two new concepts you will need to know:
 ---
 
 ## About Collateral
-When interacting with a contract address, you must [specify a UTxO to be used as "collateral" in each transaction](https://docs.cardano.org/plutus/collateral-mechanism). As with the other concepts introduced in this module, there are details about collateral that we are not yet addressing here. For now, notice how `--tx-in-collateral` is used in the `transaction build` below. You will learn details about collateral later in the course.
+When interacting with a contract address, you must [specify a UTxO to be used as "collateral" in each transaction](https://docs.cardano.org/plutus/collateral-mechanism). As with the other concepts introduced in this module, there are details about collateral that we still need to address here. Notice how `--tx-in-collateral` is used in the `transaction build` below. You will learn details about collateral later in the course.
 
 <br />
 ---
 
 ## Using tx-in from a contract address
-When you want to spend a UTxO from a contract address, you must do more than simply specify the UTxO.
+When you want to spend a UTxO from a contract address, you must do more than specify the UTxO.
 
 In the `transaction build` below, look at these lines:
 
@@ -24,14 +24,14 @@ In the `transaction build` below, look at these lines:
 --tx-in-redeemer-value 1000 \
 ```
 
-With `--tx-in`, you'll specify a UTxO as usual. Then, you must also specify:
+With `--tx-in`, you'll specify a UTxO as usual. Then, you must also set the following:
 1. The Plutus script corresponding to the contract address from which the `$CONTRACT_UTXO` is being unlocked
 2. Datum
 3. Redeemer
 
 There are different ways to specify the script, datum, and redeemer.
 
-You guessed it - we will take a deeper look at all of these concepts throughout this course!
+You guessed it - we will look deeper at these concepts throughout this course!
 
 <br />
 ---
