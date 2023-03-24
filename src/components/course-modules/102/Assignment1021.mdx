@@ -3,7 +3,8 @@ import CheckTxFromAddressWithPolicyID from "./cardano/CheckTxFromAddressWithPoli
 import CheckAssociatedWallet from "./cardano/CheckAssociatedWallet";
 import SLTSmall from "../../ui/Text/SLTSmall";
 
-# Module 102, Mastery Assignment #1: Build Two Transactions
+## Module 102, Mastery Assignment #1:
+# Build Two Transactions
 #### This is a guided Mastery Assignment.
 
 This documentation will help you get started on a task, and you will have a chance to demonstrate mastery of some SLTs.
@@ -11,6 +12,9 @@ This documentation will help you get started on a task, and you will have a chan
 Hopefully you will learn some things along the way. We will encounter some questions about how the blockchain works.
 
 When you are done, there will be on-chain evidence of your success!
+
+<br />
+---
 
 ## In this assignment you will demonstrate mastery of these learning targets:
 <SLTSmall moduleNumber={102} id="102.1" />
@@ -87,6 +91,8 @@ Build two transactions with the **CLI wallet** you built in [Lesson 102.2](/modu
 ---
 
 ## Tx #1: How to build a split UTxO Transaction:
+Set all necessary variables so that you can successfully `build`, `sign`, and `submit` this transaction:
+
 ```bash
 cardano-cli transaction build \
 --babbage-era \
@@ -113,13 +119,21 @@ cardano-cli transaction submit \
 ---
 
 ## Tx #2: How to send a Cardano Native Asset in a transaction:
+
+### About Asset Ids:
+- An Asset Id looks like this: `05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056.3232325050424c32303233446973636f44616e`
+- Before the `.` is the Policy ID of a token. The Policy ID of **ALL** PPBL 2023 Tokens is `05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056`
+- After the `.` is the token name, represented as a hexadecimal string. Every PPBL 2023 Token has a unique name.
+
+Set all necessary variables so that you can successfully `build`, `sign`, and `submit` this transaction:
+
 ```bash
 cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $TXIN_LOVELACE \
---tx-in $TXIN_CONTRIB \
---tx-out $BROWSER_ADDRESS+"1500000 + 1 $CONTRIBUTOR_ASSET" \
+--tx-in $TXIN_WITH_PPBL2023_TOKEN \
+--tx-out $BROWSER_ADDRESS+"1500000 + 1 $PPBL2023_ASSET_ID" \
 --change-address $SENDER_ADDRESS \
 --out-file send-contrib-token.raw
 
