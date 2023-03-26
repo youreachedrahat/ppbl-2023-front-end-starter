@@ -7,6 +7,8 @@ import Lesson1023 from "@/src/components/course-modules/102/Lesson-1023";
 import Lesson1024 from "@/src/components/course-modules/102/Lesson-1024";
 import Lesson1025 from "@/src/components/course-modules/102/Lesson-1025";
 import Lesson1026 from "@/src/components/course-modules/102/Lesson-1026";
+import Summary102 from "@/src/components/course-modules/102/Summary102";
+
 import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import slt from "@/src/data/slts-english.json"
 
@@ -29,6 +31,8 @@ const Module102Lessons = () => {
     { key:"1026", component:<Lesson1026 />},
     { key:"assignment1021", component:<Assignment1021 />},
     { key:"assignment1022", component:<Assignment1022 />},
+    { key:"summary", component:<Summary102 />},
+
   ]
 
   return (
