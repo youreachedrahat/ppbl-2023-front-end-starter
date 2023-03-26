@@ -1,6 +1,7 @@
-import SLTsItems from "@/src/components/lms/Lesson/SLTs";
-import { Container, Divider, Heading, Box } from "@chakra-ui/react";
 import React from "react";
+import { Container, Divider, Heading, Box, Flex, Button, Spacer } from "@chakra-ui/react";
+import Link from "next/link";
+import SLTsItems from "@/src/components/lms/Lesson/SLTs";
 import Introduction from "@/src/components/course-modules/102/Introduction.mdx";
 
 
@@ -12,6 +13,12 @@ const SLTs102 = () => {
       <Box py="5">
         <Introduction />
       </Box>
+      <Flex direction="row">
+        <Spacer />
+      <Link href="/modules/102/1021">
+        <Button my="1em">Get Started</Button>
+      </Link>
+      </Flex>
     </Container>
   );
 };
