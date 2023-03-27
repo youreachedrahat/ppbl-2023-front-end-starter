@@ -167,8 +167,8 @@
     {
       "number": 103,
       "title": "What You Will Learn in This Course",
-      "releaseDate": "2023-03-27",
-      "updatedDate": "2023-03-27",
+      "releaseDate": "2023-04-03",
+      "updatedDate": "2023-04-03",
       "slts": [
         { "id": "103.1", "slt": "I can make a contribution to an open source project using git." },
         { "id": "103.2", "slt": "I can re-use code from existing projects." },
@@ -200,8 +200,8 @@
     {
       "number": 201,
       "title": "Build a Front End Dapp Template",
-      "releaseDate": "2023-04-03",
-      "updatedDate": "2023-04-03",
+      "releaseDate": "2023-04-10",
+      "updatedDate": "2023-04-10",
       "slts": [
         { "id": "201.1", "slt": "I can run a Next JS project on my local device." },
         { "id": "201.2", "slt": "I can use Mesh APIs to interact with a browser-wallet like Eternl or Nami." },
@@ -245,8 +245,8 @@
     {
       "number": 202,
       "title": "Three Ways to Mint a Token",
-      "releaseDate": "2023-04-10",
-      "updatedDate": "2023-04-10",
+      "releaseDate": "2023-04-17",
+      "updatedDate": "2023-04-17",
       "slts": [
         { "id": "202.1", "slt": "I can mint a Cardano native asset using Mesh APIs." },
         { "id": "202.2", "slt": "I can mint native assets with native scripts using cardano-cli." },
@@ -278,8 +278,8 @@
     {
       "number": 203,
       "title": "Three Ways to Mint an NFT",
-      "releaseDate": "2023-04-17",
-      "updatedDate": "2023-04-17",
+      "releaseDate": "2023-04-24",
+      "updatedDate": "2023-04-24",
       "slts": [
         { "id": "203.1", "slt": "I can add metadata to a Cardano transaction." },
         { "id": "203.2", "slt": "I can create a Cardano NFT that adheres to CIP-25 standards." },
@@ -317,8 +317,8 @@
     {
       "number": 204,
       "title": "PPBL Faucet Project",
-      "releaseDate": "2023-04-24",
-      "updatedDate": "2023-04-24",
+      "releaseDate": "2023-05-01",
+      "updatedDate": "2023-05-01",
       "slts": [
         { "id": "204.1", "slt": "I can deploy an instance of a Plutus script with custom parameters" },
         { "id": "204.2", "slt": "I can contribute to a headless, decentralized application." }
@@ -344,8 +344,8 @@
     {
       "number": 301,
       "title": "Writing and Using Plutus Validators",
-      "releaseDate": "2023-05-01",
-      "updatedDate": "2023-05-01",
+      "releaseDate": "2023-05-08",
+      "updatedDate": "2023-05-08",
       "slts": [
         { "id": "301.1", "slt": "I can write a Plutus Spending validator." },
         { "id": "301.2", "slt": "I know enough haskell to understand some common validator design patterns." },
@@ -383,8 +383,8 @@
     {
       "number": 302,
       "title": "On-Chain Essentials: Plutus",
-      "releaseDate": "2023-05-08",
-      "updatedDate": "2023-05-08",
+      "releaseDate": "2023-05-15",
+      "updatedDate": "2023-05-15",
       "slts": [
         { "id": "302.1", "slt": "I can plan and implement my own Plutus contracts" },
         { "id": "302.2", "slt": "I can create, update and maintain a Plutus project." },
@@ -458,8 +458,8 @@
     {
       "number": 303,
       "title": "On-Chain Essentials: Aiken",
-      "releaseDate": "2023-05-08",
-      "updatedDate": "2023-05-08",
+      "releaseDate": "2023-05-15",
+      "updatedDate": "2023-05-15",
       "slts": [
         { "id": "303.1", "slt": "I can write a Plutus script using Aiken." },
         { "id": "303.2", "slt": "I can implement Plutus business logic in Aiken." }
@@ -485,8 +485,8 @@
     {
       "number": 304,
       "title": "Off-Chain Essentials: Transactions, UI, and Queries",
-      "releaseDate": "2023-05-08",
-      "updatedDate": "2023-05-08",
+      "releaseDate": "2023-05-15",
+      "updatedDate": "2023-05-15",
       "slts": [
         {
           "id": "304.1",
