@@ -7,7 +7,7 @@ import Introduction from "@/src/components/course-modules/102/Introduction.mdx";
 
 const SLTs102 = () => {
   return (
-    <Container maxWidth={["100%", "90%"]} marginTop="2em">
+    <Box w="95%" marginTop="2em">
       <SLTsItems moduleTitle="Module 102" moduleNumber={102} />
       <Divider mt="5" />
       <Box py="5">
@@ -16,10 +16,11 @@ const SLTs102 = () => {
       <Flex direction="row">
         <Spacer />
       <Link href="/modules/102/1021">
-        <Button my="1em">Get Started</Button>
+        <Button colorScheme="green" my="1em">Get Started</Button>
       </Link>
+      <Spacer />
       </Flex>
-    </Container>
+    </Box>
   );
 };
 

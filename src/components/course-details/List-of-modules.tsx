@@ -1,4 +1,4 @@
-import { Button, Container, Divider, Heading, List, ListIcon, ListItem, Text, useColorModeValue } from "@chakra-ui/react";
+import { Button, Box, Heading, List, ListIcon, ListItem, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
@@ -6,7 +6,7 @@ import ModuleListWithSLTs from "../lms/Course/ModuleListWithSLTs";
 const ListOfModules = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   return (
-    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+    <Box w="95%" marginTop="2em">
       <Heading size="2xl" color={textColorBlue}>
         Plutus PBL Course Outline
       </Heading>
@@ -32,7 +32,7 @@ const ListOfModules = () => {
       <Link href="/get-started/getting-help">
         <Button>How to get help</Button>
       </Link>
-    </Container>
+    </Box>
   );
 };
 

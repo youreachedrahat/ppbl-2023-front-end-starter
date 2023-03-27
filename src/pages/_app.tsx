@@ -12,7 +12,7 @@ import SocialLinks from "../components/lms/Course/SocialLinks";
 const theme = extendTheme({
   colors: {
     theme: {
-      dark: "#121619",
+      dark: "#07090D",
       light: "#DDD8C4",
       blue: "#9BBAE6",
       darkBlue: "#1560BD",

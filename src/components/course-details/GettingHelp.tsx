@@ -1,4 +1,4 @@
-import { Button, Container, Divider, Heading, ListItem, OrderedList, Text, Link as CLink, useColorModeValue } from "@chakra-ui/react";
+import { Button, Box, Divider, Heading, ListItem, OrderedList, Text, Link as CLink, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import GetHelp from "../lms/Course/GetHelp";
@@ -6,7 +6,7 @@ import GetHelp from "../lms/Course/GetHelp";
 const GettingHelp = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
-    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+    <Box w="95%" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color={textColorBlue}>
         What happens when I get stuck?
       </Heading>
@@ -41,7 +41,7 @@ const GettingHelp = () => {
       <Link href="/get-started/governance">
         <Button>Governance</Button>
       </Link>
-    </Container>
+    </Box>
   );
 };
 

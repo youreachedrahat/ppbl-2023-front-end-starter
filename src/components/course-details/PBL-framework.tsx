@@ -19,7 +19,7 @@ import React from "react";
 const PBLFramework = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue")
   return (
-    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+    <Box w="95%" marginTop="2em" fontSize="xl">
       <Heading size={["lg", "2xl"]} color={textColorBlue} lineHeight="1.2em">
         The goal of any Project-Based Learning (PBL) Course is to support people to become Contributors to real
         Projects.
@@ -103,7 +103,7 @@ const PBLFramework = () => {
       <Link href="/get-started/slts">
         <Button>Tell me about SLTs</Button>
       </Link>
-    </Container>
+    </Box>
   );
 };
 

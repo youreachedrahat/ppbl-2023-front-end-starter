@@ -5,7 +5,7 @@ import React from "react";
 
 const SLTs100 = () => {
   return (
-    <Container maxWidth={["100%", "90%"]} marginTop="2em">
+    <Box w="95%" marginTop="2em">
       <SLTsItems moduleTitle="Module 100" moduleNumber={100} />
       <Divider my="5" />
       <Box bg="theme.lightGray" color="white" p="5">
@@ -50,7 +50,7 @@ const SLTs100 = () => {
           <Button my="1em">I am ready for Lesson 1!</Button>
         </Link>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

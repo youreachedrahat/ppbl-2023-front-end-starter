@@ -37,7 +37,7 @@ type Props = {
 const LessonLayout: React.FC<Props> = ({ children, moduleNumber, sltId, slug, nextModule }) => {
   return (
     <>
-      <Box w="90%" marginLeft="1em" marginTop="2em">
+      <Box w="95%" marginTop="2em">
         <SLT moduleNumber={moduleNumber} id={sltId} />
         <Divider py="5" />
 

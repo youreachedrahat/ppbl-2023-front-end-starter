@@ -10,8 +10,6 @@ import {
   Heading,
   ListItem,
   OrderedList,
-  Stack,
-  StackDivider,
   Text,
   UnorderedList,
   Link as CLink,

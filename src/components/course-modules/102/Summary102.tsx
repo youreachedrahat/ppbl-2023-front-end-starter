@@ -3,17 +3,15 @@ import Link from "next/link";
 import React from "react";
 
 import Summary from "@/src/components/course-modules/102/Summary.mdx";
+import SummaryLayout from "@/src/components/lms/Lesson/SummaryLayout";
 
-
-
-const Summary101 = () => {
+const Summary102 = () => {
   return (
-    <Container maxWidth="90%" marginTop="2em">
+    <SummaryLayout nextModule="103">
       <Heading>Module 102 Summary</Heading>
-    
       <Summary />
-    </Container>
+    </SummaryLayout>
   );
 };
 
-export default Summary101;
+export default Summary102;

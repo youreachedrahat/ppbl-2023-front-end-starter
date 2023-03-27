@@ -17,7 +17,7 @@ import React from "react";
 const AboutSLTs = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
-    <Container maxWidth={["95%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+    <Box w="95%" marginTop="2em">
       <Heading size={["lg", "2xl"]} color={textColorBlue}>
         About Student Learning Targets (SLTs)
       </Heading>
@@ -64,7 +64,7 @@ const AboutSLTs = () => {
       <Link href="/get-started/modules">
         <Button>Show me the Modules and SLTs</Button>
       </Link>
-    </Container>
+    </Box>
   );
 };
 

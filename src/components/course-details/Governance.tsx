@@ -1,11 +1,11 @@
-import { Button, Container, Divider, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Button, Box, Divider, Heading, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
 const Governance = () => {
   const textColorBlue = useColorModeValue("theme.darkBlue", "theme.blue");
   return (
-    <Container maxWidth={["100%", "80%"]} marginLeft={["0em", "1em"]} marginTop="2em" fontSize="xl">
+    <Box w="95%" marginTop="2em" fontSize="xl">
       <Heading size="2xl" color={textColorBlue}>
         Beyond Contribution is Governance
       </Heading>
@@ -31,7 +31,7 @@ const Governance = () => {
       <Link href="/modules/100">
         <Button my="10">Get Started with Module 100</Button>
       </Link>
-    </Container>
+    </Box>
   );
 };
 
