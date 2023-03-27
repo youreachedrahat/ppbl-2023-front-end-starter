@@ -24,7 +24,7 @@ const MasteryAssignmentLayout: React.FC<Props> = ({ children, nextButtonHref, ne
         {nextButtonHref && (
           <Flex direction="row">
             <Spacer />
-            <Link href={`/modules/${nextButtonHref}`}>
+            <Link href={nextButtonHref}>
               <Button my="1em" colorScheme="green">{nextButtonTitle}</Button>
             </Link>
             <Spacer />
