@@ -6,7 +6,7 @@
         "At the end of this lesson, you will know how to write blockchain queries using cardano-cli. The Cardano Command Line Interface, or cardano-cli, is included when you install Cardano Node.",
         "Cardano Node is the software that runs the Cardano blockchain on a computer.",
         "We will practice writing queries with cardano-cli throughout Module 102. You will see that simple queries take only a moment to execute.",
-        "Setting up a Cardano Node so that you can make queries can be a bit trickier. In this lesson, we will explore two ways of accessing the Cardano Preprod network."
+        "Setting up a Cardano Node so that you can make queries can tricky. In this lesson, we will explore two ways of accessing a Cardano Preprod Node."
       ],
       "links": [
         { "url": "https://docs.cardano.org/learn/cardano-node", "linkText": "Official Docs: Cardano Node" },
@@ -14,8 +14,8 @@
         { "url": "https://github.com/input-output-hk/cardano-node/blob/master/doc/reference/cardano-node-cli-reference.md", "linkText": "cardano-cli reference" },
         { "url": "https://book.world.dev.cardano.org/environments.html", "linkText": "Cardano Network Configuration Files" }
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Installing cardano-node and using cardano-cli",
+      "youtubeId": "dFGHvmYGFc0",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -33,8 +33,8 @@
       ],
       "links": [
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Step by step: build an address with cardano-cli",
+      "youtubeId": "9YyRTSmPqzg",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -53,8 +53,8 @@
       ],
       "links": [
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Step by step: build a transaction with cardano-cli",
+      "youtubeId": "kK_1O37I97I",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -71,8 +71,8 @@
       ],
       "links": [
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "How to build a Locking Tx",
+      "youtubeId": "-GF4VtYuj1E",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -91,8 +91,8 @@
       ],
       "links": [
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "How to a build an Unlocking Tx",
+      "youtubeId": "xFMZFxuAVbQ",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -112,8 +112,8 @@
         { "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts", "linkText": "View bash-scripts in PPBL2023 Plutus Template" },
         { "url": "https://www.shellscript.sh/", "linkText": "Shell Scripting Tutorial" }
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Shell scripts and cardano-cli",
+      "youtubeId": "-BTezcXQsbM",
       "successComponent": false,
       "success": {
         "criteria": "",

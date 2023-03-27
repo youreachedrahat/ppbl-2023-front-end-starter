@@ -1,15 +1,15 @@
 # How to lock tokens at a contract address
 
-## What is Datum?
-Datum is information that can be included in a UTxO. When you `query utxo` for a address with `cardano-cli`, you can see whether each UTxO includes datum. Watch the video above to see how.
+## A Contract UTxO Must Include Datum
+Datum is information included in a UTxO. When you `query utxo` for an address with `cardano-cli`, you can see whether each UTxO has a datum. Watch the video above to see how.
 
-You will use datum in a variety of ways throughout this course. For now, watch the video above for a quick overview, and look at the `transaction build` below to see how to include datum in a `tx-out`.
+You will use datum in a variety of ways throughout this course. But, for now, watch the video above for a quick overview, and look at the `transaction build` below to see how to include datum in a `tx-out`.
 
 <br />
 ---
 
 ## Which Always Succeeds will you use?
-- Before you build a locking Tx, decide which "Always Succeeds" contract to use. You can use any of the [Always Succeeds contracts that were built in Module 101, as summarized here](/modules/101/summary).
+- Before you build a locking Tx, decide which "Always Succeeds" contract to use. You can use any of the [Always Succeeds contracts built in Module 101, as summarized here](/modules/101/summary).
 - After you decide which Always Succeeds scripts to use, build the address for that Plutus script, as shown in [Lessson 102.2](/modules/102/1022).
 
 <br />
@@ -19,9 +19,20 @@ You will use datum in a variety of ways throughout this course. For now, watch t
 ```bash
 SENDER_ADDRESS=
 SENDER_KEY=
-CONTRACT_ADDRESS=
 UTXO_IN=
 LOVELACE_TO_LOCK=
+```
+
+### For Reference - Always Succeeds Addresses:
+```bash
+ALWAYS_SUCCEEDS_ADDRESS_PLUTUSTX=addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla
+ALWAYS_SUCCEEDS_ADDRESS_AIKEN=addr_test1wzd7s978pzla9qdwjshnme9wvlwfrrajzwcztpay7uynx9qalqts7
+ALWAYS_SUCCEEDS_ADDRESS_PLU_TS=addr_test1wr5vjne65nh3zfp9ndf6xnk02uxkzlsdtczsu7pxw8gatuqzdca8z
+```
+
+### How to Query a Contract Address:
+```bash
+cardano-cli query utxo --testnet-magic 1 --address $ALWAYS_SUCCEEDS_ADDRESS_PLUTUSTX
 ```
 
 <br />
@@ -33,7 +44,7 @@ cardano-cli transaction build \
 --babbage-era \
 --testnet-magic 1 \
 --tx-in $UTXO_IN \
---tx-out $CONTRACT_ADDRESS+$LOVELACE_TO_LOCK \
+--tx-out $ALWAYS_SUCCEEDS_ADDRESS_PLUTUSTX+$LOVELACE_TO_LOCK \
 --tx-out-inline-datum-value 1618 \
 --change-address $SENDER_ADDRESS \
 --out-file lock-always-succeeds.raw
