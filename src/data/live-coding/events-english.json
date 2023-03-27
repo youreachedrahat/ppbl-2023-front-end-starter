@@ -51,9 +51,10 @@
       "time": "1430-1600 utc",
       "title": "Generating different CBOR for Plutus Core",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/watch?v=aRkuGj5RN60",
       "links": [""],
-      "description": "Student Q&A + live demo"
+      "description": "Student Q&A + live demo",
+      "complete": true
     },
     {
       "date": "2023-03-29",
@@ -75,6 +76,33 @@
     },
     {
       "date": "2023-03-31",
+      "time": "1630-1800 utc",
+      "title": "Smart Contract Gladiator",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Modular voting systems"
+    },
+    {
+      "date": "2023-04-05",
+      "time": "1430-1600 utc",
+      "title": "Module 102 Mastery Assignments",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Student Q&A, live demo, and breakout rooms"
+    },
+    {
+      "date": "2023-04-06",
+      "time": "1430-1600 utc",
+      "title": "Project Focus: The PPBL 2023 Contributor Token",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": [""],
+      "description": "Student Q&A, demo + discussion"
+    },
+    {
+      "date": "2023-04-07",
       "time": "1630-1800 utc",
       "title": "Smart Contract Gladiator",
       "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
