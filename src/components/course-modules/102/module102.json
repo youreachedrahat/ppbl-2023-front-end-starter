@@ -71,8 +71,8 @@
       ],
       "links": [
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "How to build a Locking Tx",
+      "youtubeId": "-GF4VtYuj1E",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -91,8 +91,8 @@
       ],
       "links": [
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "How to a build an Unlocking Tx",
+      "youtubeId": "xFMZFxuAVbQ",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -112,8 +112,8 @@
         { "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts", "linkText": "View bash-scripts in PPBL2023 Plutus Template" },
         { "url": "https://www.shellscript.sh/", "linkText": "Shell Scripting Tutorial" }
       ],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Shell scripts and cardano-cli",
+      "youtubeId": "-BTezcXQsbM",
       "successComponent": false,
       "success": {
         "criteria": "",

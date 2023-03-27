@@ -46,7 +46,7 @@ Send your PPBL 2023 Token from your **Browser Wallet** to the **CLI Wallet** you
 <br />
 ---
 
-## What Does This Prove?
+## What Does It Prove?
 In [Lesson 100.4](/modules/100/1004), you saw that we could check if a browser wallet holds a token. The form above shows we can do the same for *any* blockchain address - even if it is not the connected wallet.
 
 If anyone can drop any address into this form, how can we know whether an address belongs to "you"?
@@ -91,7 +91,7 @@ Build two transactions with the **CLI wallet** you built in [Lesson 102.2](/modu
 ---
 
 ## Tx #1: How to build a split UTxO Transaction:
-Set all necessary variables so that you can successfully `build`, `sign`, and `submit` this transaction:
+Set all necessary variables so that you can successfully `build`, `sign`, and `submit` this transaction. Make sure that there are three output UTxOs, and that each contains exactly 10, 15, and 25 tADA.
 
 ```bash
 cardano-cli transaction build \
@@ -119,6 +119,7 @@ cardano-cli transaction submit \
 ---
 
 ## Tx #2: How to send a Cardano Native Asset in a transaction:
+When you send your PPBL 2023 Token between two wallets, you create some on-chain evidence that there is a relationship between these two wallets. Let's create evidence that your Browser Wallet and your CLI Wallet are somehow related.
 
 ### About Asset Ids:
 - An Asset Id looks like this: `05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056.3232325050424c32303233446973636f44616e`

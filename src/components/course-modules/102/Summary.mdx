@@ -1,27 +1,32 @@
 import SLTSmall from "@/src/components/ui/Text/SLTSmall";
 
 ## Learning Target Review
-<SLTSmall moduleNumber={101} id={"101.1"} />
-After trying some of the approaches outlined in Lessons 101.3 through 101.6, can you compile a validator to UPLC?
+#### Read each of the following learning targets. Do you agree that you can do each of the following?
+<SLTSmall moduleNumber={102} id={"102.1"} />
+<SLTSmall moduleNumber={102} id={"102.2"} />
+<SLTSmall moduleNumber={102} id={"102.3"} />
+<SLTSmall moduleNumber={102} id={"102.4"} />
+<SLTSmall moduleNumber={102} id={"102.5"} />
+<SLTSmall moduleNumber={102} id={"102.6"} />
 
-Every time you write a new smart contract, you will need to compile it, so as you keep learning, you will continue to use this new skill.
+<br />
+---
 
-<SLTSmall moduleNumber={101} id={"101.2"} />
-We have some UPLC ready to be used, but we haven't seen it in action. We will continue to think about this learning target in the next few modules.
+## Key Ideas
+#### Read each of the following points. Does each one make sense to you? If so, you are making great progress, congratulations! If not, please be sure to ask questions at Live Coding or on Discord.
+- Every Cardano transaction takes 1 or more UTxOs as input, and produces 1 or more new UTxOs as output.
+- After a UTxO is spent, it cannot be spent again.
+- UTxOs can be locked at a Contract Address, and those UTxOs can be unlocked by satisfying validation rules. It is common to build transactions that lock and unlock UTxOs all in one Tx.
+- When a UTxO is locked at a Contract Address, it must contain datum.
 
+<br />
+---
 
+## Evidence vs. Proof
+#### Is there evidence that you have mastered each of the learning targets listed above? How would you prove it?
+On-chain transactions can provide *evidence* that something happened. But what does this evidence *prove*? 
 
-
-## Evidence or Proof?
-
-
-## Abstraction + Convenience
-We looked at four ways to write a validator and build it to Plutus Core. If you were successful, you should now have one or more `always-succeeds.plutus` files like the ones below. 
-
-As we built our first plutus scripts, a new problem emerged. Our Always Succeeds scripts did not look the same:
-
-## Building Addresses
-- Add slide
+We started to investigate this question in [Mastery Assigment #1](/modules/102/assignment1021), and as PPBL 2023 continues, will continue to explore it.
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
