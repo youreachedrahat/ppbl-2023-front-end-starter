@@ -228,6 +228,10 @@ const modulesChildren: fromJsonChildren = modules;
       href: "/contributors"
     },
     {
+      label: 'Contributors',
+      href: "/contributors"
+    },
+    {
       label: 'Live Coding',
       href: "/live-coding"
     }
