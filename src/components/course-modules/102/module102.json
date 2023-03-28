@@ -3,10 +3,10 @@
     {
       "slug": "1021",
       "introduction": [
-        "At the end of this lesson, you will know how to write blockchain queries using cardano-cli. The Cardano Command Line Interface, or cardano-cli, is included when you install Cardano Node.",
+        "At the end of this lesson, you will know how to write blockchain queries using cardano-cli. The Cardano Command Line Interface, or 'cardano-cli', is included when you install Cardano Node.",
         "Cardano Node is the software that runs the Cardano blockchain on a computer.",
         "We will practice writing queries with cardano-cli throughout Module 102. You will see that simple queries take only a moment to execute.",
-        "Setting up a Cardano Node so that you can make queries can tricky. In this lesson, we will explore two ways of accessing a Cardano Preprod Node."
+        "Setting up a Cardano Node so that you can make queries can be tricky. In this lesson, we will explore two ways of accessing a Cardano Preprod Node."
       ],
       "links": [
         { "url": "https://docs.cardano.org/learn/cardano-node", "linkText": "Official Docs: Cardano Node" },
@@ -106,7 +106,7 @@
       "introduction": [
         "Bash scripts, also known as Shell scripts, can make it very efficient to work on the command line.",
         "Scripts are used to automate processes, and can be used on remote servers to perform frequent actions.",
-        "In this course, we will scripts as a form of documentation. Take a look at the provided scripts and see how well you can read them."
+        "In this course, we will use scripts as a form of documentation. Take a look at the provided scripts and see how well you can read them."
       ],
       "links": [
         { "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl2023-plutus-template/-/tree/main/bash-scripts", "linkText": "View bash-scripts in PPBL2023 Plutus Template" },
