@@ -1,66 +1,82 @@
-import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
-import { Box, Heading, Text } from "@chakra-ui/react";
-import { Asset, Data, KoiosProvider } from "@meshsdk/core";
-import { useWallet, useAddress } from "@meshsdk/react";
-import { useEffect, useState } from "react";
-import { getContributorReferenceDatum } from "./referenceDatumHelpers";
+import { ConnectWalletMessage } from "@/src/components/ui/Text/ConnectWalletMessage";
+import { Box, Center, Flex, Grid, Heading, Spacer, Stack, Text } from "@chakra-ui/react";
+import { useWallet } from "@meshsdk/react";
 
-export declare type ContributorReferenceDatum = {
-  luckyNumber: number;
-  completedModules: string[];
+type Props = {
+  masteryStatus: {
+    ppblTokenName: string;
+    cliWallet: string;
+    successTx1: boolean;
+    successTx2: boolean;
+    luckyNumber: number;
+  };
 };
 
-const ContributorLuckyNumber = () => {
-  const { connected, wallet } = useWallet();
-
-  const [connectedContributorToken, setConnectedContributorToken] = useState<Asset | undefined>(undefined);
-  const [connectedContributorReferenceDatum, setConnectedContributorReferenceDatum] = useState<
-    ContributorReferenceDatum | undefined
-  >(undefined);
-
-  // When wallet is connected, look for a PPBL2023 Token in connected wallet
-  useEffect(() => {
-    const fetchContributorToken = async () => {
-      const _token = await wallet.getPolicyIdAssets(contributorTokenPolicyId);
-      if (_token.length > 0) {
-        setConnectedContributorToken(_token[0]);
-      }
-    };
-    if (connected) {
-      fetchContributorToken();
-    }
-  }, [connected]);
-
-  useEffect(() => {
-    const fetchContributorReferenceDatum = async () => {
-      if (connectedContributorToken) {
-        const _contributor =
-          connectedContributorToken.unit.substring(0, 56) + "313030" + connectedContributorToken.unit.substring(62);
-        const _contributorDatum = await getContributorReferenceDatum(_contributor);
-        setConnectedContributorReferenceDatum(_contributorDatum);
-      }
-    };
-
-    if (connectedContributorToken) {
-      fetchContributorReferenceDatum();
-    }
-  }, [connectedContributorToken]);
+const ContributorLuckyNumber: React.FC<Props> = ({ masteryStatus }) => {
+  const { connected } = useWallet();
 
   return (
-    <Box my="3" p="3" bg="theme.green" color="theme.dark">
-      <Text>What is your lucky number?</Text>
-        {connected ? (
-            <Text>
-                {connectedContributorToken ? (
-                    <Text>There is a PPBL2023 Token in the connected wallet.</Text>
-                ) : (
-                    <Text>There is no PPBL2023 Token in the connected wallet. If your PPBL2023 Token is currently in a CLI wallet, make sure to send it back to your browser wallet now.</Text>
-                )}
-                {connectedContributorReferenceDatum && (<Text>The lucky number for this PPBL2023 Token is {connectedContributorReferenceDatum.luckyNumber}</Text>)}
+    <Box my="3" bg="theme.lightGray">
+      <Box p="3" bg="theme.yellow" color="theme.dark">You will know you are successful if you connect a browser wallet and see that your lucky number different than 5.</Box>
+      <Box p="3">
+      <Flex direction={["column", "row"]}>
+        <Center p="5">
+          <Heading color="theme.yellow">Mastery Confirmation</Heading>
+        </Center>
+        <Spacer />
+        <Box w="50%" py="3">
+          {masteryStatus.luckyNumber == 5 ? (
+            <Text pb="3" fontSize="2xl">
+              To demonstrate mastery of SLTs 102.4 and 102.5, complete the Mastery Assignment above.
             </Text>
-        ) : (
-            <Text>Connect a wallet to see your lucky number</Text>
-        )}
+          ) : (
+            <Text pb="3" fontSize="2xl">
+              Congratulations, you changed your lucky number! At Live Coding, we will discuss if this sufficiently
+              &quot;proves&quot; that you have mastered SLTs 102.4 and 102.5.
+            </Text>
+          )}
+        </Box>
+      </Flex>
+      {connected ? (
+        <>
+          <Grid templateColumns="repeat(2, 1fr)" gap={5} color="theme.dark">
+            <Flex w="100%" direction={["column", "row"]}>
+              <Center w={["100%", "50%"]} bg="theme.light">
+                <Heading size="md">Contributor Token Name:</Heading>
+              </Center>
+              {masteryStatus.ppblTokenName.length > 0 ? (
+                <Center w={["100%", "50%"]} bg="theme.green" p="5">
+                  <Text fontSize="2xl">{masteryStatus.ppblTokenName}</Text>
+                </Center>
+              ) : (
+                <Center w={["100%", "50%"]} bg="theme.orange" p="5">
+                  <Text fontSize="2xl">No token found</Text>
+                </Center>
+              )}
+            </Flex>
+            <Flex w="100%" direction={["column", "row"]}>
+              <Center w={["100%", "50%"]} bg="theme.light">
+                <Heading size="md">Lucky Number:</Heading>
+              </Center>
+              {masteryStatus.luckyNumber == 5 ? (
+                <Center w={["100%", "50%"]} bg="theme.orange" p="5">
+                  <Text>
+                    Your Lucky Number is {masteryStatus.luckyNumber}. Try to change it by completing the assignment
+                    above.
+                  </Text>
+                </Center>
+              ) : (
+                <Center w={["100%", "50%"]} bg="theme.green" p="5">
+                  <Text fontSize="6xl">{masteryStatus.luckyNumber}</Text>
+                </Center>
+              )}
+            </Flex>
+          </Grid>
+        </>
+      ) : (
+        <ConnectWalletMessage />
+      )}
+      </Box>
     </Box>
   );
 };

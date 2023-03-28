@@ -1,7 +1,4 @@
-import AssignmentComponent from "@/src/components/lms/Lesson/AssignmentComponent";
-
 import Assignment1021 from "@/src/components/course-modules/102/Assignment1021.mdx";
-import GetHelp from "@/src/components/lms/Course/GetHelp";
 import MasteryAssignmentLayout from "@/src/components/lms/Lesson/MasteryAssignmentLayout";
 import CheckAssociatedWallet from "./cardano/CheckAssociatedWallet";
 

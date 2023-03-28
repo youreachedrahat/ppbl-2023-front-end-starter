@@ -21,6 +21,7 @@ const theme = extendTheme({
       lightGray: "#1c2634",
       cyan: "#00B5D8",
       yellow: "#EBBA6F",
+      orange: "#F6713C"
     },
   },
   fonts: {
