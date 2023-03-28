@@ -14,7 +14,7 @@ type refMetadatum = {
 
 export default function Contributors() {
 
-  const [searchTerm, setSearchTerm] = useState<string>('100PPBL2023');
+  const [searchTerm, setSearchTerm] = useState<string>('PPBL2023');
 
   const { data, loading, error } = useQuery(CONTRIBUTOR_TOKEN_QUERY, {
     variables: {
@@ -45,7 +45,7 @@ export default function Contributors() {
       </Head>
       <Box w={["95%", "70%"]} mx="auto" mb="4em">
         <Heading py="10" size="2xl">
-          PPBL Tokens:
+          PPBL 2023 Tokens:
         </Heading>
 
         <Flex direction="row" justify="flex-start" align={'center'}>
@@ -76,7 +76,7 @@ export default function Contributors() {
                 )
                 .map((utxo: any) => (
                   <Tr key={utxo}>
-                    <Td>{hexToString(utxo.tokens[0].asset.assetName)}</Td>
+                    <Td>{hexToString(utxo.tokens[0].asset.assetName.substring(6))}</Td>
                     <Td>
                       {utxo.datum.value.fields.map((item: refMetadatum) => (
                         <>
