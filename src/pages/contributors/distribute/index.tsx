@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { escrowAddress, escrowReferenceUTxO, projectAsset, contributorPolicyID, issuerPolicyID, metadataKey } from "gpte-config";
+import { escrowAddress, escrowReferenceUTxO, projectAsset, contributorPolicyID, issuerPolicyID, metadataKey, issuerAsset } from "gpte-config";
 import { gql, useQuery } from "@apollo/client";
 import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/data/queries/contributorQueries";
 import { Asset, Transaction, UTxO } from "@meshsdk/core";
@@ -57,6 +57,8 @@ export default function DistributePage(txHash: string) {
       </Head>
       <Box>
         <Heading>Distribute Commitment</Heading>
+        <Text>{connectedAddress}</Text>
+        <Text>Todo: Add check for connected issuerAsset: {issuerAsset}</Text>
         <Box>
           {data.utxos.map((utxo: any) => (
             <Box key={utxo.txHash}>

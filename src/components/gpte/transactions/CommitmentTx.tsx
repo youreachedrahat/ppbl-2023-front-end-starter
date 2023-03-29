@@ -1,5 +1,28 @@
-import { Box, Button, Heading, Text, useDisclosure, useToast } from "@chakra-ui/react";
-import { Action, Asset, AssetExtended, Data, resolveDataHash, resolvePaymentKeyHash, Transaction, UTxO } from "@meshsdk/core";
+import {
+  Box,
+  Button,
+  Heading,
+  Text,
+  useDisclosure,
+  useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  Spacer,
+} from "@chakra-ui/react";
+import {
+  Action,
+  Asset,
+  AssetExtended,
+  Data,
+  resolveDataHash,
+  resolvePaymentKeyHash,
+  Transaction,
+  UTxO,
+} from "@meshsdk/core";
 import { useAddress, useWallet } from "@meshsdk/react";
 import { useEffect, useState } from "react";
 import { GraphQLUTxO } from "@/src/types/cardanoGraphQL";
@@ -8,9 +31,9 @@ import { ProjectDatum, ProjectTxMetadata } from "@/src/types/project";
 import { GraphQLToDatum, GraphQLToMeshUTxO, stringToHex } from "@/src/utils";
 
 type Props = {
-    selectedProject: string;
-    treasuryUTxO: GraphQLUTxO;
-  };
+  selectedProject: string;
+  treasuryUTxO: GraphQLUTxO;
+};
 
 const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
   const { connected, wallet } = useWallet();
@@ -199,7 +222,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
 
       const gimbalsAtTreasury = assetsAtTreasury.filter((asset) => asset.unit === projectAsset);
       const numberGimbalsAtTreasury = parseInt(gimbalsAtTreasury[0].quantity);
-      const numberGimbalsBackToTreasury = numberGimbalsAtTreasury - 10
+      const numberGimbalsBackToTreasury = numberGimbalsAtTreasury - 10;
 
       // Not using in this course tracking implementation of GPTE
       // Calculate the number of tgimbals that will be sent back to Treasury
@@ -310,16 +333,17 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
     }
   };
 
-
   return (
+    <>
       <Box py="3">
         <Heading py="3">Commit to {selectedProject}</Heading>
-        <Button colorScheme="orange" onClick={handleCommitmentTx}>
+        <Button colorScheme="orange" onClick={onConfirmationOpen}>
           Commit to {selectedProject}
         </Button>
 
-        <Box m="2" p="5" bg="white" color="black">
-          <Heading size="md">Dev Stuff - remove or hide</Heading>
+        {/* DEV STUFF */}
+        {/* <Box m="2" p="5" bg="theme.light" color="theme.dark">
+          <Heading size="md">Dev Stuff</Heading>
           <Text>Connnected at {address}</Text>
           <Text>With Contrib Token: {JSON.stringify(connectedContributorToken)}</Text>
           <Text py="3">
@@ -334,8 +358,42 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
           <Text py="3">
             Escrow Datum: <pre>{JSON.stringify(constructedProjectDatum, null, 2)}</pre>
           </Text>
-        </Box>
+        </Box> */}
       </Box>
+      <Modal blockScrollOnMount={false} isOpen={isSuccessOpen} onClose={onSuccessClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Successful Commitment to {selectedProject}</ModalHeader>
+          <ModalBody>
+            <Text py="2">Transaction ID: {successfulTxHash}</Text>
+            <Text py="2">It may take a few minutes for this tx to show up on a blockchain explorer.</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button bg="white" color="gray.700" onClick={onSuccessClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal blockScrollOnMount={false} isOpen={isConfirmationOpen} onClose={onConfirmationClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Confirmation Commitment to {selectedProject}</ModalHeader>
+          <ModalBody>
+            <Text py="2">Your PPBL 2023 Token will be locked.</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="orange" onClick={handleCommitmentTx}>
+              Commit to {selectedProject}
+            </Button>
+            <Spacer />
+            <Button bg="white" color="gray.700" onClick={onConfirmationClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

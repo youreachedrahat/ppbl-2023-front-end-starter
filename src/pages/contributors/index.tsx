@@ -74,24 +74,24 @@ export default function Contributors() {
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase())
                 )
-                .map((utxo: any) => (
-                  <Tr key={utxo}>
+                .map((utxo: any, i: number) => (
+                  <Tr key={i}>
                     <Td>{hexToString(utxo.tokens[0].asset.assetName.substring(6))}</Td>
                     <Td>
-                      {utxo.datum.value.fields.map((item: refMetadatum) => (
-                        <>
+                      {utxo.datum.value.fields.map((item: refMetadatum, j: number) => (
+                        <Box key={j}>
                           {item.int ? (
-                            <Tr key={null}>{item.int}</Tr>
+                            <Text>{item.int}</Text>
                           ) : null}
-                        </>
+                        </Box>
                       ))}
                     </Td>
                     <Td>
                       {utxo.datum.value.fields.map((item: refMetadatum) => (
                         <>
                         {item.list?
-                          item.list.map((item2: {"bytes": string}) => (
-                            <Tr key={null}>{hexToString(item2.bytes)}</Tr>
+                          item.list.map((item2: {"bytes": string}, k: number) => (
+                            <Text key={k} fontSize="xs" >{hexToString(item2.bytes)}</Text>
                         ))
                         :
                         null
