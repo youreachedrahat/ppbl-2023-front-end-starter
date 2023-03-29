@@ -19,42 +19,42 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
   const [connectedPKH, setConnectedPKH] = useState<string>("");
   const [connectedContributorToken, setConnectedContributorToken] = useState<AssetExtended | undefined>(undefined);
   const [connectedUtxos, setConnectedUtxos] = useState<UTxO[]>([]);
-  
+
   const treasuryContractUTxO = GraphQLToMeshUTxO(treasuryUTxO);
   const treasuryContractDatum = GraphQLToDatum(treasuryUTxO);
-  
+
   const constructedTreasuryDatum: Data = {
     alternative: 0,
     fields: [treasuryContractDatum, "5050424c3230323354656163686572"],
   };
-  
+
   const newTreasuryDatumHash = resolveDataHash(constructedTreasuryDatum);
-  
+
   // UI Helpers:
   const [txLoading, setTxLoading] = useState(false);
   const [successfulTxHash, setSuccessfulTxHash] = useState<string | null>(null);
   const [loadContrib, setLoadContrib] = useState(true);
-  
+
   // Commitment can expire after any specified amount of time
   const [expirationTime, setExpirationTime] = useState(0); // POSIX time, in milliseconds
   const [expirationDate, setExpirationDate] = useState(""); // user-friendly date string
-  
+
   // Specific to each Project:
   const [currentProjectDatum, setCurrentProjectDatum] = useState<ProjectDatum | null>(null);
   const [currentTreasuryRedeemer, setCurrentTreasuryRedeemer] = useState<Partial<Action> | null>(null);
   const [projectDatumHash, setProjectDatumHash] = useState<string>("");
   const [projectTxMetadata, setProjectTxMetadata] = useState<ProjectTxMetadata | null>(null);
   const [constructedProjectDatum, setConstructedProjectDatum] = useState<Data | undefined>(undefined);
-  
+
   // Transaction Building:
   const [utxoBackToTreasury, setUtxoBackToTreasury] = useState<Partial<UTxO> | undefined>(undefined);
   const [utxoToProjectEscrow, setUtxoToProjectEscrow] = useState<Partial<UTxO> | undefined>(undefined);
-  
+
   // For Chakra Modal:
   const { isOpen: isConfirmationOpen, onOpen: onConfirmationOpen, onClose: onConfirmationClose } = useDisclosure();
   const { isOpen: isSuccessOpen, onOpen: onSuccessOpen, onClose: onSuccessClose } = useDisclosure();
   const toast = useToast();
-  
+
   // Set current time and expirationTime
   useEffect(() => {
     const _expTime = new Date(Date.now());
@@ -65,11 +65,11 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
     setExpirationTime(result);
     setExpirationDate(resultString);
   }, []);
-  
+
   useEffect(() => {
     if (!utxoBackToTreasury) setLoadContrib(false);
   });
-  
+
   // Check the connected wallet for Contributor tokens
   // If there are many, return the first one in the list returned by getPolicyIdAssets
   // To do: Implement Contributor token selection
@@ -80,21 +80,21 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
         setConnectedContributorToken(_token[0]);
       }
     };
-  
+
     const fetchContributorUtxo = async () => {
       const _utxos = await wallet.getUtxos();
       if (_utxos.length > 0) {
         setConnectedUtxos(_utxos);
       }
     };
-  
+
     if (connected) {
       fetchContributorToken();
       fetchContributorUtxo();
       setLoadContrib(true);
     }
   }, [connected, loadContrib]);
-  
+
   // Get the pkh of specific address for the UTxO holding Contributor Token
   // This allows us to handle wallets with multiple derived addresses
   useEffect(() => {
@@ -109,7 +109,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
       setConnectedPKH(result);
     }
   }, [connectedUtxos]);
-  
+
   // Create the Project Datum and Project Metadata
   // Trigger useEffect to update when wallet is connected, or if expirationTime changes
   useEffect(() => {
@@ -122,7 +122,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
     };
     const _metadata: ProjectTxMetadata = {
       id: selectedProject,
-      hash: selectedProject,
+      hash: stringToHex(selectedProject),
       expTime: expirationTime,
       txType: "Commitment",
       contributor: connectedPKH,
@@ -130,7 +130,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
     setCurrentProjectDatum(_result);
     setProjectTxMetadata(_metadata);
   }, [connected, expirationTime, connectedPKH, selectedProject]);
-  
+
   // constructedProjectDatum is formatted for serialized transaction, using Mesh Data type
   useEffect(() => {
     if (currentProjectDatum) {
@@ -144,14 +144,14 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
           currentProjectDatum.projectHash,
         ],
       };
-  
+
       console.log("Build Escrow Datum:", _datumConstructor);
       setConstructedProjectDatum(_datumConstructor);
       const result = resolveDataHash(_datumConstructor);
       setProjectDatumHash(result);
     }
   }, [currentProjectDatum]);
-  
+
   // Set the data treasuryRedeemer to match constructedProjectDatum,
   // because in GPTE Contracts, the Treasury Redeemer and Project Datum consist of the same parameters.
   useEffect(() => {
@@ -165,7 +165,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
       setCurrentTreasuryRedeemer(_treasuryRedeemer);
     }
   }, [constructedProjectDatum]);
-  
+
   // Create the UTxOs to be included in .sendValue() to Treasury and Escrow contracts
   // UTxO type looks like this:
   // -----------------------------------------------------------
@@ -191,7 +191,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
   useEffect(() => {
     if (connectedContributorToken && treasuryUTxO) {
       const assetsAtTreasury: Asset[] = treasuryContractUTxO.output.amount;
-  
+
       // Calculate the number of Lovelace that will be sent back to Treasury
       const lovelaceAtTreasury = assetsAtTreasury.filter((asset) => asset.unit === "lovelace");
       const numberLovelaceAtTreasury = parseInt(lovelaceAtTreasury[0].quantity);
@@ -200,7 +200,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
       const gimbalsAtTreasury = assetsAtTreasury.filter((asset) => asset.unit === projectAsset);
       const numberGimbalsAtTreasury = parseInt(gimbalsAtTreasury[0].quantity);
       const numberGimbalsBackToTreasury = numberGimbalsAtTreasury - 10
-  
+
       // Not using in this course tracking implementation of GPTE
       // Calculate the number of tgimbals that will be sent back to Treasury
       // const gimbalsAtTreasury = assetsAtTreasury.filter(
@@ -317,7 +317,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
         <Button colorScheme="orange" onClick={handleCommitmentTx}>
           Commit to {selectedProject}
         </Button>
-  
+
         <Box m="2" p="5" bg="white" color="black">
           <Heading size="md">Dev Stuff - remove or hide</Heading>
           <Text>Connnected at {address}</Text>
