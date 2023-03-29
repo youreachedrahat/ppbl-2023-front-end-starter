@@ -12,6 +12,8 @@ import {
   ModalFooter,
   ModalHeader,
   Spacer,
+  Flex,
+  Center,
 } from "@chakra-ui/react";
 import {
   Action,
@@ -335,31 +337,18 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
 
   return (
     <>
-      <Box py="3">
-        <Heading py="3">Commit to {selectedProject}</Heading>
-        <Button colorScheme="orange" onClick={onConfirmationOpen}>
-          Commit to {selectedProject}
-        </Button>
-
-        {/* DEV STUFF */}
-        {/* <Box m="2" p="5" bg="theme.light" color="theme.dark">
-          <Heading size="md">Dev Stuff</Heading>
-          <Text>Connnected at {address}</Text>
-          <Text>With Contrib Token: {JSON.stringify(connectedContributorToken)}</Text>
-          <Text py="3">
-            Treasury Datum: <pre>{JSON.stringify(constructedTreasuryDatum, null, 2)}</pre>
-          </Text>
-          <Text py="3">
-            Treasury Datum Hash: <pre>{newTreasuryDatumHash}</pre>
-          </Text>
-          <Text py="3">
-            Treasury Redeemer: <pre>{JSON.stringify(currentTreasuryRedeemer, null, 2)}</pre>
-          </Text>
-          <Text py="3">
-            Escrow Datum: <pre>{JSON.stringify(constructedProjectDatum, null, 2)}</pre>
-          </Text>
-        </Box> */}
-      </Box>
+      <Flex direction={["column", "row"]} maxW={["100%", "50%", "30%"]} p="3" my="3" border="1px" borderRadius="md" dropShadow="lg" bg="theme.lightGray">
+        <Spacer />
+        <Center w={["100%", "50%"]}>
+          <Text py="1" fontSize="2xl">Commit to {selectedProject}</Text>
+        </Center>
+        <Center>
+          <Button colorScheme="orange" onClick={onConfirmationOpen} size="sm">
+            Commit to {selectedProject}
+          </Button>
+        </Center>
+        <Spacer />
+      </Flex>
       <Modal blockScrollOnMount={false} isOpen={isSuccessOpen} onClose={onSuccessClose}>
         <ModalOverlay />
         <ModalContent>
@@ -398,3 +387,26 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
 };
 
 export default CommitmentTx;
+
+{
+  /* OPTIONAL DEV STUFF - can be good for teaching + documentation */
+}
+{
+  /* <Box m="2" p="5" bg="theme.light" color="theme.dark">
+  <Heading size="md">Dev Stuff</Heading>
+  <Text>Connnected at {address}</Text>
+  <Text>With Contrib Token: {JSON.stringify(connectedContributorToken)}</Text>
+  <Text py="3">
+    Treasury Datum: <pre>{JSON.stringify(constructedTreasuryDatum, null, 2)}</pre>
+  </Text>
+  <Text py="3">
+    Treasury Datum Hash: <pre>{newTreasuryDatumHash}</pre>
+  </Text>
+  <Text py="3">
+    Treasury Redeemer: <pre>{JSON.stringify(currentTreasuryRedeemer, null, 2)}</pre>
+  </Text>
+  <Text py="3">
+    Escrow Datum: <pre>{JSON.stringify(constructedProjectDatum, null, 2)}</pre>
+  </Text>
+</Box> */
+}

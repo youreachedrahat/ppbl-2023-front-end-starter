@@ -34,6 +34,7 @@ export default function CommitToCurrentProject() {
     setSelectedProject(project);
   };
 
+
   return (
     <Box my="5" p="5" bg="#343434">
       <Heading color="white">Current List of Projects</Heading>
