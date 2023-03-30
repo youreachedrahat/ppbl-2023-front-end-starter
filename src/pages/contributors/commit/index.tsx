@@ -1,5 +1,19 @@
 import { useQuery, gql } from "@apollo/client";
-import { Box, Heading, Text, Center, Spinner, Grid, UnorderedList, ListItem, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Center,
+  Spinner,
+  Grid,
+  UnorderedList,
+  ListItem,
+  Button,
+  AccordionItem,
+  AccordionPanel,
+  Accordion,
+  AccordionButton,
+} from "@chakra-ui/react";
 
 import { projectAsset, treasury } from "gpte-config";
 import { GraphQLToken, GraphQLUTxO } from "@/src/types/cardanoGraphQL";
@@ -33,44 +47,48 @@ export default function CommitToCurrentProject() {
   return (
     <Box my="5" p="5" bg="#343434">
       <Heading color="white">Current List of Projects</Heading>
-      {ppblContext.connectedContribToken && (<Text>{ppblContext.connectedContribToken}</Text>)}
-      <Heading>Here is the Treasury UTxO - from useContext</Heading>
-      <pre>
-        {JSON.stringify(ppblContext.treasuryUTxO, null, 2)}
-      </pre>
+      {ppblContext.connectedContribToken && <Text>{ppblContext.connectedContribToken}</Text>}
 
-      <Heading>Current Treasury Datum</Heading>
-      <Text py="3" w="50%">
-        Here is the inline datum at the Treasury UTxO. We can use it to make a list of approved Projects, whether these
-        projects are Course Modules, or funded Projects. Use any part of this component to start making good-looking
-        GPTE examples!
-      </Text>
-      {ppblContext.treasuryUTxO && (
-        <pre>{JSON.stringify(ppblContext?.treasuryUTxO?.datum?.value.fields[0].list, null, 2)}</pre>
-      )}
-
-      <Heading py="3" size="md">
-        Using provided hexToString() function:
-      </Heading>
-      <UnorderedList>
-        {ppblContext.treasuryUTxO?.datum?.value.fields[0].list.map((d: any) => (
-          <ListItem key={null}>{hexToString(d.bytes)}</ListItem>
-        ))}
-      </UnorderedList>
+      <Accordion allowToggle>
+        <AccordionItem>
+          <AccordionButton>
+            <Text>DEV STUFF</Text>
+          </AccordionButton>
+          <AccordionPanel>
+            <Heading>Here is the Treasury UTxO - from useContext</Heading>
+            <pre>{JSON.stringify(ppblContext.treasuryUTxO, null, 2)}</pre>
+            <Heading>Current Treasury Datum</Heading>
+            <Text py="3" w="50%">
+              Here is the inline datum at the Treasury UTxO. We can use it to make a list of approved Projects, whether
+              these projects are Course Modules, or funded Projects. Use any part of this component to start making
+              good-looking GPTE examples!
+            </Text>
+            {ppblContext.treasuryUTxO && (
+              <pre>{JSON.stringify(ppblContext?.treasuryUTxO?.datum?.value.fields[0].list, null, 2)}</pre>
+            )}
+            <Heading py="3" size="md">
+              Using provided hexToString() function:
+            </Heading>
+            <UnorderedList>
+              {ppblContext.treasuryUTxO?.datum?.value.fields[0].list.map((d: any) => (
+                <ListItem key={null}>{hexToString(d.bytes)}</ListItem>
+              ))}
+            </UnorderedList>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
 
       <Heading color="white" pt="5">
-        Commit to Projects
+        Commit to Module 103
       </Heading>
-      <Text py="2">Use the treasury query above to allow Contributor to select from list.</Text>
-      <Text py="2">To do for PPBL2023: How can we add contract logic to allow commitment to certain modules?</Text>
-      <Text py="2">For now, this template allows Contributor to select any approved project from a list.</Text>
       <Heading py="3">Choose a Module or Project to Commit To:</Heading>
-      {ppblContext.treasuryUTxO && ppblContext.treasuryUTxO.datum?.value.fields[0].list.map((d: any) => (
-        <Button key={null} colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
-          {hexToString(d.bytes)}
-        </Button>
-      ))}
-      {selectedProject && ppblContext.treasuryUTxO && <CommitmentTx selectedProject={selectedProject} treasuryUTxO={ppblContext.treasuryUTxO} />}
+      {ppblContext.treasuryUTxO &&
+        ppblContext.treasuryUTxO.datum?.value.fields[0].list.map((d: any) => (
+          <Button key={null} colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
+            {hexToString(d.bytes)}
+          </Button>
+        ))}
+      {selectedProject && ppblContext.treasuryUTxO && <CommitmentTx selectedProject={selectedProject} />}
     </Box>
   );
 }

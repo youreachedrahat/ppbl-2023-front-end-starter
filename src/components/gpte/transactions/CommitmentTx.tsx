@@ -26,34 +26,56 @@ import {
   UTxO,
 } from "@meshsdk/core";
 import { useAddress, useWallet } from "@meshsdk/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import { contributorPolicyID, escrow, projectAsset, treasury, treasuryReferenceUTxO } from "@/gpte-config";
 import { ProjectDatum, ProjectTxMetadata } from "@/src/types/project";
 import { GraphQLToDatum, GraphQLToMeshUTxO, stringToHex } from "@/src/utils";
+import { PPBLContext } from "@/src/context/PPBLContext";
+import { ConnectWalletMessage } from "../../ui/Text/ConnectWalletMessage";
 
 type Props = {
   selectedProject: string;
-  treasuryUTxO: GraphQLUTxO;
 };
 
-const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
+const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
   const { connected, wallet } = useWallet();
   const address = useAddress();
+
+  const ppblContext = useContext(PPBLContext);
+
   const [contributorAddress, setContributorAddress] = useState<string>("");
   const [connectedPKH, setConnectedPKH] = useState<string>("");
   const [connectedContributorToken, setConnectedContributorToken] = useState<AssetExtended | undefined>(undefined);
   const [connectedUtxos, setConnectedUtxos] = useState<UTxO[]>([]);
 
-  const treasuryContractUTxO = GraphQLToMeshUTxO(treasuryUTxO);
-  const treasuryContractDatum = GraphQLToDatum(treasuryUTxO);
+  const [treasuryContractUTxO, setTreasuryContractUTxO] = useState<UTxO | undefined>(undefined);
+  const [treasuryContractDatum, setTreasuryContractDatum] = useState<string[] | undefined>(undefined);
+  const [constructedTreasuryDatum, setConstructedTreasuryDatum] = useState<Data | undefined>(undefined);
+  const [newTreasuryDatumHash, setNewTreasuryDatumHash] = useState<string | undefined>(undefined);
 
-  const constructedTreasuryDatum: Data = {
-    alternative: 0,
-    fields: [treasuryContractDatum, "5050424c3230323354656163686572"],
-  };
+  useEffect(() => {
+    if (ppblContext.treasuryUTxO) {
+      setTreasuryContractUTxO(GraphQLToMeshUTxO(ppblContext.treasuryUTxO));
+      setTreasuryContractDatum(GraphQLToDatum(ppblContext.treasuryUTxO));
+    }
+  }, [ppblContext]);
 
-  const newTreasuryDatumHash = resolveDataHash(constructedTreasuryDatum);
+  useEffect(() => {
+    if (treasuryContractDatum) {
+      const _constructedTreasuryDatum: Data = {
+        alternative: 0,
+        fields: [treasuryContractDatum, "5050424c3230323354656163686572"],
+      };
+      setConstructedTreasuryDatum(_constructedTreasuryDatum);
+    }
+  }, [treasuryContractDatum]);
+
+  useEffect(() => {
+    if (constructedTreasuryDatum) {
+      setNewTreasuryDatumHash(resolveDataHash(constructedTreasuryDatum));
+    }
+  }, [constructedTreasuryDatum]);
 
   // UI Helpers:
   const [txLoading, setTxLoading] = useState(false);
@@ -214,7 +236,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
   // Note also that Asset[] is constructed first for each UTxO.
   // If you are unfamiliar with TypeScript, this is a helpful example to study.
   useEffect(() => {
-    if (connectedContributorToken && treasuryUTxO) {
+    if (connectedContributorToken && ppblContext.treasuryUTxO && treasuryContractUTxO) {
       const assetsAtTreasury: Asset[] = treasuryContractUTxO.output.amount;
 
       // Calculate the number of Lovelace that will be sent back to Treasury
@@ -337,18 +359,36 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject, treasuryUTxO }) => {
 
   return (
     <>
-      <Flex direction={["column", "row"]} maxW={["100%", "50%", "30%"]} p="3" my="3" border="1px" borderRadius="md" dropShadow="lg" bg="theme.lightGray">
-        <Spacer />
-        <Center w={["100%", "50%"]}>
-          <Text py="1" fontSize="2xl">Commit to {selectedProject}</Text>
-        </Center>
-        <Center>
-          <Button colorScheme="orange" onClick={onConfirmationOpen} size="sm">
-            Commit to {selectedProject}
-          </Button>
-        </Center>
-        <Spacer />
-      </Flex>
+      <Center mx="auto">
+        <Box border="1px" borderRadius="md" borderColor="theme.light" p="2">
+          <Box bg="theme.green" color="theme.dark" p="1">
+            <Text fontSize="xs">Commit to</Text>
+          </Box>
+          <Box bg="theme.light" color="theme.dark" p="2">
+            <Text fontSize="xl">{selectedProject}</Text>
+          </Box>
+          {connected ? (
+            <>
+              <Box bg="theme.green" color="theme.dark" p="1" mt="2">
+                <Text fontSize="xs">Tx will lock Contributor Token:</Text>
+              </Box>
+              <Box bg="theme.light" color="theme.dark" p="2">
+                <Text fontSize="xl">{ppblContext.connectedContribToken}</Text>
+              </Box>
+              <Center w={["100%"]} mt="2">
+                <Button colorScheme="orange" onClick={onConfirmationOpen} size="sm">
+                  Commit to {selectedProject}
+                </Button>
+              </Center>
+            </>
+          ) : (
+            <Box mt="2">
+              <ConnectWalletMessage />
+            </Box>
+          )}
+        </Box>
+      </Center>
+
       <Modal blockScrollOnMount={false} isOpen={isSuccessOpen} onClose={onSuccessClose}>
         <ModalOverlay />
         <ModalContent>

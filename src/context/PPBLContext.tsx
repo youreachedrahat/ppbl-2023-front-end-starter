@@ -1,4 +1,4 @@
-import { useAddress } from "@meshsdk/react";
+import { useAddress, useWallet } from "@meshsdk/react";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Heading, Center, Spinner } from "@chakra-ui/react";
@@ -6,6 +6,9 @@ import { Heading, Center, Spinner } from "@chakra-ui/react";
 import { projectAsset, treasury } from "gpte-config";
 import { GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import { TREASURY_UTXO_QUERY } from "@/src/data/queries/treasuryQueries";
+import { Asset } from "@meshsdk/core";
+import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
+import { hexToString } from "@/src/utils";
 
 
 interface CurrentPPBLContext {
@@ -34,6 +37,11 @@ const PPBLContextProvider: React.FC<Props> = ({ children }) => {
   const [currentContext, setCurrentContext] = useState<CurrentPPBLContext>(initialContext)
   const [myMessage, setMyMessage] = useState("I am in my initial state!");
   const [currentTreasuryUTxO, setCurrentTreasuryUTxO] = useState<GraphQLUTxO | undefined>(undefined);
+
+  const [connectedContributorToken, setConnectedContributorToken] = useState<Asset | undefined>(undefined);
+  const [contribTokenName, setContribTokenName] = useState<string | undefined>(undefined);
+
+  const { connected, wallet } = useWallet();
   const address = useAddress();
 
   const { data, loading, error } = useQuery(TREASURY_UTXO_QUERY, {
@@ -50,17 +58,43 @@ const PPBLContextProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     const newContext: CurrentPPBLContext = {
-        connectedContribToken: myMessage,
+        connectedContribToken: contribTokenName,
         treasuryUTxO: currentTreasuryUTxO
     }
     setCurrentContext(newContext)
-  }, [myMessage, currentTreasuryUTxO])
+  }, [contribTokenName, currentTreasuryUTxO])
 
   useEffect(() => {
     if(data && data.utxos.length == 1) {
         setCurrentTreasuryUTxO(data.utxos[0])
     }
   }, [data])
+
+  useEffect(() => {
+    const fetchContributorToken = async () => {
+      const _token = await wallet.getPolicyIdAssets(contributorTokenPolicyId);
+      if (_token.length > 0) {
+        setConnectedContributorToken(_token[0]);
+      }
+    };
+    if (connected) {
+      fetchContributorToken();
+    }
+  }, [connected]);
+
+  useEffect(() => {
+    const fetchContributorReferenceDatum = async () => {
+      if (connectedContributorToken) {
+        const _hexName = connectedContributorToken.unit.substring(62)
+        const _tokenName = hexToString(_hexName)
+        setContribTokenName(_tokenName)
+      }
+    };
+
+    if (connectedContributorToken) {
+      fetchContributorReferenceDatum();
+    }
+  }, [connectedContributorToken]);
 
   if (loading) {
     return (
