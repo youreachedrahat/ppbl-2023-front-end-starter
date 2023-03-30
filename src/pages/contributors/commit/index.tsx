@@ -52,6 +52,20 @@ export default function CommitToCurrentProject() {
         <Heading color="white">Current List of Projects</Heading>
         {ppblContext.connectedContribToken && <Text py="3">Connected Token: {ppblContext.connectedContribToken}</Text>}
 
+        <Heading color="white" pt="5" fontWeight="300">
+          Commit to Module 103
+        </Heading>
+        <Grid templateColumns="repeat(2, 1fr)" gap="5">
+          {ppblContext.treasuryUTxO &&
+            ppblContext.treasuryUTxO.datum?.value.fields[0].list.map((d: any) => (
+              <Button key={null} colorScheme="green" onClick={() => handleChooseProject(hexToString(d.bytes))}>
+                {hexToString(d.bytes)}
+              </Button>
+            ))}
+        </Grid>
+        <Box my="5">
+          {selectedProject && ppblContext.treasuryUTxO && <CommitmentTx selectedProject={selectedProject} />}
+        </Box>
         <Accordion allowToggle>
           <AccordionItem>
             <AccordionButton>
@@ -80,17 +94,6 @@ export default function CommitToCurrentProject() {
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
-
-        <Heading color="white" pt="5" fontWeight="300">
-          Commit to Module 103
-        </Heading>
-        {ppblContext.treasuryUTxO &&
-          ppblContext.treasuryUTxO.datum?.value.fields[0].list.map((d: any) => (
-            <Button key={null} colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
-              {hexToString(d.bytes)}
-            </Button>
-          ))}
-        {selectedProject && ppblContext.treasuryUTxO && <CommitmentTx selectedProject={selectedProject} />}
       </Box>
     </>
   );
