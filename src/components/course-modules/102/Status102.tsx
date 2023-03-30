@@ -1,19 +1,14 @@
 import { Flex } from "@chakra-ui/react";
 import * as React from "react";
 import { StatusBox } from "@/src/components/lms/Status/StatusBox";
+import { Mastery102Context } from "@/src/pages/modules/102/[lesson]";
 
 type Props = {
   children?: React.ReactNode;
-  masteryStatus: {
-    ppblTokenName: string;
-    cliWallet: string;
-    successTx1: boolean;
-    successTx2: boolean;
-    luckyNumber: number;
-  };
 };
 
-const Status102: React.FC<Props> = ({ children, masteryStatus }) => {
+const Status102: React.FC<Props> = ({ children }) => {
+  const masteryStatus = React.useContext(Mastery102Context)
 
   return (
     <Flex direction="row" justifyContent="center" alignItems="center">

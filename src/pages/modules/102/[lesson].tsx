@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, use } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useWallet, useAddress } from "@meshsdk/react";
 
 import SLTs102 from "@/src/components/course-modules/102/102-SLTs";
@@ -28,7 +28,7 @@ import {
 } from "@/src/components/course-modules/102/cardano/referenceDatumHelpers";
 import { hexToString } from "@/src/utils";
 
-const Mastery102Context = createContext({
+export const Mastery102Context = createContext({
   ppblTokenName: "",
   cliWallet: "",
   successTx1: false,
@@ -261,7 +261,7 @@ const Module102Lessons = () => {
         modulePath="/modules/102"
         selected={0}
         lessons={lessons}
-        status={<Status102 masteryStatus={mastery} />}
+        status={<Status102 />}
       />
     </Mastery102Context.Provider>
   );
