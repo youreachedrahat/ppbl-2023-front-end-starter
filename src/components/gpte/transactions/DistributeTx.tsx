@@ -47,7 +47,6 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
       const _datum = await getInlineDatumForContributorReference(referenceAssetId);
 
       const _luckyNumber = _datum.fields[0].int
-      // Just a list:
 
       const _completedModules: string[] = []
 
