@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Heading,
   Text,
   useDisclosure,
   useToast,
@@ -12,7 +11,6 @@ import {
   ModalFooter,
   ModalHeader,
   Spacer,
-  Flex,
   Center,
 } from "@chakra-ui/react";
 import {
@@ -25,9 +23,8 @@ import {
   Transaction,
   UTxO,
 } from "@meshsdk/core";
-import { useAddress, useWallet } from "@meshsdk/react";
+import { useWallet } from "@meshsdk/react";
 import { useContext, useEffect, useState } from "react";
-import { GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import { contributorPolicyID, escrow, projectAsset, treasury, treasuryReferenceUTxO } from "@/gpte-config";
 import { ProjectDatum, ProjectTxMetadata } from "@/src/types/project";
 import { GraphQLToDatum, GraphQLToMeshUTxO, stringToHex } from "@/src/utils";
@@ -40,7 +37,6 @@ type Props = {
 
 const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
   const { connected, wallet } = useWallet();
-  const address = useAddress();
 
   const ppblContext = useContext(PPBLContext);
 
@@ -52,6 +48,8 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
   const [treasuryContractUTxO, setTreasuryContractUTxO] = useState<UTxO | undefined>(undefined);
   const [treasuryContractDatum, setTreasuryContractDatum] = useState<string[] | undefined>(undefined);
   const [constructedTreasuryDatum, setConstructedTreasuryDatum] = useState<Data | undefined>(undefined);
+
+  // newTreasuryDatumHash is shown in "Dev Stuff", which is currently commented out at the bottom of this file
   const [newTreasuryDatumHash, setNewTreasuryDatumHash] = useState<string | undefined>(undefined);
 
   useEffect(() => {
@@ -117,9 +115,8 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
     if (!utxoBackToTreasury) setLoadContrib(false);
   });
 
-  // Check the connected wallet for Contributor tokens
+  // Check the connected wallet for a PPBL 2023 Contributor token
   // If there are many, return the first one in the list returned by getPolicyIdAssets
-  // To do: Implement Contributor token selection
   useEffect(() => {
     const fetchContributorToken = async () => {
       const _token = await wallet.getPolicyIdAssets(contributorPolicyID);
@@ -143,7 +140,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
   }, [connected, loadContrib]);
 
   // Get the pkh of specific address for the UTxO holding Contributor Token
-  // This allows us to handle wallets with multiple derived addresses
+  // This allows us to handle wallets with multiple derived addresses, like Eternl.
   useEffect(() => {
     if (connectedUtxos && connectedContributorToken) {
       const utxoWithContribToken = connectedUtxos.filter(
@@ -159,6 +156,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
 
   // Create the Project Datum and Project Metadata
   // Trigger useEffect to update when wallet is connected, or if expirationTime changes
+  // For now, a Module Commitment will include 2 tADA and 10 tGimbals
   useEffect(() => {
     const _result: ProjectDatum = {
       contributorPkh: connectedPKH,
@@ -248,16 +246,6 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
       const numberGimbalsAtTreasury = parseInt(gimbalsAtTreasury[0].quantity);
       const numberGimbalsBackToTreasury = numberGimbalsAtTreasury - 10;
 
-      // Not using in this course tracking implementation of GPTE
-      // Calculate the number of tgimbals that will be sent back to Treasury
-      // const gimbalsAtTreasury = assetsAtTreasury.filter(
-      //   (asset) => asset.unit === projectAsset
-      // );
-      // const gimbalsInCommitment = gimbalsWithZeros;
-      // const numberGimbalsAtTreasury = parseInt(gimbalsAtTreasury[0].quantity);
-      // const numberGimbalsBackToTreasury =
-      //   numberGimbalsAtTreasury - gimbalsInCommitment;
-
       // Create Asset[] for each output UTxO
       const _assetsBackToTreasury: Asset[] = [
         {
@@ -270,7 +258,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
         },
       ];
 
-      // Replace these amounts with dynamic values (form / selection)
+      // In a full GPTE implementation, we would replace these token amounts with dynamic values
       const _assetsToProjectEscrow: Asset[] = [
         {
           unit: "lovelace",
@@ -345,7 +333,9 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
         const signedTx = await wallet.signTx(unsignedTx, true);
         const txHash = await wallet.submitTx(signedTx);
         setSuccessfulTxHash(txHash);
+        console.log("Success!", txHash);
         onSuccessOpen();
+        onConfirmationClose();
       } catch (error: any) {
         if (error.info) {
           alert(error.info);
@@ -367,7 +357,7 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
           <Box bg="theme.light" color="theme.dark" p="2">
             <Text fontSize="xl">{selectedProject}</Text>
           </Box>
-          {connected ? (
+          {connected && ppblContext.connectedContribToken ? (
             <>
               <Box bg="theme.green" color="theme.dark" p="1" mt="2">
                 <Text fontSize="xs">Tx will lock Contributor Token:</Text>
@@ -382,9 +372,17 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
               </Center>
             </>
           ) : (
-            <Box mt="2">
-              <ConnectWalletMessage />
-            </Box>
+            <>
+              {connected ? (
+                <Box bg="theme.yellow" color="theme.dark" p="1" mt="2">
+                  <Text fontSize="md">A Commitment Transaction requires a PPBL2023 Token</Text>
+                </Box>
+              ) : (
+                <Box mt="2">
+                  <ConnectWalletMessage />
+                </Box>
+              )}
+            </>
           )}
         </Box>
       </Center>
@@ -429,11 +427,11 @@ const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
 export default CommitmentTx;
 
 {
-  /* OPTIONAL DEV STUFF - can be good for teaching + documentation */
+  /* OPTIONAL DEV STUFF - handy for teaching + documentation */
 }
 {
   /* <Box m="2" p="5" bg="theme.light" color="theme.dark">
-  <Heading size="md">Dev Stuff</Heading>
+  <Heading size="sm">Dev Stuff</Heading>
   <Text>Connnected at {address}</Text>
   <Text>With Contrib Token: {JSON.stringify(connectedContributorToken)}</Text>
   <Text py="3">

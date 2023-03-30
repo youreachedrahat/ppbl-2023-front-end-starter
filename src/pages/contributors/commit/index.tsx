@@ -22,6 +22,7 @@ import { hexToString } from "../../../utils";
 import { useContext, useState } from "react";
 import CommitmentTx from "@/src/components/gpte/transactions/CommitmentTx";
 import { PPBLContext } from "@/src/context/PPBLContext";
+import GPTENav from "@/src/components/gpte/GPTENav";
 
 export default function CommitToCurrentProject() {
   const [selectedProject, setSelectedProject] = useState("");
@@ -45,50 +46,52 @@ export default function CommitToCurrentProject() {
   };
 
   return (
-    <Box my="5" p="5" bg="#343434">
-      <Heading color="white">Current List of Projects</Heading>
-      {ppblContext.connectedContribToken && <Text>{ppblContext.connectedContribToken}</Text>}
+    <>
+      <GPTENav />
+      <Box w="80%" mx="auto">
+        <Heading color="white">Current List of Projects</Heading>
+        {ppblContext.connectedContribToken && <Text py="3">Connected Token: {ppblContext.connectedContribToken}</Text>}
 
-      <Accordion allowToggle>
-        <AccordionItem>
-          <AccordionButton>
-            <Text>DEV STUFF</Text>
-          </AccordionButton>
-          <AccordionPanel>
-            <Heading>Here is the Treasury UTxO - from useContext</Heading>
-            <pre>{JSON.stringify(ppblContext.treasuryUTxO, null, 2)}</pre>
-            <Heading>Current Treasury Datum</Heading>
-            <Text py="3" w="50%">
-              Here is the inline datum at the Treasury UTxO. We can use it to make a list of approved Projects, whether
-              these projects are Course Modules, or funded Projects. Use any part of this component to start making
-              good-looking GPTE examples!
-            </Text>
-            {ppblContext.treasuryUTxO && (
-              <pre>{JSON.stringify(ppblContext?.treasuryUTxO?.datum?.value.fields[0].list, null, 2)}</pre>
-            )}
-            <Heading py="3" size="md">
-              Using provided hexToString() function:
-            </Heading>
-            <UnorderedList>
-              {ppblContext.treasuryUTxO?.datum?.value.fields[0].list.map((d: any) => (
-                <ListItem key={null}>{hexToString(d.bytes)}</ListItem>
-              ))}
-            </UnorderedList>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
+        <Accordion allowToggle>
+          <AccordionItem>
+            <AccordionButton>
+              <Text>DEV STUFF</Text>
+            </AccordionButton>
+            <AccordionPanel>
+              <Heading>Here is the Treasury UTxO - from useContext</Heading>
+              <pre>{JSON.stringify(ppblContext.treasuryUTxO, null, 2)}</pre>
+              <Heading>Current Treasury Datum</Heading>
+              <Text py="3" w="50%">
+                Here is the inline datum at the Treasury UTxO. We can use it to make a list of approved Projects,
+                whether these projects are Course Modules, or funded Projects. Use any part of this component to start
+                making good-looking GPTE examples!
+              </Text>
+              {ppblContext.treasuryUTxO && (
+                <pre>{JSON.stringify(ppblContext?.treasuryUTxO?.datum?.value.fields[0].list, null, 2)}</pre>
+              )}
+              <Heading py="3" size="md">
+                Using provided hexToString() function:
+              </Heading>
+              <UnorderedList>
+                {ppblContext.treasuryUTxO?.datum?.value.fields[0].list.map((d: any) => (
+                  <ListItem key={null}>{hexToString(d.bytes)}</ListItem>
+                ))}
+              </UnorderedList>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
 
-      <Heading color="white" pt="5">
-        Commit to Module 103
-      </Heading>
-      <Heading py="3">Choose a Module or Project to Commit To:</Heading>
-      {ppblContext.treasuryUTxO &&
-        ppblContext.treasuryUTxO.datum?.value.fields[0].list.map((d: any) => (
-          <Button key={null} colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
-            {hexToString(d.bytes)}
-          </Button>
-        ))}
-      {selectedProject && ppblContext.treasuryUTxO && <CommitmentTx selectedProject={selectedProject} />}
-    </Box>
+        <Heading color="white" pt="5" fontWeight="300">
+          Commit to Module 103
+        </Heading>
+        {ppblContext.treasuryUTxO &&
+          ppblContext.treasuryUTxO.datum?.value.fields[0].list.map((d: any) => (
+            <Button key={null} colorScheme="green" mx="5" onClick={() => handleChooseProject(hexToString(d.bytes))}>
+              {hexToString(d.bytes)}
+            </Button>
+          ))}
+        {selectedProject && ppblContext.treasuryUTxO && <CommitmentTx selectedProject={selectedProject} />}
+      </Box>
+    </>
   );
 }
