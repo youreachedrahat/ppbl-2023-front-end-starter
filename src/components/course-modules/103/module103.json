@@ -2,12 +2,8 @@
   "lessons": [
     {
       "slug": "1031",
-      "introduction": [
-        ""
-      ],
-      "links": [
-        { "url": "", "linkText": "" }
-      ],
+      "introduction": [""],
+      "links": [{ "url": "", "linkText": "" }],
       "videoHeading": "",
       "youtubeId": "",
       "successComponent": false,
@@ -21,11 +17,11 @@
     {
       "slug": "1032",
       "introduction": [
-        ""
+        "Any time you use existing code or contribute to a project, you are building upon the work of other people. The more you understand how and why existing tools are built, the better you will be able to re-use those tools in new and exciting applications.",
+        "At the heart of open source development is collaborative support - helping other people to become contributors to a project.",
+        "Writing new code is not the only way to contribute to existing projects. You can contribute by writing documentation, which is essential for onboarding new contributors. You can create demonstrations or use-cases for existing code, which helps people have new ideas for how to use these new tools."
       ],
-      "links": [
-        { "url": "", "linkText": "" }
-      ],
+      "links": [],
       "videoHeading": "",
       "youtubeId": "",
       "successComponent": false,
@@ -39,11 +35,11 @@
     {
       "slug": "1033",
       "introduction": [
-        ""
+        "One way to contribute to projects is by asking or answering questions.",
+        "Developers can ask and answer questions on Cardano Stack Exchange.",
+        "All questions and answers are archived and searchable by future developers. When you ask and answer questions, you are contributing to the Cardano development ecosystem."
       ],
-      "links": [
-        { "url": "", "linkText": "" }
-      ],
+      "links": [{ "url": "https://cardano.stackexchange.com/", "linkText": "Cardano Stack Exchange" }],
       "videoHeading": "",
       "youtubeId": "",
       "successComponent": false,
@@ -54,6 +50,5 @@
       "assignmentComponent": true,
       "markdownComponent": false
     }
-
   ]
 }

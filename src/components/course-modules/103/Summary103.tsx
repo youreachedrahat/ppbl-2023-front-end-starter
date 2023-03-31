@@ -7,7 +7,7 @@ import SummaryLayout from "@/src/components/lms/Lesson/SummaryLayout";
 
 const Summary103 = () => {
   return (
-    <SummaryLayout nextModule="103">
+    <SummaryLayout nextModule="201">
       <Heading>Module 103 Summary</Heading>
       <Summary />
     </SummaryLayout>

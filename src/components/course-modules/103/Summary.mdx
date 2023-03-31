@@ -13,15 +13,23 @@ import SLTSmall from "@/src/components/ui/Text/SLTSmall";
 ## Module 103 Commitment Tx and Distribute Tx
 In this Module, you have the option of making one of two [Commitments to completing Module 103](/module/103/commit).
 
-After you complete a Commitment, the Commitment UTxO is unlocked, and sent back to your address in a Distribute Tx. The Distribute Tx also updates the metadatum asscoiated with your PPBL 2023 Token. Here are some details about how this works.
+After you complete a Commitment, the Commitment UTxO is unlocked, and tokens are sent back to your address in a Distribute Tx. The Distribute Tx also updates the metadatum asscoiated with your PPBL 2023 Token. Here are some details about how this works.
 
 ### If you Committed to "Module103 with GitLab":
 A Plutus PBL teacher will look for a merge request to the [PPBL 2023 Token Registry](https://gitlab.com/gimbalabs/ppbl-2023/ppbl-2023-token-registry) that is associated with your PBL 2023 Token. When your merge request is approved, the Distribute Tx will be sent.
 
 ### If you Committed to "Module103 no GitLab":
-You are already done! A Plutus PBL teacher will send a Distribute Tx after checking your lucky number.
+You are already done! A Plutus PBL teacher will send a Distribute Tx after checking your "lucky number".
 
-### Additional Mastery Data:
+Why?
+
+To see if you completed Module 102.
+
+
+<br />
+---
+
+## Additional Mastery Data:
 To close out the "Onboading" section of this course, your PPBL 2023 Token will be updated with mastery data for each of the first four modules: 100, 101, 102 and 103.
 
 <br />
@@ -46,12 +54,6 @@ There will not be evidence for every SLT in this course. So what can we measure?
 Over the next few modules, we will go deeper into one part of the dev stack at a time.
 
 ![](/PBLFramework.png)
-
-<br />
----
-
-## Unlocking Module 201
-Module 201 will be released when 10 Distribute Tx are confirmed on chain. (Or 2023-04-10...whatever is later)
 
 import MDXLessonLayout from "@/src/components/lms/Lesson/MDXLessonLayout.tsx";
 export default ({ children }) => <MDXLessonLayout>{children}</MDXLessonLayout>;
