@@ -5,6 +5,8 @@ import slt from "@/src/data/slts-english.json"
 import Lesson1031 from "@/src/components/course-modules/103/Lesson-1031";
 import Lesson1032 from "@/src/components/course-modules/103/Lesson-1032";
 import Lesson1033 from "@/src/components/course-modules/103/Lesson-1033";
+import Summary103 from "@/src/components/course-modules/103/Summary103";
+import Commit103 from "@/src/components/course-modules/103/Commit103";
 
 
 const Module103Lessons = () => {
@@ -20,6 +22,8 @@ const Module103Lessons = () => {
     { key:"1031", component:<Lesson1031 />},
     { key:"1032", component:<Lesson1032 />},
     { key:"1033", component:<Lesson1033 />},
+    { key:"summary", component:<Summary103 />},
+    { key:"commit", component:<Commit103 />},
   ]
 
   return (
