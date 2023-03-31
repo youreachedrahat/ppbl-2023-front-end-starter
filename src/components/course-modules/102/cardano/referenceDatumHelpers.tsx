@@ -46,14 +46,18 @@ const formatContributorReferenceDatum = (refUTxODatum: GraphQLInlineDatumValue) 
   return _contributor;
 };
 
-export const getContributorReferenceDatum = async (assetId: string): Promise<ContributorReferenceDatum> => {
+export const getContributorReferenceDatum = async (assetId: string): Promise<ContributorReferenceDatum | undefined> => {
   const variables = {
     contribAsset: assetId,
   };
 
   const results: any = await graphQLClient.request(GET_UTXO_DATUM, variables);
-  const _datum_value = results.utxos[0].datum.value;
-  const _formatted_datum = formatContributorReferenceDatum(_datum_value);
-
-  return _formatted_datum;
+  if(results.utxos[0]?.datum?.value){
+    const _datum_value = results.utxos[0].datum.value;
+    const _formatted_datum = formatContributorReferenceDatum(_datum_value);
+    return _formatted_datum;
+  }
+  else {
+    return undefined
+  }
 };

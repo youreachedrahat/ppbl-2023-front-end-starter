@@ -195,7 +195,9 @@ const Module102Lessons = () => {
         const _contributor =
           connectedContributorToken.unit.substring(0, 56) + "313030" + _hexName;
         const _contributorDatum = await getContributorReferenceDatum(_contributor);
-        setConnectedContributorReferenceDatum(_contributorDatum);
+        if (_contributorDatum){
+          setConnectedContributorReferenceDatum(_contributorDatum);
+        }
         setContribTokenName(_tokenName)
       }
     };
