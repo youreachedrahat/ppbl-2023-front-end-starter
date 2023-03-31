@@ -22,8 +22,8 @@
         "Writing new code is not the only way to contribute to existing projects. You can contribute by writing documentation, which is essential for onboarding new contributors. You can create demonstrations or use-cases for existing code, which helps people have new ideas for how to use these new tools."
       ],
       "links": [],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Are you ready to re-use existing code?",
+      "youtubeId": "O1Ltxanv3Ao",
       "successComponent": false,
       "success": {
         "criteria": "",
@@ -40,8 +40,8 @@
         "All questions and answers are archived and searchable by future developers. When you ask and answer questions, you are contributing to the Cardano development ecosystem."
       ],
       "links": [{ "url": "https://cardano.stackexchange.com/", "linkText": "Cardano Stack Exchange" }],
-      "videoHeading": "",
-      "youtubeId": "",
+      "videoHeading": "Contribute to Cardano Stack Exchange, and to this Lesson!",
+      "youtubeId": "3dyCduW6Ekc",
       "successComponent": false,
       "success": {
         "criteria": "",
