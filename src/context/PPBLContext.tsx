@@ -1,33 +1,32 @@
 import { useAddress, useWallet } from "@meshsdk/react";
-import { createContext, useContext, useEffect, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { createContext, useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
 import { Heading, Center, Spinner } from "@chakra-ui/react";
 
-import { projectAsset, treasury } from "gpte-config";
+import { issuerPolicyID, treasury } from "gpte-config";
 import { GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import { TREASURY_UTXO_QUERY } from "@/src/data/queries/treasuryQueries";
 import { Asset } from "@meshsdk/core";
 import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { hexToString } from "@/src/utils";
 
-
 interface CurrentPPBLContext {
     connectedContribToken: string | undefined
+    connectedIssuerToken: string | undefined
     treasuryUTxO: GraphQLUTxO | undefined
+    loading: boolean
+    error: boolean
 }
 
 const initialContext: CurrentPPBLContext = {
     connectedContribToken: undefined,
-    treasuryUTxO: undefined
+    connectedIssuerToken: undefined,
+    treasuryUTxO: undefined,
+    loading: false,
+    error: false
 }
 
 const PPBLContext = createContext<CurrentPPBLContext>(initialContext);
-
-// Make the Treasury Query
-
-// When does it trigger?
-
-// How can I trigger it from downstream?
 
 type Props = {
   children?: React.ReactNode;
@@ -35,14 +34,15 @@ type Props = {
 
 const PPBLContextProvider: React.FC<Props> = ({ children }) => {
   const [currentContext, setCurrentContext] = useState<CurrentPPBLContext>(initialContext)
-  const [myMessage, setMyMessage] = useState("I am in my initial state!");
   const [currentTreasuryUTxO, setCurrentTreasuryUTxO] = useState<GraphQLUTxO | undefined>(undefined);
 
   const [connectedContributorToken, setConnectedContributorToken] = useState<Asset | undefined>(undefined);
   const [contribTokenName, setContribTokenName] = useState<string | undefined>(undefined);
 
+  const [connectedIssuerToken, setConnectedIssuerToken] = useState<Asset | undefined>(undefined);
+  const [issuerTokenName, setIssuerTokenName] = useState<string | undefined>(undefined);
+
   const { connected, wallet } = useWallet();
-  const address = useAddress();
 
   const { data, loading, error } = useQuery(TREASURY_UTXO_QUERY, {
     variables: {
@@ -51,18 +51,15 @@ const PPBLContextProvider: React.FC<Props> = ({ children }) => {
   });
 
   useEffect(() => {
-    if (address) {
-      setMyMessage("I am in a new state!");
-    }
-  }, [address]);
-
-  useEffect(() => {
     const newContext: CurrentPPBLContext = {
         connectedContribToken: contribTokenName,
-        treasuryUTxO: currentTreasuryUTxO
+        connectedIssuerToken: issuerTokenName,
+        treasuryUTxO: currentTreasuryUTxO,
+        loading: loading,
+        error: (error != undefined)
     }
     setCurrentContext(newContext)
-  }, [contribTokenName, currentTreasuryUTxO])
+  }, [contribTokenName, issuerTokenName, currentTreasuryUTxO, loading, error])
 
   useEffect(() => {
     if(data && data.utxos.length == 1) {
@@ -77,8 +74,17 @@ const PPBLContextProvider: React.FC<Props> = ({ children }) => {
         setConnectedContributorToken(_token[0]);
       }
     };
+
+    const fetchIssuerToken = async () => {
+      const _token = await wallet.getPolicyIdAssets(issuerPolicyID);
+      if (_token.length > 0) {
+        setConnectedIssuerToken(_token[0]);
+      }
+    };
+
     if (connected) {
       fetchContributorToken();
+      fetchIssuerToken();
     }
   }, [connected]);
 
@@ -96,18 +102,19 @@ const PPBLContextProvider: React.FC<Props> = ({ children }) => {
     }
   }, [connectedContributorToken]);
 
-  if (loading) {
-    return (
-      <Center p="10">
-        <Spinner size="xl" speed="1.0s" />
-      </Center>
-    );
-  }
+  useEffect(() => {
+    const fetchIssuerTokenName = async () => {
+      if (connectedIssuerToken) {
+        const _hexName = connectedIssuerToken.unit.substring(56)
+        const _tokenName = hexToString(_hexName)
+        setIssuerTokenName(_tokenName)
+      }
+    };
 
-  if (error) {
-    console.error(error);
-    return <Heading size="lg">Error loading data...</Heading>;
-  }
+    if (connectedIssuerToken) {
+      fetchIssuerTokenName();
+    }
+  }, [connectedIssuerToken]);
 
 
   return <PPBLContext.Provider value={currentContext}>{children}</PPBLContext.Provider>;

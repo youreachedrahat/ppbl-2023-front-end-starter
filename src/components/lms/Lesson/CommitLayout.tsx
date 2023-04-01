@@ -17,10 +17,10 @@ type Props = {
 const CommitLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <Box w="98%" my="10">
+      <Box w="95%" marginTop="2em">
         {children}
-      </Box>
       <LessonNavigation moduleNumber={103} currentSlug="commit" />
+      </Box>
       <Divider py="5" w="90%" marginLeft="1em" />
       <Box mt="10">
         <GetHelp />

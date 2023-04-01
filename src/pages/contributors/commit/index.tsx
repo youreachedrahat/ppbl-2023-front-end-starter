@@ -13,6 +13,9 @@ import {
   AccordionPanel,
   Accordion,
   AccordionButton,
+  Badge,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 
 import { projectAsset, treasury } from "gpte-config";
@@ -51,7 +54,6 @@ export default function CommitToCurrentProject() {
       <Box w="80%" mx="auto">
         <Heading color="white">Current List of Projects</Heading>
         {ppblContext.connectedContribToken && <Text py="3">Connected Token: {ppblContext.connectedContribToken}</Text>}
-
         <Heading color="white" pt="5" fontWeight="300">
           Commit to Module 103
         </Heading>

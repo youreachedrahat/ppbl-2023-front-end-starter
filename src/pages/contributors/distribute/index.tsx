@@ -3,16 +3,25 @@ import { CardanoWallet, useAddress, useWallet } from "@meshsdk/react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { escrowAddress, escrowReferenceUTxO, projectAsset, contributorPolicyID, issuerPolicyID, metadataKey, issuerAsset } from "gpte-config";
+import { useContext, useEffect, useState } from "react";
+import {
+  escrowAddress,
+  escrowReferenceUTxO,
+  projectAsset,
+  contributorPolicyID,
+  issuerPolicyID,
+  metadataKey,
+  issuerAsset,
+} from "gpte-config";
 import { gql, useQuery } from "@apollo/client";
 import { CONTRIBUTOR_TOKEN_QUERY } from "@/src/data/queries/contributorQueries";
 import { Asset, Transaction, UTxO } from "@meshsdk/core";
-import { GraphQLToDatum, hexToString  } from "@/src/utils";
-import { GraphQLInputUTxO, GraphQLToken, GraphQLUTxO  } from "@/src/types/cardanoGraphQL";
+import { GraphQLToDatum, hexToString } from "@/src/utils";
+import { GraphQLInputUTxO, GraphQLToken, GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import DistributeTx from "@/src/components/gpte/transactions/DistributeTx";
 import { ProjectTxMetadata } from "@/src/types/project";
 import GPTENav from "@/src/components/gpte/GPTENav";
+import { PPBLContext } from "@/src/context/PPBLContext";
 
 const ESCROW_QUERY = gql`
   query UtxosAtEscrowAddress($address: String!) {
@@ -27,6 +36,8 @@ export default function DistributePage(txHash: string) {
   const connectedAddress = useAddress();
   const [assets, setAssets] = useState<null | any>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
+
+  const ppblContext = useContext(PPBLContext);
 
   const { data, loading, error } = useQuery(ESCROW_QUERY, {
     variables: {
@@ -47,7 +58,6 @@ export default function DistributePage(txHash: string) {
     return <Heading size="lg">Error loading data...</Heading>;
   }
 
-
   return (
     <>
       <Head>
@@ -61,8 +71,16 @@ export default function DistributePage(txHash: string) {
         <Heading>Distribute Commitments</Heading>
         <Text>{connectedAddress}</Text>
         <Heading size="md">To Do:</Heading>
-        <Text py="1">Add check for connected issuerAsset. Current: {issuerAsset}</Text>
         <Text py="1">Create different instances of DistributeTx with different Contributor Reference Datum</Text>
+        {ppblContext.connectedIssuerToken ? (
+          <Box>
+            <Text>You have a PPBL2023Teacher Token</Text>
+          </Box>
+        ) : (
+          <Box>
+            <Text>A PPBL2023Teacher token is required to unlock commitments.</Text>
+          </Box>
+        )}
         <Box>
           {data.utxos.map((utxo: any) => (
             <Box key={utxo.txHash}>
