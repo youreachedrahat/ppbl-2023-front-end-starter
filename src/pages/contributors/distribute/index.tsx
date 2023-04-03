@@ -67,26 +67,28 @@ export default function DistributePage(txHash: string) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GPTENav />
-      <Box w="80%" mx="auto">
-        <Heading>Distribute Commitments</Heading>
-        <Text>{connectedAddress}</Text>
-        <Heading size="md">To Do:</Heading>
-        <Text py="1">Create different instances of DistributeTx with different Contributor Reference Datum</Text>
-        {ppblContext.connectedIssuerToken ? (
-          <Box>
-            <Text>You have a PPBL2023Teacher Token</Text>
-          </Box>
-        ) : (
-          <Box>
-            <Text>A PPBL2023Teacher token is required to unlock commitments.</Text>
-          </Box>
-        )}
-        <Box>
-          {data.utxos.map((utxo: any) => (
-            <Box key={utxo.txHash}>
-              <DistributeTx txHash={utxo.txHash} />
+      <Box bgImage="url(/bg8.jpeg)" bgPosition="center" height="100vh" p="5">
+        <Box w="80%" mx="auto" zIndex={15} p="5" bg="theme.dark" opacity="20">
+          <Heading>Distribute Commitments</Heading>
+          <Text>{connectedAddress}</Text>
+          <Heading size="md">To Do:</Heading>
+          <Text py="1">Create different instances of DistributeTx with different Contributor Reference Datum</Text>
+          {ppblContext.connectedIssuerToken ? (
+            <Box>
+              <Text>You have a PPBL2023Teacher Token</Text>
             </Box>
-          ))}
+          ) : (
+            <Box>
+              <Text>A PPBL2023Teacher token is required to unlock commitments.</Text>
+            </Box>
+          )}
+          <Box>
+            {data.utxos.map((utxo: any) => (
+              <Box key={utxo.txHash}>
+                <DistributeTx txHash={utxo.txHash} />
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Box>
     </>

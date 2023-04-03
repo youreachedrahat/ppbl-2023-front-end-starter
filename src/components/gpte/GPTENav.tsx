@@ -33,7 +33,7 @@ const GPTENav = () => {
         </Badge>
         <Spacer />
       </Flex>
-      <Flex direction="row" bg="theme.light" color="theme.dark" p="2" mb="5">
+      <Flex direction="row" bg="theme.light" color="theme.dark" p="2">
         <Spacer />
         <Text py="2">
           <Link href="/contributors/commit">Commitment Demo</Link>
