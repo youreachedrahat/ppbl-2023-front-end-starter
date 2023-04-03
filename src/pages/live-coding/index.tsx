@@ -88,10 +88,10 @@ export default function LiveCoding() {
             </Tbody>
           </Table>
         </TableContainer>
-        <Divider py="5" />
+        {/* <Divider py="5" />
         <Heading>Gimbalabs Indonesia</Heading>
         <Divider py="5" />
-        <Heading>Gimbalabs Vietnam</Heading>
+        <Heading>Gimbalabs Vietnam</Heading> */}
       </Box>
     </>
   );

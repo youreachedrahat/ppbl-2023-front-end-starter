@@ -61,27 +61,30 @@
       "time": "1430-1600 utc",
       "title": "Using Cardano CLI",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/watch?v=knAEwxvNtPI",
       "links": [""],
-      "description": "Student Q&A, demo + discussion"
+      "description": "Student Q&A, demo + discussion",
+      "complete": true
     },
     {
       "date": "2023-03-30",
       "time": "1430-1600 utc",
       "title": "How do we create proof that you have mastered a learning target?",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/watch?v=E82zpbY7W70",
       "links": [""],
-      "description": "Student Q&A + discussion"
+      "description": "Student Q&A + discussion",
+      "complete": true
     },
     {
       "date": "2023-03-31",
       "time": "1630-1800 utc",
       "title": "Smart Contract Gladiator",
       "regLink": "https://us06web.zoom.us/meeting/register/tZEud-2uqDMsE9K9jw8FDzrfDvHxmU7gKHdb",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/watch?v=_1tbUuSP0go",
       "links": [""],
-      "description": "Modular voting systems"
+      "description": "Modular voting systems",
+      "complete": true
     },
     {
       "date": "2023-04-05",
