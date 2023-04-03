@@ -2,10 +2,23 @@
   "lessons": [
     {
       "slug": "1031",
-      "introduction": [""],
-      "links": [{ "url": "", "linkText": "" }],
-      "videoHeading": "",
-      "youtubeId": "",
+      "introduction": [
+        "In PPBL 2023 we will collaborate using Git.",
+        "In this Lesson, you will create an off-chain record with information that is associated with your PPBL 2023 Contributor token. Our approach is similar to how the Cardano Token Registry works to provide additional data about native assets on Cardano.",
+        "As we continue the PPBL 2023 Contributor Token Project, you will help decide how we should use the data created by this Lesson - or if we should use it at all."
+      ],
+      "links": [
+        {
+          "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl-2023-token-registry",
+          "linkText": "PPBL 2023 Token Registry on GitLab"
+        },
+        {
+          "url": "https://github.com/cardano-foundation/cardano-token-registry",
+          "linkText": "Cardano Token Registry on GitHub"
+        }
+      ],
+      "videoHeading": "The PPBL 2023 Token Registry",
+      "youtubeId": "X3FhAcB389U",
       "successComponent": false,
       "success": {
         "criteria": "",
