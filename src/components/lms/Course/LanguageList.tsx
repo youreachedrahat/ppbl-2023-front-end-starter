@@ -6,8 +6,8 @@ import GimbalG from "../../ui/GimbalG";
 const LanguageList = () => {
   return (
     <>
-      <Box w={["100%", "70%"]} mx="auto" p="5">
-        <Center fontSize="lg" color="theme.yellow">
+      <Box w={{ base: "100%", md: "70%" }} mx="auto" p="5">
+        <Center flexDirection={["column", "column", "row"]} fontSize="lg" color="theme.yellow">
           <Spacer />
           <CLink href="https://es.plutuspbl.io/">
             Español
