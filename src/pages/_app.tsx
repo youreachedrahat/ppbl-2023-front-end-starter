@@ -4,11 +4,12 @@ import { Box, ChakraProvider, extendTheme, useColorModeValue } from "@chakra-ui/
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
 import WithSubnavigation from "../components/ui/Text/Navbar";
+import SocialLinks from "../components/lms/Course/SocialLinks";
+import { PPBLContext, PPBLContextProvider } from "../context/PPBLContext";
 
 import "@fontsource/miriam-libre";
 import "@fontsource/open-sans";
-import SocialLinks from "../components/lms/Course/SocialLinks";
-import { PPBLContext, PPBLContextProvider } from "../context/PPBLContext";
+import "@/public/fonts/fonts.scss"
 
 const theme = extendTheme({
   colors: {
@@ -26,8 +27,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: `'Miriam Libre', sans-serif`,
-    body: `'Open Sans', serif`,
+    heading: `'Cera Bold', sans-serif`,
+    body: `'Cera', serif`,
   },
   components: {
     Button: {
