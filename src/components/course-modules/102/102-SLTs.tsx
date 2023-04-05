@@ -1,9 +1,8 @@
 import React from "react";
-import { Container, Divider, Heading, Box, Flex, Button, Spacer } from "@chakra-ui/react";
+import { Divider, Box, Flex, Button, Spacer } from "@chakra-ui/react";
 import Link from "next/link";
 import SLTsItems from "@/src/components/lms/Lesson/SLTs";
 import Introduction from "@/src/components/course-modules/102/Introduction.mdx";
-
 
 const SLTs102 = () => {
   return (

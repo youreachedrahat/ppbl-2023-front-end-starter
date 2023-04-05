@@ -2,6 +2,11 @@ import SLTs103 from "@/src/components/course-modules/103/103-SLTs";
 import ModuleLessons from "@/src/components/lms/Lesson/Lesson";
 import ComingSoon from "@/src/components/lms/Lesson/ComingSoon";
 import slt from "@/src/data/slts-english.json"
+import Lesson1031 from "@/src/components/course-modules/103/Lesson-1031";
+import Lesson1032 from "@/src/components/course-modules/103/Lesson-1032";
+import Lesson1033 from "@/src/components/course-modules/103/Lesson-1033";
+import Summary103 from "@/src/components/course-modules/103/Summary103";
+import Commit103 from "@/src/components/course-modules/103/Commit103";
 
 
 const Module103Lessons = () => {
@@ -13,10 +18,12 @@ const Module103Lessons = () => {
   // Sidebar items are generated from module.lessons i.e. from the JSON file
   // Here we simply set the contents by matching the slug and key
   const lessons = [
-    { key:"slts", component:<><SLTs103 /><ComingSoon /></>},
-    { key:"1031", component:<ComingSoon />},
-    { key:"1032", component:<ComingSoon />},
-    { key:"1033", component:<ComingSoon />},
+    { key:"slts", component:<><SLTs103 /></>},
+    { key:"1031", component:<Lesson1031 />},
+    { key:"1032", component:<Lesson1032 />},
+    { key:"1033", component:<Lesson1033 />},
+    { key:"summary", component:<Summary103 />},
+    { key:"commit", component:<Commit103 />},
   ]
 
   return (

@@ -182,17 +182,27 @@
         },
         {
           "slug": "1031",
-          "name": "Lesson 1",
+          "name": "Lesson 1: Using Git",
+          "video": ""
+        },
+        {
+          "slug": "commit",
+          "name": "Commit to Module 103",
           "video": ""
         },
         {
           "slug": "1032",
-          "name": "Lesson 2",
+          "name": "Lesson 2: Re-using code",
           "video": ""
         },
         {
           "slug": "1033",
-          "name": "Lesson 3",
+          "name": "Lesson 3: Cardano Stack Exchange",
+          "video": ""
+        },
+        {
+          "slug": "summary",
+          "name": "Summary",
           "video": ""
         }
       ]
@@ -568,7 +578,7 @@
     },
     {
       "number": 401,
-      "title": "Introducing Gimbal Project Treasury and Escrow",
+      "title": "Introducing Andamio",
       "releaseDate": "2023-05-15",
       "updatedDate": "2023-05-15",
       "slts": [],

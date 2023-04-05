@@ -89,7 +89,7 @@ const Sidebar = ({ items, modulePath, selected }: SidebarProps) => {
                 // borderRadius="md"
                 // border="1px solid"
               >
-                <Text fontWeight="bold" fontFamily={["Miriam Libre"]}>{item.name}</Text>
+                <Text fontWeight="bold" fontFamily={["Cera"]}>{item.name}</Text>
               </Box>
             </Link>
           ))}

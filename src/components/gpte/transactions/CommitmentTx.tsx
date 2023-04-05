@@ -1,0 +1,450 @@
+import {
+  Box,
+  Button,
+  Text,
+  useDisclosure,
+  useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  Spacer,
+  Center,
+} from "@chakra-ui/react";
+import {
+  Action,
+  Asset,
+  AssetExtended,
+  Data,
+  resolveDataHash,
+  resolvePaymentKeyHash,
+  Transaction,
+  UTxO,
+} from "@meshsdk/core";
+import { useWallet } from "@meshsdk/react";
+import { useContext, useEffect, useState } from "react";
+import { contributorPolicyID, escrow, projectAsset, treasury, treasuryReferenceUTxO } from "@/gpte-config";
+import { ProjectDatum, ProjectTxMetadata } from "@/src/types/project";
+import { GraphQLToDatum, GraphQLToMeshUTxO, stringToHex } from "@/src/utils";
+import { PPBLContext } from "@/src/context/PPBLContext";
+import { ConnectWalletMessage } from "../../ui/Text/ConnectWalletMessage";
+
+type Props = {
+  selectedProject: string;
+};
+
+const CommitmentTx: React.FC<Props> = ({ selectedProject }) => {
+  const { connected, wallet } = useWallet();
+
+  const ppblContext = useContext(PPBLContext);
+
+  const [contributorAddress, setContributorAddress] = useState<string>("");
+  const [connectedPKH, setConnectedPKH] = useState<string>("");
+  const [connectedContributorToken, setConnectedContributorToken] = useState<AssetExtended | undefined>(undefined);
+  const [connectedUtxos, setConnectedUtxos] = useState<UTxO[]>([]);
+
+  const [treasuryContractUTxO, setTreasuryContractUTxO] = useState<UTxO | undefined>(undefined);
+  const [treasuryContractDatum, setTreasuryContractDatum] = useState<string[] | undefined>(undefined);
+  const [constructedTreasuryDatum, setConstructedTreasuryDatum] = useState<Data | undefined>(undefined);
+
+  // newTreasuryDatumHash is shown in "Dev Stuff", which is currently commented out at the bottom of this file
+  const [newTreasuryDatumHash, setNewTreasuryDatumHash] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (ppblContext.treasuryUTxO) {
+      setTreasuryContractUTxO(GraphQLToMeshUTxO(ppblContext.treasuryUTxO));
+      setTreasuryContractDatum(GraphQLToDatum(ppblContext.treasuryUTxO));
+    }
+  }, [ppblContext]);
+
+  useEffect(() => {
+    if (treasuryContractDatum) {
+      const _constructedTreasuryDatum: Data = {
+        alternative: 0,
+        fields: [treasuryContractDatum, "5050424c3230323354656163686572"],
+      };
+      setConstructedTreasuryDatum(_constructedTreasuryDatum);
+    }
+  }, [treasuryContractDatum]);
+
+  useEffect(() => {
+    if (constructedTreasuryDatum) {
+      setNewTreasuryDatumHash(resolveDataHash(constructedTreasuryDatum));
+    }
+  }, [constructedTreasuryDatum]);
+
+  // UI Helpers:
+  const [txLoading, setTxLoading] = useState(false);
+  const [successfulTxHash, setSuccessfulTxHash] = useState<string | null>(null);
+  const [loadContrib, setLoadContrib] = useState(true);
+
+  // Commitment can expire after any specified amount of time
+  const [expirationTime, setExpirationTime] = useState(0); // POSIX time, in milliseconds
+  const [expirationDate, setExpirationDate] = useState(""); // user-friendly date string
+
+  // Specific to each Project:
+  const [currentProjectDatum, setCurrentProjectDatum] = useState<ProjectDatum | null>(null);
+  const [currentTreasuryRedeemer, setCurrentTreasuryRedeemer] = useState<Partial<Action> | null>(null);
+  const [projectDatumHash, setProjectDatumHash] = useState<string>("");
+  const [projectTxMetadata, setProjectTxMetadata] = useState<ProjectTxMetadata | null>(null);
+  const [constructedProjectDatum, setConstructedProjectDatum] = useState<Data | undefined>(undefined);
+
+  // Transaction Building:
+  const [utxoBackToTreasury, setUtxoBackToTreasury] = useState<Partial<UTxO> | undefined>(undefined);
+  const [utxoToProjectEscrow, setUtxoToProjectEscrow] = useState<Partial<UTxO> | undefined>(undefined);
+
+  // For Chakra Modal:
+  const { isOpen: isConfirmationOpen, onOpen: onConfirmationOpen, onClose: onConfirmationClose } = useDisclosure();
+  const { isOpen: isSuccessOpen, onOpen: onSuccessOpen, onClose: onSuccessClose } = useDisclosure();
+  const toast = useToast();
+
+  // Set current time and expirationTime
+  useEffect(() => {
+    const _expTime = new Date(Date.now());
+    const currentMonth = _expTime.getMonth();
+    _expTime.setMonth(currentMonth + 1);
+    const result = _expTime.valueOf();
+    const resultString = _expTime.toLocaleDateString();
+    setExpirationTime(result);
+    setExpirationDate(resultString);
+  }, []);
+
+  useEffect(() => {
+    if (!utxoBackToTreasury) setLoadContrib(false);
+  });
+
+  // Check the connected wallet for a PPBL 2023 Contributor token
+  // If there are many, return the first one in the list returned by getPolicyIdAssets
+  useEffect(() => {
+    const fetchContributorToken = async () => {
+      const _token = await wallet.getPolicyIdAssets(contributorPolicyID);
+      if (_token.length > 0) {
+        setConnectedContributorToken(_token[0]);
+      }
+    };
+
+    const fetchContributorUtxo = async () => {
+      const _utxos = await wallet.getUtxos();
+      if (_utxos.length > 0) {
+        setConnectedUtxos(_utxos);
+      }
+    };
+
+    if (connected) {
+      fetchContributorToken();
+      fetchContributorUtxo();
+      setLoadContrib(true);
+    }
+  }, [connected, loadContrib]);
+
+  // Get the pkh of specific address for the UTxO holding Contributor Token
+  // This allows us to handle wallets with multiple derived addresses, like Eternl.
+  useEffect(() => {
+    if (connectedUtxos && connectedContributorToken) {
+      const utxoWithContribToken = connectedUtxos.filter(
+        (utxo) => utxo.output.amount.filter((a) => a.unit == connectedContributorToken.unit).length > 0
+      );
+      console.log("Contrib utxos", utxoWithContribToken);
+      const _contribAddress = utxoWithContribToken[0].output.address;
+      setContributorAddress(_contribAddress);
+      const result = resolvePaymentKeyHash(_contribAddress);
+      setConnectedPKH(result);
+    }
+  }, [connectedUtxos]);
+
+  // Create the Project Datum and Project Metadata
+  // Trigger useEffect to update when wallet is connected, or if expirationTime changes
+  // For now, a Module Commitment will include 2 tADA and 10 tGimbals
+  useEffect(() => {
+    const _result: ProjectDatum = {
+      contributorPkh: connectedPKH,
+      lovelace: 2000000,
+      gimbals: 10,
+      expirationTime: expirationTime,
+      projectHash: stringToHex(selectedProject),
+    };
+    const _metadata: ProjectTxMetadata = {
+      id: selectedProject,
+      hash: stringToHex(selectedProject),
+      expTime: expirationTime,
+      txType: "Commitment",
+      contributor: connectedPKH,
+    };
+    setCurrentProjectDatum(_result);
+    setProjectTxMetadata(_metadata);
+  }, [connected, expirationTime, connectedPKH, selectedProject]);
+
+  // constructedProjectDatum is formatted for serialized transaction, using Mesh Data type
+  useEffect(() => {
+    if (currentProjectDatum) {
+      const _datumConstructor: Data = {
+        alternative: 0,
+        fields: [
+          currentProjectDatum.contributorPkh,
+          currentProjectDatum.lovelace,
+          currentProjectDatum.gimbals,
+          currentProjectDatum.expirationTime,
+          currentProjectDatum.projectHash,
+        ],
+      };
+
+      console.log("Build Escrow Datum:", _datumConstructor);
+      setConstructedProjectDatum(_datumConstructor);
+      const result = resolveDataHash(_datumConstructor);
+      setProjectDatumHash(result);
+    }
+  }, [currentProjectDatum]);
+
+  // Set the data treasuryRedeemer to match constructedProjectDatum,
+  // because in GPTE Contracts, the Treasury Redeemer and Project Datum consist of the same parameters.
+  useEffect(() => {
+    if (constructedProjectDatum) {
+      const _treasuryRedeemer: Partial<Action> = {
+        data: {
+          alternative: 0,
+          fields: [constructedProjectDatum],
+        },
+      };
+      setCurrentTreasuryRedeemer(_treasuryRedeemer);
+    }
+  }, [constructedProjectDatum]);
+
+  // Create the UTxOs to be included in .sendValue() to Treasury and Escrow contracts
+  // UTxO type looks like this:
+  // -----------------------------------------------------------
+  // export declare type UTxO = {
+  //     input: {
+  //         outputIndex: number;
+  //         txHash: string;
+  //     };
+  //     output: {
+  //         address: string;
+  //         amount: Asset[];
+  //         dataHash?: string;
+  //         plutusData?: string;
+  //         scriptRef?: string;
+  //     };
+  // };
+  // -----------------------------------------------------------
+  // Here, we use the output: {} in a Partial<UTxO>, and do not include input: {}. This approach is compatible with .sendValue(),
+  // and allows us to specify the number of Lovelace in each output.
+  //
+  // Note also that Asset[] is constructed first for each UTxO.
+  // If you are unfamiliar with TypeScript, this is a helpful example to study.
+  useEffect(() => {
+    if (connectedContributorToken && ppblContext.treasuryUTxO && treasuryContractUTxO) {
+      const assetsAtTreasury: Asset[] = treasuryContractUTxO.output.amount;
+
+      // Calculate the number of Lovelace that will be sent back to Treasury
+      const lovelaceAtTreasury = assetsAtTreasury.filter((asset) => asset.unit === "lovelace");
+      const numberLovelaceAtTreasury = parseInt(lovelaceAtTreasury[0].quantity);
+      const numberLovelaceBackToTreasury = numberLovelaceAtTreasury - 2000000;
+
+      const gimbalsAtTreasury = assetsAtTreasury.filter((asset) => asset.unit === projectAsset);
+      const numberGimbalsAtTreasury = parseInt(gimbalsAtTreasury[0].quantity);
+      const numberGimbalsBackToTreasury = numberGimbalsAtTreasury - 10;
+
+      // Create Asset[] for each output UTxO
+      const _assetsBackToTreasury: Asset[] = [
+        {
+          unit: "lovelace",
+          quantity: numberLovelaceBackToTreasury.toString(),
+        },
+        {
+          unit: projectAsset,
+          quantity: numberGimbalsBackToTreasury.toString(),
+        },
+      ];
+
+      // In a full GPTE implementation, we would replace these token amounts with dynamic values
+      const _assetsToProjectEscrow: Asset[] = [
+        {
+          unit: "lovelace",
+          quantity: "2000000",
+        },
+        {
+          unit: projectAsset,
+          quantity: "10",
+        },
+        {
+          unit: connectedContributorToken.unit,
+          quantity: "1",
+        },
+      ];
+
+      // Create the UTxOs
+      const _utxoTreasury: Partial<UTxO> = {
+        output: {
+          address: treasury.address,
+          amount: _assetsBackToTreasury,
+        },
+      };
+
+      const _utxoProjectEscrow: Partial<UTxO> = {
+        output: {
+          address: escrow.address,
+          amount: _assetsToProjectEscrow,
+        },
+      };
+
+      setUtxoBackToTreasury(_utxoTreasury);
+      setUtxoToProjectEscrow(_utxoProjectEscrow);
+    }
+  }, [connected, connectedContributorToken]);
+
+  const handleCommitmentTx = async () => {
+    if (contributorAddress) {
+      setTxLoading(true);
+      try {
+        const tx = new Transaction({ initiator: wallet })
+          .redeemValue({
+            value: treasuryContractUTxO,
+            script: treasuryReferenceUTxO,
+            datum: treasuryContractUTxO,
+            redeemer: currentTreasuryRedeemer,
+          })
+          .sendValue(
+            {
+              address: treasury.address,
+              datum: {
+                value: constructedTreasuryDatum,
+                inline: true,
+              },
+            },
+            utxoBackToTreasury
+          )
+          .sendValue(
+            {
+              address: escrow.address,
+              datum: {
+                value: constructedProjectDatum,
+                inline: true,
+              },
+            },
+            utxoToProjectEscrow
+          )
+          .setMetadata(parseInt(treasury.metadataKey), projectTxMetadata)
+          .setRequiredSigners([contributorAddress]);
+        console.log("So far so good.", tx);
+
+        const unsignedTx = await tx.build();
+        const signedTx = await wallet.signTx(unsignedTx, true);
+        const txHash = await wallet.submitTx(signedTx);
+        setSuccessfulTxHash(txHash);
+        console.log("Success!", txHash);
+        onSuccessOpen();
+        onConfirmationClose();
+      } catch (error: any) {
+        if (error.info) {
+          alert(error.info);
+        } else {
+          console.log(error);
+        }
+      }
+      setTxLoading(false);
+    }
+  };
+
+  return (
+    <>
+      <Center mx="auto">
+        <Box border="1px" borderRadius="md" borderColor="theme.light" p="2">
+          <Box bg="theme.green" color="theme.dark" p="1">
+            <Text fontSize="xs">Commit to</Text>
+          </Box>
+          <Box bg="theme.light" color="theme.dark" p="2">
+            <Text fontSize="xl">{selectedProject}</Text>
+          </Box>
+          {connected && ppblContext.connectedContribToken ? (
+            <>
+              <Box bg="theme.green" color="theme.dark" p="1" mt="2">
+                <Text fontSize="xs">Tx will lock Contributor Token:</Text>
+              </Box>
+              <Box bg="theme.light" color="theme.dark" p="2">
+                <Text fontSize="xl">{ppblContext.connectedContribToken}</Text>
+              </Box>
+              <Center w={["100%"]} mt="2">
+                <Button colorScheme="orange" onClick={onConfirmationOpen} size="sm">
+                  Commit to {selectedProject}
+                </Button>
+              </Center>
+            </>
+          ) : (
+            <>
+              {connected ? (
+                <Box bg="theme.yellow" color="theme.dark" p="1" mt="2">
+                  <Text fontSize="md">A Commitment Transaction requires a PPBL2023 Token</Text>
+                </Box>
+              ) : (
+                <Box mt="2">
+                  <ConnectWalletMessage />
+                </Box>
+              )}
+            </>
+          )}
+        </Box>
+      </Center>
+
+      <Modal blockScrollOnMount={false} isOpen={isSuccessOpen} onClose={onSuccessClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Successful Commitment to {selectedProject}</ModalHeader>
+          <ModalBody>
+            <Text py="2">Transaction ID: {successfulTxHash}</Text>
+            <Text py="2">It may take a few minutes for this tx to show up on a blockchain explorer.</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button bg="white" color="gray.700" onClick={onSuccessClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal blockScrollOnMount={false} isOpen={isConfirmationOpen} onClose={onConfirmationClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Confirmation Commitment to {selectedProject}</ModalHeader>
+          <ModalBody>
+            <Text py="2">Your PPBL 2023 Token will be locked.</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="orange" onClick={handleCommitmentTx}>
+              Commit to {selectedProject}
+            </Button>
+            <Spacer />
+            <Button bg="white" color="gray.700" onClick={onConfirmationClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+
+export default CommitmentTx;
+
+{
+  /* OPTIONAL DEV STUFF - handy for teaching + documentation */
+}
+{
+  /* <Box m="2" p="5" bg="theme.light" color="theme.dark">
+  <Heading size="sm">Dev Stuff</Heading>
+  <Text>Connnected at {address}</Text>
+  <Text>With Contrib Token: {JSON.stringify(connectedContributorToken)}</Text>
+  <Text py="3">
+    Treasury Datum: <pre>{JSON.stringify(constructedTreasuryDatum, null, 2)}</pre>
+  </Text>
+  <Text py="3">
+    Treasury Datum Hash: <pre>{newTreasuryDatumHash}</pre>
+  </Text>
+  <Text py="3">
+    Treasury Redeemer: <pre>{JSON.stringify(currentTreasuryRedeemer, null, 2)}</pre>
+  </Text>
+  <Text py="3">
+    Escrow Datum: <pre>{JSON.stringify(constructedProjectDatum, null, 2)}</pre>
+  </Text>
+</Box> */
+}

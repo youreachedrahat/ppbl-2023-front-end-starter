@@ -4,10 +4,12 @@ import { Box, ChakraProvider, extendTheme, useColorModeValue } from "@chakra-ui/
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
 import WithSubnavigation from "../components/ui/Text/Navbar";
+import SocialLinks from "../components/lms/Course/SocialLinks";
+import { PPBLContext, PPBLContextProvider } from "../context/PPBLContext";
 
 import "@fontsource/miriam-libre";
 import "@fontsource/open-sans";
-import SocialLinks from "../components/lms/Course/SocialLinks";
+import "@/public/fonts/fonts.scss"
 
 const theme = extendTheme({
   colors: {
@@ -21,11 +23,12 @@ const theme = extendTheme({
       lightGray: "#1c2634",
       cyan: "#00B5D8",
       yellow: "#EBBA6F",
+      orange: "#F6713C",
     },
   },
   fonts: {
-    heading: `'Miriam Libre', sans-serif`,
-    body: `'Open Sans', serif`,
+    heading: `'Cera Bold', sans-serif`,
+    body: `'Cera', serif`,
   },
   components: {
     Button: {
@@ -74,7 +77,7 @@ const theme = extendTheme({
         },
         p: {
           fontSize: "lg",
-          py: "2"
+          py: "2",
         },
         ul: {
           ml: "6",
@@ -92,24 +95,24 @@ const theme = extendTheme({
         h1: {
           fontSize: "md",
           py: "0",
-          color: "theme.green"
+          color: "theme.green",
         },
         h2: {
           fontSize: "xl",
           py: "0",
-          color: "theme.green"
+          color: "theme.green",
         },
         h3: {
           fontSize: "md",
           py: "0",
-          color: "theme.green"
+          color: "theme.green",
         },
         h4: {
           fontSize: "md",
           py: "0",
-          color: "theme.green"
-        }
-      }
+          color: "theme.green",
+        },
+      },
     },
   },
 });
@@ -119,11 +122,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     <MeshProvider>
       <ApolloProvider client={client}>
         <ChakraProvider theme={theme}>
-          <Box minH="100vh">
-            <WithSubnavigation />
-            <Component {...pageProps} />
-          </Box>
-          <SocialLinks />
+          <PPBLContextProvider>
+            <Box minH="100vh">
+              <WithSubnavigation />
+              <Component {...pageProps} />
+            </Box>
+            <SocialLinks />
+          </PPBLContextProvider>
         </ChakraProvider>
       </ApolloProvider>
     </MeshProvider>

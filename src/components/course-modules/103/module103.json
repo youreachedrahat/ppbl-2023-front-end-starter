@@ -1,0 +1,67 @@
+{
+  "lessons": [
+    {
+      "slug": "1031",
+      "introduction": [
+        "In PPBL 2023 we will collaborate using Git.",
+        "In this Lesson, you will create an off-chain record with information that is associated with your PPBL 2023 Contributor token. Our approach is similar to how the Cardano Token Registry works to provide additional data about native assets on Cardano.",
+        "As we continue the PPBL 2023 Contributor Token Project, you will help decide how we should use the data created by this Lesson - or if we should use it at all."
+      ],
+      "links": [
+        {
+          "url": "https://gitlab.com/gimbalabs/ppbl-2023/ppbl-2023-token-registry",
+          "linkText": "PPBL 2023 Token Registry on GitLab"
+        },
+        {
+          "url": "https://github.com/cardano-foundation/cardano-token-registry",
+          "linkText": "Cardano Token Registry on GitHub"
+        }
+      ],
+      "videoHeading": "The PPBL 2023 Token Registry",
+      "youtubeId": "dRdlG53xWTA",
+      "successComponent": false,
+      "success": {
+        "criteria": "",
+        "text": ""
+      },
+      "assignmentComponent": true,
+      "markdownComponent": false
+    },
+    {
+      "slug": "1032",
+      "introduction": [
+        "Any time you use existing code or contribute to a project, you are building upon the work of other people. The more you understand how and why existing tools are built, the better you will be able to re-use those tools in new and exciting applications.",
+        "At the heart of open source development is collaborative support - helping other people to become contributors to a project.",
+        "Writing new code is not the only way to contribute to existing projects. You can contribute by writing documentation, which is essential for onboarding new contributors. You can create demonstrations or use-cases for existing code, which helps people have new ideas for how to use these new tools."
+      ],
+      "links": [],
+      "videoHeading": "Are you ready to re-use existing code?",
+      "youtubeId": "O1Ltxanv3Ao",
+      "successComponent": false,
+      "success": {
+        "criteria": "",
+        "text": ""
+      },
+      "assignmentComponent": true,
+      "markdownComponent": false
+    },
+    {
+      "slug": "1033",
+      "introduction": [
+        "One way to contribute to projects is by asking or answering questions.",
+        "Developers can ask and answer questions on Cardano Stack Exchange.",
+        "All questions and answers are archived and searchable by future developers. When you ask and answer questions, you are contributing to the Cardano development ecosystem."
+      ],
+      "links": [{ "url": "https://cardano.stackexchange.com/", "linkText": "Cardano Stack Exchange" }],
+      "videoHeading": "Contribute to Cardano Stack Exchange, and to this Lesson!",
+      "youtubeId": "3dyCduW6Ekc",
+      "successComponent": false,
+      "success": {
+        "criteria": "",
+        "text": ""
+      },
+      "assignmentComponent": true,
+      "markdownComponent": false
+    }
+  ]
+}
