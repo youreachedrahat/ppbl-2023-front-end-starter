@@ -6,6 +6,7 @@ export const issuerPolicyID = "15a9a88cf6e6f4e806a853cede246d0430455d4944401b9b7
 export const contributorPolicyID = "05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056";
 
 export const projectAsset = "fb45417ab92a155da3b31a8928c873eb9fd36c62184c736f189d334c7447696d62616c";
+export const projectTokenPolicyID = "fb45417ab92a155da3b31a8928c873eb9fd36c62184c736f189d334c"
 
 export const referenceScriptAddress =
   "addr_test1qrw445926m0ffzme6fk65mq0d9004f66zyj6jtzlyv73t9sefs0xl34s9kau3can6zs9f2hyqe3sv5vnleytzxlkp5cqlym77s";

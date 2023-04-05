@@ -10,7 +10,7 @@ const GPTENav = () => {
   return (
     <>
       {/* Quick and dirty status bar. Use the concept throughout UI */}
-      <Flex direction="row" bg="theme.light" color="theme.dark" pt="1">
+      {/* <Flex direction="row" bg="theme.light" color="theme.dark" pt="1">
         <Spacer />
         <Badge bg="theme.lightGray" color="theme.light">
           {ppblContext.loading ? "Loading" : "Context Ready"}
@@ -32,7 +32,7 @@ const GPTENav = () => {
           {ppblContext.treasuryUTxO ? "Treasury UTxO Loaded" : "Cannot access Treasury UTxO"}
         </Badge>
         <Spacer />
-      </Flex>
+      </Flex> */}
       <Flex direction="row" bg="theme.light" color="theme.dark" p="2">
         <Spacer />
         <Text py="2">

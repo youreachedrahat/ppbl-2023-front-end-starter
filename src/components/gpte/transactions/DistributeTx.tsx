@@ -1,4 +1,4 @@
-import { Box, Button, Center, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Grid, GridItem, Heading, Spinner, Text, Flex, Spacer } from "@chakra-ui/react";
 import { useAddress, useWallet } from "@meshsdk/react";
 import {
   escrowAddress,
@@ -8,6 +8,7 @@ import {
   issuerPolicyID,
   metadataKey,
   contributorReferenceReferenceUTxO,
+  projectTokenPolicyID,
 } from "gpte-config";
 import { useQuery } from "@apollo/client";
 import { Asset, Transaction, UTxO, Data, KoiosProvider } from "@meshsdk/core";
@@ -33,6 +34,8 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
   const [contributorReferenceDatum, setContributorReferenceDatum] = useState<any>(null);
   const [updatedContributorReferenceDatum, setUpdatedContributorReferenceDatum] = useState<Data | null>(null);
 
+  const [includeModule102, setIncludeModule102] = useState(false);
+
   const { data, loading, error } = useQuery(ESCROW_QUERY, {
     variables: {
       transactionHash: txHash,
@@ -46,16 +49,25 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
 
       const _datum = await getInlineDatumForContributorReference(referenceAssetId);
 
-      const _luckyNumber = _datum.fields[0].int
+      const _luckyNumber = _datum.fields[0].int;
 
-      const _completedModules: string[] = []
+      const _completedModules: string[] = [];
 
-      _datum.fields[1].list?.map((mastery: {bytes: string}) => {
+      _datum.fields[1].list?.map((mastery: { bytes: string }) => {
         const desc: Data = hexToString(mastery.bytes);
-        _completedModules.push(desc)
+        _completedModules.push(desc);
       });
 
-      _completedModules.push(data.transactions[0].metadata[0].value.id)
+      if (_completedModules.length == 0) {
+        _completedModules.push("Module100");
+        _completedModules.push("Module101");
+      }
+
+      if (includeModule102) {
+        _completedModules.push("Module102");
+      }
+
+      _completedModules.push(data.transactions[0].metadata[0].value.id);
 
       const _updatedDatum: Data = {
         alternative: 0,
@@ -79,7 +91,7 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
     if (data) {
       fetchContributorReferenceUTxO();
     }
-  }, [data]);
+  }, [data, includeModule102]);
 
   if (loading) {
     return (
@@ -116,7 +128,7 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
   const _lovelaceInCommitment = _escrowOutput[0].value;
 
   const _gimbalToken = _escrowOutput[0].tokens.filter(
-    (t: GraphQLToken) => t.asset.policyId == "fb45417ab92a155da3b31a8928c873eb9fd36c62184c736f189d334c"
+    (t: GraphQLToken) => t.asset.policyId == projectTokenPolicyID
   );
 
   const _gimbalsInCommitment = _gimbalToken[0].quantity;
@@ -276,15 +288,27 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
   };
 
   return (
-    <Box m="5" p="5" borderColor="white" borderWidth="medium">
-      <pre>ID: {JSON.stringify(_metadata.id, null, 2)}</pre>
-      <pre>Contributor: {contributorTokenName}</pre>
-      <pre>Lovelace: {lovelaceToContributor.quantity}</pre>
-      <pre>Gimbal: {gimbalsToContributor.quantity}</pre>
-      <Button colorScheme="green" onClick={handleDistributeTx}>
-        Distribute
-      </Button>
-    </Box>
+    <Grid templateColumns="repeat(2, 1fr)" gap={5} border="1px" p="2" my="3">
+      <GridItem>
+        <pre>ID: {JSON.stringify(_metadata.id, null, 2)}</pre>
+        <pre>Contributor: {contributorTokenName}</pre>
+        <pre>Lovelace: {lovelaceToContributor.quantity}</pre>
+        <pre>Gimbal: {gimbalsToContributor.quantity}</pre>
+        <Flex direction="row" mt="5">
+          <Spacer />
+          <Button size="sm" colorScheme="green" onClick={handleDistributeTx}>
+            {includeModule102 ? "Distribute with Module 102" : "Distribute without Module 102"}
+          </Button>
+          <Spacer />
+          <Button size="sm" onClick={() => setIncludeModule102(!includeModule102)}>Include Module 102</Button>
+          <Spacer />
+        </Flex>
+      </GridItem>
+      <GridItem bg="theme.light" color="theme.dark" p="2" fontSize="xs">
+        <Text>Contributor Reference Datum</Text>
+        <pre>{JSON.stringify(updatedContributorReferenceDatum, null, 1)}</pre>
+      </GridItem>
+    </Grid>
   );
 };
 

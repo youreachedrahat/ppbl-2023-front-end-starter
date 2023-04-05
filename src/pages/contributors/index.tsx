@@ -79,6 +79,8 @@ export default function Contributors() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <Spacer />
+          <Text color="theme.yellow">PPBL 2023 Contributor Tokens Minted: {data.utxos.length}</Text>
         </Flex>
         <Divider />
         <TableContainer mt="4">
