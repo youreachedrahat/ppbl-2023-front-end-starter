@@ -61,7 +61,7 @@ const Module102Lessons = () => {
   const [contribTokenName, setContribTokenName] = useState("");
   const [contribLuckyNumber, setContribLuckyNumber] = useState(5);
 
-// ------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------
   //
   // Mastery Assignment #1
   //
@@ -93,7 +93,7 @@ const Module102Lessons = () => {
       const _contributorOutput = dataQuery1.transactions[0].outputs.find(
         (output: any) => output.tokens[0]?.asset.policyId == contributorTokenPolicyId
       );
-      if (_contributorOutput){
+      if (_contributorOutput) {
         const _cliAddress = _contributorOutput.address;
         setCliAddress(_cliAddress);
       }
@@ -150,24 +150,24 @@ const Module102Lessons = () => {
     if (dataQuery3 && dataQuery3.transactions.length > 0 && cliAddress) {
       const _hasThreeOutputs = dataQuery3.transactions.filter((tx: any) => tx.outputs.length >= 3);
       const _hasThreeCorrectOutputs = _hasThreeOutputs.filter((tx: any) => {
-        const _t1 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000)
-        const _t2 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000)
-        const _t3 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000)
+        const _t1 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000);
+        const _t2 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000);
+        const _t3 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000);
 
-        return _t1.length > 0 && _t2.length > 0 && _t3.length > 0
-      })
+        return _t1.length > 0 && _t2.length > 0 && _t3.length > 0;
+      });
 
       setCliAddressHasSplitTx(_hasThreeCorrectOutputs.length > 0);
 
-        const _mastery = {
-          ppblTokenName: contribTokenName,
-          cliWallet: cliAddress,
-          successTx1: _hasThreeCorrectOutputs.length > 0,
-          successTx2: contributorTokenSentBackToBrowserWallet,
-          luckyNumber: contribLuckyNumber,
-        };
+      const _mastery = {
+        ppblTokenName: contribTokenName,
+        cliWallet: cliAddress,
+        successTx1: _hasThreeCorrectOutputs.length > 0,
+        successTx2: contributorTokenSentBackToBrowserWallet,
+        luckyNumber: contribLuckyNumber,
+      };
 
-        setMastery(_mastery);
+      setMastery(_mastery);
     }
   }, [dataQuery3]);
 
@@ -193,15 +193,14 @@ const Module102Lessons = () => {
   useEffect(() => {
     const fetchContributorReferenceDatum = async () => {
       if (connectedContributorToken) {
-        const _hexName = connectedContributorToken.unit.substring(62)
-        const _tokenName = hexToString(_hexName)
-        const _contributor =
-          connectedContributorToken.unit.substring(0, 56) + "313030" + _hexName;
+        const _hexName = connectedContributorToken.unit.substring(62);
+        const _tokenName = hexToString(_hexName);
+        const _contributor = connectedContributorToken.unit.substring(0, 56) + "313030" + _hexName;
         const _contributorDatum = await getContributorReferenceDatum(_contributor);
-        if (_contributorDatum){
+        if (_contributorDatum) {
           setConnectedContributorReferenceDatum(_contributorDatum);
         }
-        setContribTokenName(_tokenName)
+        setContribTokenName(_tokenName);
       }
     };
 
@@ -212,7 +211,7 @@ const Module102Lessons = () => {
 
   useEffect(() => {
     if (connectedContributorReferenceDatum) {
-      setContribLuckyNumber(connectedContributorReferenceDatum.luckyNumber)
+      setContribLuckyNumber(connectedContributorReferenceDatum.luckyNumber);
     }
   }, [connectedContributorReferenceDatum]);
 
@@ -225,7 +224,7 @@ const Module102Lessons = () => {
         successTx2: contributorTokenSentBackToBrowserWallet,
         luckyNumber: contribLuckyNumber,
       };
-      setMastery(_mastery)
+      setMastery(_mastery);
     } else {
       const _mastery = {
         ppblTokenName: contribTokenName,
@@ -234,10 +233,9 @@ const Module102Lessons = () => {
         successTx2: contributorTokenSentBackToBrowserWallet,
         luckyNumber: contribLuckyNumber,
       };
-      setMastery(_mastery)
+      setMastery(_mastery);
     }
-
-  }, [contribLuckyNumber, contribTokenName])
+  }, [contribLuckyNumber, contribTokenName]);
 
   // If we import all mastery checks here, then they can be passed down to components:
   // 1. Status bar
