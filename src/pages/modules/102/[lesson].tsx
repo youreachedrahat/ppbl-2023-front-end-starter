@@ -154,8 +154,8 @@ const Module102Lessons = () => {
         const _t2 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000)
         const _t3 = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000)
 
-        _t1.length > 0 && _t2.length > 0 && _t3.length > 0
-    })
+        return _t1.length > 0 && _t2.length > 0 && _t3.length > 0
+      })
 
       setCliAddressHasSplitTx(_hasThreeCorrectOutputs.length > 0);
 
