@@ -1,4 +1,22 @@
-import { Box, Button, Center, Grid, GridItem, Heading, Spinner, Text, Flex, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Grid,
+  GridItem,
+  Heading,
+  Spinner,
+  Text,
+  Flex,
+  Spacer,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalOverlay,
+  ModalHeader,
+  ModalFooter,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useAddress, useWallet } from "@meshsdk/react";
 import {
   escrowAddress,
@@ -33,6 +51,10 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
   const [contributorReferenceUTxO, setContributorReferenceUTxO] = useState<UTxO | null>(null);
   const [contributorReferenceDatum, setContributorReferenceDatum] = useState<any>(null);
   const [updatedContributorReferenceDatum, setUpdatedContributorReferenceDatum] = useState<Data | null>(null);
+
+  // For Chakra Modal:
+  const { isOpen: isConfirmationOpen, onOpen: onConfirmationOpen, onClose: onConfirmationClose } = useDisclosure();
+  const { isOpen: isSuccessOpen, onOpen: onSuccessOpen, onClose: onSuccessClose } = useDisclosure();
 
   const [includeModule102, setIncludeModule102] = useState(false);
 
@@ -270,6 +292,8 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
       const signedTx = await wallet.signTx(unsignedTx, true);
       const txHash = await wallet.submitTx(signedTx);
       console.log(txHash);
+      onSuccessOpen();
+      onConfirmationClose();
     } catch (error: any) {
       if (error.info) {
         alert(error.info);
@@ -280,29 +304,64 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
   };
 
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap={5} border="1px" p="2" my="3">
-      <GridItem>
-        <pre>ID: {JSON.stringify(_metadata.id, null, 2)}</pre>
-        <pre>Contributor: {contributorTokenName}</pre>
-        <pre>Lovelace: {lovelaceToContributor.quantity}</pre>
-        <pre>Gimbal: {gimbalsToContributor.quantity}</pre>
-        <Flex direction="row" mt="5">
-          <Spacer />
-          <Button size="sm" colorScheme="green" onClick={handleDistributeTx}>
-            {includeModule102 ? "Distribute with Module 102" : "Distribute without Module 102"}
-          </Button>
-          <Spacer />
-          <Button size="sm" onClick={() => setIncludeModule102(!includeModule102)}>
-            Include Module 102
-          </Button>
-          <Spacer />
-        </Flex>
-      </GridItem>
-      <GridItem bg="theme.light" color="theme.dark" p="2" fontSize="xs">
-        <Text>Contributor Reference Datum</Text>
-        <pre>{JSON.stringify(updatedContributorReferenceDatum, null, 1)}</pre>
-      </GridItem>
-    </Grid>
+    <>
+      <Grid templateColumns="repeat(2, 1fr)" gap={5} border="1px" p="2" my="3">
+        <GridItem>
+          <pre>ID: {JSON.stringify(_metadata.id, null, 2)}</pre>
+          <pre>Contributor: {contributorTokenName}</pre>
+          <pre>Lovelace: {lovelaceToContributor.quantity}</pre>
+          <pre>Gimbal: {gimbalsToContributor.quantity}</pre>
+          <Flex direction="row" mt="5">
+            <Spacer />
+            <Button size="sm" colorScheme="green" onClick={onConfirmationOpen}>
+              {includeModule102 ? "Distribute with Module 102" : "Distribute without Module 102"}
+            </Button>
+            <Spacer />
+            <Button size="sm" onClick={() => setIncludeModule102(!includeModule102)}>
+              Include Module 102
+            </Button>
+            <Spacer />
+          </Flex>
+        </GridItem>
+        <GridItem bg="theme.light" color="theme.dark" p="2" fontSize="xs">
+          <Text>Contributor Reference Datum</Text>
+          <pre>{JSON.stringify(updatedContributorReferenceDatum, null, 1)}</pre>
+        </GridItem>
+      </Grid>
+      <Modal blockScrollOnMount={false} isOpen={isSuccessOpen} onClose={onSuccessClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Successful Distribute Tx</ModalHeader>
+          <ModalBody>
+            <Text py="2">Transaction ID</Text>
+            <Text py="2">It may take a few minutes for this tx to show up on a blockchain explorer.</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button bg="white" color="gray.700" onClick={onSuccessClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal blockScrollOnMount={false} isOpen={isConfirmationOpen} onClose={onConfirmationClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Distribute Tx</ModalHeader>
+          <ModalBody>
+            <Text py="2">Your PPBL 2023 Token will be locked.</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="orange" onClick={handleDistributeTx}>
+              DistributeTx
+            </Button>
+            <Spacer />
+            <Button bg="white" color="gray.700" onClick={onConfirmationClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

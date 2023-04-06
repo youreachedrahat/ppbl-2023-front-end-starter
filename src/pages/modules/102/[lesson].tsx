@@ -149,22 +149,23 @@ const Module102Lessons = () => {
   useEffect(() => {
     if (dataQuery3 && dataQuery3.transactions.length > 0 && cliAddress) {
       const _hasThreeOutputs = dataQuery3.transactions.filter((tx: any) => tx.outputs.length >= 3);
-      _hasThreeOutputs.forEach((tx: any) => {
-        const _ten = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000);
-        const _fifteen = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000);
-        const _twentyfive = tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000);
-        setCliAddressHasSplitTx(_ten && _fifteen && _twentyfive);
+      const _hasThreeCorrectOutputs = _hasThreeOutputs.filter((tx: any) => {
+        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000);
+        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000);
+        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000);
+      })
+
+      setCliAddressHasSplitTx(_hasThreeCorrectOutputs.length > 0);
 
         const _mastery = {
           ppblTokenName: contribTokenName,
           cliWallet: cliAddress,
-          successTx1: _ten && _fifteen && _twentyfive,
+          successTx1: _hasThreeCorrectOutputs.length > 0,
           successTx2: contributorTokenSentBackToBrowserWallet,
           luckyNumber: contribLuckyNumber,
         };
 
         setMastery(_mastery);
-      });
     }
   }, [dataQuery3]);
 
