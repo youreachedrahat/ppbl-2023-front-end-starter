@@ -29,8 +29,8 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
   const connectedAddress = useAddress();
   const koiosProvider = new KoiosProvider("preprod");
 
+  const [contributorReferenceAsset, setContributorReferenceAsset] = useState<Asset | null>(null);
   const [contributorReferenceUTxO, setContributorReferenceUTxO] = useState<UTxO | null>(null);
-  const [updatedContributorReferenceUTxO, setUpdatedContributorReferenceUTxO] = useState<Partial<UTxO> | null>(null);
   const [contributorReferenceDatum, setContributorReferenceDatum] = useState<any>(null);
   const [updatedContributorReferenceDatum, setUpdatedContributorReferenceDatum] = useState<Data | null>(null);
 
@@ -48,6 +48,8 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
       const _refUTxO = await koiosProvider.fetchAddressUTxOs(contributorReferenceAddress, referenceAssetId);
 
       const _datum = await getInlineDatumForContributorReference(referenceAssetId);
+
+      setContributorReferenceAsset({ unit: referenceAssetId, quantity: "1" });
 
       const _luckyNumber = _datum.fields[0].int;
 
@@ -74,18 +76,10 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
         fields: [_luckyNumber, _completedModules],
       };
 
-      const _updatedContributorReferenceUTxO: Partial<UTxO> = {
-        output: {
-          address: contributorReferenceAddress,
-          amount: _refUTxO[0].output.amount,
-        },
-      };
-
       if (_refUTxO) {
         setContributorReferenceUTxO(_refUTxO[0]);
         setContributorReferenceDatum(_datum);
         setUpdatedContributorReferenceDatum(_updatedDatum);
-        setUpdatedContributorReferenceUTxO(_updatedContributorReferenceUTxO);
       }
     };
     if (data) {
@@ -127,9 +121,7 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
 
   const _lovelaceInCommitment = _escrowOutput[0].value;
 
-  const _gimbalToken = _escrowOutput[0].tokens.filter(
-    (t: GraphQLToken) => t.asset.policyId == projectTokenPolicyID
-  );
+  const _gimbalToken = _escrowOutput[0].tokens.filter((t: GraphQLToken) => t.asset.policyId == projectTokenPolicyID);
 
   const _gimbalsInCommitment = _gimbalToken[0].quantity;
 
@@ -260,7 +252,7 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
           redeemer: updateAction,
         })
         .sendValue(contributorAddress, distributeUTxO)
-        .sendValue(
+        .sendAssets(
           {
             address: contributorReferenceAddress,
             datum: {
@@ -268,7 +260,7 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
               inline: true,
             },
           },
-          updatedContributorReferenceUTxO
+          [contributorReferenceAsset]
         )
         .sendAssets(connectedAddress, [connectedIssuerAsset])
         .setMetadata(parseInt(metadataKey), _metadata);
@@ -300,7 +292,9 @@ const DistributeTx: React.FC<Props> = ({ txHash }) => {
             {includeModule102 ? "Distribute with Module 102" : "Distribute without Module 102"}
           </Button>
           <Spacer />
-          <Button size="sm" onClick={() => setIncludeModule102(!includeModule102)}>Include Module 102</Button>
+          <Button size="sm" onClick={() => setIncludeModule102(!includeModule102)}>
+            Include Module 102
+          </Button>
           <Spacer />
         </Flex>
       </GridItem>
