@@ -150,9 +150,9 @@ const Module102Lessons = () => {
     if (dataQuery3 && dataQuery3.transactions.length > 0 && cliAddress) {
       const _hasThreeOutputs = dataQuery3.transactions.filter((tx: any) => tx.outputs.length >= 3);
       const _hasThreeCorrectOutputs = _hasThreeOutputs.filter((tx: any) => {
-        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000);
-        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000);
-        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000);
+        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 10000000).length > 0;
+        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 15000000).length > 0;
+        tx.outputs.find((output: any) => output.address == cliAddress && output.value == 25000000).length > 0;
       })
 
       setCliAddressHasSplitTx(_hasThreeCorrectOutputs.length > 0);
