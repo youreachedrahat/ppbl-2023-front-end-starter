@@ -17,11 +17,11 @@
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
       "recordingLink": "https://www.youtube.com/live/2ACJlnUfVL4",
       "links": [
+        "https://github.com/bitcoin/bips/tree/master/bip-0039",
         "https://github.com/jefdaj/horcrux#developer-quickstart",
         "https://www.qubes-os.org/",
         "https://www.epicbrowser.com/",
-        "https://www.youtube.com/watch?v=fqrAzBAi64c",
-        "https://github.com/bitcoin/bips/tree/master/bip-0039"
+        "https://www.youtube.com/watch?v=fqrAzBAi64c"
       ],
       "description": "What are some tips for protecting your private keys?",
       "complete": true
@@ -91,18 +91,20 @@
       "time": "1430-1600 utc",
       "title": "Module 102 Mastery Assignments",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/watch?v=FxiW2n7aM7s",
       "links": [""],
-      "description": "Student Q&A, live demo, and breakout rooms"
+      "description": "Quick intro + breakout rooms",
+      "complete": true
     },
     {
       "date": "2023-04-06",
       "time": "1430-1600 utc",
-      "title": "Project Focus: The PPBL 2023 Contributor Token",
+      "title": "Eternl Wallet and PPBL Front End",
       "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
-      "recordingLink": "",
+      "recordingLink": "https://www.youtube.com/watch?v=JePFZlSHJR4",
       "links": [""],
-      "description": "Student Q&A, demo + discussion"
+      "description": "Changing Eternl settings and fixing Mastery Assignment #1",
+      "complete": true
     },
     {
       "date": "2023-04-07",
@@ -112,6 +114,26 @@
       "recordingLink": "",
       "links": [""],
       "description": "Modular voting systems"
+    },
+    {
+      "date": "2023-04-12",
+      "time": "1430-1600 utc",
+      "title": "Live Demo: Get started with NextJS and Mesh",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": ["/modules/201/2011"],
+      "description": "Live demonstration for Lessons 201.1 thru 201.3",
+      "complete": false
+    },
+    {
+      "date": "2023-04-13",
+      "time": "1430-1600 utc",
+      "title": "Live Demo: Querying the Blockchain",
+      "regLink": "https://us06web.zoom.us/meeting/register/tZErceCqpzMtG9XldfuPnBQEus5MBivl9OZe",
+      "recordingLink": "",
+      "links": ["/modules/201/2014"],
+      "description": "Live demonstration for Lesson 201.4",
+      "complete": false
     }
   ]
 }

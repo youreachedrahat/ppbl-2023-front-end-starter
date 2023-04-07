@@ -16,6 +16,7 @@ import {
 import Head from "next/head";
 
 import events from "@/src/data/live-coding/events-english.json";
+import Link from "next/link";
 
 export default function LiveCoding() {
   return (
@@ -50,7 +51,12 @@ export default function LiveCoding() {
                   <Td>{event.date}</Td>
                   <Td>{event.time}</Td>
                   <Td>{event.title}</Td>
-                  <Td>{event.description}</Td>
+                  {event.links && event.links[0] ? (
+                    <Td color="theme.yellow"><Link href={event.links[0]}>{event.description}</Link></Td>
+                    ) : (
+                    <Td>{event.description}</Td>
+
+                  )}
                   <Td>
                     <CLink href={event.regLink} target="_blank" color="theme.green">
                       Registration Link
@@ -77,7 +83,11 @@ export default function LiveCoding() {
                 <Tr key={i}>
                   <Td>{event.date}</Td>
                   <Td>{event.title}</Td>
-                  <Td>{event.description}</Td>
+                  {event.links && event.links[0] ? (
+                    <Td color="theme.yellow"><Link href={event.links[0]}>{event.description}</Link></Td>
+                    ) : (
+                    <Td>{event.description}</Td>
+                  )}
                   <Td>
                     <CLink href={event.recordingLink} target="_blank" color="theme.yellow">
                       View Meeting Recording
