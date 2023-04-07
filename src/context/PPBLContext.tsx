@@ -1,13 +1,12 @@
-import { useAddress, useWallet } from "@meshsdk/react";
 import { createContext, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { Heading, Center, Spinner } from "@chakra-ui/react";
 
-import { issuerPolicyID, treasury } from "gpte-config";
+import { Asset } from "@meshsdk/core";
+import { useWallet } from "@meshsdk/react";
+
+import { issuerPolicyID, contributorPolicyID, treasury } from "gpte-config";
 import { GraphQLUTxO } from "@/src/types/cardanoGraphQL";
 import { TREASURY_UTXO_QUERY } from "@/src/data/queries/treasuryQueries";
-import { Asset } from "@meshsdk/core";
-import { contributorTokenPolicyId } from "@/src/cardano/plutus/contributorPlutusMintingScript";
 import { hexToString } from "@/src/utils";
 
 interface CurrentPPBLContext {
@@ -69,7 +68,7 @@ const PPBLContextProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     const fetchContributorToken = async () => {
-      const _token = await wallet.getPolicyIdAssets(contributorTokenPolicyId);
+      const _token = await wallet.getPolicyIdAssets(contributorPolicyID);
       if (_token.length > 0) {
         setConnectedContributorToken(_token[0]);
       }

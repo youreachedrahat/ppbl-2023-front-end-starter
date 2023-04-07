@@ -1,1 +1,0 @@
-export const contributorReferenceAddress = "addr_test1wr6ewsvtmdjv8znh7wxvw9qezgwvju5rdk9gmgefvrvrhug7zrfe0";
