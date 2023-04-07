@@ -20,7 +20,7 @@ export default function Home() {
           201.1 to get started.
         </Text>
         <Text py="5" fontSize="xl">
-          If you would like build this starter on your own, <CLink href="" target="_blank">an outline is provided here</CLink>.
+          If you would like build this starter on your own, <CLink href="https://gitlab.com/gimbalabs/ppbl-2023/ppbl-2023-front-end-starter/-/blob/main/docs/how-to-build.md" target="_blank">an outline is provided here</CLink>.
         </Text>
         <Text pt="5" fontSize="xl">
           Now that you have it running, you can use this starter to complete the rest of the lessons in Module 201.
