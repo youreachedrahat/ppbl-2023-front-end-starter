@@ -37,3 +37,9 @@ next-env.d.ts
 
 # git
 cpall.sh
+
+# yarn
+/.yarn
+.yarn/
+.yarnrc.yml
+yarn.lock
