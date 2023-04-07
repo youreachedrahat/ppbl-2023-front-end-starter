@@ -1,16 +1,14 @@
-# Plutus Project-Based Learning
-## Front End Template 2023
+# PPBL 2023 Front End Starter
+Module 201
 
 ### Quick Start
 ```bash
-git clone https://gitlab.com/gimbalabs/ppbl-2023/ppbl-front-end-template-2023
-cd ppbl-front-end-template-2023
+git clone https://gitlab.com/gimbalabs/ppbl-2023/ppbl-2023-front-end-starter
+cd ppbl-2023-front-end-starter
 yarn
 yarn dev
 ```
 
 ### Full Docs
-https://gimbalabs-docs.vercel.app/docs/category/ppbl-front-end-template
-
-### About Branches
-https://gimbalabs-docs.vercel.app/docs/project-based-learning/plutus-pbl/front-end-template/project-branches
+- See Module 201
+- Live Coding demos on 2023-04-12 and 2023-04-13
