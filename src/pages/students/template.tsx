@@ -1,10 +1,8 @@
 import Head from "next/head";
-import { Box, Divider, Link as CLink, Heading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Box, Divider, Link as CLink, Heading, Text } from "@chakra-ui/react";
 import { ContributorComponent } from "@/src/components/ContributorComponent";
-import { QueryComponent } from "@/src/components/QueryComponent";
-import Link from "next/link";
 
-export default function Home() {
+export default function StudentTemplate() {
   return (
     <>
       <Head>
@@ -15,10 +13,14 @@ export default function Home() {
       </Head>
       <Divider w="70%" mx="auto" pb="10" />
       <Box w={["100%", "70%"]} mx="auto" my="10">
-        <Heading pb="5">PPBL 2023 Playground</Heading>
-        <Link href="/students/template"><CLink>View /students/template</CLink></Link>
+        <Heading>What do you want to build?</Heading>
+        <Box mx="auto" my="5" p="5" border="1px" borderRadius="md">
+        <Heading size="md" pb="3">
+          How about starting with a component?
+        </Heading>
+        <ContributorComponent />
       </Box>
-
+      </Box>
     </>
   );
 }
