@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Box, Divider, Link as CLink, Heading, Text, UnorderedList, ListItem } from "@chakra-ui/react";
 import { ContributorComponent } from "@/src/components/ContributorComponent";
 import { QueryComponent } from "@/src/components/QueryComponent";
+import { CardanoWallet } from "@meshsdk/react";
 import Link from "next/link";
 
 export default function Home() {
