@@ -23,7 +23,7 @@ export default function Minting() {
   return (
     <>
       <Head>
-        <title>PPBL 202 Minting tokens</title>
+        <title>PPBL 2023 - Module 202</title>
         <meta
           name="description"
           content="Plutus Project-Based Learning from Gimbalabs"
@@ -33,7 +33,7 @@ export default function Minting() {
       </Head>
       <Divider w="70%" mx="auto" pb="10" />
       <Box w={["100%", "70%"]} mx="auto" my="10">
-        <Heading>PPBL Module 202: Minting Cardano Tokens</Heading>
+        <Heading>PPBL 2023 - Module 202: Minting Cardano Tokens</Heading>
         <Text py="5" fontSize="xl">
           Welcome to the Module 202! In this page, you can create the code for
           minting with MeshJS.
@@ -79,7 +79,7 @@ export default function Minting() {
         borderRadius="md"
       >
         <Heading size="md" pb="3">
-          Lesson 202.2: Minting a token using Mesh
+          Lesson 202.3: Minting a token using Mesh
         </Heading>
         {/* Start coding here*/}
       </Box>
