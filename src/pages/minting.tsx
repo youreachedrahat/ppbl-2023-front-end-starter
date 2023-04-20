@@ -23,7 +23,7 @@ export default function Minting() {
   return (
     <>
       <Head>
-        <title>PPBL 2023 Front End Starter</title>
+        <title>PPBL 202 Minting tokens</title>
         <meta
           name="description"
           content="Plutus Project-Based Learning from Gimbalabs"
@@ -33,7 +33,7 @@ export default function Minting() {
       </Head>
       <Divider w="70%" mx="auto" pb="10" />
       <Box w={["100%", "70%"]} mx="auto" my="10">
-        <Heading>PPBL 2023 Front End Starter</Heading>
+        <Heading>PPBL 202 Minting tokens</Heading>
         <Text py="5" fontSize="xl">
           Welcome to the module 202! In this page, you can create the code for
           miting with MeshJS.
@@ -124,7 +124,7 @@ export default function Minting() {
         </UnorderedList>
         <Text pt="3">
           These are just a few suggestions. We will continue to build front-end
-          components in Modules 202 through 204.
+          components in Modules 203 through 204.
         </Text>
       </Box>
     </>
