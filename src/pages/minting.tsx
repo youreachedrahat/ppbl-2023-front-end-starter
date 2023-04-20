@@ -33,10 +33,10 @@ export default function Minting() {
       </Head>
       <Divider w="70%" mx="auto" pb="10" />
       <Box w={["100%", "70%"]} mx="auto" my="10">
-        <Heading>PPBL 202 Minting tokens</Heading>
+        <Heading>PPBL Module 202: Minting Cardano Tokens</Heading>
         <Text py="5" fontSize="xl">
-          Welcome to the module 202! In this page, you can create the code for
-          miting with MeshJS.
+          Welcome to the Module 202! In this page, you can create the code for
+          minting with MeshJS.
         </Text>
         <Text py="5" fontSize="xl">
           If you would like build this starter on your own,{" "}
